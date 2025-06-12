@@ -1,0 +1,218 @@
+{% liquid
+  assign section_st = section.settings
+  assign title = section_st.title
+  assign sub_title = section_st.sub_title
+  assign section_width = section_st.section_width
+  assign section_bg_color = section_st.section_bg_color
+  assign section_pt = section_st.section_pt
+  assign section_pb = section_st.section_pb
+  assign txt_align_title_faq = section_st.txt_align_title_faq
+  assign fs_title_faq = section_st.fs_title_faq
+  assign fw_title_faq = section_st.fw_title_faq
+  assign fs_subtitle_faq = section_st.fs_subtitle_faq
+  assign fw_subtitle_faq = section_st.fw_subtitle_faq
+  assign mt_subtitle_faq = section_st.mt_subtitle_faq
+  assign reset_spacing = section_st.reset_spacing
+%}
+
+<style>
+    :root {
+        --section-bg-color: {{ section_bg_color }};
+        --section-pt: {{ section_pt }};
+        --section-pb: {{ section_pb }};
+        --txt-align-title-faq: {{ txt_align_title_faq }};
+        --fs-title-faq: {{ fs_title_faq }};
+        --fw-title-faq: {{ fw_title_faq }};
+        --fs-subtitle-faq: {{ fs_subtitle_faq }};
+        --fw-subtitle-faq: {{ fw_subtitle_faq }};
+        --mt-subtitle-faq: {{ mt_subtitle_faq }};
+    }
+</style>
+
+<section class="section__bg-color section__pt section__pb {% if reset_spacing == false %} mb-60{% endif %}">
+    <div class="{{ section_width }}">
+        <div class="txt-align-title-faq">
+            <h2 class="fs-title-faq fw-title-faq lh my-0">{{ title }}</h2>
+            <p class="fs-subtitle-faq fw-subtitle-faq mt-subtitle-faq lh mb-0">{{ sub_title }}</p>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "FAQ Customize",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "select",
+            "id": "section_width",
+            "label": "Section Width",
+            "default": "defaul",
+            "options": [
+                {
+                    "value": "defaul",
+                    "label": "Defaul",
+                },
+                {
+                    "value": "fluid-container",
+                    "label": "Fluid Container",
+                },
+                {
+                    "value": "stretch-width",
+                    "label": "Stretch Width",
+                },
+                {
+                    "value": "full-width",
+                    "label": "Full Width",
+                },
+            ]
+        },
+        {
+            "type": "color",
+            "id": "section_bg_color",
+            "label": "Backgrond Color"
+        },
+        {
+            "type": "header",
+            "content": "Header"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Title",
+        },
+        {
+            "type": "range",
+            "id": "fs_title_faq",
+            "label": "Font Size",
+            "default": 14,
+            "min": 14,
+            "max": 48,
+            "step": 1,
+            "unit": "px",
+        },
+        {
+            "type": "select",
+            "id": "fw_title_faq",
+            "label": "Font Weight",
+            "default": "400",
+            "options": [
+                {
+                    "value": "300",
+                    "label": "300",
+                },
+                {
+                    "value": "400",
+                    "label": "400",
+                },
+                {
+                    "value": "500",
+                    "label": "500",
+                },
+            ]
+        },
+        {
+            "type": "text",
+            "id": "sub_title",
+            "label": "Subtitle",
+            "default": "Subtitle",
+        },
+        {
+            "type": "range",
+            "id": "fs_subtitle_faq",
+            "label": "Font Size",
+            "default": 14,
+            "min": 14,
+            "max": 36,
+            "step": 1,
+            "unit": "px",
+        },
+        {
+            "type": "select",
+            "id": "fw_subtitle_faq",
+            "label": "Font Weight",
+            "default": "400",
+            "options": [
+                {
+                    "value": "300",
+                    "label": "300",
+                },
+                {
+                    "value": "400",
+                    "label": "400",
+                },
+                {
+                    "value": "500",
+                    "label": "500",
+                },
+            ]
+        },
+        {
+            "type": "select",
+            "id": "txt_align_title_faq",
+            "label": "Text Align",
+            "default": "start",
+            "options": [
+                {
+                    "value": "start",
+                    "label": "Start",
+                },
+                {
+                    "value": "center",
+                    "label": "Center",
+                },
+                {
+                    "value": "end",
+                    "label": "End",
+                },
+            ],
+        },
+        {
+            "type": "range",
+            "id": "mt_subtitle_faq",
+            "label": "Spacing",
+            "default": 5,
+            "min": 5,
+            "max": 50,
+            "step": 1,
+            "unit": "px",
+        },
+        {
+            "type": "header",
+            "content": "Section Padding",
+        },
+        {
+            "type": "range",
+            "id": "section_pt",
+            "label": "Top",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+        },
+        {
+            "type": "range",
+            "id": "section_pb",
+            "label": "Bottom",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+        },
+        {
+            "type": "checkbox",
+            "id": "reset_spacing",
+            "label": "Remove default space between sections",
+            "default": false,
+        },
+    ],
+    "presets": [
+        {
+            "name": "FAQ Customize",
+        },
+    ]
+}
+{% endschema %}
