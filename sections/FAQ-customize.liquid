@@ -13,6 +13,11 @@
   assign fw_subtitle_faq = section_st.fw_subtitle_faq
   assign mt_subtitle_faq = section_st.mt_subtitle_faq
   assign reset_spacing = section_st.reset_spacing
+  if reset_spacing
+    assign reset_spacing = 'mb-0'
+  else
+    assign reset_spacing = 'mb-60'
+  endif
 %}
 
 <style>
@@ -29,7 +34,7 @@
     }
 </style>
 
-<section class="section__bg-color section__pt section__pb {% if reset_spacing == false %} mb-60{% endif %}">
+<section class="section__bg-color section__pt section__pb {{ reset_spacing }}">
     <div class="{{ section_width }}">
         <div class="txt-align-title-faq">
             <h2 class="fs-title-faq fw-title-faq lh my-0">{{ title }}</h2>
