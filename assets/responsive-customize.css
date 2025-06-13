@@ -1,0 +1,23 @@
+@media (min-width: 1025px) {
+  .defaul {
+    max-width: calc(var(--page-width) + var(--px-section) * 2);
+    margin-inline: auto;
+  }
+
+  .stretch-width {
+    max-width: 90%;
+    padding: 0;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .fluid-container {
+    max-width: calc(var(--fluid-container) + var(--px-section) * 2);
+    margin-inline: auto;
+  }
+
+  .section__spacing_sections {
+    margin-bottom: var(--spacing-sections-pc);
+  }
+}

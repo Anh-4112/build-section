@@ -16,11 +16,11 @@
   if reset_spacing
     assign reset_spacing = 'mb-0'
   else
-    assign reset_spacing = 'mb-60'
+    assign reset_spacing = 'section__spacing_sections'
   endif
 %}
 
-<style>
+{% capture style %}
     :root {
         --section-bg-color: {{ section_bg_color }};
         --section-pt: {{ section_pt }};
@@ -32,6 +32,10 @@
         --fw-subtitle-faq: {{ fw_subtitle_faq }};
         --mt-subtitle-faq: {{ mt_subtitle_faq }};
     }
+{% endcapture %}
+
+<style>
+    {{ style }}
 </style>
 
 <section class="section__bg-color section__pt section__pb {{ reset_spacing }}">
@@ -56,20 +60,20 @@
             "options": [
                 {
                     "value": "defaul",
-                    "label": "Defaul",
+                    "label": "Defaul"
                 },
                 {
                     "value": "fluid-container",
-                    "label": "Fluid Container",
+                    "label": "Fluid Container"
                 },
                 {
                     "value": "stretch-width",
-                    "label": "Stretch Width",
+                    "label": "Stretch Width"
                 },
                 {
                     "value": "full-width",
-                    "label": "Full Width",
-                },
+                    "label": "Full Width"
+                }
             ]
         },
         {
@@ -85,7 +89,7 @@
             "type": "text",
             "id": "title",
             "label": "Title",
-            "default": "Title",
+            "default": "Title"
         },
         {
             "type": "range",
@@ -95,7 +99,7 @@
             "min": 14,
             "max": 48,
             "step": 1,
-            "unit": "px",
+            "unit": "px"
         },
         {
             "type": "select",
@@ -105,23 +109,23 @@
             "options": [
                 {
                     "value": "300",
-                    "label": "300",
+                    "label": "300"
                 },
                 {
                     "value": "400",
-                    "label": "400",
+                    "label": "400"
                 },
                 {
                     "value": "500",
-                    "label": "500",
-                },
+                    "label": "500"
+                }
             ]
         },
         {
             "type": "text",
             "id": "sub_title",
             "label": "Subtitle",
-            "default": "Subtitle",
+            "default": "Subtitle"
         },
         {
             "type": "range",
@@ -131,7 +135,7 @@
             "min": 14,
             "max": 36,
             "step": 1,
-            "unit": "px",
+            "unit": "px"
         },
         {
             "type": "select",
@@ -141,16 +145,16 @@
             "options": [
                 {
                     "value": "300",
-                    "label": "300",
+                    "label": "300"
                 },
                 {
                     "value": "400",
-                    "label": "400",
+                    "label": "400"
                 },
                 {
                     "value": "500",
-                    "label": "500",
-                },
+                    "label": "500"
+                }
             ]
         },
         {
@@ -161,17 +165,17 @@
             "options": [
                 {
                     "value": "start",
-                    "label": "Start",
+                    "label": "Start"
                 },
                 {
                     "value": "center",
-                    "label": "Center",
+                    "label": "Center"
                 },
                 {
                     "value": "end",
-                    "label": "End",
-                },
-            ],
+                    "label": "End"
+                }
+            ]
         },
         {
             "type": "range",
@@ -181,11 +185,11 @@
             "min": 5,
             "max": 50,
             "step": 1,
-            "unit": "px",
+            "unit": "px"
         },
         {
             "type": "header",
-            "content": "Section Padding",
+            "content": "Section Padding"
         },
         {
             "type": "range",
@@ -195,7 +199,7 @@
             "min": 0,
             "max": 100,
             "step": 1,
-            "unit": "px",
+            "unit": "px"
         },
         {
             "type": "range",
@@ -205,19 +209,19 @@
             "min": 0,
             "max": 100,
             "step": 1,
-            "unit": "px",
+            "unit": "px"
         },
         {
             "type": "checkbox",
             "id": "reset_spacing",
             "label": "Remove default space between sections",
-            "default": false,
-        },
+            "default": false
+        }
     ],
     "presets": [
         {
-            "name": "FAQ Customize",
-        },
+            "name": "FAQ Customize"
+        }
     ]
 }
 {% endschema %}

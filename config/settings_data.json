@@ -15,7 +15,9 @@
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1410,
+    "fluid_container": 1410,
+    "spacing_sections_pc": 60,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
@@ -127,6 +129,7 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
+    "spacing_block": 20,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

@@ -11,7 +11,6 @@
   "sections": {
     "faq_customize_UiDPjn": {
       "type": "FAQ-customize",
-      "name": "FAQ Customize",
       "settings": {
         "section_width": "fluid-container",
         "section_bg_color": "#e1f8f8",
@@ -24,7 +23,8 @@
         "txt_align_title_faq": "center",
         "mt_subtitle_faq": 24,
         "section_pt": 40,
-        "section_pb": 40
+        "section_pb": 40,
+        "reset_spacing": true
       }
     }
   },
