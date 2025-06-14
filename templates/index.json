@@ -24,7 +24,7 @@
         "mt_subtitle_faq": 24,
         "section_pt": 40,
         "section_pb": 40,
-        "reset_spacing": true
+        "reset_spacing": false
       }
     }
   },
