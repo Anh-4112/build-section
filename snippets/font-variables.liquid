@@ -1,0 +1,33 @@
+{% liquid
+    assign theme_st = settings
+
+    assign font_family_type = theme_st.font_family_type
+    assign font_family_shopify = theme_st.font_family_shopify
+    assign font_body_google_name = theme_st.font_body_google_name
+    assign font_family_google_code = theme_st.font_family_google_code
+%}
+
+{% if font_family_type == 'google' %}
+  {% assign font_family = font_body_google_name %}
+  {{ font_family_google_code }}
+{% else %}
+  {% # theme-check-disable AssetPreload %}
+  <link rel="preload" as="font" href="{{ font_family_shopify | font_url }}" type="font/woff2" crossorigin>
+  {% # theme-check-disable AssetPreload %}
+  {%- capture font_family -%}
+    {{ font_family_shopify.family }}, {{ font_family_shopify.fallback_families }};
+  {%- endcapture -%}
+  {%- style -%}
+    {%- for variant in font_family_shopify.variants -%}{{ variant | font_face: font_display: 'swap' }}{%- endfor -%}
+  {%- endstyle -%}
+{% endif %}
+
+{% style %}
+  :root {
+    --body-family: {{ font_family }};
+  }
+
+  body {
+    font-family: var(--body-family);
+  }
+{% endstyle %}

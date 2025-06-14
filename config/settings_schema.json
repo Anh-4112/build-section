@@ -106,44 +106,47 @@
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.typography.settings.header__1.content"
+        "content": "Font Family"
+      },
+      {
+        "type": "select",
+        "id": "font_family_type",
+        "label": "Font type",
+        "options": [
+          {
+            "value": "shopify",
+            "label": "Shopify"
+          },
+          {
+            "value": "google",
+            "label": "Google"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "=== Shopify ==="
       },
       {
         "type": "font_picker",
-        "id": "type_header_font",
-        "default": "assistant_n4",
-        "label": "t:settings_schema.typography.settings.type_header_font.label"
-      },
-      {
-        "type": "range",
-        "id": "heading_scale",
-        "min": 100,
-        "max": 150,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings_schema.typography.settings.heading_scale.label",
-        "default": 100
-      },
-      {
-        "type": "header",
-        "content": "t:settings_schema.typography.settings.header__2.content"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_body_font",
+        "id": "font_family_shopify",
         "default": "assistant_n4",
         "label": "t:settings_schema.typography.settings.type_body_font.label"
       },
       {
-        "type": "range",
-        "id": "body_scale",
-        "min": 100,
-        "max": 130,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings_schema.typography.settings.body_scale.label",
-        "default": 100
-      }
+        "type": "paragraph",
+        "content": "=== Google ==="
+      },
+      {
+        "type": "text",
+        "id": "font_body_google_name",
+        "label": "Embed font name"
+      },
+      {
+        "type": "textarea",
+        "id": "font_family_google_code",
+        "label": "Embed font code"
+      },
     ]
   },
   {
