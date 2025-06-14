@@ -17,7 +17,7 @@
     "font_family_google_code": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap\" rel=\"stylesheet\">",
     "page_width": 1410,
     "fluid_container": 1410,
-    "spacing_sections_pc": 100,
+    "spacing_sections_pc": 60,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
