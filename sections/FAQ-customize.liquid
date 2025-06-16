@@ -37,8 +37,58 @@
             <h2 class="heading-faq__text-style">{{ heading }}</h2>
             <p class="description-faq__text-style description-faq__spacing">{{ description }}</p>
         </div>
+   
+        <div>
+            {% for block in section.blocks %}
+                {%- liquid
+                    assign block_st = block.settings
+                -%}
+                    <div class="bor-bot bor-1" style="border-color: black;">
+                        <div class="faq-question d-flex ai-center jc-between pointer" style="line-height: 3; font-weight: 500;">
+                            <span>{{ block_st.faq_question }}</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+        
+                        <div class="faq-answer">
+                            {{ block_st.faq_answer }}
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
     </div>
 </section>
+
+<script>
+    document.querySelectorAll(".faq-question").forEach(faq_question => {
+        faq_question.addEventListener("click", () => {
+        const answer = faq_question.nextElementSibling;
+        toggleAnswer(answer, faq_question);
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        document.querySelectorAll(".faq-answer").forEach(answer => {
+        const icon = answer.previousElementSibling.querySelector(".faq-icon");
+        const isOpen = icon.textContent.trim() === "−";
+        if (isOpen) {
+            requestAnimationFrame(() => {
+            answer.style.maxHeight = answer.scrollHeight / 10 + "rem";
+            });
+        } else {
+            answer.style.maxHeight = "0rem";
+        }
+        answer.dataset.open = isOpen;
+        });
+    });
+
+    function toggleAnswer(answer, faq_questionElement) {
+        const icon = faq_questionElement.querySelector(".faq-icon");
+        const isOpen = answer.dataset.open === "true";
+        answer.style.maxHeight = isOpen ? "0rem" : answer.scrollHeight / 10 + "rem";
+        icon.textContent = isOpen ? "+" : "−";
+        answer.dataset.open = !isOpen;
+    }
+</script>
 
 {% schema %}
 {
@@ -208,6 +258,26 @@
             "id": "reset_spacing",
             "label": "Remove default space between sections",
             "default": false
+        }
+    ],
+    "blocks": [
+        {
+            "type": "faq-item",
+            "name": "FAQ Item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "faq_question",
+                    "label": "FAQ Question",
+                    "default": "Frequently Asked Questions?"
+                },
+                {
+                    "type": "richtext",
+                    "id": "faq_answer",
+                    "label": "FAQ Answer",
+                    "default": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+                }
+            ]
         }
     ],
     "presets": [

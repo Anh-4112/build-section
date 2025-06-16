@@ -23,11 +23,7 @@
 {% endif %}
 
 {% style %}
-  :root {
-    --body-family: {{ font_family }};
-  }
-
   body {
-    font-family: var(--body-family);
+    font-family: {{ font_family }};
   }
 {% endstyle %}

@@ -37,7 +37,18 @@ h1, h2, h3, h4, h5, p {
   margin-top: calc(var(--spacing-description-faq) * 0.1rem);
 }
 
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer > p {
+  line-height: 2;
+}
+
 /* ============================== */
+/* === Text Align === */
 .text-left {
   text-align: start;
 }
@@ -50,7 +61,31 @@ h1, h2, h3, h4, h5, p {
   text-align: end;
 }
 
-.mb-0 {
-    margin-bottom: 0;
+/* === Display === */
+.d-flex {
+  display: flex;
 }
 
+/* === Align Items === */
+.ai-center {
+  align-items: center;
+}
+
+/* === Justify Content === */
+.jc-between {
+  justify-content: space-between;
+}
+
+/* === Cursor === */
+.pointer {
+  cursor: pointer;
+}
+
+/* === Border === */
+.bor-bot {
+  border-bottom: transparent solid;
+}
+
+.bor-1 {
+  border-width: 0.1rem;
+}
