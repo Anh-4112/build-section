@@ -41,7 +41,9 @@
 
     {% style %}
       {% for scheme in settings.color_schemes -%}
+        {% # theme-check-disable UndefinedObject %}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+        {% # theme-check-disable UndefinedObject %}
         {% if forloop.index == 1 -%}
           :root,
         {%- endif %}

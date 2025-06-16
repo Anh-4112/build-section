@@ -1,48 +1,41 @@
 {% liquid
   assign section_st = section.settings
-  assign title = section_st.title
-  assign sub_title = section_st.sub_title
+  assign color_scheme = section_st.color_scheme 
+  assign heading = section_st.heading
+  assign description = section_st.description
   assign section_width = section_st.section_width
-  assign section_bg_color = section_st.section_bg_color
   assign section_pt = section_st.section_pt
   assign section_pb = section_st.section_pb
-  assign txt_align_title_faq = section_st.txt_align_title_faq
-  assign fs_title_faq = section_st.fs_title_faq
-  assign fw_title_faq = section_st.fw_title_faq
-  assign fs_subtitle_faq = section_st.fs_subtitle_faq
-  assign fw_subtitle_faq = section_st.fw_subtitle_faq
-  assign mt_subtitle_faq = section_st.mt_subtitle_faq
+  assign fs_heading = section_st.fs_heading
+  assign fw_heading = section_st.fw_heading
+  assign fs_description = section_st.fs_description
+  assign fw_description = section_st.fw_description
+  assign spacing_description = section_st.spacing_description
   assign reset_spacing = section_st.reset_spacing
   if reset_spacing
     assign reset_spacing = 'mb-0'
   else
-    assign reset_spacing = 'section__spacing_sections'
+    assign reset_spacing = 'section__spacing-sections'
   endif
 %}
 
-{% capture style %}
+{% style %}
     :root {
-        --section-bg-color: {{ section_bg_color }};
         --section-pt: {{ section_pt }};
         --section-pb: {{ section_pb }};
-        --txt-align-title-faq: {{ txt_align_title_faq }};
-        --fs-title-faq: {{ fs_title_faq }};
-        --fw-title-faq: {{ fw_title_faq }};
-        --fs-subtitle-faq: {{ fs_subtitle_faq }};
-        --fw-subtitle-faq: {{ fw_subtitle_faq }};
-        --mt-subtitle-faq: {{ mt_subtitle_faq }};
+        --fs-heading-faq: {{ fs_heading }};
+        --fw-heading-faq: {{ fw_heading }};
+        --fs-description-faq: {{ fs_description }};
+        --fw-description-faq: {{ fw_description }};
+        --spacing-description-faq: {{ spacing_description }};
     }
-{% endcapture %}
+{% endstyle %}
 
-<style>
-    {{ style }}
-</style>
-
-<section class="section__bg-color section__pt section__pb {{ reset_spacing }}">
+<section class="color-{{ color_scheme }} gradient section__py {{ reset_spacing }}">
     <div class="{{ section_width }}">
-        <div class="txt-align-title-faq">
-            <h2 class="fs-title-faq fw-title-faq">{{ title }}</h2>
-            <p class="fs-subtitle-faq fw-subtitle-faq mt-subtitle-faq mb-0">{{ sub_title }}</p>
+        <div class="text-{{ section_st.txt_align }}">
+            <h2 class="heading-faq__text-style">{{ heading }}</h2>
+            <p class="description-faq__text-style description-faq__spacing">{{ description }}</p>
         </div>
     </div>
 </section>
@@ -55,7 +48,7 @@
         {
             "type": "select",
             "id": "section_width",
-            "label": "Section Width",
+            "label": "Section width",
             "default": "defaul",
             "options": [
                 {
@@ -77,9 +70,10 @@
             ]
         },
         {
-            "type": "color",
-            "id": "section_bg_color",
-            "label": "Backgrond Color"
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Section color",
+            "default": "scheme-1"
         },
         {
             "type": "header",
@@ -87,13 +81,12 @@
         },
         {
             "type": "text",
-            "id": "title",
-            "label": "Title",
-            "default": "Title"
+            "id": "heading",
+            "label": "Heading"
         },
         {
             "type": "range",
-            "id": "fs_title_faq",
+            "id": "fs_heading",
             "label": "Font Size",
             "default": 14,
             "min": 14,
@@ -103,7 +96,7 @@
         },
         {
             "type": "select",
-            "id": "fw_title_faq",
+            "id": "fw_heading",
             "label": "Font Weight",
             "default": "400",
             "options": [
@@ -123,13 +116,12 @@
         },
         {
             "type": "text",
-            "id": "sub_title",
-            "label": "Subtitle",
-            "default": "Subtitle"
+            "id": "description",
+            "label": "Description"
         },
         {
             "type": "range",
-            "id": "fs_subtitle_faq",
+            "id": "fs_description",
             "label": "Font Size",
             "default": 14,
             "min": 14,
@@ -139,7 +131,7 @@
         },
         {
             "type": "select",
-            "id": "fw_subtitle_faq",
+            "id": "fw_description",
             "label": "Font Weight",
             "default": "400",
             "options": [
@@ -159,12 +151,12 @@
         },
         {
             "type": "select",
-            "id": "txt_align_title_faq",
+            "id": "txt_align",
             "label": "Text Align",
-            "default": "start",
+            "default": "center",
             "options": [
                 {
-                    "value": "start",
+                    "value": "left",
                     "label": "Left"
                 },
                 {
@@ -172,14 +164,14 @@
                     "label": "Center"
                 },
                 {
-                    "value": "end",
+                    "value": "right",
                     "label": "Right"
                 }
             ]
         },
         {
             "type": "range",
-            "id": "mt_subtitle_faq",
+            "id": "spacing_description",
             "label": "Spacing",
             "default": 5,
             "min": 5,

@@ -1,3 +1,11 @@
+/* =============== Reset ================ */
+h1, h2, h3, h4, h5, p {
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* =============================== */
 .defaul,
 .stretch-width,
 .fluid-container,
@@ -6,53 +14,43 @@
   padding: 0 var(--px-section);
 }
 
-.section__pt {
+.section__py {
   padding-top: calc(var(--section-pt) * 0.1rem);
-}
-
-.section__pb {
   padding-bottom: calc(var(--section-pb) * 0.1rem);
 }
 
-.section__spacing_sections {
+.section__spacing-sections {
   margin-bottom: var(--spacing-sections-mobile);
 }
 
-.section__bg-color {
-  background-color: var(--section-bg-color);
+.heading-faq__text-style {
+  font-size: calc(var(--fs-heading-faq) * 0.1rem);
+  font-weight: var(--fw-heading-faq);
 }
 
-.txt-align-title-faq {
-  text-align: var(--txt-align-title-faq);
+.description-faq__text-style {
+  font-size: calc(var(--fs-description-faq) * 0.1rem);
+  font-weight: var(--fw-description-faq);
 }
 
-.fs-title-faq {
-  font-size: calc(var(--fs-title-faq) * 0.1rem);
-}
-
-.fw-title-faq {
-  font-weight: var(--fw-title-faq);
-}
-
-.fs-subtitle-faq {
-  font-size: calc(var(--fs-subtitle-faq) * 0.1rem);
-}
-
-.fw-subtitle-faq {
-  font-weight: var(--fw-subtitle-faq);
-}
-
-.mt-subtitle-faq {
-  margin-top: calc(var(--mt-subtitle-faq) * 0.1rem);
+.description-faq__spacing {
+  margin-top: calc(var(--spacing-description-faq) * 0.1rem);
 }
 
 /* ============================== */
-h1, h2, h3, h4, h5, p {
-    line-height: 1;
-    margin-top: 0;
-    margin-bottom: 0;
+.text-left {
+  text-align: start;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: end;
 }
 
 .mb-0 {
     margin-bottom: 0;
 }
+

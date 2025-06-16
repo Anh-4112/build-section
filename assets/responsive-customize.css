@@ -17,7 +17,7 @@
     margin-inline: auto;
   }
 
-  .section__spacing_sections {
+  .section__spacing-sections {
     margin-bottom: var(--spacing-sections-pc);
   }
 }
