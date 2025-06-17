@@ -13,8 +13,8 @@
     "logo_width": 50,
     "font_family_type": "google",
     "font_family_shopify": "assistant_n4",
-    "font_body_google_name": "jost",
-    "font_family_google_code": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap\" rel=\"stylesheet\">",
+    "font_body_google_name": "Montserrat",
+    "font_family_google_code": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap\" rel=\"stylesheet\">",
     "page_width": 1410,
     "fluid_container": 1410,
     "px_section": 10,
@@ -156,11 +156,11 @@
         "settings": {
           "background": "#ffffff",
           "background_gradient": "",
-          "text": "#121212",
-          "button": "#121212",
+          "text": "#111111",
+          "button": "#111111",
           "button_label": "#ffffff",
-          "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "secondary_button_label": "#111111",
+          "shadow": "#111111"
         }
       },
       "scheme-2": {
@@ -176,9 +176,9 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#242833",
+          "background": "#ff0000",
           "background_gradient": "",
-          "text": "#ffffff",
+          "text": "#feff00",
           "button": "#ffffff",
           "button_label": "#000000",
           "secondary_button_label": "#ffffff",

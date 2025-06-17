@@ -11,17 +11,45 @@
   "sections": {
     "faq_customize_UiDPjn": {
       "type": "FAQ-customize",
+      "blocks": {
+        "faq_content_mAcay8": {
+          "type": "faq-content",
+          "settings": {
+            "faq_question": "Frequently Asked Questions?",
+            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+          }
+        },
+        "faq_content_mraBUc": {
+          "type": "faq-content",
+          "settings": {
+            "faq_question": "Frequently Asked Questions?",
+            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+          }
+        },
+        "faq_content_fHkR46": {
+          "type": "faq-content",
+          "settings": {
+            "faq_question": "Frequently Asked Questions?",
+            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_content_mAcay8",
+        "faq_content_mraBUc",
+        "faq_content_fHkR46"
+      ],
       "settings": {
         "section_width": "fluid-container",
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "heading": "FAQ",
         "fs_heading": 45,
         "fw_heading": "400",
-        "description": "Description",
+        "description": "<p>Description</p>",
         "fs_description": 18,
         "fw_description": "400",
         "txt_align": "center",
-        "spacing_description": 40,
+        "spacing_description": 30,
         "section_pt": 40,
         "section_pb": 40,
         "reset_spacing": false

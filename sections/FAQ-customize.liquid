@@ -35,60 +35,27 @@
     <div class="{{ section_width }}">
         <div class="text-{{ section_st.txt_align }}">
             <h2 class="heading-faq__text-style">{{ heading }}</h2>
-            <p class="description-faq__text-style description-faq__spacing">{{ description }}</p>
+            <h3 class="description-faq__text-style description-faq__spacing">{{ description }}</h3>
         </div>
    
-        <div>
+        <div class="mt-20">
             {% for block in section.blocks %}
                 {%- liquid
                     assign block_st = block.settings
                 -%}
-                    <div class="bor-bot bor-1" style="border-color: black;">
-                        <div class="faq-question d-flex ai-center jc-between pointer" style="line-height: 3; font-weight: 500;">
+                    <collapse-wrapper class="bor-bot bor-1" style="border-color: #dbdbdb; line-height: 2.5;">
+                        <collapse-toggle class="d-flex ai-center jc-between pointer" style="font-weight: 500;">
                             <span>{{ block_st.faq_question }}</span>
-                            <span class="faq-icon">+</span>
-                        </div>
-        
-                        <div class="faq-answer">
-                            {{ block_st.faq_answer }}
-                        </div>
-                    </div>
+                            <collapse-icon>+</collapse-icon>
+                        </collapse-toggle>
+                        <collapse-content>
+                           {{ block_st.faq_answer }}
+                        </collapse-content>
+                    </collapse-wrapper>
             {% endfor %}
         </div>
     </div>
 </section>
-
-<script>
-    document.querySelectorAll(".faq-question").forEach(faq_question => {
-        faq_question.addEventListener("click", () => {
-        const answer = faq_question.nextElementSibling;
-        toggleAnswer(answer, faq_question);
-        });
-    });
-
-    window.addEventListener('resize', () => {
-        document.querySelectorAll(".faq-answer").forEach(answer => {
-        const icon = answer.previousElementSibling.querySelector(".faq-icon");
-        const isOpen = icon.textContent.trim() === "−";
-        if (isOpen) {
-            requestAnimationFrame(() => {
-            answer.style.maxHeight = answer.scrollHeight / 10 + "rem";
-            });
-        } else {
-            answer.style.maxHeight = "0rem";
-        }
-        answer.dataset.open = isOpen;
-        });
-    });
-
-    function toggleAnswer(answer, faq_questionElement) {
-        const icon = faq_questionElement.querySelector(".faq-icon");
-        const isOpen = answer.dataset.open === "true";
-        answer.style.maxHeight = isOpen ? "0rem" : answer.scrollHeight / 10 + "rem";
-        icon.textContent = isOpen ? "+" : "−";
-        answer.dataset.open = !isOpen;
-    }
-</script>
 
 {% schema %}
 {
@@ -165,7 +132,7 @@
             ]
         },
         {
-            "type": "text",
+            "type": "richtext",
             "id": "description",
             "label": "Description"
         },
@@ -262,8 +229,8 @@
     ],
     "blocks": [
         {
-            "type": "faq-item",
-            "name": "FAQ Item",
+            "type": "faq-content",
+            "name": "FAQ Content",
             "settings": [
                 {
                     "type": "text",
@@ -282,7 +249,18 @@
     ],
     "presets": [
         {
-            "name": "FAQ Customize"
+            "name": "FAQ Customize",
+            "blocks": [
+                {
+                    "type": "faq-content"
+                },
+                {
+                    "type": "faq-content"
+                },
+                {
+                    "type": "faq-content"
+                }
+            ]
         }
     ]
 }

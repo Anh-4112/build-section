@@ -5,6 +5,11 @@ h1, h2, h3, h4, h5, p {
     margin-bottom: 0;
 }
 
+/* =============== HTMLElement Customize ================ */
+collapse-wrapper, collapse-toggle, collapse-content {
+  display: block;
+}
+
 /* =============================== */
 .defaul,
 .stretch-width,
@@ -37,13 +42,13 @@ h1, h2, h3, h4, h5, p {
   margin-top: calc(var(--spacing-description-faq) * 0.1rem);
 }
 
-.faq-answer {
-  max-height: 0;
+.collapse-content {
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
 }
 
-.faq-answer > p {
+.collapse-content > p {
   line-height: 2;
 }
 
@@ -88,4 +93,13 @@ h1, h2, h3, h4, h5, p {
 
 .bor-1 {
   border-width: 0.1rem;
+}
+
+/* === Margin === */
+.mt-20 {
+  margin-top: 2rem;
+}
+
+.mb-0 {
+  margin-bottom: 0;
 }
