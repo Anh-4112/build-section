@@ -1,20 +1,55 @@
 {% liquid
     assign section_st = section.settings
+    assign section_width = section_st.section_width
+
+    assign section_pt = section_st.section_pt
+    assign section_pb = section_st.section_pb
+
     assign heading = section_st.heading
     assign description = section_st.description
+
+    assign fs_heading = section_st.fs_heading
+    assign fw_heading = section_st.fw_heading
+    assign fs_description = section_st.fs_description
+    assign fw_description = section_st.fw_description
+    assign spacing_description = section_st.spacing_description
 %}
 
 {% style %}
     :root {
+        --fs-heading-comparison: {{ fs_heading }};
+        --fw-heading-comparison: {{ fw_heading }};
+        --fs-description-comparison: {{ fs_description }};
+        --fw-description-comparison: {{ fw_description }};
+        --spacing-description-comparison: {{ spacing_description }};
+    }
 
+    .heading-comparison__text-style {
+        font-size: calc(var( --fs-heading-comparison) * 0.1rem);
+        font-weight: var(--fw-heading-comparison);
+    }
+
+    .description-comparison__text-style {
+        font-size: calc(var(--fs-description-comparison) * 0.1rem);
+        font-weight: var(--fw-description-comparison);
+    }
+
+    .description-comparison__spacing {
+        margin-top: calc(var(--spacing-description-comparison) * 0.1rem);
     }
 {% endstyle %}
 
-<section>
-    <div>
-        <div>
-            <h2>{{ heading }}</h2>
-            <h3>{{ description }}</h3>
+<section 
+    style="
+        padding-top: {{ section_pt }};
+        padding-bottom: {{ section_pb }};
+        background-color: aqua;
+    "
+>
+    <div class="{{ section_width }}">
+        <div class="text-{{ section_st.txt_align }}" style="background-color: aliceblue;">
+            <h2 class="heading-comparison__text-style">{{ heading }}</h2>
+            <h3 class="description-comparison__text-style description-comparison__spacing">{{ description }}</h3>
         </div>
     </div>
 </section>
@@ -24,15 +59,153 @@
     "name": "Image comparison slider",
     "tag": "section",
     "settings": [
+                {
+            "type": "select",
+            "id": "section_width",
+            "label": "Section width",
+            "default": "defaul",
+            "options": [
+                {
+                    "value": "defaul",
+                    "label": "Defaul"
+                },
+                {
+                    "value": "fluid-container",
+                    "label": "Fluid Container"
+                },
+                {
+                    "value": "stretch-width",
+                    "label": "Stretch Width"
+                },
+                {
+                    "value": "full-width",
+                    "label": "Full Width"
+                }
+            ]
+        },
         {
             "type": "text",
             "id": "heading",
             "label": "Heading"
         },
         {
+            "type": "range",
+            "id": "fs_heading",
+            "label": "Font Size",
+            "default": 14,
+            "min": 14,
+            "max": 48,
+            "step": 1,
+            "unit": "px"
+        },
+        {
+            "type": "select",
+            "id": "fw_heading",
+            "label": "Font Weight",
+            "default": "400",
+            "options": [
+                {
+                    "value": "300",
+                    "label": "300"
+                },
+                {
+                    "value": "400",
+                    "label": "400"
+                },
+                {
+                    "value": "500",
+                    "label": "500"
+                }
+            ]
+        },
+        {
             "type": "richtext",
             "id": "description",
             "label": "Description"
+        },
+        {
+            "type": "range",
+            "id": "fs_description",
+            "label": "Font Size",
+            "default": 14,
+            "min": 14,
+            "max": 36,
+            "step": 1,
+            "unit": "px"
+        },
+        {
+            "type": "select",
+            "id": "fw_description",
+            "label": "Font Weight",
+            "default": "400",
+            "options": [
+                {
+                    "value": "300",
+                    "label": "300"
+                },
+                {
+                    "value": "400",
+                    "label": "400"
+                },
+                {
+                    "value": "500",
+                    "label": "500"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "txt_align",
+            "label": "Text Align",
+            "default": "center",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "spacing_description",
+            "label": "Spacing",
+            "default": 5,
+            "min": 5,
+            "max": 50,
+            "step": 1,
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "Section Padding"
+        },
+        {
+            "type": "range",
+            "id": "section_pt",
+            "label": "Top",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "section_pb",
+            "label": "Bottom",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px"
         }
     ],
     "presets": [

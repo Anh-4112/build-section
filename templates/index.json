@@ -54,9 +54,27 @@
         "section_pb": 40,
         "reset_spacing": false
       }
+    },
+    "customize_image_comparison_slider_hB8Wnn": {
+      "type": "customize-image-comparison-slider",
+      "name": "Image comparison slider",
+      "settings": {
+        "section_width": "fluid-container",
+        "heading": "Image comparison slider",
+        "fs_heading": 45,
+        "fw_heading": "400",
+        "description": "<p>Description</p>",
+        "fs_description": 18,
+        "fw_description": "400",
+        "txt_align": "center",
+        "spacing_description": 30,
+        "section_pt": 50,
+        "section_pb": 50
+      }
     }
   },
   "order": [
-    "faq_customize_UiDPjn"
+    "faq_customize_UiDPjn",
+    "customize_image_comparison_slider_hB8Wnn"
   ]
 }
