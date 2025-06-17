@@ -1,0 +1,39 @@
+{% liquid
+    assign section_st = section.settings
+    assign heading = section_st.heading
+    assign description = section_st.description
+%}
+
+{% style %}
+    :root {
+
+    }
+{% endstyle %}
+
+<section>
+    <div>
+        <div>
+            <h2>{{ heading }}</h2>
+            <h3>{{ description }}</h3>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Image comparison slider",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        }
+    ]
+}
+{% endschema %}
