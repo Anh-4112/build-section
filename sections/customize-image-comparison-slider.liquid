@@ -1,58 +1,123 @@
 {% liquid
     assign section_st = section.settings
     assign section_width = section_st.section_width
-
+    assign color_scheme = section_st.color_scheme
     assign section_pt = section_st.section_pt
     assign section_pb = section_st.section_pb
-
     assign heading = section_st.heading
     assign description = section_st.description
-
     assign fs_heading = section_st.fs_heading
     assign fw_heading = section_st.fw_heading
     assign fs_description = section_st.fs_description
     assign fw_description = section_st.fw_description
     assign spacing_description = section_st.spacing_description
+    assign reset_spacing = section_st.reset_spacing
+    if reset_spacing
+    assign reset_spacing = 'mb-0'
+    else
+    assign reset_spacing = 'section__spacing-sections'
+    endif
 %}
 
-{% style %}
-    :root {
-        --fs-heading-comparison: {{ fs_heading }};
-        --fw-heading-comparison: {{ fw_heading }};
-        --fs-description-comparison: {{ fs_description }};
-        --fw-description-comparison: {{ fw_description }};
-        --spacing-description-comparison: {{ spacing_description }};
-    }
-
-    .heading-comparison__text-style {
-        font-size: calc(var( --fs-heading-comparison) * 0.1rem);
-        font-weight: var(--fw-heading-comparison);
-    }
-
-    .description-comparison__text-style {
-        font-size: calc(var(--fs-description-comparison) * 0.1rem);
-        font-weight: var(--fw-description-comparison);
-    }
-
-    .description-comparison__spacing {
-        margin-top: calc(var(--spacing-description-comparison) * 0.1rem);
-    }
-{% endstyle %}
-
 <section 
-    style="
-        padding-top: {{ section_pt }};
-        padding-bottom: {{ section_pb }};
-        background-color: aqua;
-    "
+    class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
+    style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
 >
     <div class="{{ section_width }}">
-        <div class="text-{{ section_st.txt_align }}" style="background-color: aliceblue;">
-            <h2 class="heading-comparison__text-style">{{ heading }}</h2>
-            <h3 class="description-comparison__text-style description-comparison__spacing">{{ description }}</h3>
+        <div class="text-{{ section_st.txt_align }}">
+            <h2
+                class="heading__fs heading__fw"
+                style="--fs-heading: {{ fs_heading }}; --fw-heading: {{ fw_heading }};"
+            >
+                {{ heading }}
+            </h2>
+            <h3 
+                class="description__fs description__fw description__spacing"
+                style="--fs-description: {{ fs_description }}; --fw-description: {{ fw_description }}; --spacing-description: {{ spacing_description }};"
+            >
+                {{ description }}
+            </h3>
+        </div>
+
+        <div class="mt-20">
+            <comp-container class="relative overflow-hidden" style="aspect-ratio: 3/1;">
+                <comp-before class="absolute top-0 left-0 w-full h-full clip-left-50p" style="background-color: black;">
+                </comp-before>
+
+                <comp-after class="w-full h-full" style="background-color: aqua;">
+                </comp-after>
+
+                <comp-btn class="d-inline-flex content-center absolute top-0 left-center h-full pointer z-1">
+                    <comp-btn-inline class="relative bg-white d-inline-flex content-center w-30 h-50 rounded-35 z-2">
+                        <svg 
+                            width="10" 
+                            height="12" 
+                            viewBox="0 0 10 12" 
+                            fill="none"
+                        >
+                            <rect width="2" height="12" rx="1" fill="currentColor"></rect>
+                            <rect x="4" width="2" height="12" rx="1" fill="currentColor"></rect>
+                            <rect x="8" width="2" height="12" rx="1" fill="currentColor"></rect>
+                        </svg>
+                    </comp-btn-inline>
+                </comp-btn>
+            </comp-container>
         </div>
     </div>
 </section>
+
+<script>
+    class ComparisonSlider extends HTMLElement {
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            const compBefore = this.querySelector('comp-before');
+            const compAfter = this.querySelector('comp-after');
+            const compBtn = this.querySelector('comp-btn');
+            const compBtnInline = this.querySelector('comp-btn-inline');
+
+            if (!compBefore || !compAfter || !compBtn || !compBtnInline) return;
+
+            let isDragging = false;
+
+            const updateComp = (compBtnPositionX) => {
+                const rect = this.getBoundingClientRect();
+                const btnHalf = compBtn.offsetWidth / 2;
+
+                compBtnPositionX = Math.max(btnHalf, Math.min(compBtnPositionX, rect.width - btnHalf));
+                const percent = (compBtnPositionX / rect.width) * 100;
+
+                compBefore.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+                compBtn.style.left = `${percent}%`;
+            };
+
+            compBtn.addEventListener('mousedown', () => { isDragging = true; });
+            compBtn.addEventListener('touchstart', () => { isDragging = true; });
+
+            // Sự kiện kết thúc kéo
+            document.addEventListener('mouseup', () => { isDragging = false; });
+            document.addEventListener('touchend', () => { isDragging = false; });
+
+            // Di chuyển chuột khi đang kéo
+            document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            updateComp(e.clientX - this.getBoundingClientRect().left);
+            });
+
+            document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const touch = e.touches[0];
+            updateComp(touch.clientX - this.getBoundingClientRect().left);
+            });
+        }
+    }
+    customElements.define('comp-container', ComparisonSlider);
+    ['comp-before', 'comp-after', 'comp-btn', 'comp-btn-inline'].forEach(tag =>
+        customElements.define(tag, class extends HTMLElement {})
+    );
+</script>
 
 {% schema %}
 {
@@ -82,6 +147,16 @@
                     "label": "Full Width"
                 }
             ]
+        },
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Section color",
+            "default": "scheme-1"
+        },
+        {
+            "type": "header",
+            "content": "Header"
         },
         {
             "type": "text",
@@ -206,6 +281,12 @@
             "max": 100,
             "step": 1,
             "unit": "px"
+        },
+        {
+            "type": "checkbox",
+            "id": "reset_spacing",
+            "label": "Remove default space between sections",
+            "default": false
         }
     ],
     "presets": [

@@ -1332,41 +1332,41 @@ class CartPerformance {
 }
 // ===== Customize =====
 class Collapse extends HTMLElement {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    connectedCallback() {
-        const collapseToggle = this.querySelector('collapse-toggle');
-        const collapseContent = this.querySelector('collapse-content');
-        const collapseIcon = collapseToggle?.querySelector('collapse-icon');
+  connectedCallback() {
+    const collapseToggle = this.querySelector('collapse-toggle');
+    const collapseContent = this.querySelector('collapse-content');
+    const collapseIcon = collapseToggle?.querySelector('collapse-icon');
 
-        if (!collapseToggle || !collapseContent) return;
+    if (!collapseToggle || !collapseContent || !collapseIcon) return;
 
-        collapseContent.classList.add('collapse-content');
-        collapseContent.dataset.open = 'false';
+    collapseContent.classList.add('collapse-content');
+    collapseContent.dataset.open = 'false';
 
-        collapseToggle.addEventListener('click', () => {
-            const collapseContentOpen = collapseContent.dataset.open === 'true';
+    collapseToggle.addEventListener('click', () => {
+      const collapseContentOpen = collapseContent.dataset.open === 'true';
 
-            if (collapseContentOpen) {
-                collapseContent.style.maxHeight = "0rem";
-                collapseIcon.textContent = '+';
-            } else {
-                collapseContent.style.maxHeight = collapseContent.scrollHeight / 10 + "rem";
-                collapseIcon.textContent = '−';
-            }
+      if (collapseContentOpen) {
+        collapseContent.style.maxHeight = "0rem";
+        collapseIcon.textContent = '+';
+      } else {
+        collapseContent.style.maxHeight = collapseContent.scrollHeight / 10 + "rem";
+        collapseIcon.textContent = '−';
+      }
 
-            collapseContent.dataset.open = (!collapseContentOpen).toString();
+      collapseContent.dataset.open = (!collapseContentOpen).toString();
+    });
+
+    window.addEventListener('resize', () => {
+      if (collapseContent.dataset.open === 'true') {
+        requestAnimationFrame(() => {
+          collapseContent.style.maxHeight = collapseContent.scrollHeight / 10 + "rem";
         });
-
-        window.addEventListener('resize', () => {
-            if (collapseContent.dataset.open === 'true') {
-                requestAnimationFrame(() => {
-                    collapseContent.style.maxHeight = collapseContent.scrollHeight / 10 + "rem";
-                });
-            }
-        });
-    }
+      }
+    });
+  }
 }
 customElements.define('collapse-wrapper', Collapse);
