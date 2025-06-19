@@ -1370,3 +1370,54 @@ class Collapse extends HTMLElement {
   }
 }
 customElements.define('collapse-wrapper', Collapse);
+
+
+class ComparisonSlider extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    const compBefore = this.querySelector('comp-before');
+    const compAfter = this.querySelector('comp-after');
+    const compBtn = this.querySelector('comp-btn');
+    const compBtnInline = this.querySelector('comp-btn-inline');
+
+    if (!compBefore || !compAfter || !compBtn || !compBtnInline) return;
+
+    let isDragging = false;
+
+    const updateComp = (compBtnPositionX) => {
+      const rect = this.getBoundingClientRect();
+      const btnHalf = compBtn.offsetWidth / 2;
+
+      compBtnPositionX = Math.max(btnHalf, Math.min(compBtnPositionX, rect.width - btnHalf));
+      const percent = (compBtnPositionX / rect.width) * 100;
+
+      compBefore.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+      compBtn.style.left = `${percent}%`;
+    };
+
+    compBtn.addEventListener('mousedown', () => { isDragging = true; });
+    compBtn.addEventListener('touchstart', () => { isDragging = true; });
+
+    document.addEventListener('mouseup', () => { isDragging = false; });
+    document.addEventListener('touchend', () => { isDragging = false; });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      updateComp(e.clientX - this.getBoundingClientRect().left);
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const touch = e.touches[0];
+      updateComp(touch.clientX - this.getBoundingClientRect().left);
+    });
+  }
+}
+customElements.define('comp-container', ComparisonSlider);
+customElements.define('comp-before', class extends HTMLElement {});
+customElements.define('comp-after', class extends HTMLElement {});
+customElements.define('comp-btn', class extends HTMLElement {});
+customElements.define('comp-btn-inline', class extends HTMLElement {});

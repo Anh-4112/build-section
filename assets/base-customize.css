@@ -95,6 +95,28 @@ comp-container, comp-before, comp-after {
   text-align: end;
 }
 
+/* === Image === */
+.img-cover {
+  object-fit: cover;
+}
+
+/* === Ratio === */
+.ratio-square {
+  aspect-ratio: 1/1;
+}
+
+.ratio-portrait {
+  aspect-ratio: 3/4;
+}
+
+.ratio-landscape {
+  aspect-ratio: 4/3;
+}
+
+.ratio-custom {
+  aspect-ratio: var(--ratio-custom);
+}
+
 /* === Display === */
 .d-flex {
   display: flex;
@@ -109,6 +131,11 @@ comp-container, comp-before, comp-after {
   align-items: center;
 }
 
+/* === Gap === */
+.gap-20 {
+  gap: 2rem;
+}
+
 /* === Align Items === */
 .ai-center {
   align-items: center;
@@ -117,6 +144,19 @@ comp-container, comp-before, comp-after {
 /* === Justify Content === */
 .jc-between {
   justify-content: space-between;
+}
+
+/* === Flex === */
+.f-1 {
+  flex: 1;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
+}
+
+.order-1 {
+  order: 1;
 }
 
 /* === Position === */
@@ -138,6 +178,10 @@ comp-container, comp-before, comp-after {
 }
 
 /* === Width === */
+.w-block {
+  width: calc(var(--width-block) * 1% );
+}
+
 .w-full {
   width: 100%;
 }
@@ -162,6 +206,10 @@ comp-container, comp-before, comp-after {
 
 .bor-1 {
   border-width: 0.1rem;
+}
+
+.rounded-10 {
+  border-radius: 1rem;
 }
 
 .rounded-35 {
@@ -201,11 +249,10 @@ comp-container, comp-before, comp-after {
 
 /* =================== */
 /* =================== */
-
 comp-btn::before {
   content: "";
   background-color: white;
-  width: 0.3rem;
+  width: 0.2rem;
   height: 100%;
   position: absolute;
   top: 0;

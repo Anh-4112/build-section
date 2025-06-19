@@ -12,11 +12,28 @@
     assign fw_description = section_st.fw_description
     assign spacing_description = section_st.spacing_description
     assign reset_spacing = section_st.reset_spacing
-    if reset_spacing
-    assign reset_spacing = 'mb-0'
-    else
-    assign reset_spacing = 'section__spacing-sections'
-    endif
+        if reset_spacing
+            assign reset_spacing = 'mb-0'
+        else
+            assign reset_spacing = 'section__spacing-sections'
+        endif
+    assign width_block = section_st.width_block
+    assign before_image = section_st.before_image
+    assign after_image = section_st.after_image
+    assign position_comp = section_st.position_comp
+    assign ratio_image = section_st.ratio_image
+        if ratio_image == 'adapt'
+            assign ratio_image = ''
+        elsif ratio_image == 'square'
+            assign ratio_image = 'ratio-square'
+        elsif ratio_image == 'portrait'
+            assign ratio_image = 'ratio-portrait'
+        elsif ratio_image == 'landscape'
+            assign ratio_image = 'ratio-landscape'
+        elsif ratio_image == 'custom'
+            assign ratio_image = 'ratio-custom'
+        endif
+    assign ratio_custom = section_st.ratio_custom
 %}
 
 <section 
@@ -39,85 +56,50 @@
             </h3>
         </div>
 
-        <div class="mt-20">
-            <comp-container class="relative overflow-hidden" style="aspect-ratio: 3/1;">
-                <comp-before class="absolute top-0 left-0 w-full h-full clip-left-50p" style="background-color: black;">
+        <div class="mt-20 d-flex f-wrap gap-20">
+            <comp-container
+                class="relative overflow-hidden rounded-10 w-block {% if position_comp == 'right' %} order-1 {% endif %} {{ ratio_image }}"
+                style="--width-block: {{ width_block }}; --ratio-custom: {{ ratio_custom }};"
+            >
+                <comp-before class="absolute top-0 left-0 w-full h-full clip-left-50p">
+                    {% if before_image != blank %}
+                        <img 
+                            class="img-cover"
+                            src="{{ before_image | image_url }}" 
+                            width="100%" 
+                            height="100%" 
+                            alt="Image"
+                        >
+                    {% else %}
+                        {% render 'image-clone', bg: 'rgb(160, 160, 160)' %}
+                    {% endif %}
                 </comp-before>
 
-                <comp-after class="w-full h-full" style="background-color: aqua;">
+                <comp-after class="w-full h-full">
+                    {% if after_image != blank %}
+                        <img 
+                            class="img-cover"
+                            src="{{ after_image | image_url }}" 
+                            width="100%" 
+                            height="100%" 
+                            alt="Image"
+                        >
+                    {% else %}
+                        {% render 'image-clone' %}
+                    {% endif %}
                 </comp-after>
 
                 <comp-btn class="d-inline-flex content-center absolute top-0 left-center h-full pointer z-1">
                     <comp-btn-inline class="relative bg-white d-inline-flex content-center w-30 h-50 rounded-35 z-2">
-                        <svg 
-                            width="10" 
-                            height="12" 
-                            viewBox="0 0 10 12" 
-                            fill="none"
-                        >
-                            <rect width="2" height="12" rx="1" fill="currentColor"></rect>
-                            <rect x="4" width="2" height="12" rx="1" fill="currentColor"></rect>
-                            <rect x="8" width="2" height="12" rx="1" fill="currentColor"></rect>
-                        </svg>
+                        {% render 'icon-control-bars' %}
                     </comp-btn-inline>
                 </comp-btn>
             </comp-container>
+
+            <div class="f-1" style="background-color: bisque; color: bisque;">.</div>
         </div>
     </div>
 </section>
-
-<script>
-    class ComparisonSlider extends HTMLElement {
-        constructor() {
-            super();
-        }
-
-        connectedCallback() {
-            const compBefore = this.querySelector('comp-before');
-            const compAfter = this.querySelector('comp-after');
-            const compBtn = this.querySelector('comp-btn');
-            const compBtnInline = this.querySelector('comp-btn-inline');
-
-            if (!compBefore || !compAfter || !compBtn || !compBtnInline) return;
-
-            let isDragging = false;
-
-            const updateComp = (compBtnPositionX) => {
-                const rect = this.getBoundingClientRect();
-                const btnHalf = compBtn.offsetWidth / 2;
-
-                compBtnPositionX = Math.max(btnHalf, Math.min(compBtnPositionX, rect.width - btnHalf));
-                const percent = (compBtnPositionX / rect.width) * 100;
-
-                compBefore.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-                compBtn.style.left = `${percent}%`;
-            };
-
-            compBtn.addEventListener('mousedown', () => { isDragging = true; });
-            compBtn.addEventListener('touchstart', () => { isDragging = true; });
-
-            // Sự kiện kết thúc kéo
-            document.addEventListener('mouseup', () => { isDragging = false; });
-            document.addEventListener('touchend', () => { isDragging = false; });
-
-            // Di chuyển chuột khi đang kéo
-            document.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            updateComp(e.clientX - this.getBoundingClientRect().left);
-            });
-
-            document.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const touch = e.touches[0];
-            updateComp(touch.clientX - this.getBoundingClientRect().left);
-            });
-        }
-    }
-    customElements.define('comp-container', ComparisonSlider);
-    ['comp-before', 'comp-after', 'comp-btn', 'comp-btn-inline'].forEach(tag =>
-        customElements.define(tag, class extends HTMLElement {})
-    );
-</script>
 
 {% schema %}
 {
@@ -258,6 +240,97 @@
             "step": 1,
             "unit": "px"
         },
+        {
+            "type": "header",
+            "content": "Before after image"
+        },
+        {
+            "type": "image_picker",
+            "id": "before_image",
+            "label": "Before image"
+        },
+        {
+            "type": "image_picker",
+            "id": "after_image",
+            "label": "After image"
+        },
+        {
+            "type": "select",
+            "id": "width_block",
+            "label": "Width",
+            "default" : "50",
+            "options": [
+                {
+                    "value": "50",
+                    "label": "50%"   
+                },
+                {
+                    "value": "66.6666",
+                    "label": "66%"
+                },
+                {
+                    "value": "75",
+                    "label": "75%"
+                },
+                {
+                    "value": "100",
+                    "label": "100%"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "position_comp",
+            "label": "Position",
+            "default" : "left",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"   
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "ratio_image",
+            "label": "Image Ratio",
+            "default" : "adapt",
+            "options": [
+                {
+                    "value": "adapt",
+                    "label": "Adapt to image"   
+                },
+                {
+                    "value": "square",
+                    "label": "Square (1:1)"
+                },
+                {
+                    "value": "portrait",
+                    "label": "Portrait (3:4)"
+                },
+                {
+                    "value": "landscape",
+                    "label": "Landscape (4:3)"
+                },
+                {
+                    "value": "custom",
+                    "label": "Custom ratio"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "ratio_custom",
+            "label": "Custom ratio (Form: Width/Height)"
+        },
+
+
+
+
         {
             "type": "header",
             "content": "Section Padding"
