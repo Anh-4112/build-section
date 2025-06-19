@@ -95,6 +95,10 @@ comp-container, comp-before, comp-after {
   text-align: end;
 }
 
+.txt-no-select {
+  user-select: none;
+}
+
 /* === Image === */
 .img-cover {
   object-fit: cover;
@@ -159,6 +163,10 @@ comp-container, comp-before, comp-after {
   order: 1;
 }
 
+.column {
+  flex-direction: column;
+}
+
 /* === Position === */
 .relative {
   position: relative;
@@ -178,10 +186,6 @@ comp-container, comp-before, comp-after {
 }
 
 /* === Width === */
-.w-block {
-  width: calc(var(--width-block) * 1% );
-}
-
 .w-full {
   width: 100%;
 }
@@ -249,6 +253,32 @@ comp-container, comp-before, comp-after {
 
 /* =================== */
 /* =================== */
+comp-before::before,
+comp-after::after {
+  background: #fff;
+  height: 3rem;
+  width: 9rem;
+  border-radius: 3rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  position: absolute;
+  display: var(--show-label);
+}
+
+comp-before::before {
+  content: "BEFORE";
+  top: 2rem;
+  left: 2.5rem;
+}
+
+comp-after::after {
+  content: "AFTER";
+  right: 2.5rem;
+  bottom: 2rem;
+}
+
+
 comp-btn::before {
   content: "";
   background-color: white;

@@ -1,3 +1,13 @@
+@media (min-width: 992px) {
+  .row-lg {
+    flex-direction: row;
+  }
+
+  .w-block {
+    width: calc(var(--width-block) * 1% );
+  }
+}
+
 @media (min-width: 1025px) {
   .defaul {
     max-width: calc(var(--page-width) + var(--px-section) * 2);

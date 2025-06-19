@@ -21,6 +21,10 @@
     assign before_image = section_st.before_image
     assign after_image = section_st.after_image
     assign position_comp = section_st.position_comp
+    assign show_label = section_st.show_label
+        if show_label != true
+            assign show_label = 'none'
+        endif
     assign ratio_image = section_st.ratio_image
         if ratio_image == 'adapt'
             assign ratio_image = ''
@@ -56,12 +60,15 @@
             </h3>
         </div>
 
-        <div class="mt-20 d-flex f-wrap gap-20">
+        <div class="mt-20 d-flex column row-lg f-wrap gap-20 txt-no-select">
             <comp-container
                 class="relative overflow-hidden rounded-10 w-block {% if position_comp == 'right' %} order-1 {% endif %} {{ ratio_image }}"
                 style="--width-block: {{ width_block }}; --ratio-custom: {{ ratio_custom }};"
             >
-                <comp-before class="absolute top-0 left-0 w-full h-full clip-left-50p">
+                <comp-before 
+                    class="absolute top-0 left-0 w-full h-full clip-left-50p z-1"
+                    style="--show-label: {{ show_label }};"
+                >
                     {% if before_image != blank %}
                         <img 
                             class="img-cover"
@@ -75,7 +82,10 @@
                     {% endif %}
                 </comp-before>
 
-                <comp-after class="w-full h-full">
+                <comp-after 
+                    class="w-full h-full"
+                    style="--show-label: {{ show_label }};"    
+                >
                     {% if after_image != blank %}
                         <img 
                             class="img-cover"
@@ -293,6 +303,12 @@
                     "label": "Right"
                 }
             ]
+        },
+        {
+            "type": "checkbox",
+            "id": "show_label",
+            "label": "Show label",
+            "default": true
         },
         {
             "type": "select",

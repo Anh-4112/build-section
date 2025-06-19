@@ -60,6 +60,7 @@
       "name": "Image comparison slider",
       "settings": {
         "section_width": "fluid-container",
+        "color_scheme": "",
         "heading": "Image comparison slider",
         "fs_heading": 45,
         "fw_heading": "400",
@@ -68,8 +69,13 @@
         "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 30,
+        "width_block": "50",
+        "position_comp": "left",
+        "ratio_image": "custom",
+        "ratio_custom": "16/9",
         "section_pt": 50,
-        "section_pb": 50
+        "section_pb": 50,
+        "reset_spacing": false
       }
     }
   },
