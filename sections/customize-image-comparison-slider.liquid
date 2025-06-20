@@ -22,9 +22,6 @@
     assign after_image = section_st.after_image
     assign position_comp = section_st.position_comp
     assign show_label = section_st.show_label
-        if show_label != true
-            assign show_label = 'none'
-        endif
     assign ratio_image = section_st.ratio_image
         if ratio_image == 'adapt'
             assign ratio_image = ''
@@ -67,7 +64,7 @@
             >
                 <comp-before 
                     class="absolute top-0 left-0 w-full h-full clip-left-50p z-1"
-                    style="--show-label: {{ show_label }};"
+                    data-show-label= "{{ show_label }}"
                 >
                     {% if before_image != blank %}
                         <img 
@@ -84,7 +81,7 @@
 
                 <comp-after 
                     class="w-full h-full"
-                    style="--show-label: {{ show_label }};"    
+                    data-show-label= "{{ show_label }}"    
                 >
                     {% if after_image != blank %}
                         <img 
@@ -106,7 +103,56 @@
                 </comp-btn>
             </comp-container>
 
-            <div class="f-1" style="background-color: bisque; color: bisque;">.</div>
+            <div class="f-1">
+                {% for block in section.blocks %}
+                    {% liquid
+                        assign block_st = block.settings
+                    %}
+                    {% case block.type %}
+                        {% when 'heading' %}
+                            <h2 
+                                class="heading__fs heading__fw heading__spacing"
+                                style="
+                                    --fs-heading: {{ block_st.fs_heading_block }};
+                                    --fw-heading: {{ block_st.fw_heading_block }};
+                                    --spacing-heading: {{ block_st.spacing_heading_block }};
+                                "
+                            >
+                                {{ block_st.heading_block }}
+                            </h2>
+                        {% when 'subheading' %}
+                            <h3 
+                                class="subheading__fs subheading__fw subheading__spacing"
+                                style="
+                                    --fs-subheading: {{ block_st.fs_subheading_block }};
+                                    --fw-subheading: {{ block_st.fw_subheading_block }};
+                                    --spacing-subheading: {{ block_st.spacing_subheading_block }};
+                                "
+                            >
+                                {{ block_st.subheading_block }}
+                            </h3>
+                        {% when 'description' %}
+                            <div
+                                class="description__fs description__fw description__lh description__spacing"
+                                style="
+                                    --fs-description: {{ block_st.fs_description_block }};
+                                    --fw-description: {{ block_st.fw_description_block }};
+                                    --spacing-description: {{ block_st.spacing_description_block }};
+                                "
+                            >
+                                {{ block_st.description_block }}
+                            </div>
+                        {% when 'button' %}
+                            {% if block_st.btn_type == 'primary' %}
+                                <div>
+                                    {% render 'btn-primary' %}
+                                </div>
+                            {% elsif condition %}
+                                
+                            {% endif %}
+                    {% endcase %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </section>
@@ -252,7 +298,7 @@
         },
         {
             "type": "header",
-            "content": "Before after image"
+            "content": "Before / After"
         },
         {
             "type": "image_picker",
@@ -343,10 +389,6 @@
             "id": "ratio_custom",
             "label": "Custom ratio (Form: Width/Height)"
         },
-
-
-
-
         {
             "type": "header",
             "content": "Section Padding"
@@ -376,6 +418,200 @@
             "id": "reset_spacing",
             "label": "Remove default space between sections",
             "default": false
+        }
+    ],
+    "blocks": [
+        {
+            "type": "heading",
+            "name": "Heading",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "heading_block",
+                    "label": "Content",
+                    "default": "Talk about your brand"
+                },
+                {
+                    "type": "range",
+                    "id": "fs_heading_block",
+                    "label": "Font Size",
+                    "default": 24,
+                    "min": 24,
+                    "max": 48,
+                    "step": 1,
+                    "unit": "px"
+                },
+                {
+                    "type": "select",
+                    "id": "fw_heading_block",
+                    "label": "Font Weight",
+                    "default": "500",
+                    "options": [
+                        {
+                            "value": "500",
+                            "label": "500"
+                        },
+                        {
+                            "value": "600",
+                            "label": "600"
+                        },
+                        {
+                            "value": "700",
+                            "label": "700"
+                        }
+                    ]
+                },
+                {
+                    "type": "range",
+                    "id": "spacing_heading_block",
+                    "label": "Spacing Bottom",
+                    "default": 5,
+                    "min": 5,
+                    "max": 30,
+                    "step": 1,
+                    "unit": "px"
+                }
+            ]
+        },
+        {
+            "type": "subheading",
+            "name": "Subheading",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "subheading_block",
+                    "label": "Content",
+                    "default": "Subheading"
+                },
+                {
+                    "type": "range",
+                    "id": "fs_subheading_block",
+                    "label": "Font Size",
+                    "default": 12,
+                    "min": 12,
+                    "max": 24,
+                    "step": 1,
+                    "unit": "px"
+                },
+                {
+                    "type": "select",
+                    "id": "fw_subheading_block",
+                    "label": "Font Weight",
+                    "default": "500",
+                    "options": [
+                        {
+                            "value": "500",
+                            "label": "500"
+                        },
+                        {
+                            "value": "600",
+                            "label": "600"
+                        },
+                        {
+                            "value": "700",
+                            "label": "700"
+                        }
+                    ]
+                },
+                {
+                    "type": "range",
+                    "id": "spacing_subheading_block",
+                    "label": "Spacing Bottom",
+                    "default": 5,
+                    "min": 5,
+                    "max": 30,
+                    "step": 1,
+                    "unit": "px"
+                }
+            ]
+        },
+        {
+            "type": "description",
+            "name": "Description",
+            "limit": 1,
+            "settings": [
+                {
+                "type": "richtext",
+                "id": "description_block",
+                "label": "Content",
+                "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+                },
+                {
+                    "type": "range",
+                    "id": "fs_description_block",
+                    "label": "Font Size",
+                    "default": 12,
+                    "min": 12,
+                    "max": 24,
+                    "step": 1,
+                    "unit": "px"
+                },
+                {
+                    "type": "select",
+                    "id": "fw_description_block",
+                    "label": "Font Weight",
+                    "default": "400",
+                    "options": [
+                        {
+                            "value": "300",
+                            "label": "300"
+                        },
+                        {
+                            "value": "400",
+                            "label": "400"
+                        },
+                        {
+                            "value": "500",
+                            "label": "500"
+                        }
+                    ]
+                },
+                {
+                    "type": "range",
+                    "id": "spacing_description_block",
+                    "label": "Spacing Bottom",
+                    "default": 5,
+                    "min": 5,
+                    "max": 30,
+                    "step": 1,
+                    "unit": "px"
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "name": "Button",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "btn_txt",
+                    "label": "Content",
+                    "default": "Button"
+                },
+                {
+                    "type": "select",
+                    "id": "btn_type",
+                    "label": "Type",
+                    "default": "primary",
+                    "options": [
+                        {
+                            "value": "primary",
+                            "label": "Primary"
+                        },
+                        {
+                            "value": "outline",
+                            "label": "Outline"
+                        },
+                        {
+                            "value": "link",
+                            "label": "Link"
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "presets": [
