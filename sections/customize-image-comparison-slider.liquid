@@ -143,19 +143,15 @@
                                 {{ block_st.description_block }}
                             </div>
                         {% when 'button' %}
-                            {% if block_st.btn_type == 'primary' %}
-                                <div>
+                            <div>
+                                {% if block_st.btn_type == 'primary' %}
                                     {% render 'btn-primary' %}
-                                </div>
-                            {% elsif block_st.btn_type == 'outline' %}
-                                <div>
+                                {% elsif block_st.btn_type == 'outline' %}
                                     {% render 'btn-outline' %}
-                                </div>
-                            {% elsif block_st.btn_type == 'link' %}
-                                <div>
+                                {% elsif block_st.btn_type == 'link' %}
                                     {% render 'btn-link' %}
-                                </div>
-                            {% endif %}
+                                {% endif %}
+                            </div>
                     {% endcase %}
                 {% endfor %}
             </div>
@@ -622,7 +618,18 @@
     ],
     "presets": [
         {
-            "name": "Image comparison slider"
+            "name": "Image comparison slider",
+            "blocks": [
+                {
+                    "type": "heading"
+                },
+                {
+                    "type": "description"
+                },
+                {
+                    "type": "button"
+                }
+            ]
         }
     ]
 }
