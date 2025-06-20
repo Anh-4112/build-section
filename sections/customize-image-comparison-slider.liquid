@@ -147,8 +147,14 @@
                                 <div>
                                     {% render 'btn-primary' %}
                                 </div>
-                            {% elsif condition %}
-                                
+                            {% elsif block_st.btn_type == 'outline' %}
+                                <div>
+                                    {% render 'btn-outline' %}
+                                </div>
+                            {% elsif block_st.btn_type == 'link' %}
+                                <div>
+                                    {% render 'btn-link' %}
+                                </div>
                             {% endif %}
                     {% endcase %}
                 {% endfor %}
