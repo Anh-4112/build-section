@@ -92,7 +92,8 @@ comp-container, comp-before, comp-after {
 /* =============== Comparion =============== */
 comp-before::before,
 comp-after::after {
-  background: #fff;
+  background: white;
+  color: black;
   box-shadow: 0 0 0.8rem  rgba(0, 0, 0, 0.5);
   height: 3rem;
   width: 8.5rem;
@@ -125,6 +126,7 @@ comp-after::after {
 comp-btn::before {
   content: "";
   background-color: white;
+  color: black;
   width: 0.2rem;
   height: 100%;
   position: absolute;
@@ -157,7 +159,7 @@ comp-btn::before {
 
 .btn-link::before {
   content: "";
-  background-color: black;
+  background-color: rgba(var(--color-foreground), 0.75);
   height: 0.1rem;
   width: 100%;
   position: absolute;

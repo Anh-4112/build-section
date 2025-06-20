@@ -52,7 +52,7 @@
         "spacing_description": 30,
         "section_pt": 40,
         "section_pb": 40,
-        "reset_spacing": false
+        "reset_spacing": true
       }
     },
     "customize_image_comparison_slider_hB8Wnn": {
@@ -62,8 +62,8 @@
           "type": "heading",
           "settings": {
             "heading_block": "Talk about your brand",
-            "uppercase": false,
-            "fs_heading_block": 36,
+            "uppercase": true,
+            "fs_heading_block": 24,
             "fw_heading_block": "600"
           }
         },
@@ -71,17 +71,17 @@
           "type": "description",
           "settings": {
             "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "fs_description_block": 18,
+            "fs_description_block": 16,
             "fw_description_block": "400",
-            "spacing_description_block": 30
+            "spacing_description_block": 20
           }
         },
         "button_bYApnw": {
           "type": "button",
           "settings": {
             "btn_name": "",
-            "btn_type": "outline",
-            "spacing_btn": 30
+            "btn_type": "link",
+            "spacing_btn": 20
           }
         }
       },
@@ -93,7 +93,7 @@
       "name": "Image comparison slider",
       "settings": {
         "section_width": "fluid-container",
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "heading": "Image comparison slider",
         "fs_heading": 45,
         "fw_heading": "400",
