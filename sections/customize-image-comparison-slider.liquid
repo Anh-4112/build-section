@@ -103,7 +103,7 @@
                 </comp-btn>
             </comp-container>
 
-            <div class="f-1">
+            <div class="f-1 d-flex column jc-{{ section_st.vertical_align }}">
                 {% for block in section.blocks %}
                     {% liquid
                         assign block_st = block.settings
@@ -111,11 +111,10 @@
                     {% case block.type %}
                         {% when 'heading' %}
                             <h2 
-                                class="heading__fs heading__fw heading__spacing"
+                                class="heading__fs heading__fw {% if block_st.uppercase == true %} uppercase {% endif %}"
                                 style="
                                     --fs-heading: {{ block_st.fs_heading_block }};
                                     --fw-heading: {{ block_st.fw_heading_block }};
-                                    --spacing-heading: {{ block_st.spacing_heading_block }};
                                 "
                             >
                                 {{ block_st.heading_block }}
@@ -143,13 +142,13 @@
                                 {{ block_st.description_block }}
                             </div>
                         {% when 'button' %}
-                            <div>
+                            <div class="btn__spacing" style="--spacing-btn: {{ block_st.spacing_btn }};">
                                 {% if block_st.btn_type == 'primary' %}
-                                    {% render 'btn-primary' %}
+                                    {% render 'btn-primary', btn_name : block_st.btn_name %}
                                 {% elsif block_st.btn_type == 'outline' %}
-                                    {% render 'btn-outline' %}
+                                    {% render 'btn-outline', btn_name : block_st.btn_name %}
                                 {% elsif block_st.btn_type == 'link' %}
-                                    {% render 'btn-link' %}
+                                    {% render 'btn-link', btn_name : block_st.btn_name %}
                                 {% endif %}
                             </div>
                     {% endcase %}
@@ -393,6 +392,30 @@
         },
         {
             "type": "header",
+            "content": "Content settings"
+        },
+        {
+            "type": "select",
+            "id": "vertical_align",
+            "label": "Vertical alignment",
+            "default": "start",
+            "options": [
+                {
+                    "value": "start",
+                    "label": "Top"
+                },
+                {
+                    "value": "center",
+                    "label": "Middle"
+                },
+                {
+                    "value": "end",
+                    "label": "Bottom"
+                }
+            ]
+        },
+        {
+            "type": "header",
             "content": "Section Padding"
         },
         {
@@ -435,6 +458,12 @@
                     "default": "Talk about your brand"
                 },
                 {
+                    "type": "checkbox",
+                    "id": "uppercase",
+                    "label": "Uppercase",
+                    "default": false
+                },
+                {
                     "type": "range",
                     "id": "fs_heading_block",
                     "label": "Font Size",
@@ -463,16 +492,6 @@
                             "label": "700"
                         }
                     ]
-                },
-                {
-                    "type": "range",
-                    "id": "spacing_heading_block",
-                    "label": "Spacing Bottom",
-                    "default": 5,
-                    "min": 5,
-                    "max": 30,
-                    "step": 1,
-                    "unit": "px"
                 }
             ]
         },
@@ -520,7 +539,7 @@
                 {
                     "type": "range",
                     "id": "spacing_subheading_block",
-                    "label": "Spacing Bottom",
+                    "label": "Spacing",
                     "default": 5,
                     "min": 5,
                     "max": 30,
@@ -573,7 +592,7 @@
                 {
                     "type": "range",
                     "id": "spacing_description_block",
-                    "label": "Spacing Bottom",
+                    "label": "Spacing",
                     "default": 5,
                     "min": 5,
                     "max": 30,
@@ -589,9 +608,8 @@
             "settings": [
                 {
                     "type": "text",
-                    "id": "btn_txt",
-                    "label": "Content",
-                    "default": "Button"
+                    "id": "btn_name",
+                    "label": "Content"
                 },
                 {
                     "type": "select",
@@ -612,6 +630,16 @@
                             "label": "Link"
                         }
                     ]
+                },
+                {
+                    "type": "range",
+                    "id": "spacing_btn",
+                    "label": "Spacing",
+                    "default": 5,
+                    "min": 5,
+                    "max": 30,
+                    "step": 1,
+                    "unit": "px"
                 }
             ]
         }

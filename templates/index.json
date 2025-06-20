@@ -57,6 +57,39 @@
     },
     "customize_image_comparison_slider_hB8Wnn": {
       "type": "customize-image-comparison-slider",
+      "blocks": {
+        "heading_b8GcRq": {
+          "type": "heading",
+          "settings": {
+            "heading_block": "Talk about your brand",
+            "uppercase": false,
+            "fs_heading_block": 36,
+            "fw_heading_block": "600"
+          }
+        },
+        "description_PpGzR7": {
+          "type": "description",
+          "settings": {
+            "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "fs_description_block": 18,
+            "fw_description_block": "400",
+            "spacing_description_block": 30
+          }
+        },
+        "button_bYApnw": {
+          "type": "button",
+          "settings": {
+            "btn_name": "",
+            "btn_type": "outline",
+            "spacing_btn": 30
+          }
+        }
+      },
+      "block_order": [
+        "heading_b8GcRq",
+        "description_PpGzR7",
+        "button_bYApnw"
+      ],
       "name": "Image comparison slider",
       "settings": {
         "section_width": "fluid-container",
@@ -70,9 +103,11 @@
         "txt_align": "center",
         "spacing_description": 30,
         "width_block": "50",
-        "position_comp": "left",
+        "position_comp": "right",
+        "show_label": true,
         "ratio_image": "custom",
-        "ratio_custom": "16/9",
+        "ratio_custom": "10/6",
+        "vertical_align": "start",
         "section_pt": 50,
         "section_pb": 50,
         "reset_spacing": false
