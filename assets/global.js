@@ -1369,7 +1369,7 @@ class Collapse extends HTMLElement {
     });
   }
 }
-customElements.define('collapse-wrapper', Collapse);
+customElements.define('collapse-block', Collapse);
 
 
 class ComparisonSlider extends HTMLElement {
@@ -1416,7 +1416,7 @@ class ComparisonSlider extends HTMLElement {
     });
   }
 }
-customElements.define('comp-container', ComparisonSlider);
+customElements.define('comp-block', ComparisonSlider);
 customElements.define('comp-before', class extends HTMLElement {});
 customElements.define('comp-after', class extends HTMLElement {});
 customElements.define('comp-btn', class extends HTMLElement {});

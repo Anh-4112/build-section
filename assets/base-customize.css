@@ -78,7 +78,7 @@ comp-container, comp-before, comp-after {
   margin-top: calc(var(--spacing-description) * 0.1rem);
 }
 
-/* =============== Collapse =============== */
+/* =============== Collapse Block =============== */
 .collapse-content {
   overflow: hidden;
   max-height: 0;
@@ -89,7 +89,7 @@ comp-container, comp-before, comp-after {
   line-height: 2;
 }
 
-/* =============== Comparion =============== */
+/* =============== Comparion Block =============== */
 comp-before::before,
 comp-after::after {
   background: white;
@@ -135,6 +135,27 @@ comp-btn::before {
   transform: translateX(-50%);
 }
 
+/* =============== Sider Section =============== */
+.slider-section:hover .slider-perv {
+  opacity: 1;
+  transform: translate(3rem, -50%);
+}
+
+.slider-section:hover .slider-next {
+  opacity: 1;
+  transform: translate(-3rem, -50%);
+}
+
+.slider-next,
+.slider-perv {
+  transition: opacity,transform, 0.2s ease-in-out;
+}
+
+/* =============== Product =============== */
+.product__spacing {
+  margin-top: calc(var(--spacing-product) * 0.1rem);
+}
+
 /* =============== Button =============== */
 .btn__spacing {
   margin-top: calc(var(--spacing-btn) * 0.1rem);
@@ -176,6 +197,18 @@ comp-btn::before {
   to {left: 100%;}
 }
 
+/* =============== Icon =============== */
+.perv-color,
+.next-color {
+  background-color: rgb(225, 225, 225, 0.4);
+}
+
+.perv-color:hover,
+.next-color:hover {
+  color: white;
+  background-color: black;
+}
+
 /* ============================== */
 /* === Cursor === */
 .pointer {
@@ -185,6 +218,11 @@ comp-btn::before {
 /* === Overflow === */
 .overflow-hidden {
   overflow: hidden;
+}
+
+/* === Opacity === */
+.opacity-0 {
+  opacity: 0;
 }
 
 /* === Background === */
@@ -259,6 +297,10 @@ comp-btn::before {
 }
 
 /* === Gap === */
+.gap-10 {
+  gap: 1rem;
+}
+
 .gap-20 {
   gap: 2rem;
 }
@@ -286,6 +328,10 @@ comp-btn::before {
 }
 
 /* === Flex === */
+.f-25p {
+  flex: 0 0 25%;
+}
+
 .f-1 {
   flex: 1;
 }
@@ -329,6 +375,10 @@ comp-btn::before {
   width: 3rem;
 }
 
+.w-45 {
+  width: 4.5rem;
+}
+
 .w-190 {
   width: 19rem;
 }
@@ -336,6 +386,10 @@ comp-btn::before {
 /* === Height === */
 .h-full {
   height: 100%;
+}
+
+.h-45 {
+  height: 4.5rem;
 }
 
 .h-50 {
@@ -353,6 +407,10 @@ comp-btn::before {
 
 .bor-1 {
   border-width: 0.1rem;
+}
+
+.rounded-50p {
+  border-radius: 50%;
 }
 
 .rounded-10 {
@@ -380,6 +438,11 @@ comp-btn::before {
 }
 
 /* === Top === */
+.top-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .top-0 {
   top: 0;
 }
@@ -394,5 +457,7 @@ comp-btn::before {
   left: 0;
 }
 
-/* =================== */
-/* =================== */
+/* === Right === */
+.right-0 {
+  right: 0;
+}

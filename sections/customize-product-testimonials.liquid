@@ -5,27 +5,27 @@
     assign section_pt = section_st.section_pt
     assign section_pb = section_st.section_pb
     assign heading = section_st.heading
+    assign description = section_st.description
     assign fs_heading = section_st.fs_heading
     assign fw_heading = section_st.fw_heading
-    assign description = section_st.description
     assign fs_description = section_st.fs_description
     assign fw_description = section_st.fw_description
     assign spacing_description = section_st.spacing_description
     assign reset_spacing = section_st.reset_spacing
-    if reset_spacing
-    assign reset_spacing = 'mb-0'
-    else
-    assign reset_spacing = 'section__spacing-sections'
-    endif
+        if reset_spacing
+            assign reset_spacing = 'mb-0'
+        else
+            assign reset_spacing = 'section__spacing-sections'
+        endif
 %}
 
-<section 
+<section
     class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
     style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
 >
     <div class="{{ section_width }}">
         <div class="text-{{ section_st.txt_align }}">
-            <h2 
+            <h2
                 class="heading__fs heading__fw"
                 style="--fs-heading: {{ fs_heading }}; --fw-heading: {{ fw_heading }};"
             >
@@ -38,29 +38,32 @@
                 {{ description }}
             </h3>
         </div>
-   
-        <div class="mt-20">
-            {% for block in section.blocks %}
-                {%- liquid
-                    assign block_st = block.settings
-                -%}
-                    <collapse-block class="bor-bot bor-1" style="border-color: #dbdbdb; line-height: 2.5;">
-                        <collapse-toggle class="d-flex ai-center jc-between pointer" style="font-weight: 500;">
-                            <span>{{ block_st.faq_question }}</span>
-                            <collapse-icon>+</collapse-icon>
-                        </collapse-toggle>
-                        <collapse-content>
-                           {{ block_st.faq_answer }}
-                        </collapse-content>
-                    </collapse-block>
-            {% endfor %}
+
+        <div class="slider-section relative">
+            {% render 'slider-icon' %}
+
+            <div style="width: 100%;">
+                <div style="width: 30%; margin-inline: auto;">
+                    <div>
+                        {% render 'image-clone' %}
+                    </div>
+                    <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div></div>
         </div>
     </div>
 </section>
 
 {% schema %}
 {
-    "name": "FAQ",
+    "name": "Product testimonials",
     "tag": "section",
     "settings": [
         {
@@ -197,6 +200,10 @@
             "step": 1,
             "unit": "px"
         },
+
+
+
+
         {
             "type": "header",
             "content": "Section Padding"
@@ -228,40 +235,9 @@
             "default": false
         }
     ],
-    "blocks": [
-        {
-            "type": "faq-content",
-            "name": "FAQ Content",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "faq_question",
-                    "label": "FAQ Question",
-                    "default": "Frequently Asked Questions?"
-                },
-                {
-                    "type": "richtext",
-                    "id": "faq_answer",
-                    "label": "FAQ Answer",
-                    "default": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
-                }
-            ]
-        }
-    ],
     "presets": [
         {
-            "name": "FAQ",
-            "blocks": [
-                {
-                    "type": "faq-content"
-                },
-                {
-                    "type": "faq-content"
-                },
-                {
-                    "type": "faq-content"
-                }
-            ]
+            "name": "Product testimonials"
         }
     ]
 }

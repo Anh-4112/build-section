@@ -55,19 +55,19 @@
         "reset_spacing": true
       }
     },
-    "customize_image_comparison_slider_hB8Wnn": {
+    "customize_image_comparison_slider_g4ECqn": {
       "type": "customize-image-comparison-slider",
       "blocks": {
-        "heading_b8GcRq": {
+        "heading_G9MnUK": {
           "type": "heading",
           "settings": {
             "heading_block": "Talk about your brand",
-            "uppercase": true,
-            "fs_heading_block": 24,
-            "fw_heading_block": "600"
+            "uppercase": false,
+            "fs_heading_block": 36,
+            "fw_heading_block": "500"
           }
         },
-        "description_PpGzR7": {
+        "description_pYeh6k": {
           "type": "description",
           "settings": {
             "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
@@ -76,24 +76,25 @@
             "spacing_description_block": 20
           }
         },
-        "button_bYApnw": {
+        "button_a6RH3P": {
           "type": "button",
           "settings": {
-            "btn_name": "",
-            "btn_type": "link",
-            "spacing_btn": 20
+            "btn_name_block": "",
+            "btn_type_block": "link",
+            "btn_collection_block": "",
+            "spacing_btn_block": 20
           }
         }
       },
       "block_order": [
-        "heading_b8GcRq",
-        "description_PpGzR7",
-        "button_bYApnw"
+        "heading_G9MnUK",
+        "description_pYeh6k",
+        "button_a6RH3P"
       ],
       "name": "Image comparison slider",
       "settings": {
-        "section_width": "fluid-container",
-        "color_scheme": "scheme-1",
+        "section_width": "defaul",
+        "color_scheme": "",
         "heading": "Image comparison slider",
         "fs_heading": 45,
         "fw_heading": "400",
@@ -103,12 +104,12 @@
         "txt_align": "center",
         "spacing_description": 30,
         "width_block": "50",
-        "position_comp": "right",
+        "position_comp": "left",
         "show_label": true,
         "ratio_image": "custom",
         "ratio_custom": "10/6",
         "vertical_align": "start",
-        "section_pt": 50,
+        "section_pt": 40,
         "section_pb": 50,
         "reset_spacing": false
       }
@@ -116,6 +117,6 @@
   },
   "order": [
     "faq_customize_UiDPjn",
-    "customize_image_comparison_slider_hB8Wnn"
+    "customize_image_comparison_slider_g4ECqn"
   ]
 }
