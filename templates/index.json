@@ -15,22 +15,22 @@
         "faq_content_mAcay8": {
           "type": "faq-content",
           "settings": {
-            "faq_question": "Frequently Asked Questions?",
-            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+            "faq_question": "Frequently Asked Questions 1 ?",
+            "faq_answer": "<p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
           }
         },
         "faq_content_mraBUc": {
           "type": "faq-content",
           "settings": {
-            "faq_question": "Frequently Asked Questions?",
-            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+            "faq_question": "Frequently Asked Questions 2 ?",
+            "faq_answer": "<p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
           }
         },
         "faq_content_fHkR46": {
           "type": "faq-content",
           "settings": {
-            "faq_question": "Frequently Asked Questions?",
-            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+            "faq_question": "Frequently Asked Questions 3 ?",
+            "faq_answer": "<p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
           }
         }
       },
@@ -55,61 +55,62 @@
         "reset_spacing": true
       }
     },
-    "customize_image_comparison_slider_g4ECqn": {
+    "customize_image_comparison_slider_hB8Wnn": {
       "type": "customize-image-comparison-slider",
       "blocks": {
-        "heading_G9MnUK": {
+        "heading_b8GcRq": {
           "type": "heading",
           "settings": {
             "heading_block": "Talk about your brand",
-            "uppercase": false,
-            "fs_heading_block": 36,
-            "fw_heading_block": "500"
+            "uppercase": true,
+            "fs_heading_block": 24,
+            "fw_heading_block": "600"
           }
         },
-        "description_pYeh6k": {
+        "description_PpGzR7": {
           "type": "description",
           "settings": {
             "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "fs_description_block": 16,
+            "fs_description_block": 18,
             "fw_description_block": "400",
             "spacing_description_block": 20
           }
         },
-        "button_a6RH3P": {
+        "button_bYApnw": {
           "type": "button",
           "settings": {
-            "btn_name_block": "",
-            "btn_type_block": "link",
-            "btn_collection_block": "",
-            "spacing_btn_block": 20
+            "btn_name": "",
+            "btn_type": "link",
+            "spacing_btn": 20
           }
         }
       },
       "block_order": [
-        "heading_G9MnUK",
-        "description_pYeh6k",
-        "button_a6RH3P"
+        "heading_b8GcRq",
+        "description_PpGzR7",
+        "button_bYApnw"
       ],
       "name": "Image comparison slider",
       "settings": {
-        "section_width": "defaul",
-        "color_scheme": "",
+        "section_width": "fluid-container",
+        "color_scheme": "scheme-1",
         "heading": "Image comparison slider",
         "fs_heading": 45,
-        "fw_heading": "400",
+        "fw_heading": "500",
         "description": "<p>Description</p>",
-        "fs_description": 18,
-        "fw_description": "400",
+        "fs_description": 24,
+        "fw_description": "500",
         "txt_align": "center",
         "spacing_description": 30,
+        "before_image": "shopify://shop_images/img-1.jpg",
+        "after_image": "shopify://shop_images/img-2.jpg",
         "width_block": "50",
         "position_comp": "left",
         "show_label": true,
         "ratio_image": "custom",
-        "ratio_custom": "10/6",
+        "ratio_custom": "16/9",
         "vertical_align": "start",
-        "section_pt": 40,
+        "section_pt": 50,
         "section_pb": 50,
         "reset_spacing": false
       }
@@ -117,6 +118,6 @@
   },
   "order": [
     "faq_customize_UiDPjn",
-    "customize_image_comparison_slider_g4ECqn"
+    "customize_image_comparison_slider_hB8Wnn"
   ]
 }
