@@ -55,69 +55,68 @@
         "reset_spacing": true
       }
     },
-    "customize_image_comparison_slider_hB8Wnn": {
+    "customize_image_comparison_slider_KX87EM": {
       "type": "customize-image-comparison-slider",
       "blocks": {
-        "heading_b8GcRq": {
+        "heading_gXtRGe": {
           "type": "heading",
           "settings": {
             "heading_block": "Talk about your brand",
-            "uppercase": true,
-            "fs_heading_block": 24,
-            "fw_heading_block": "600"
+            "uppercase": false,
+            "fs_heading_block": 36,
+            "fw_heading_block": "500"
           }
         },
-        "description_PpGzR7": {
+        "description_UjQCwX": {
           "type": "description",
           "settings": {
             "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "fs_description_block": 18,
+            "fs_description_block": 16,
             "fw_description_block": "400",
             "spacing_description_block": 20
           }
         },
-        "button_bYApnw": {
+        "button_KzxiXM": {
           "type": "button",
           "settings": {
-            "btn_name": "",
-            "btn_type": "link",
-            "spacing_btn": 20
+            "btn_name_block": "",
+            "btn_type_block": "link",
+            "btn_collection_block": "",
+            "spacing_btn_block": 20
           }
         }
       },
       "block_order": [
-        "heading_b8GcRq",
-        "description_PpGzR7",
-        "button_bYApnw"
+        "heading_gXtRGe",
+        "description_UjQCwX",
+        "button_KzxiXM"
       ],
       "name": "Image comparison slider",
       "settings": {
-        "section_width": "fluid-container",
-        "color_scheme": "scheme-1",
+        "section_width": "defaul",
+        "color_scheme": "",
         "heading": "Image comparison slider",
         "fs_heading": 45,
-        "fw_heading": "500",
+        "fw_heading": "400",
         "description": "<p>Description</p>",
-        "fs_description": 24,
-        "fw_description": "500",
+        "fs_description": 18,
+        "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 30,
-        "before_image": "shopify://shop_images/img-1.jpg",
-        "after_image": "shopify://shop_images/img-2.jpg",
         "width_block": "50",
         "position_comp": "left",
         "show_label": true,
         "ratio_image": "custom",
-        "ratio_custom": "16/9",
+        "ratio_custom": "10/6",
         "vertical_align": "start",
-        "section_pt": 50,
-        "section_pb": 50,
+        "section_pt": 40,
+        "section_pb": 40,
         "reset_spacing": false
       }
     }
   },
   "order": [
     "faq_customize_UiDPjn",
-    "customize_image_comparison_slider_hB8Wnn"
+    "customize_image_comparison_slider_KX87EM"
   ]
 }
