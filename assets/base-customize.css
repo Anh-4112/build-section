@@ -1,5 +1,5 @@
 /* =============== Reset ================ */
-h1, h2, h3, h4, h5, p {
+h1, h2, h3, h4, h5, p, div {
     line-height: 1;
     margin-top: 0;
     margin-bottom: 0;
@@ -200,7 +200,7 @@ comp-btn::before {
 /* =============== Icon =============== */
 .perv-color,
 .next-color {
-  background-color: rgb(225, 225, 225, 0.4);
+  background-color: white;
 }
 
 .perv-color:hover,
@@ -399,6 +399,10 @@ comp-btn::before {
 /* === Border === */
 .bor {
   border: transparent solid;
+}
+
+.bor-top {
+  border-top: transparent solid;
 }
 
 .bor-bot {

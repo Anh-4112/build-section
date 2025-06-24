@@ -167,7 +167,7 @@
                             {% assign product_block = block_st.product_block %}
                             <div class="d-flex gap-20 product__spacing" style="--spacing-product: {{ block_st.spacing_product_block }};">
                                 {% if product_block != blank %}
-                                    <a class="f-25p rounded-10 overflow-hidden" href="{{ product_block.url }}">
+                                    <a class="rounded-10 overflow-hidden" href="{{ product_block.url }}" style="max-width: 12rem;">
                                         <img
                                             src="{{ product_block.featured_image | image_url }}"
                                             alt="Image"
@@ -175,7 +175,7 @@
                                             height="auto"
                                         >
                                     </a>
-                                    <div class="f-1 d-inline-flex column jc-center gap-10">
+                                    <div class="d-inline-flex column jc-center gap-10">
                                         <a 
                                             style="line-height: 1.2; font-weight: 500;" 
                                             href="{{ product_block.url }}"

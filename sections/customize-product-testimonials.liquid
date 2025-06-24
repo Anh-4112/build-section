@@ -17,6 +17,15 @@
         else
             assign reset_spacing = 'section__spacing-sections'
         endif
+    assign items_per_row = section_st.items_per_row
+    assign column_gap = section_st.column_gap
+    assign check_icon = section_st.check_icon
+    assign infinite_slide = section_st.infinite_slide
+    assign auto_slide = section_st.auto_slide
+    assign interval_slide = section_st.interval_slide
+    assign reveal_next_slide = section_st.reveal_next_slide
+    assign items_per_row_mobile = section_st.items_per_row_mobile
+
 %}
 
 <section
@@ -39,27 +48,86 @@
             </h3>
         </div>
 
-        <div class="slider-section relative">
-            {% render 'slider-icon' %}
-
-            <div style="width: 100%;">
-                <div style="width: 30%; margin-inline: auto;">
-                    <div>
-                        {% render 'image-clone' %}
+        <div 
+            class="swiper-section relative mt-20"
+            data-items="{{ items_per_row }}"
+            data-gap="{{ column_gap }}"
+            data-infinite="{{ infinite_slide }}"
+            data-auto="{{ auto_slide }}"
+            data-interval="{{ interval_slide }}"
+            data-reveal="{{ reveal_next_slide }}"
+            data-items-mobile="{{ items_per_row_mobile }}"
+        >
+            {% if check_icon %}
+                {% render 'swiper-icon' %}
+            {% endif %}    
+        
+            <div class="slider-block d-flex overflow-hidden">
+                {% for block in section.blocks %}
+                    <div class="slide-item">
+                        <div>
+                            {% render 'image-clone' %}
+                        </div>
+                        <div>
+                            {% comment %} Rate {% endcomment %}
+                            <div class="relative">
+                                <svg width="78" height="14" viewBox="0 0 78 14">
+                                    <use href="#icon-rate-grey"></use>
+                                </svg>
+                                <div class="absolute top-0 left-0 z-1">
+                                    <svg style="color: #ff9900;" width="14" height="14" viewBox="0 0 14 14">
+                                        <use href="#icon-rate"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            {% comment %} Name {% endcomment %}
+                            <div class="d-flex gap-10">
+                                <span>
+                                    AnhAnhh
+                                </span>
+                                <span>
+                                    <svg width="10" height="8" viewBox="0 0 10 8">
+                                        <use href="#icon-tick"></use>
+                                    </svg>
+                                    <i style="font-size: 1rem; font-weight: 600;">Verified Buyer</i>
+                                </span>
+                            </div>
+                            {% comment %} Quote {% endcomment %}
+                            <div>
+                                You can add text content from press comments, reviews, or testimonials here.
+                            </div>
+                            {% comment %} Product {% endcomment %}
+                            <div class="d-flex bor-top bor-1" style="border-color: gray; margin-top: 2rem; padding-top: 1rem;">
+                                <div class="f-25p">
+                                    <span class="rounded-50p overflow-hidden" style="display: block;">
+                                        {% render 'image-clone' %}
+                                    </span>
+                                </div>
+                                <div class="f-1"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
             <div></div>
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const swiperSection = document.querySelector('.swiper-section');
+        if (!swiperSection) return;
+
+        const swiperPerv = document.querySelector('.swiper-perv');
+        const swiperNext = document.querySelector('.swiper-next');
+        const sliderBlock = document.querySelector('.slider-block');
+        const slideItem = document.querySelectorAll('.slide-item');
+
+
+    });
+</script>
 
 {% schema %}
 {
@@ -200,7 +268,96 @@
             "step": 1,
             "unit": "px"
         },
-
+        {
+            "type": "header",
+            "content": "Carousel settings"
+        },
+        {
+            "type": "range",
+            "id": "items_per_row",
+            "label": "Items per row",
+            "default": 2,
+            "min": 1,
+            "max": 4,
+            "step": 1
+        },
+        {
+            "type": "range",
+            "id": "column_gap",
+            "label": "Column gap",
+            "default": 15,
+            "min": 0,
+            "max": 30,
+            "step": 1,
+            "unit": "px"
+        },
+        {
+            "type": "checkbox",
+            "id": "check_icon",
+            "label": "Show next/back",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "pagination_type",
+            "label": "Pagination",
+            "default": "dots",
+            "options": [
+                { 
+                    "value": "none", 
+                    "label": "Disable" 
+                },
+                { 
+                    "value": "dots", 
+                    "label": "Show dots" 
+                },
+                { 
+                    "value": "dots_mobile", 
+                    "label": "Show dots on mobile" 
+                },
+                { 
+                    "value": "progress", 
+                    "label": "Show progress bar" 
+                }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "infinite_slide",
+            "label": "Infinite slider",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "auto_slide",
+            "label": "Auto change slides",
+            "default": false
+        },
+        {
+            "type": "range",
+            "id": "interval_slide",
+            "label": "Change slides every",
+            "min": 2,
+            "max": 6,
+            "step": 1,
+            "unit": "s",
+            "default": 3
+        },
+        {
+            "type": "checkbox",
+            "id": "reveal_next_slide",
+            "label": "Reveal next slide (partial)",
+            "default": false
+        },
+        {
+            "type": "range",
+            "id": "items_per_row_mobile",
+            "label": "Items per row (mobile)",
+            "default": 1,
+            "step": 0.5,
+            "min": 1,
+            "max": 2
+        },
 
 
 
@@ -233,6 +390,14 @@
             "id": "reset_spacing",
             "label": "Remove default space between sections",
             "default": false
+        }
+    ],
+    "blocks":[
+        {
+            "type": "testimonials_items",
+            "name": "Testimonials Items",
+            "limit": 6,
+            "settings": []
         }
     ],
     "presets": [
