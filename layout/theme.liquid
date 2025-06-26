@@ -8,6 +8,7 @@
     <link rel="canonical" href="{{ canonical_url }}">
 
     {% render 'font-variables' %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.8/swiper-bundle.min.css">
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -342,5 +343,6 @@
     {%- endif -%}
     
     {% render 'icons-svg' %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.8/swiper-bundle.min.js" defer></script>
   </body>
 </html>

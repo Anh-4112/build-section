@@ -24,8 +24,8 @@
     assign auto_slide = section_st.auto_slide
     assign interval_slide = section_st.interval_slide
     assign reveal_next_slide = section_st.reveal_next_slide
+    assign pagination_type = section_st.pagination_type
     assign items_per_row_mobile = section_st.items_per_row_mobile
-
 %}
 
 <section
@@ -49,24 +49,28 @@
         </div>
 
         <div 
-            class="swiper-section relative mt-20"
+            class="swiper-section swiper relative mt-20"
             data-items="{{ items_per_row }}"
             data-gap="{{ column_gap }}"
+            data-items-mobile="{{ items_per_row_mobile }}"
             data-infinite="{{ infinite_slide }}"
             data-auto="{{ auto_slide }}"
             data-interval="{{ interval_slide }}"
             data-reveal="{{ reveal_next_slide }}"
-            data-items-mobile="{{ items_per_row_mobile }}"
+            data-pagination="{{ pagination_type }}"       
         >
+
             {% if check_icon %}
                 {% render 'swiper-icon' %}
-            {% endif %}    
+            {% endif %}
         
-            <div class="slider-block d-flex overflow-hidden">
+            <div class="swiper-wrapper">
                 {% for block in section.blocks %}
-                    <div class="slide-item">
+                    <div class="swiper-slide txt-no-select">
                         <div>
-                            {% render 'image-clone' %}
+                            <a href="#!">
+                                {% render 'image-clone' %}
+                            </a>
                         </div>
                         <div>
                             {% comment %} Rate {% endcomment %}
@@ -81,7 +85,7 @@
                                 </div>
                             </div>
                             {% comment %} Name {% endcomment %}
-                            <div class="d-flex gap-10">
+                            <div class="d-flex f-wrap gap-5">
                                 <span>
                                     AnhAnhh
                                 </span>
@@ -110,23 +114,46 @@
                 {% endfor %}
             </div>
 
-            <div></div>
+            <div class="swiper-panigation d-flex jc-center mt-10"></div>
         </div>
     </div>
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const swiperSection = document.querySelector('.swiper-section');
-        if (!swiperSection) return;
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.swiper-section').forEach(section => {
+    const ds = section.dataset;
+    const isTrue  = v => v === 'true';
 
-        const swiperPerv = document.querySelector('.swiper-perv');
-        const swiperNext = document.querySelector('.swiper-next');
-        const sliderBlock = document.querySelector('.slider-block');
-        const slideItem = document.querySelectorAll('.slide-item');
+    new Swiper(section, {
+      slidesPerView: +ds.items,
+      spaceBetween:  +ds.gap,
 
+      loop: isTrue(ds.infinite),
+      autoplay: isTrue(ds.auto)
+        ? { delay: (+ds.interval) * 1000, disableOnInteraction: false }
+        : false,
 
+      ...(isTrue(ds.reveal) && { slidesPerView: 'auto', centeredSlides: true }),
+
+      navigation: {
+        nextEl: section.querySelector('.swiper-next'),
+        prevEl: section.querySelector('.swiper-prev'),
+      },
+
+      pagination: (() => {
+        const el = section.querySelector('.swiper-panigation');
+        const type = ds.pagination;
+        if (type === 'none' || !el) return false;
+        return {
+          el,
+          clickable: true,
+          type: type === 'progress' ? 'progressbar' : 'bullets',
+        };
+      })()
     });
+  });
+});
 </script>
 
 {% schema %}
@@ -402,7 +429,15 @@
     ],
     "presets": [
         {
-            "name": "Product testimonials"
+            "name": "Product testimonials",
+            "blocks": [
+                {
+                    "type": "testimonials_items"
+                },
+                {
+                    "type": "testimonials_items"
+                }
+            ]
         }
     ]
 }

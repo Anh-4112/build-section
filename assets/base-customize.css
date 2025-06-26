@@ -135,19 +135,19 @@ comp-btn::before {
   transform: translateX(-50%);
 }
 
-/* =============== Sider Section =============== */
-.slider-section:hover .slider-perv {
+/* =============== Swiper Section =============== */
+.swiper-section:hover .swiper-prev {
   opacity: 1;
   transform: translate(3rem, -50%);
 }
 
-.slider-section:hover .slider-next {
+.swiper-section:hover .swiper-next {
   opacity: 1;
   transform: translate(-3rem, -50%);
 }
 
-.slider-next,
-.slider-perv {
+.swiper-next,
+.swiper-prev {
   transition: opacity,transform, 0.2s ease-in-out;
 }
 
@@ -198,12 +198,12 @@ comp-btn::before {
 }
 
 /* =============== Icon =============== */
-.perv-color,
+.prev-color,
 .next-color {
   background-color: white;
 }
 
-.perv-color:hover,
+.prev-color:hover,
 .next-color:hover {
   color: white;
   background-color: black;
@@ -297,6 +297,10 @@ comp-btn::before {
 }
 
 /* === Gap === */
+.gap-5 {
+  gap: 0.5rem;
+}
+
 .gap-10 {
   gap: 1rem;
 }
@@ -358,6 +362,10 @@ comp-btn::before {
 }
 
 /* === Z-index === */
+.z-n100 {
+  z-index: -100;
+}
+
 .z-1 {
   z-index: 1;
 }
@@ -432,6 +440,10 @@ comp-btn::before {
 
 /* === Margin === */
 /* Margin Top */
+.mt-10 {
+  margin-top: 1rem;
+}
+
 .mt-20 {
   margin-top: 2rem;
 }
