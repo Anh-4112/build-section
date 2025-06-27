@@ -1331,7 +1331,8 @@ class CartPerformance {
   }
 }
 // ===== Customize =====
-class Collapse extends HTMLElement {
+// --------- Collapse Block --------- //
+class CollapseBlock extends HTMLElement {
   constructor() {
     super();
   }
@@ -1369,10 +1370,10 @@ class Collapse extends HTMLElement {
     });
   }
 }
-customElements.define('collapse-block', Collapse);
+customElements.define('collapse-block', CollapseBlock);
 
-
-class ComparisonSlider extends HTMLElement {
+// --------- Comparison Block --------- //
+class ComparisonBlock extends HTMLElement {
   constructor() {
     super();
   }
@@ -1416,12 +1417,13 @@ class ComparisonSlider extends HTMLElement {
     });
   }
 }
-customElements.define('comp-block', ComparisonSlider);
+customElements.define('comp-block', ComparisonBlock);
 customElements.define('comp-before', class extends HTMLElement {});
 customElements.define('comp-after', class extends HTMLElement {});
 customElements.define('comp-btn', class extends HTMLElement {});
 customElements.define('comp-btn-inline', class extends HTMLElement {});
 
+// --------- Swiper Section --------- //
 class SwiperSection extends HTMLElement {
   constructor () {
     super();

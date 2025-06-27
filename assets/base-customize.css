@@ -79,14 +79,10 @@ comp-container, comp-before, comp-after {
 }
 
 /* =============== Collapse Block =============== */
-.collapse-content {
+collapse-content {
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.3s ease-in-out;
-}
-
-.collapse-content > p {
-  line-height: 2;
 }
 
 /* =============== Comparion Block =============== */
@@ -239,6 +235,10 @@ comp-btn::before {
   color: white;
 }
 
+.color-rate {
+  color: var(--color-rate);
+}
+
 /* === Text Align === */
 .text-left {
   text-align: start;
@@ -287,6 +287,10 @@ comp-btn::before {
   display: none;
 }
 
+.d-block {
+  display: block;
+}
+
 .d-flex {
   display: flex;
 }
@@ -301,6 +305,10 @@ comp-btn::before {
 }
 
 /* === Gap === */
+.gap-2 {
+  gap: 0.2rem;
+}
+
 .gap-5 {
   gap: 0.5rem;
 }
@@ -338,6 +346,10 @@ comp-btn::before {
 /* === Flex === */
 .f-25p {
   flex: 0 0 25%;
+}
+
+.f-75p {
+  flex: 0 0 75%;
 }
 
 .f-1 {
@@ -379,6 +391,10 @@ comp-btn::before {
 }
 
 /* === Width === */
+.w-25p {
+  width: 25%;
+}
+
 .w-full {
   width: 100%;
 }
@@ -440,6 +456,24 @@ comp-btn::before {
 /* === Clip Path === */
 .clip-left-50p {
   clip-path: inset(0 50% 0 0);
+}
+
+/* === Padding === */
+/* Padding X */
+.px-40 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+/* Padding Y */
+.py-20 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Padding Top */
+.pt-10 {
+  padding-top: 1rem;
 }
 
 /* === Margin === */

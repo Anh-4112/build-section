@@ -50,7 +50,7 @@
                             <collapse-icon>+</collapse-icon>
                         </collapse-toggle>
                         <collapse-content>
-                           {{ block_st.faq_answer }}
+                           {{ block_st.faq_answer |  replace: '<p>', '<p style="line-height: 2;">' }}
                         </collapse-content>
                     </collapse-block>
             {% endfor %}

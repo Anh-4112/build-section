@@ -119,23 +119,49 @@
       "blocks": {
         "testimonials_items_mHPWyM": {
           "type": "testimonials_items",
-          "settings": {}
+          "settings": {
+            "author_image": "shopify://shop_images/img-1_0254e507-ca58-4572-907d-eb12f08edf59.jpg",
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": "apple-iphone-12-pro-max-128gb-unlocked"
+          }
         },
         "testimonials_items_Vdhfa9": {
           "type": "testimonials_items",
-          "settings": {}
+          "settings": {
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": ""
+          }
         },
         "testimonials_items_DTFUEe": {
           "type": "testimonials_items",
-          "settings": {}
+          "settings": {
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": ""
+          }
         },
         "testimonials_items_fGDRde": {
           "type": "testimonials_items",
-          "settings": {}
+          "settings": {
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": ""
+          }
         },
         "testimonials_items_AdAhhz": {
           "type": "testimonials_items",
-          "settings": {}
+          "settings": {
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": ""
+          }
         }
       },
       "block_order": [
@@ -157,15 +183,19 @@
         "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 30,
-        "items_per_row_pc": 4,
+        "items_per_row_pc": 2,
         "items_per_row_mobile": 2,
         "column_gap": 10,
         "check_icon": true,
         "pagination_type": "dots",
-        "infinite_slide": true,
+        "infinite_slide": false,
         "auto_slide": false,
         "interval_slide": 2,
         "reveal_next_slide": true,
+        "img_show": true,
+        "img_position": "left",
+        "color_rate": "#ff9900",
+        "show_verified": true,
         "section_pt": 40,
         "section_pb": 40,
         "reset_spacing": false
