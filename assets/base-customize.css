@@ -138,12 +138,12 @@ comp-btn::before {
 /* =============== Swiper Section =============== */
 .swiper-section:hover .swiper-prev {
   opacity: 1;
-  transform: translate(3rem, -50%);
+  transform: translate(2rem, -50%);
 }
 
 .swiper-section:hover .swiper-next {
   opacity: 1;
-  transform: translate(-3rem, -50%);
+  transform: translate(-2rem, -50%);
 }
 
 .swiper-next,
@@ -200,7 +200,7 @@ comp-btn::before {
 /* =============== Icon =============== */
 .prev-color,
 .next-color {
-  background-color: white;
+  background-color: rgba(195, 195, 245, 0.4);
 }
 
 .prev-color:hover,
@@ -283,6 +283,10 @@ comp-btn::before {
 }
 
 /* === Display === */
+.d-none {
+  display: none;
+}
+
 .d-flex {
   display: flex;
 }

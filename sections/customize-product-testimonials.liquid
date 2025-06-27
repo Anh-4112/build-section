@@ -17,7 +17,7 @@
         else
             assign reset_spacing = 'section__spacing-sections'
         endif
-    assign items_per_row = section_st.items_per_row
+    assign items_per_row_pc = section_st.items_per_row_pc
     assign column_gap = section_st.column_gap
     assign check_icon = section_st.check_icon
     assign infinite_slide = section_st.infinite_slide
@@ -48,18 +48,16 @@
             </h3>
         </div>
 
-        <div 
-            class="swiper-section swiper relative mt-20"
-            data-items="{{ items_per_row }}"
-            data-gap="{{ column_gap }}"
-            data-items-mobile="{{ items_per_row_mobile }}"
-            data-infinite="{{ infinite_slide }}"
-            data-auto="{{ auto_slide }}"
-            data-interval="{{ interval_slide }}"
-            data-reveal="{{ reveal_next_slide }}"
-            data-pagination="{{ pagination_type }}"       
+        <swiper-section
+        class="swiper-section swiper relative mt-20"
+        data-items-pc="{{ items_per_row_pc }}"
+        data-items-mobile="{{ items_per_row_mobile }}"
+        data-gap="{{ column_gap }}"
+        data-infinite="{{ infinite_slide }}"
+        data-auto="{{ auto_slide }}"
+        data-interval="{{ interval_slide }}"
+        data-reveal="{{ reveal_next_slide }}"
         >
-
             {% if check_icon %}
                 {% render 'swiper-icon' %}
             {% endif %}
@@ -67,7 +65,7 @@
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}
                     <div class="swiper-slide txt-no-select">
-                        <div>
+                        <div class="d-none d-sm-block">
                             <a href="#!">
                                 {% render 'image-clone' %}
                             </a>
@@ -113,48 +111,13 @@
                     </div>
                 {% endfor %}
             </div>
-
-            <div class="swiper-panigation d-flex jc-center mt-10"></div>
-        </div>
+            
+            {% if pagination_type == 'dots' %}
+                <div class="swiper-navigation d-flex jc-center mt-10"></div>
+            {% endif %}
+        </swiper-section>
     </div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.swiper-section').forEach(section => {
-    const ds = section.dataset;
-    const isTrue  = v => v === 'true';
-
-    new Swiper(section, {
-      slidesPerView: +ds.items,
-      spaceBetween:  +ds.gap,
-
-      loop: isTrue(ds.infinite),
-      autoplay: isTrue(ds.auto)
-        ? { delay: (+ds.interval) * 1000, disableOnInteraction: false }
-        : false,
-
-      ...(isTrue(ds.reveal) && { slidesPerView: 'auto', centeredSlides: true }),
-
-      navigation: {
-        nextEl: section.querySelector('.swiper-next'),
-        prevEl: section.querySelector('.swiper-prev'),
-      },
-
-      pagination: (() => {
-        const el = section.querySelector('.swiper-panigation');
-        const type = ds.pagination;
-        if (type === 'none' || !el) return false;
-        return {
-          el,
-          clickable: true,
-          type: type === 'progress' ? 'progressbar' : 'bullets',
-        };
-      })()
-    });
-  });
-});
-</script>
 
 {% schema %}
 {
@@ -301,8 +264,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "type": "range",
-            "id": "items_per_row",
-            "label": "Items per row",
+            "id": "items_per_row_pc",
+            "label": "Items per row desktop",
             "default": 2,
             "min": 1,
             "max": 4,
@@ -310,11 +273,20 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "type": "range",
+            "id": "items_per_row_mobile",
+            "label": "Items per row mobile",
+            "default": 1,
+            "step": 0.5,
+            "min": 1,
+            "max": 2
+        },
+        {
+            "type": "range",
             "id": "column_gap",
             "label": "Column gap",
             "default": 15,
             "min": 0,
-            "max": 30,
+            "max": 50,
             "step": 1,
             "unit": "px"
         },
@@ -373,17 +345,14 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             "type": "checkbox",
             "id": "reveal_next_slide",
-            "label": "Reveal next slide (partial)",
+            "label": "Reveal next slide",
             "default": false
         },
+
+
         {
-            "type": "range",
-            "id": "items_per_row_mobile",
-            "label": "Items per row (mobile)",
-            "default": 1,
-            "step": 0.5,
-            "min": 1,
-            "max": 2
+            "type": "header",
+            "content": "Item setting"
         },
 
 

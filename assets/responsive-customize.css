@@ -1,3 +1,9 @@
+@media (min-width: 576px) {
+  .d-sm-block {
+    display: block;
+  }
+}
+
 @media (min-width: 992px) {
   .row-lg {
     flex-direction: row;

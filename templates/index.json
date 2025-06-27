@@ -157,18 +157,18 @@
         "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 30,
-        "items_per_row": 4,
-        "column_gap": 15,
+        "items_per_row_pc": 4,
+        "items_per_row_mobile": 2,
+        "column_gap": 10,
         "check_icon": true,
         "pagination_type": "dots",
-        "infinite_slide": false,
+        "infinite_slide": true,
         "auto_slide": false,
-        "interval_slide": 3,
-        "reveal_next_slide": false,
-        "items_per_row_mobile": 1,
+        "interval_slide": 2,
+        "reveal_next_slide": true,
         "section_pt": 40,
         "section_pb": 40,
-        "reset_spacing": true
+        "reset_spacing": false
       }
     }
   },

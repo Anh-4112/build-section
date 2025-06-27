@@ -1421,3 +1421,63 @@ customElements.define('comp-before', class extends HTMLElement {});
 customElements.define('comp-after', class extends HTMLElement {});
 customElements.define('comp-btn', class extends HTMLElement {});
 customElements.define('comp-btn-inline', class extends HTMLElement {});
+
+class SwiperSection extends HTMLElement {
+  constructor () {
+    super();
+    this.globalSlide = null;
+  }
+
+  connectedCallback () {
+    const _this = this;
+    const itemsMobile = Number(_this.dataset.itemsMobile);
+    const itemsTabletSmall = Number(_this.dataset.itemsTabletSmall) || 2;
+    const itemsTablet = Number(_this.dataset.itemsTablet) || 3;
+    const itemsPc = Number(_this.dataset.itemsPc);
+    const gap = Number(_this.dataset.gap);
+    const loop = _this.dataset.infinite === 'true';
+    const auto = _this.dataset.auto === 'true';
+    const interval = Number(_this.dataset.interval) * 1000;
+  
+    const swiperOpts = {
+      slidesPerView: itemsMobile,
+      spaceBetween: gap,
+      loop: loop,
+      watchSlidesProgress: true,
+      navigation: {
+        prevEl: _this.querySelector('.swiper-prev'),
+        nextEl: _this.querySelector('.swiper-next'),
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: itemsMobile,
+          spaceBetween: gap
+        },
+        576: {
+          slidesPerView: itemsTabletSmall,
+          spaceBetween: gap
+        },
+        768: {
+          slidesPerView: itemsTablet,
+          spaceBetween: gap
+        },
+        1024: { 
+          slidesPerView: itemsPc,
+          spaceBetween: gap 
+        }
+      },
+    };
+  
+    if (auto) {
+      swiperOpts.autoplay = { delay: interval };
+    }
+  
+    const pagEl = _this.querySelector('.swiper-navigation');
+    if (pagEl) {
+      swiperOpts.pagination = { _this: pagEl, clickable: true };
+    }
+  
+    this.globalSlide = new Swiper(_this, swiperOpts);
+  }
+}
+customElements.define('swiper-section', SwiperSection);
