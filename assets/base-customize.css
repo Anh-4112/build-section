@@ -344,6 +344,10 @@ comp-btn::before {
 }
 
 /* === Flex === */
+.f-custom {
+  flex: 0 0 calc(var(--f-custom) * 1%);
+}
+
 .f-25p {
   flex: 0 0 25%;
 }

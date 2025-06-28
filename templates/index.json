@@ -130,37 +130,31 @@
         "testimonials_items_Vdhfa9": {
           "type": "testimonials_items",
           "settings": {
+            "author_image": "shopify://shop_images/img-2.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": ""
+            "author_product": "apple-iphone-13-pro-max-128gb-unlocked"
           }
         },
         "testimonials_items_DTFUEe": {
           "type": "testimonials_items",
           "settings": {
+            "author_image": "shopify://shop_images/img-1.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": ""
+            "author_product": "apple-iphone-12-pro-max-128gb-unlocked"
           }
         },
-        "testimonials_items_fGDRde": {
+        "testimonials_items_wbatPK": {
           "type": "testimonials_items",
           "settings": {
+            "author_image": "shopify://shop_images/img-2.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": ""
-          }
-        },
-        "testimonials_items_AdAhhz": {
-          "type": "testimonials_items",
-          "settings": {
-            "author_rate": 5,
-            "author_name": "Author's name",
-            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": ""
+            "author_product": "apple-iphone-13-pro-max-128gb-unlocked"
           }
         }
       },
@@ -168,8 +162,7 @@
         "testimonials_items_mHPWyM",
         "testimonials_items_Vdhfa9",
         "testimonials_items_DTFUEe",
-        "testimonials_items_fGDRde",
-        "testimonials_items_AdAhhz"
+        "testimonials_items_wbatPK"
       ],
       "name": "Product testimonials",
       "settings": {
@@ -184,16 +177,17 @@
         "txt_align": "center",
         "spacing_description": 30,
         "items_per_row_pc": 2,
-        "items_per_row_mobile": 2,
+        "items_per_row_mobile": 1,
         "column_gap": 10,
         "check_icon": true,
-        "pagination_type": "dots",
-        "infinite_slide": false,
+        "pagination_type": "none",
+        "infinite_slide": true,
         "auto_slide": false,
-        "interval_slide": 2,
+        "interval_slide": 3,
         "reveal_next_slide": true,
         "img_show": true,
         "img_position": "left",
+        "flex_custom": 50,
         "color_rate": "#ff9900",
         "show_verified": true,
         "section_pt": 40,

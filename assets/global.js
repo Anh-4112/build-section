@@ -1455,14 +1455,14 @@ class SwiperSection extends HTMLElement {
           slidesPerView: itemsMobile,
           spaceBetween: gap
         },
-        576: {
-          slidesPerView: itemsTabletSmall,
-          spaceBetween: gap
-        },
-        768: {
-          slidesPerView: itemsTablet,
-          spaceBetween: gap
-        },
+        // 576: {
+        //   slidesPerView: itemsTabletSmall,
+        //   spaceBetween: gap
+        // },
+        // 768: {
+        //   slidesPerView: itemsTablet,
+        //   spaceBetween: gap
+        // },
         1024: { 
           slidesPerView: itemsPc,
           spaceBetween: gap 
@@ -1476,7 +1476,7 @@ class SwiperSection extends HTMLElement {
   
     const pagEl = _this.querySelector('.swiper-navigation');
     if (pagEl) {
-      swiperOpts.pagination = { _this: pagEl, clickable: true };
+      swiperOpts.pagination = { el: pagEl, clickable: true };
     }
   
     this.globalSlide = new Swiper(_this, swiperOpts);
