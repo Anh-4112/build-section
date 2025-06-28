@@ -2,6 +2,10 @@
   .d-sm-block {
     display: block;
   }
+
+    .d-sm-none {
+    display: none;
+  }
 }
 
 @media (min-width: 992px) {

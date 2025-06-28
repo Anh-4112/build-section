@@ -103,11 +103,13 @@
         "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 30,
+        "before_image": "shopify://shop_images/img-1.jpg",
+        "after_image": "shopify://shop_images/img-2.jpg",
         "width_block": "50",
         "position_comp": "left",
         "show_label": true,
         "ratio_image": "custom",
-        "ratio_custom": "10/6",
+        "ratio_custom": "16/9",
         "vertical_align": "start",
         "section_pt": 40,
         "section_pb": 40,
@@ -120,17 +122,17 @@
         "testimonials_items_mHPWyM": {
           "type": "testimonials_items",
           "settings": {
-            "author_image": "shopify://shop_images/img-1_0254e507-ca58-4572-907d-eb12f08edf59.jpg",
+            "author_image": "shopify://shop_images/img-pepole-2.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
-            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p><p>You can add text content from press comments, reviews, or testimonials here.</p>",
             "author_product": "apple-iphone-12-pro-max-128gb-unlocked"
           }
         },
         "testimonials_items_Vdhfa9": {
           "type": "testimonials_items",
           "settings": {
-            "author_image": "shopify://shop_images/img-2.jpg",
+            "author_image": "shopify://shop_images/img-pepole-1.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
@@ -140,21 +142,21 @@
         "testimonials_items_DTFUEe": {
           "type": "testimonials_items",
           "settings": {
-            "author_image": "shopify://shop_images/img-1.jpg",
+            "author_image": "shopify://shop_images/img-pepole-3.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
-            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": "apple-iphone-12-pro-max-128gb-unlocked"
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p><p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": "apple-iphone-12-pro-max-256gb-unlocked"
           }
         },
         "testimonials_items_wbatPK": {
           "type": "testimonials_items",
           "settings": {
-            "author_image": "shopify://shop_images/img-2.jpg",
+            "author_image": "shopify://shop_images/img-pepole-4.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": "apple-iphone-13-pro-max-128gb-unlocked"
+            "author_product": "apple-iphone-13-pro-max-256gb-unlocked"
           }
         }
       },
@@ -176,18 +178,18 @@
         "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 30,
-        "items_per_row_pc": 2,
+        "items_per_row_pc": 4,
         "items_per_row_mobile": 1,
         "column_gap": 10,
         "check_icon": true,
-        "pagination_type": "none",
+        "panigation_type": "progress",
         "infinite_slide": true,
         "auto_slide": false,
-        "interval_slide": 3,
-        "reveal_next_slide": true,
+        "interval_slide": 2,
+        "reveal_next_slide": false,
         "img_show": true,
-        "img_position": "left",
-        "flex_custom": 50,
+        "img_position": "top",
+        "flex_custom": 35,
         "color_rate": "#ff9900",
         "show_verified": true,
         "section_pt": 40,

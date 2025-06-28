@@ -482,6 +482,10 @@ comp-btn::before {
 
 /* === Margin === */
 /* Margin Top */
+.mt-2 {
+  margin-top: 0.2rem;
+}
+
 .mt-10 {
   margin-top: 1rem;
 }

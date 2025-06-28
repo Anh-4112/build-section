@@ -24,7 +24,7 @@
     assign auto_slide = section_st.auto_slide
     assign interval_slide = section_st.interval_slide
     assign reveal_next_slide = section_st.reveal_next_slide
-    assign pagination_type = section_st.pagination_type
+    assign panigation_type = section_st.panigation_type
     assign items_per_row_mobile = section_st.items_per_row_mobile
     assign img_show = section_st.img_show
     assign img_position = section_st.img_position
@@ -62,6 +62,7 @@
             data-auto="{{ auto_slide }}"
             data-interval="{{ interval_slide }}"
             data-reveal="{{ reveal_next_slide }}"
+            data-panigation="{{ panigation_type }}"
         >
             {% if check_icon %}
                 {% render 'swiper-icon' %}
@@ -70,7 +71,7 @@
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}
                     {% assign blocks_st = block.settings %}
-                    <div class="swiper-slide txt-no-select d-flex bor bor-1 rounded-10 overflow-hidden {% if img_position == 'top' or img_position == 'bot' %} column {% endif %}" style="border-color: rgb(220, 220, 220);">
+                    <div class="swiper-slide txt-no-select d-flex bor bor-1 rounded-10 overflow-hidden{% if img_position == 'top' or img_position == 'bot' %} column {% endif %}" style="border-color: rgb(220, 220, 220);">
                         <div 
                             class="d-none{% if img_position == 'left' or img_position == 'right' %} f-custom {% endif %}{% if img_show == true %} d-sm-block {% endif %}{% if img_position == 'right' or img_position == 'bot' %} order-1 {% endif %}"
                             style="--f-custom: {{ flex_custom }};"
@@ -144,8 +145,10 @@
                 {% endfor %}
             </div>
             
-            {% if pagination_type == 'dots' %}
-                <div class="swiper-navigation d-flex jc-center mt-10"></div>
+            {% if panigation_type == 'dots' or panigation_type == 'dots_mobile' %}
+                <div class="swiper-navigation d-flex jc-center mt-10 {% if panigation_type == 'dots_mobile' %} d-sm-none {% endif %}"></div>
+            {% elsif panigation_type == 'progress' %}
+                <div class="swiper-navigation mt-2"></div>
             {% endif %}
         </swiper-section>
     </div>
@@ -330,7 +333,7 @@
         },
         {
             "type": "select",
-            "id": "pagination_type",
+            "id": "panigation_type",
             "label": "Pagination",
             "default": "dots",
             "options": [
@@ -436,9 +439,6 @@
             "label": "Show verified buyer",
             "default": true
         },
-
-
-
         {
             "type": "header",
             "content": "Section Padding"
