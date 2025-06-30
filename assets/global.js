@@ -1500,36 +1500,6 @@ class SwiperSection extends HTMLElement {
     }
     
     this.globalSlide = new Swiper(_this, swiperOpts);
-
-    const slideHeight = () => {
-      const slides = _this.querySelectorAll('.swiper-slide');
-      let maxH = 0;
-      slides.forEach(s => { 
-        s.style.height = 'auto'; 
-      });
-      slides.forEach(s => { 
-        maxH = Math.max(maxH, s.offsetHeight); 
-      });
-      slides.forEach(s => { 
-        s.style.height = `${maxH}px`; 
-      });
-    };
-
-    const updateSlideHeight = () => {
-      if (this.globalSlide.imagesLoaded) {
-        this.globalSlide.on('imagesReady', slideHeight);
-      } else {
-        this.globalSlide.on('init', slideHeight);
-        this.globalSlide.on('imagesReady', slideHeight);
-      }
-    };
-    updateSlideHeight();
-
-    this.globalSlide.on('breakpoint', slideHeight);
-    window.addEventListener('resize', () => {
-      clearTimeout(_this.__eqHTimer);
-      _this.__eqHTimer = setTimeout(slideHeight, 200);
-    });
   }
 }
 customElements.define('swiper-section', SwiperSection);

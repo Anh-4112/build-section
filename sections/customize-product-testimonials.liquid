@@ -31,6 +31,19 @@
     assign flex_custom = section_st.flex_custom
     assign color_rate = section_st.color_rate
     assign show_verified = section_st.show_verified
+    assign ratio_image = section_st.ratio_image
+        if ratio_image == 'adapt'
+            assign ratio_image = ''
+        elsif ratio_image == 'square'
+            assign ratio_image = 'ratio-square'
+        elsif ratio_image == 'portrait'
+            assign ratio_image = 'ratio-portrait'
+        elsif ratio_image == 'landscape'
+            assign ratio_image = 'ratio-landscape'
+        elsif ratio_image == 'custom'
+            assign ratio_image = 'ratio-custom'
+        endif
+    assign ratio_custom = section_st.ratio_custom
 %}
 
 <section
@@ -73,8 +86,8 @@
                     {% assign blocks_st = block.settings %}
                     <div class="swiper-slide txt-no-select d-flex bor bor-1 rounded-10 overflow-hidden{% if img_position == 'top' or img_position == 'bot' %} column {% endif %}" style="border-color: rgb(220, 220, 220);">
                         <div 
-                            class="d-none{% if img_position == 'left' or img_position == 'right' %} f-custom {% endif %}{% if img_show == true %} d-sm-block {% endif %}{% if img_position == 'right' or img_position == 'bot' %} order-1 {% endif %}"
-                            style="--f-custom: {{ flex_custom }};"
+                            class="d-none{% if img_position == 'left' or img_position == 'right' %} f-custom {% elsif img_position == 'top' or img_position == 'bot' %} {{ ratio_image }} {% endif %}{% if img_show == true %} d-sm-block {% endif %}{% if img_position == 'right' or img_position == 'bot' %} order-1 {% endif %}"
+                            style="--f-custom: {{ flex_custom }}; --ratio-custom: {{ ratio_custom }};"
                         >
                             {% if blocks_st.author_image != blank %}
                                 <img 
@@ -88,7 +101,7 @@
                                 {% render 'image-clone' %}
                             {% endif %}
                         </div>
-                        <div class="px-40 py-20">
+                        <div class="px-30 py-20 d-flex f-1 column">
                             {% comment %} Rate {% endcomment %}
                             <div class="relative">
                                 <svg width="78" height="14" viewBox="0 0 78 14">
@@ -117,7 +130,7 @@
                                 {% endif %}
                             </div>
                             {% comment %} Quote {% endcomment %}
-                            <div class="mt-10">
+                            <div class="mt-10 f-1">
                                 {{ blocks_st.author_quote | replace: '<p>', '<p style="line-height: 1.4;">' }}
                             </div>
                             {% comment %} Product {% endcomment %}
@@ -426,6 +439,39 @@
             "max": 50,
             "step": 1,
             "unit": "%"
+        },
+        {
+            "type": "select",
+            "id": "ratio_image",
+            "label": "Ratio (Apply to image position left/right)",
+            "default" : "adapt",
+            "options": [
+                {
+                    "value": "adapt",
+                    "label": "Adapt to image"   
+                },
+                {
+                    "value": "square",
+                    "label": "Square (1:1)"
+                },
+                {
+                    "value": "portrait",
+                    "label": "Portrait (3:4)"
+                },
+                {
+                    "value": "landscape",
+                    "label": "Landscape (4:3)"
+                },
+                {
+                    "value": "custom",
+                    "label": "Custom ratio"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "ratio_custom",
+            "label": "Custom ratio (Form: Width/Height)"
         },
         {
             "type": "color",
