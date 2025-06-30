@@ -182,7 +182,7 @@
         "items_per_row_mobile": 2,
         "column_gap": 10,
         "check_icon": true,
-        "panigation_type": "none",
+        "panigation_type": "progress",
         "infinite_slide": true,
         "auto_slide": false,
         "interval_slide": 2,
