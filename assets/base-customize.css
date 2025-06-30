@@ -464,9 +464,14 @@ comp-btn::before {
 
 /* === Padding === */
 /* Padding X */
+.px-0 {
+  padding-inline: 0;
+}
+
 .px-30 {
   padding-inline: 3rem;
 }
+
 
 /* Padding Y */
 .py-20 {

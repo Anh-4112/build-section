@@ -1435,7 +1435,9 @@ class SwiperSection extends HTMLElement {
     const itemsMobile = Number(_this.dataset.itemsMobile);
     const itemsTabletSmall = Number(_this.dataset.itemsTabletSmall) || 2;
     const itemsTablet = Number(_this.dataset.itemsTablet) || 3;
-    const itemsPc = Number(_this.dataset.itemsPc);
+    const reveal = _this.dataset.reveal === 'true';
+    const extraReveal = reveal ? 0.1 : 0;
+    const itemsPc = Number(_this.dataset.itemsPc) + extraReveal;
     const gap = Number(_this.dataset.gap);
     const loop = _this.dataset.infinite === 'true';
     const auto = _this.dataset.auto === 'true';
@@ -1466,13 +1468,15 @@ class SwiperSection extends HTMLElement {
         // },
         1024: { 
           slidesPerView: itemsPc,
-          spaceBetween: gap 
+          spaceBetween: gap
         }
       },
     };
   
     if (auto) {
-      swiperOpts.autoplay = { delay: interval };
+      swiperOpts.autoplay = { 
+        delay: interval
+      };
     }
 
     switch (panigation) {

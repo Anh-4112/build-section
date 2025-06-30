@@ -44,6 +44,7 @@
             assign ratio_image = 'ratio-custom'
         endif
     assign ratio_custom = section_st.ratio_custom
+    assign framed_slide = section_st.framed_slide
 %}
 
 <section
@@ -84,9 +85,9 @@
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}
                     {% assign blocks_st = block.settings %}
-                    <div class="swiper-slide txt-no-select d-flex bor bor-1 rounded-10 overflow-hidden{% if img_position == 'top' or img_position == 'bot' %} column {% endif %}" style="border-color: rgb(220, 220, 220);">
+                    <div class="swiper-slide txt-no-select d-flex{% if framed_slide == true %} bor bor-1 rounded-10 overflow-hidden {% endif %}{% if img_position == 'top' or img_position == 'bot' %} column {% endif %}" style="border-color: rgb(220, 220, 220); width: 85%;">
                         <div 
-                            class="d-none{% if img_position == 'left' or img_position == 'right' %} f-custom {% elsif img_position == 'top' or img_position == 'bot' %} {{ ratio_image }} {% endif %}{% if img_show == true %} d-sm-block {% endif %}{% if img_position == 'right' or img_position == 'bot' %} order-1 {% endif %}"
+                            class="d-none{% if framed_slide != true %} rounded-10 overflow-hidden {% endif %}{% if img_position == 'left' or img_position == 'right' %} f-custom {% elsif img_position == 'top' or img_position == 'bot' %} {{ ratio_image }} {% endif %}{% if img_show == true %} d-sm-block {% endif %}{% if img_position == 'right' or img_position == 'bot' %} order-1 {% endif %}"
                             style="--f-custom: {{ flex_custom }}; --ratio-custom: {{ ratio_custom }};"
                         >
                             {% if blocks_st.author_image != blank %}
@@ -101,7 +102,8 @@
                                 {% render 'image-clone' %}
                             {% endif %}
                         </div>
-                        <div class="px-30 py-20 d-flex f-1 column">
+                        {% assign left_right = 'left,right' | split: ',' %}
+                        <div class="{% if framed_slide == true or framed_slide != true and left_right contains img_position %} px-30 {% endif %}py-20 d-flex f-1 column">
                             {% comment %} Rate {% endcomment %}
                             <div class="relative">
                                 <svg width="78" height="14" viewBox="0 0 78 14">
@@ -397,6 +399,12 @@
             "default": false
         },
         {
+            "type": "checkbox",
+            "id": "framed_slide",
+            "label": "Framed",
+            "default": false
+        },
+        {
             "type": "header",
             "content": "Item setting"
         },
@@ -443,7 +451,7 @@
         {
             "type": "select",
             "id": "ratio_image",
-            "label": "Ratio (Apply to image position left/right)",
+            "label": "Ratio (Apply to image position top/bottom)",
             "default" : "adapt",
             "options": [
                 {
