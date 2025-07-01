@@ -24,22 +24,23 @@
     style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
 >
     <div class="{{ section_width }}">
-        <div class="text-{{ section_st.txt_align }}">
-            <h2 
-                class="heading__fs heading__fw"
-                style="--fs-heading: {{ fs_heading }}; --fw-heading: {{ fw_heading }};"
-            >
-                {{ heading }}
-            </h2>
-            <h3 
-                class="description__fs description__fw description__spacing"
-                style="--fs-description: {{ fs_description }}; --fw-description: {{ fw_description }}; --spacing-description: {{ spacing_description }};"
-            >
-                {{ description }}
-            </h3>
-        </div>
+        {% if heading != blank or description != blank %}
+            <div class="text-{{ section_st.txt_align }} mb-20">
+                <h2 class="heading__fs heading__fw"
+                    style="--fs-heading: {{ fs_heading }}; --fw-heading: {{ fw_heading }};"
+                >
+                    {{ heading }}
+                </h2>
+
+                <h3 class="description__fs description__fw description__spacing"
+                    style="--fs-description: {{ fs_description }}; --fw-description: {{ fw_description }}; --spacing-description: {{ spacing_description }};"
+                >
+                    {{ description }}
+                </h3>
+            </div>
+        {% endif %}
    
-        <div class="mt-20">
+        <div>
             {% for block in section.blocks %}
                 {%- liquid
                     assign block_st = block.settings

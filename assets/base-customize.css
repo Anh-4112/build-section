@@ -19,7 +19,8 @@ a {
 
 /* =============== HTMLElement Customize ================ */
 collapse-wrapper, collapse-toggle, collapse-content,
-comp-container, comp-before, comp-after {
+comp-container, comp-before, comp-after,
+swiper-section, swiper-prev, swiper-next {
   display: block;
 }
 
@@ -132,18 +133,18 @@ comp-btn::before {
 }
 
 /* =============== Swiper Section =============== */
-.swiper-section:hover .swiper-prev {
+swiper-section:hover swiper-prev {
   opacity: 1;
   transform: translate(2rem, -50%);
 }
 
-.swiper-section:hover .swiper-next {
+swiper-section:hover swiper-next {
   opacity: 1;
   transform: translate(-2rem, -50%);
 }
 
-.swiper-next,
-.swiper-prev {
+swiper-next,
+swiper-prev {
   transition: opacity,transform, 0.2s ease-in-out;
 }
 
@@ -352,10 +353,6 @@ comp-btn::before {
   flex: 0 0 25%;
 }
 
-.f-75p {
-  flex: 0 0 75%;
-}
-
 .f-1 {
   flex: 1;
 }
@@ -472,7 +469,6 @@ comp-btn::before {
   padding-inline: 3rem;
 }
 
-
 /* Padding Y */
 .py-20 {
   padding-block: 2rem;
@@ -500,6 +496,10 @@ comp-btn::before {
 /* Margin Bottom */
 .mb-0 {
   margin-bottom: 0;
+}
+
+.mb-20 {
+  margin-bottom: 2rem;
 }
 
 /* === Top === */

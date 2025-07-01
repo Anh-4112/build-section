@@ -42,22 +42,23 @@
     style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
 >
     <div class="{{ section_width }}">
-        <div class="text-{{ section_st.txt_align }}">
-            <h2
-                class="heading__fs heading__fw"
-                style="--fs-heading: {{ fs_heading }}; --fw-heading: {{ fw_heading }};"
-            >
-                {{ heading }}
-            </h2>
-            <h3 
-                class="description__fs description__fw description__spacing"
-                style="--fs-description: {{ fs_description }}; --fw-description: {{ fw_description }}; --spacing-description: {{ spacing_description }};"
-            >
-                {{ description }}
-            </h3>
-        </div>
+        {% if heading != blank or description != blank %}
+            <div class="text-{{ section_st.txt_align }} mb-20">
+                <h2 class="heading__fs heading__fw"
+                    style="--fs-heading: {{ fs_heading }}; --fw-heading: {{ fw_heading }};"
+                >
+                    {{ heading }}
+                </h2>
 
-        <div class="mt-20 d-flex column row-lg f-wrap gap-20 txt-no-select">
+                <h3 class="description__fs description__fw description__spacing"
+                    style="--fs-description: {{ fs_description }}; --fw-description: {{ fw_description }}; --spacing-description: {{ spacing_description }};"
+                >
+                    {{ description }}
+                </h3>
+            </div>
+        {% endif %}
+
+        <div class="d-flex column row-lg f-wrap gap-20 txt-no-select">
             <comp-block
                 class="relative overflow-hidden rounded-10 w-block {% if position_comp == 'right' %} order-1 {% endif %} {{ ratio_image }}"
                 style="--width-block: {{ width_block }}; --ratio-custom: {{ ratio_custom }};"
@@ -105,9 +106,7 @@
 
             <div class="f-1 d-flex column jc-{{ section_st.vertical_align }}">
                 {% for block in section.blocks %}
-                    {% liquid
-                        assign block_st = block.settings
-                    %}
+                    {% assign block_st = block.settings %}
                     {% case block.type %}
                         {% when 'heading' %}
                             <h2 
@@ -167,7 +166,7 @@
                             {% assign product_block = block_st.product_block %}
                             <div class="d-flex gap-20 product__spacing" style="--spacing-product: {{ block_st.spacing_product_block }};">
                                 {% if product_block != blank %}
-                                    <a class="rounded-10 overflow-hidden" href="{{ product_block.url }}" style="max-width: 12rem;">
+                                    <a class="rounded-10 overflow-hidden" href="{{ product_block.url }}" style="max-width: 20%;">
                                         <img
                                             src="{{ product_block.featured_image | image_url }}"
                                             alt="Image"
@@ -189,10 +188,6 @@
                                 {% else %}
                                     <div class="f-25p rounded-10 overflow-hidden">
                                         {% render 'image-clone' %}
-                                    </div>
-                                    <div class="f-1 d-inline-flex column jc-center gap-10">
-                                        <p style="line-height: 1.2; font-weight: 500;">Product name</p>
-                                        <p style="font-size: 1.4rem; font-weight: 600;">Product price</p>
                                     </div>
                                 {% endif %}                            
                             </div>

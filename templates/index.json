@@ -9,180 +9,165 @@
  */
 {
   "sections": {
-    "faq_customize_UiDPjn": {
+    "customize_faq_qL7ECL": {
       "type": "customize-FAQ",
       "blocks": {
-        "faq_content_mAcay8": {
+        "faq_content_MDWUxY": {
           "type": "faq-content",
           "settings": {
-            "faq_question": "Frequently Asked Questions 1 ?",
-            "faq_answer": "<p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+            "faq_question": "Frequently Asked Questions?",
+            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
           }
         },
-        "faq_content_mraBUc": {
+        "faq_content_nYPDrW": {
           "type": "faq-content",
           "settings": {
-            "faq_question": "Frequently Asked Questions 2 ?",
-            "faq_answer": "<p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+            "faq_question": "Frequently Asked Questions?",
+            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
           }
         },
-        "faq_content_fHkR46": {
+        "faq_content_9VDj7p": {
           "type": "faq-content",
           "settings": {
-            "faq_question": "Frequently Asked Questions 3 ?",
-            "faq_answer": "<p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p><p>- Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+            "faq_question": "Frequently Asked Questions?",
+            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
           }
         }
       },
       "block_order": [
-        "faq_content_mAcay8",
-        "faq_content_mraBUc",
-        "faq_content_fHkR46"
+        "faq_content_MDWUxY",
+        "faq_content_nYPDrW",
+        "faq_content_9VDj7p"
       ],
+      "name": "FAQ",
       "settings": {
-        "section_width": "fluid-container",
-        "color_scheme": "scheme-1",
-        "heading": "FAQ",
-        "fs_heading": 45,
+        "section_width": "defaul",
+        "color_scheme": "",
+        "heading": "",
+        "fs_heading": 14,
         "fw_heading": "400",
-        "description": "<p>Description</p>",
-        "fs_description": 18,
+        "description": "",
+        "fs_description": 14,
         "fw_description": "400",
         "txt_align": "center",
-        "spacing_description": 30,
-        "section_pt": 40,
-        "section_pb": 40,
-        "reset_spacing": true
+        "spacing_description": 5,
+        "section_pt": 0,
+        "section_pb": 0,
+        "reset_spacing": false
       }
     },
-    "customize_image_comparison_slider_KX87EM": {
+    "customize_image_comparison_slider_pTzgzN": {
       "type": "customize-image-comparison-slider",
       "blocks": {
-        "heading_gXtRGe": {
+        "heading_6b4NLp": {
           "type": "heading",
           "settings": {
             "heading_block": "Talk about your brand",
             "uppercase": false,
-            "fs_heading_block": 36,
+            "fs_heading_block": 24,
             "fw_heading_block": "500"
           }
         },
-        "description_UjQCwX": {
+        "description_36Kxti": {
           "type": "description",
           "settings": {
             "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
             "fs_description_block": 16,
             "fw_description_block": "400",
-            "spacing_description_block": 20
+            "spacing_description_block": 5
           }
         },
-        "button_KzxiXM": {
+        "button_pRhxqE": {
           "type": "button",
           "settings": {
             "btn_name_block": "",
-            "btn_type_block": "link",
+            "btn_type_block": "primary",
             "btn_collection_block": "",
-            "spacing_btn_block": 20
+            "spacing_btn_block": 5
           }
         }
       },
       "block_order": [
-        "heading_gXtRGe",
-        "description_UjQCwX",
-        "button_KzxiXM"
+        "heading_6b4NLp",
+        "description_36Kxti",
+        "button_pRhxqE"
       ],
       "name": "Image comparison slider",
       "settings": {
-        "section_width": "fluid-container",
+        "section_width": "defaul",
         "color_scheme": "",
-        "heading": "Image comparison slider",
-        "fs_heading": 45,
+        "heading": "",
+        "fs_heading": 24,
         "fw_heading": "400",
-        "description": "<p>Description</p>",
-        "fs_description": 18,
+        "description": "",
+        "fs_description": 14,
         "fw_description": "400",
         "txt_align": "center",
-        "spacing_description": 30,
-        "before_image": "shopify://shop_images/img-1.jpg",
-        "after_image": "shopify://shop_images/img-2.jpg",
+        "spacing_description": 5,
         "width_block": "50",
         "position_comp": "left",
         "show_label": true,
-        "ratio_image": "custom",
-        "ratio_custom": "16/9",
+        "ratio_image": "adapt",
+        "ratio_custom": "",
         "vertical_align": "start",
-        "section_pt": 40,
-        "section_pb": 40,
-        "reset_spacing": true
+        "section_pt": 0,
+        "section_pb": 0,
+        "reset_spacing": false
       }
     },
-    "customize_product_testimonials_jikEFd": {
+    "customize_product_testimonials_GRk8Xi": {
       "type": "customize-product-testimonials",
       "blocks": {
-        "testimonials_items_mHPWyM": {
+        "testimonials_items_eUnCtN": {
           "type": "testimonials_items",
           "settings": {
-            "author_image": "shopify://shop_images/img-pepole-2.jpg",
-            "author_rate": 5,
-            "author_name": "Author's name",
-            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p><p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": "apple-iphone-12-pro-max-128gb-unlocked"
-          }
-        },
-        "testimonials_items_Vdhfa9": {
-          "type": "testimonials_items",
-          "settings": {
-            "author_image": "shopify://shop_images/img-pepole-1.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": "apple-iphone-13-pro-max-128gb-unlocked"
+            "author_product": ""
           }
         },
-        "testimonials_items_DTFUEe": {
+        "testimonials_items_dbYHX4": {
           "type": "testimonials_items",
           "settings": {
-            "author_image": "shopify://shop_images/img-pepole-3.jpg",
-            "author_rate": 5,
-            "author_name": "Author's name",
-            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p><p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": "apple-iphone-12-pro-max-256gb-unlocked"
-          }
-        },
-        "testimonials_items_wbatPK": {
-          "type": "testimonials_items",
-          "settings": {
-            "author_image": "shopify://shop_images/img-pepole-4.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": "apple-iphone-13-pro-max-256gb-unlocked"
+            "author_product": ""
+          }
+        },
+        "testimonials_items_WPpgMT": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": ""
           }
         }
       },
       "block_order": [
-        "testimonials_items_mHPWyM",
-        "testimonials_items_Vdhfa9",
-        "testimonials_items_DTFUEe",
-        "testimonials_items_wbatPK"
+        "testimonials_items_eUnCtN",
+        "testimonials_items_dbYHX4",
+        "testimonials_items_WPpgMT"
       ],
       "name": "Product testimonials",
       "settings": {
-        "section_width": "fluid-container",
+        "section_width": "defaul",
         "color_scheme": "",
-        "heading": "Testimonials",
-        "fs_heading": 45,
+        "heading": "",
+        "fs_heading": 14,
         "fw_heading": "400",
-        "description": "<p>Description</p>",
-        "fs_description": 18,
+        "description": "",
+        "fs_description": 14,
         "fw_description": "400",
         "txt_align": "center",
-        "spacing_description": 30,
+        "spacing_description": 5,
         "items_per_row_pc": 2,
         "items_per_row_mobile": 1,
-        "column_gap": 10,
+        "column_gap": 15,
         "check_icon": true,
-        "panigation_type": "none",
+        "pagination_type": "dots",
         "infinite_slide": false,
         "auto_slide": false,
         "interval_slide": 3,
@@ -190,20 +175,20 @@
         "framed_slide": false,
         "img_show": true,
         "img_position": "left",
-        "flex_custom": 30,
-        "ratio_image": "custom",
-        "ratio_custom": "2/3",
+        "flex_custom": 50,
+        "ratio_image": "adapt",
+        "ratio_custom": "",
         "color_rate": "#ff9900",
         "show_verified": true,
-        "section_pt": 40,
-        "section_pb": 40,
+        "section_pt": 0,
+        "section_pb": 0,
         "reset_spacing": false
       }
     }
   },
   "order": [
-    "faq_customize_UiDPjn",
-    "customize_image_comparison_slider_KX87EM",
-    "customize_product_testimonials_jikEFd"
+    "customize_faq_qL7ECL",
+    "customize_image_comparison_slider_pTzgzN",
+    "customize_product_testimonials_GRk8Xi"
   ]
 }

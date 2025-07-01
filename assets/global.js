@@ -1432,56 +1432,61 @@ class SwiperSection extends HTMLElement {
 
   connectedCallback () {
     const _this = this;
-    const itemsMobile = Number(_this.dataset.itemsMobile);
-    const itemsTabletSmall = Number(_this.dataset.itemsTabletSmall) || 2;
-    const itemsTablet = Number(_this.dataset.itemsTablet) || 3;
+
+    const swiperPrev = this.querySelector('swiper-prev');
+    const swiperNext = this.querySelector('swiper-next');
+    const swiperPagination = this.querySelector('swiper-pagination');
+
+    const itemsMobile = Number(_this.dataset.itemsMobile || 1);
+    const itemsTabletSmall = Number(_this.dataset.itemsTabletSmall);
+    const itemsTablet = Number(_this.dataset.itemsTablet);
     const reveal = _this.dataset.reveal === 'true';
     const extraReveal = reveal ? 0.1 : 0;
     const itemsPc = Number(_this.dataset.itemsPc) + extraReveal;
     const gap = Number(_this.dataset.gap);
     const loop = _this.dataset.infinite === 'true';
     const auto = _this.dataset.auto === 'true';
-    const interval = Number(_this.dataset.interval) * 1000;
-    const panigation = _this.dataset.panigation;
-  
+    const interval = Number(_this.dataset.interval || 3) * 1000;
+    const pagination = _this.dataset.pagination;
+
     const swiperOpts = {
       slidesPerView: itemsMobile,
       spaceBetween: gap,
       loop: loop,
       watchSlidesProgress: true,
       navigation: {
-        prevEl: _this.querySelector('.swiper-prev'),
-        nextEl: _this.querySelector('.swiper-next'),
+        prevEl: swiperPrev,
+        nextEl: swiperNext,
       },
       breakpoints: {
         0: {
           slidesPerView: itemsMobile,
           spaceBetween: gap
         },
-        // 576: {
-        //   slidesPerView: itemsTabletSmall,
-        //   spaceBetween: gap
-        // },
-        // 768: {
-        //   slidesPerView: itemsTablet,
-        //   spaceBetween: gap
-        // },
+        576: {
+          slidesPerView: itemsTabletSmall || itemsMobile,
+          spaceBetween: gap
+        },
+        768: {
+          slidesPerView: itemsTablet || itemsMobile,
+          spaceBetween: gap
+        },
         1024: { 
           slidesPerView: itemsPc,
           spaceBetween: gap
         }
       },
     };
-  
+
     if (auto) {
       swiperOpts.autoplay = { 
         delay: interval
       };
     }
 
-    switch (panigation) {
+    switch (pagination) {
       case 'progress': {
-        const progressEl = _this.querySelector('.swiper-navigation');
+        const progressEl = swiperPagination;
         if (progressEl) {
           swiperOpts.pagination = {
             el : progressEl,
@@ -1491,7 +1496,7 @@ class SwiperSection extends HTMLElement {
         break;
       }
       case 'dots_mobile': case 'dots': {
-        const dotsEl = _this.querySelector('.swiper-navigation');
+        const dotsEl = swiperPagination;
         if (dotsEl) {
           swiperOpts.pagination = {
             el : dotsEl,
@@ -1502,8 +1507,11 @@ class SwiperSection extends HTMLElement {
         break;
       }
     }
-    
+
     this.globalSlide = new Swiper(_this, swiperOpts);
   }
 }
 customElements.define('swiper-section', SwiperSection);
+customElements.define('swiper-prev', class extends HTMLElement {});
+customElements.define('swiper-next', class extends HTMLElement {});
+customElements.define('swiper-pagination', class extends HTMLElement {});

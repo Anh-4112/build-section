@@ -24,7 +24,7 @@
     assign auto_slide = section_st.auto_slide
     assign interval_slide = section_st.interval_slide
     assign reveal_next_slide = section_st.reveal_next_slide
-    assign panigation_type = section_st.panigation_type
+    assign pagination_type = section_st.pagination_type
     assign items_per_row_mobile = section_st.items_per_row_mobile
     assign img_show = section_st.img_show
     assign img_position = section_st.img_position
@@ -47,28 +47,27 @@
     assign framed_slide = section_st.framed_slide
 %}
 
-<section
-    class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
-    style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
+<section class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
+         style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
 >
     <div class="{{ section_width }}">
-        <div class="text-{{ section_st.txt_align }}">
-            <h2
-                class="heading__fs heading__fw"
-                style="--fs-heading: {{ fs_heading }}; --fw-heading: {{ fw_heading }};"
-            >
-                {{ heading }}
-            </h2>
-            <h3 
-                class="description__fs description__fw description__spacing"
-                style="--fs-description: {{ fs_description }}; --fw-description: {{ fw_description }}; --spacing-description: {{ spacing_description }};"
-            >
-                {{ description }}
-            </h3>
-        </div>
+        {% if heading != blank or description != blank %}
+            <div class="text-{{ section_st.txt_align }} mb-20">
+                <h2 class="heading__fs heading__fw"
+                    style="--fs-heading: {{ fs_heading }}; --fw-heading: {{ fw_heading }};"
+                >
+                    {{ heading }}
+                </h2>
 
+                <h3 class="description__fs description__fw description__spacing"
+                    style="--fs-description: {{ fs_description }}; --fw-description: {{ fw_description }}; --spacing-description: {{ spacing_description }};"
+                >
+                    {{ description }}
+                </h3>
+            </div>
+        {% endif %}
         <swiper-section
-            class="swiper-section swiper relative mt-20"
+            class="swiper-section swiper relative"
             data-items-pc="{{ items_per_row_pc }}"
             data-items-mobile="{{ items_per_row_mobile }}"
             data-gap="{{ column_gap }}"
@@ -76,7 +75,7 @@
             data-auto="{{ auto_slide }}"
             data-interval="{{ interval_slide }}"
             data-reveal="{{ reveal_next_slide }}"
-            data-panigation="{{ panigation_type }}"
+            data-pagination="{{ pagination_type }}"
         >
             {% if check_icon %}
                 {% render 'swiper-icon' %}
@@ -85,9 +84,19 @@
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}
                     {% assign blocks_st = block.settings %}
-                    <div class="swiper-slide txt-no-select d-flex{% if framed_slide == true %} bor bor-1 rounded-10 overflow-hidden {% endif %}{% if img_position == 'top' or img_position == 'bot' %} column {% endif %}" style="border-color: rgb(220, 220, 220); width: 85%;">
-                        <div 
-                            class="d-none{% if framed_slide != true %} rounded-10 overflow-hidden {% endif %}{% if img_position == 'left' or img_position == 'right' %} f-custom {% elsif img_position == 'top' or img_position == 'bot' %} {{ ratio_image }} {% endif %}{% if img_show == true %} d-sm-block {% endif %}{% if img_position == 'right' or img_position == 'bot' %} order-1 {% endif %}"
+                    {% assign top_bot = 'top,bot' | split: ',' %}
+                    {% assign left_right = 'left,right' | split: ',' %}
+                    {% assign bot_right = 'bot,right' | split: ',' %}
+                    <div class="swiper-slide txt-no-select d-flex
+                                {% if framed_slide == true %} bor bor-1 rounded-10 overflow-hidden {% endif %}
+                                {% if top_bot contains img_position %} column {% endif %}"
+                        style="border-color: rgb(220, 220, 220);"
+                    >
+                        <div class="d-none
+                                    {% if img_show == true %} d-sm-block {% endif %}
+                                    {% if framed_slide != true %} rounded-10 overflow-hidden {% endif %}
+                                    {% if left_right contains img_position %} f-custom {% elsif top_bot contains img_position %} {{ ratio_image }} {% endif %}
+                                    {% if bot_right contains img_position %} order-1 {% endif %}"
                             style="--f-custom: {{ flex_custom }}; --ratio-custom: {{ ratio_custom }};"
                         >
                             {% if blocks_st.author_image != blank %}
@@ -102,8 +111,7 @@
                                 {% render 'image-clone' %}
                             {% endif %}
                         </div>
-                        {% assign left_right = 'left,right' | split: ',' %}
-                        <div class="{% if framed_slide == true or framed_slide != true and left_right contains img_position %} px-30 {% endif %}py-20 d-flex f-1 column">
+                        <div class="d-flex f-1 column py-20{% if framed_slide == true or left_right contains img_position %} px-30 {% endif %}">
                             {% comment %} Rate {% endcomment %}
                             <div class="relative">
                                 <svg width="78" height="14" viewBox="0 0 78 14">
@@ -139,9 +147,9 @@
                             <div class="mt-20 pt-10 d-flex bor-top bor-1" style="border-color: rgb(220, 220, 220);">
                                 {% assign author_product = blocks_st.author_product %}
                                 {% if author_product != blank %}
-                                    <a class="d-inline-flex ai-center" href="{{ author_product.url }}">
+                                    <a class="d-inline-flex gap-5 ai-center" href="{{ author_product.url }}">
                                         <img
-                                            class="w-25p"
+                                            class="w-25p img-cover"
                                             src="{{ author_product.featured_image | image_url }}" 
                                             alt="Image"
                                             width="100%"
@@ -150,7 +158,7 @@
                                         <span style="font-size: 1.3rem; font-weight: 600; line-height: 1.2;">{{ author_product.title }}</span>
                                     </a>
                                 {% else %}
-                                    <div class="f-25p rounded-50p overflow-hidden" style="display: block;">
+                                    <div class="f-25p rounded-50p overflow-hidden">
                                         {% render 'image-clone' %}
                                     </div>
                                 {% endif %}
@@ -160,10 +168,10 @@
                 {% endfor %}
             </div>
             
-            {% if panigation_type == 'dots' or panigation_type == 'dots_mobile' %}
-                <div class="swiper-navigation d-flex jc-center mt-10 {% if panigation_type == 'dots_mobile' %} d-sm-none {% endif %}"></div>
-            {% elsif panigation_type == 'progress' %}
-                <div class="swiper-navigation mt-2"></div>
+            {% if pagination_type == 'dots' or pagination_type == 'dots_mobile' %}
+                <swiper-pagination class="mt-10 d-flex jc-center{% if pagination_type == 'dots_mobile' %} d-sm-none {% endif %}"></swiper-pagination>
+            {% elsif pagination_type == 'progress' %}
+                <swiper-pagination class="mt-2"></swiper-pagination>
             {% endif %}
         </swiper-section>
     </div>
@@ -348,7 +356,7 @@
         },
         {
             "type": "select",
-            "id": "panigation_type",
+            "id": "pagination_type",
             "label": "Pagination",
             "default": "dots",
             "options": [
@@ -568,6 +576,9 @@
         {
             "name": "Product testimonials",
             "blocks": [
+                {
+                    "type": "testimonials_items"
+                },
                 {
                     "type": "testimonials_items"
                 },
