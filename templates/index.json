@@ -147,12 +147,42 @@
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
             "author_product": ""
           }
+        },
+        "testimonials_items_BDbPFP": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": ""
+          }
+        },
+        "testimonials_items_CxyD3Q": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": ""
+          }
+        },
+        "testimonials_items_h8RDUG": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": ""
+          }
         }
       },
       "block_order": [
         "testimonials_items_eUnCtN",
         "testimonials_items_dbYHX4",
-        "testimonials_items_WPpgMT"
+        "testimonials_items_WPpgMT",
+        "testimonials_items_BDbPFP",
+        "testimonials_items_CxyD3Q",
+        "testimonials_items_h8RDUG"
       ],
       "name": "Product testimonials",
       "settings": {
@@ -166,7 +196,7 @@
         "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 5,
-        "items_per_row_pc": 2,
+        "items_per_row_pc": 4,
         "items_per_row_mobile": 1,
         "column_gap": 15,
         "check_icon": true,
@@ -177,7 +207,7 @@
         "reveal_next_slide": false,
         "framed_slide": true,
         "img_show": true,
-        "img_position": "left",
+        "img_position": "top",
         "flex_custom": 30,
         "ratio_image": "adapt",
         "ratio_custom": "",
