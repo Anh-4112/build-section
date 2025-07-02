@@ -115,40 +115,10 @@
         "reset_spacing": false
       }
     },
-    "customize_product_testimonials_GRk8Xi": {
+    "customize_product_testimonials_aWrGcc": {
       "type": "customize-product-testimonials",
       "blocks": {
-        "testimonials_items_eUnCtN": {
-          "type": "testimonials_items",
-          "settings": {
-            "author_image": "shopify://shop_images/img-pepole-2.jpg",
-            "author_rate": 5,
-            "author_name": "Author's name",
-            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": ""
-          }
-        },
-        "testimonials_items_dbYHX4": {
-          "type": "testimonials_items",
-          "settings": {
-            "author_image": "shopify://shop_images/img-pepole-1.jpg",
-            "author_rate": 5,
-            "author_name": "Author's name",
-            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": ""
-          }
-        },
-        "testimonials_items_WPpgMT": {
-          "type": "testimonials_items",
-          "settings": {
-            "author_image": "shopify://shop_images/img-pepole-3.jpg",
-            "author_rate": 5,
-            "author_name": "Author's name",
-            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": ""
-          }
-        },
-        "testimonials_items_BDbPFP": {
+        "testimonials_items_ehBkVy": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -157,7 +127,7 @@
             "author_product": ""
           }
         },
-        "testimonials_items_CxyD3Q": {
+        "testimonials_items_EXeUDR": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -166,7 +136,7 @@
             "author_product": ""
           }
         },
-        "testimonials_items_h8RDUG": {
+        "testimonials_items_bRmwLw": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -177,12 +147,9 @@
         }
       },
       "block_order": [
-        "testimonials_items_eUnCtN",
-        "testimonials_items_dbYHX4",
-        "testimonials_items_WPpgMT",
-        "testimonials_items_BDbPFP",
-        "testimonials_items_CxyD3Q",
-        "testimonials_items_h8RDUG"
+        "testimonials_items_ehBkVy",
+        "testimonials_items_EXeUDR",
+        "testimonials_items_bRmwLw"
       ],
       "name": "Product testimonials",
       "settings": {
@@ -196,19 +163,19 @@
         "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 5,
-        "items_per_row_pc": 4,
+        "items_per_row_pc": 2,
         "items_per_row_mobile": 1,
         "column_gap": 15,
         "check_icon": true,
-        "pagination_type": "progress",
-        "infinite_slide": true,
+        "pagination_type": "dots",
+        "infinite_slide": false,
         "auto_slide": false,
-        "interval_slide": 2,
+        "interval_slide": 3,
         "reveal_next_slide": false,
-        "framed_slide": true,
+        "framed_slide": false,
         "img_show": true,
-        "img_position": "top",
-        "flex_custom": 30,
+        "img_position": "left",
+        "flex_custom": 50,
         "ratio_image": "adapt",
         "ratio_custom": "",
         "color_rate": "#ff9900",
@@ -222,6 +189,6 @@
   "order": [
     "customize_faq_qL7ECL",
     "customize_image_comparison_slider_YpgMMx",
-    "customize_product_testimonials_GRk8Xi"
+    "customize_product_testimonials_aWrGcc"
   ]
 }
