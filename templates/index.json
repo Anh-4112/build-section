@@ -104,8 +104,6 @@
         "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 5,
-        "before_image": "shopify://shop_images/img-1.jpg",
-        "after_image": "shopify://shop_images/img-2.jpg",
         "width_block": "50",
         "position_comp": "left",
         "show_label": true,
