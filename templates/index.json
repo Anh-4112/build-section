@@ -121,6 +121,7 @@
         "testimonials_items_eUnCtN": {
           "type": "testimonials_items",
           "settings": {
+            "author_image": "shopify://shop_images/img-pepole-2.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
@@ -130,6 +131,7 @@
         "testimonials_items_dbYHX4": {
           "type": "testimonials_items",
           "settings": {
+            "author_image": "shopify://shop_images/img-pepole-1.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
@@ -139,6 +141,7 @@
         "testimonials_items_WPpgMT": {
           "type": "testimonials_items",
           "settings": {
+            "author_image": "shopify://shop_images/img-pepole-3.jpg",
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
@@ -167,15 +170,15 @@
         "items_per_row_mobile": 1,
         "column_gap": 15,
         "check_icon": true,
-        "pagination_type": "dots",
-        "infinite_slide": false,
+        "pagination_type": "progress",
+        "infinite_slide": true,
         "auto_slide": false,
-        "interval_slide": 3,
+        "interval_slide": 2,
         "reveal_next_slide": false,
-        "framed_slide": false,
+        "framed_slide": true,
         "img_show": true,
         "img_position": "left",
-        "flex_custom": 50,
+        "flex_custom": 30,
         "ratio_image": "adapt",
         "ratio_custom": "",
         "color_rate": "#ff9900",
