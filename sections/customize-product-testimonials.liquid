@@ -92,9 +92,9 @@
                                 {% if top_bot contains img_position %} column {% endif %}"
                         style="border-color: rgb(220, 220, 220);"
                     >
-                        <div class="d-none
+                        <div class="d-none overflow-hidden
                                     {% if img_show == true %} d-sm-block {% endif %}
-                                    {% if framed_slide != true %} rounded-10 overflow-hidden {% endif %}
+                                    {% if framed_slide != true %} rounded-10 {% endif %}
                                     {% if left_right contains img_position %} f-custom {% elsif top_bot contains img_position %} {{ ratio_image }} {% endif %}
                                     {% if bot_right contains img_position %} order-1 {% endif %}"
                             style="--f-custom: {{ flex_custom }}; --ratio-custom: {{ ratio_custom }};"
