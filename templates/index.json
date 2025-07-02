@@ -56,10 +56,10 @@
         "reset_spacing": false
       }
     },
-    "customize_image_comparison_slider_pTzgzN": {
+    "customize_image_comparison_slider_YpgMMx": {
       "type": "customize-image-comparison-slider",
       "blocks": {
-        "heading_6b4NLp": {
+        "heading_nBdkKA": {
           "type": "heading",
           "settings": {
             "heading_block": "Talk about your brand",
@@ -68,7 +68,7 @@
             "fw_heading_block": "500"
           }
         },
-        "description_36Kxti": {
+        "description_QnFcaD": {
           "type": "description",
           "settings": {
             "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
@@ -77,7 +77,7 @@
             "spacing_description_block": 5
           }
         },
-        "button_pRhxqE": {
+        "button_QeAURY": {
           "type": "button",
           "settings": {
             "btn_name_block": "",
@@ -88,9 +88,9 @@
         }
       },
       "block_order": [
-        "heading_6b4NLp",
-        "description_36Kxti",
-        "button_pRhxqE"
+        "heading_nBdkKA",
+        "description_QnFcaD",
+        "button_QeAURY"
       ],
       "name": "Image comparison slider",
       "settings": {
@@ -115,10 +115,10 @@
         "reset_spacing": false
       }
     },
-    "customize_product_testimonials_NXnQnw": {
+    "customize_product_testimonials_GRk8Xi": {
       "type": "customize-product-testimonials",
       "blocks": {
-        "testimonials_items_MVTfG8": {
+        "testimonials_items_eUnCtN": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -127,7 +127,7 @@
             "author_product": ""
           }
         },
-        "testimonials_items_GCd8d7": {
+        "testimonials_items_dbYHX4": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -136,7 +136,7 @@
             "author_product": ""
           }
         },
-        "testimonials_items_FJfWhW": {
+        "testimonials_items_WPpgMT": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -147,9 +147,9 @@
         }
       },
       "block_order": [
-        "testimonials_items_MVTfG8",
-        "testimonials_items_GCd8d7",
-        "testimonials_items_FJfWhW"
+        "testimonials_items_eUnCtN",
+        "testimonials_items_dbYHX4",
+        "testimonials_items_WPpgMT"
       ],
       "name": "Product testimonials",
       "settings": {
@@ -189,6 +189,6 @@
   "order": [
     "customize_faq_qL7ECL",
     "customize_image_comparison_slider_pTzgzN",
-    "customize_product_testimonials_NXnQnw"
+    "customize_product_testimonials_GRk8Xi"
   ]
 }
