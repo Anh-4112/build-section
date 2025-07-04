@@ -63,27 +63,27 @@
           "type": "heading",
           "settings": {
             "heading_block": "Talk about your brand",
-            "uppercase": false,
-            "fs_heading_block": 24,
-            "fw_heading_block": "500"
+            "uppercase": true,
+            "fs_heading_block": 48,
+            "fw_heading_block": "700"
           }
         },
         "description_36Kxti": {
           "type": "description",
           "settings": {
             "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "fs_description_block": 16,
-            "fw_description_block": "400",
-            "spacing_description_block": 5
+            "fs_description_block": 24,
+            "fw_description_block": "300",
+            "spacing_description_block": 30
           }
         },
         "button_pRhxqE": {
           "type": "button",
           "settings": {
             "btn_name_block": "",
-            "btn_type_block": "primary",
+            "btn_type_block": "outline",
             "btn_collection_block": "",
-            "spacing_btn_block": 5
+            "spacing_btn_block": 30
           }
         }
       },
