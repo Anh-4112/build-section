@@ -56,41 +56,41 @@
         "reset_spacing": false
       }
     },
-    "customize_image_comparison_slider_pTzgzN": {
+    "customize_image_comparison_slider_9kGRqa": {
       "type": "customize-image-comparison-slider",
       "blocks": {
-        "heading_6b4NLp": {
+        "heading_RgtkNf": {
           "type": "heading",
           "settings": {
             "heading_block": "Talk about your brand",
-            "uppercase": true,
-            "fs_heading_block": 48,
-            "fw_heading_block": "700"
+            "uppercase": false,
+            "fs_heading_block": 24,
+            "fw_heading_block": "500"
           }
         },
-        "description_36Kxti": {
+        "description_FBraMU": {
           "type": "description",
           "settings": {
             "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "fs_description_block": 24,
-            "fw_description_block": "300",
-            "spacing_description_block": 30
+            "fs_description_block": 16,
+            "fw_description_block": "400",
+            "spacing_description_block": 5
           }
         },
-        "button_pRhxqE": {
+        "button_f4RAgp": {
           "type": "button",
           "settings": {
             "btn_name_block": "",
-            "btn_type_block": "outline",
+            "btn_type_block": "primary",
             "btn_collection_block": "",
-            "spacing_btn_block": 30
+            "spacing_btn_block": 5
           }
         }
       },
       "block_order": [
-        "heading_6b4NLp",
-        "description_36Kxti",
-        "button_pRhxqE"
+        "heading_RgtkNf",
+        "description_FBraMU",
+        "button_f4RAgp"
       ],
       "name": "Image comparison slider",
       "settings": {
@@ -188,7 +188,7 @@
   },
   "order": [
     "customize_faq_qL7ECL",
-    "customize_image_comparison_slider_pTzgzN",
+    "customize_image_comparison_slider_9kGRqa",
     "customize_product_testimonials_NXnQnw"
   ]
 }
