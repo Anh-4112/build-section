@@ -19,7 +19,7 @@ a {
 
 /* =============== HTMLElement Customize ================ */
 collapse-wrapper, collapse-toggle, collapse-content,
-comp-container, comp-before, comp-after,
+comp-block, comp-before, comp-after,
 swiper-section, swiper-prev, swiper-next {
   display: block;
 }

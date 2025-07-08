@@ -13,7 +13,7 @@
     flex-direction: row;
   }
 
-  .w-block {
+  .w-lg-block {
     width: calc(var(--width-block) * 1% );
   }
 }
