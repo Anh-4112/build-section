@@ -58,40 +58,6 @@
     },
     "customize_image_comparison_slider_9kGRqa": {
       "type": "customize-image-comparison-slider",
-      "blocks": {
-        "heading_RgtkNf": {
-          "type": "heading",
-          "settings": {
-            "heading_block": "Talk about your brand",
-            "uppercase": false,
-            "fs_heading_block": 24,
-            "fw_heading_block": "500"
-          }
-        },
-        "description_FBraMU": {
-          "type": "description",
-          "settings": {
-            "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "fs_description_block": 16,
-            "fw_description_block": "400",
-            "spacing_description_block": 5
-          }
-        },
-        "button_f4RAgp": {
-          "type": "button",
-          "settings": {
-            "btn_name_block": "",
-            "btn_type_block": "primary",
-            "btn_collection_block": "",
-            "spacing_btn_block": 5
-          }
-        }
-      },
-      "block_order": [
-        "heading_RgtkNf",
-        "description_FBraMU",
-        "button_f4RAgp"
-      ],
       "name": "Image comparison slider",
       "settings": {
         "section_width": "defaul",
