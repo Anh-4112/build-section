@@ -107,7 +107,7 @@
         "width_block": "50",
         "position_comp": "left",
         "show_label": true,
-        "ratio_image": "custom",
+        "ratio_image": "adapt",
         "ratio_custom": "",
         "vertical_align": "start",
         "section_pt": 0,
