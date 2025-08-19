@@ -153,7 +153,7 @@
       ],
       "name": "Product testimonials",
       "settings": {
-        "section_width": "defaul",
+        "section_width": "full-width",
         "color_scheme": "",
         "heading": "",
         "fs_heading": 14,
