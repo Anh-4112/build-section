@@ -51,6 +51,10 @@ swiper-section, swiper-prev, swiper-next {
   font-weight: var(--fw-heading);
 }
 
+.heading__spacing {
+  margin-top: calc(var(--spacing-heading) * 0.1rem);
+}
+
 .subheading__fs {
   font-size: calc(var(--fs-subheading) * 0.1rem);
 }

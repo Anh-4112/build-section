@@ -110,10 +110,11 @@
                     {% case block.type %}
                         {% when 'heading' %}
                             <h2 
-                                class="heading__fs heading__fw {% if block_st.uppercase == true %} uppercase {% endif %}"
+                                class="heading__fs heading__fw heading__spacing {% if block_st.uppercase == true %} uppercase {% endif %}"
                                 style="
                                     --fs-heading: {{ block_st.fs_heading_block }};
                                     --fw-heading: {{ block_st.fw_heading_block }};
+                                    --spacing-heading: {{ block_st.spacing_heading_block }};
                                 "
                             >
                                 {{ block_st.heading_block }}
@@ -532,6 +533,16 @@
                             "label": "700"
                         }
                     ]
+                },
+                {
+                    "type": "range",
+                    "id": "spacing_heading_block",
+                    "label": "Spacing",
+                    "default": 5,
+                    "min": 5,
+                    "max": 30,
+                    "step": 1,
+                    "unit": "px"
                 }
             ]
         },
