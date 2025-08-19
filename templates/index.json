@@ -41,7 +41,7 @@
       ],
       "name": "FAQ",
       "settings": {
-        "section_width": "defaul",
+        "section_width": "full-width",
         "color_scheme": "",
         "heading": "",
         "fs_heading": 14,
@@ -94,7 +94,7 @@
       ],
       "name": "Image comparison slider",
       "settings": {
-        "section_width": "defaul",
+        "section_width": "full-width",
         "color_scheme": "",
         "heading": "",
         "fs_heading": 24,
