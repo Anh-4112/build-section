@@ -9,24 +9,24 @@
  */
 {
   "sections": {
-    "customize_faq_qL7ECL": {
+    "customize_faq_VXadgK": {
       "type": "customize-FAQ",
       "blocks": {
-        "faq_content_MDWUxY": {
+        "faq_content_9PV7nJ": {
           "type": "faq-content",
           "settings": {
             "faq_question": "Frequently Asked Questions?",
             "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
           }
         },
-        "faq_content_nYPDrW": {
+        "faq_content_a8GaBc": {
           "type": "faq-content",
           "settings": {
             "faq_question": "Frequently Asked Questions?",
             "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
           }
         },
-        "faq_content_9VDj7p": {
+        "faq_content_zz3UhF": {
           "type": "faq-content",
           "settings": {
             "faq_question": "Frequently Asked Questions?",
@@ -35,13 +35,13 @@
         }
       },
       "block_order": [
-        "faq_content_MDWUxY",
-        "faq_content_nYPDrW",
-        "faq_content_9VDj7p"
+        "faq_content_9PV7nJ",
+        "faq_content_a8GaBc",
+        "faq_content_zz3UhF"
       ],
       "name": "FAQ",
       "settings": {
-        "section_width": "full-width",
+        "section_width": "defaul",
         "color_scheme": "",
         "heading": "",
         "fs_heading": 14,
@@ -56,19 +56,20 @@
         "reset_spacing": false
       }
     },
-    "customize_image_comparison_slider_Kpb8C4": {
+    "customize_image_comparison_slider_YKP8ca": {
       "type": "customize-image-comparison-slider",
       "blocks": {
-        "heading_mUgw9w": {
+        "heading_HAYdQe": {
           "type": "heading",
           "settings": {
             "heading_block": "Talk about your brand",
             "uppercase": false,
             "fs_heading_block": 24,
-            "fw_heading_block": "500"
+            "fw_heading_block": "500",
+            "spacing_heading_block": 5
           }
         },
-        "description_erMXEQ": {
+        "description_w6M9VT": {
           "type": "description",
           "settings": {
             "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
@@ -77,7 +78,7 @@
             "spacing_description_block": 5
           }
         },
-        "button_remjLN": {
+        "button_LmVECF": {
           "type": "button",
           "settings": {
             "btn_name_block": "",
@@ -88,13 +89,13 @@
         }
       },
       "block_order": [
-        "heading_mUgw9w",
-        "description_erMXEQ",
-        "button_remjLN"
+        "heading_HAYdQe",
+        "description_w6M9VT",
+        "button_LmVECF"
       ],
       "name": "Image comparison slider",
       "settings": {
-        "section_width": "full-width",
+        "section_width": "defaul",
         "color_scheme": "",
         "heading": "",
         "fs_heading": 24,
@@ -115,10 +116,10 @@
         "reset_spacing": false
       }
     },
-    "customize_product_testimonials_NXnQnw": {
+    "customize_product_testimonials_3PaibK": {
       "type": "customize-product-testimonials",
       "blocks": {
-        "testimonials_items_MVTfG8": {
+        "testimonials_items_rL3rb3": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -127,7 +128,7 @@
             "author_product": ""
           }
         },
-        "testimonials_items_GCd8d7": {
+        "testimonials_items_ehBh8b": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -136,7 +137,7 @@
             "author_product": ""
           }
         },
-        "testimonials_items_FJfWhW": {
+        "testimonials_items_CCPnn9": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -147,13 +148,13 @@
         }
       },
       "block_order": [
-        "testimonials_items_MVTfG8",
-        "testimonials_items_GCd8d7",
-        "testimonials_items_FJfWhW"
+        "testimonials_items_rL3rb3",
+        "testimonials_items_ehBh8b",
+        "testimonials_items_CCPnn9"
       ],
       "name": "Product testimonials",
       "settings": {
-        "section_width": "full-width",
+        "section_width": "defaul",
         "color_scheme": "",
         "heading": "",
         "fs_heading": 14,
@@ -187,8 +188,8 @@
     }
   },
   "order": [
-    "customize_faq_qL7ECL",
-    "customize_image_comparison_slider_Kpb8C4",
-    "customize_product_testimonials_NXnQnw"
+    "customize_faq_VXadgK",
+    "customize_image_comparison_slider_YKP8ca",
+    "customize_product_testimonials_3PaibK"
   ]
 }
