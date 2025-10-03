@@ -152,6 +152,9 @@
         "testimonials_items_ehBh8b",
         "testimonials_items_CCPnn9"
       ],
+      "custom_css": [
+        "img.w-25p.img-cover {display: block; aspect-ratio: 1 / 1;}"
+      ],
       "name": "Product testimonials",
       "settings": {
         "section_width": "defaul",
