@@ -116,44 +116,41 @@
         "reset_spacing": false
       }
     },
-    "customize_product_testimonials_3PaibK": {
+    "customize_product_testimonials_9MtaiG": {
       "type": "customize-product-testimonials",
       "blocks": {
-        "testimonials_items_rL3rb3": {
-          "type": "testimonials_items",
-          "settings": {
-            "author_rate": 5,
-            "author_name": "Author's name",
-            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p><p>You can add text content from press comments, reviews, or testimonials here.</p><p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": "apple-iphone-12-pro-max-128gb-unlocked"
-          }
-        },
-        "testimonials_items_ehBh8b": {
+        "testimonials_items_pCGJCD": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": "laptop-asus-vivobook-go-15_16gb_512gb_win11"
+            "author_product": ""
           }
         },
-        "testimonials_items_CCPnn9": {
+        "testimonials_items_bi7rq8": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
             "author_name": "Author's name",
             "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
-            "author_product": "apple-iphone-13-pro-max-256gb-unlocked"
+            "author_product": ""
+          }
+        },
+        "testimonials_items_ATjtgE": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_rate": 5,
+            "author_name": "Author's name",
+            "author_quote": "<p>You can add text content from press comments, reviews, or testimonials here.</p>",
+            "author_product": ""
           }
         }
       },
       "block_order": [
-        "testimonials_items_rL3rb3",
-        "testimonials_items_ehBh8b",
-        "testimonials_items_CCPnn9"
-      ],
-      "custom_css": [
-        "img.w-25p.img-cover {display: block; aspect-ratio: 1 / 1;}"
+        "testimonials_items_pCGJCD",
+        "testimonials_items_bi7rq8",
+        "testimonials_items_ATjtgE"
       ],
       "name": "Product testimonials",
       "settings": {
@@ -182,7 +179,7 @@
         "flex_custom": 50,
         "ratio_image": "adapt",
         "ratio_custom": "",
-        "color_rate": "#121212",
+        "color_rate": "#ff9900",
         "show_verified": true,
         "section_pt": 0,
         "section_pb": 0,
@@ -193,6 +190,6 @@
   "order": [
     "customize_faq_VXadgK",
     "customize_image_comparison_slider_YKP8ca",
-    "customize_product_testimonials_3PaibK"
+    "customize_product_testimonials_9MtaiG"
   ]
 }
