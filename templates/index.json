@@ -116,10 +116,10 @@
         "reset_spacing": false
       }
     },
-    "customize_product_testimonials_3PaibK": {
+    "customize_product_testimonials_9MtaiG": {
       "type": "customize-product-testimonials",
       "blocks": {
-        "testimonials_items_rL3rb3": {
+        "testimonials_items_pCGJCD": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -128,7 +128,7 @@
             "author_product": ""
           }
         },
-        "testimonials_items_ehBh8b": {
+        "testimonials_items_bi7rq8": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -137,7 +137,7 @@
             "author_product": ""
           }
         },
-        "testimonials_items_CCPnn9": {
+        "testimonials_items_ATjtgE": {
           "type": "testimonials_items",
           "settings": {
             "author_rate": 5,
@@ -148,9 +148,9 @@
         }
       },
       "block_order": [
-        "testimonials_items_rL3rb3",
-        "testimonials_items_ehBh8b",
-        "testimonials_items_CCPnn9"
+        "testimonials_items_pCGJCD",
+        "testimonials_items_bi7rq8",
+        "testimonials_items_ATjtgE"
       ],
       "name": "Product testimonials",
       "settings": {
@@ -190,6 +190,6 @@
   "order": [
     "customize_faq_VXadgK",
     "customize_image_comparison_slider_YKP8ca",
-    "customize_product_testimonials_3PaibK"
+    "customize_product_testimonials_9MtaiG"
   ]
 }
