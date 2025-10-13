@@ -229,7 +229,8 @@
             "min": 14,
             "max": 48,
             "step": 1,
-            "unit": "px"
+            "unit": "px",
+            "visible_if": "{{ section.settings.heading != blank }}"
         },
         {
             "type": "select",
@@ -238,18 +239,19 @@
             "default": "400",
             "options": [
                 {
-                    "value": "300",
-                    "label": "300"
-                },
-                {
                     "value": "400",
                     "label": "400"
                 },
                 {
                     "value": "500",
                     "label": "500"
+                },
+                {
+                    "value": "600",
+                    "label": "600"
                 }
-            ]
+            ],
+            "visible_if": "{{ section.settings.heading != blank }}"
         },
         {
             "type": "richtext",
@@ -264,7 +266,8 @@
             "min": 14,
             "max": 36,
             "step": 1,
-            "unit": "px"
+            "unit": "px",
+            "visible_if": "{{ section.settings.description != blank }}"
         },
         {
             "type": "select",
@@ -284,7 +287,8 @@
                     "value": "500",
                     "label": "500"
                 }
-            ]
+            ],
+            "visible_if": "{{ section.settings.description != blank }}"
         },
         {
             "type": "select",
@@ -304,7 +308,8 @@
                     "value": "right",
                     "label": "Right"
                 }
-            ]
+            ],
+            "visible_if": "{{ section.settings.heading != blank or section.settings.description != blank }}"
         },
         {
             "type": "range",
@@ -314,7 +319,8 @@
             "min": 5,
             "max": 50,
             "step": 1,
-            "unit": "px"
+            "unit": "px",
+            "visible_if": "{{ section.settings.heading != blank or section.settings.description != blank }}"
         },
         {
             "type": "header",
@@ -444,7 +450,8 @@
                     "value": "right",
                     "label": "Right"
                 }
-            ]
+            ],
+            "visible_if": "{{ section.settings.img_show == true }}"
         },
         {
             "type": "range",
@@ -454,7 +461,8 @@
             "min": 20,
             "max": 50,
             "step": 1,
-            "unit": "%"
+            "unit": "%",
+            "visible_if": "{{ section.settings.img_show == true and section.settings.img_position == 'left' or section.settings.img_position == 'right' }}"
         },
         {
             "type": "select",
@@ -482,24 +490,28 @@
                     "value": "custom",
                     "label": "Custom ratio"
                 }
-            ]
+            ],
+            "visible_if": "{{ section.settings.img_show == true and section.settings.img_position == 'top' or section.settings.img_position == 'bot' }}"
         },
         {
             "type": "text",
             "id": "ratio_custom",
-            "label": "Custom ratio (Form: Width/Height)"
+            "label": "Custom ratio (Form: Width/Height)",
+            "visible_if": "{{ section.settings.img_show == true and section.settings.ratio_image == 'custom' }}"
         },
         {
             "type": "color",
             "id": "color_rate",
             "label": "Rate color",
-            "default": "#ff9900"
+            "default": "#ff9900",
+            "visible_if": "{{ section.settings.img_show == true }}"
         },
         {
             "type": "checkbox",
             "id": "show_verified",
             "label": "Show verified buyer",
-            "default": true
+            "default": true,
+            "visible_if": "{{ section.settings.img_show == true }}"
         },
         {
             "type": "header",

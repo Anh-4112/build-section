@@ -251,7 +251,8 @@
             "min": 24,
             "max": 48,
             "step": 1,
-            "unit": "px"
+            "unit": "px",
+            "visible_if": "{{ section.settings.heading != blank }}"
         },
         {
             "type": "select",
@@ -260,18 +261,19 @@
             "default": "400",
             "options": [
                 {
-                    "value": "300",
-                    "label": "300"
-                },
-                {
                     "value": "400",
                     "label": "400"
                 },
                 {
                     "value": "500",
                     "label": "500"
+                },
+                {
+                    "value": "600",
+                    "label": "600"
                 }
-            ]
+            ],
+            "visible_if": "{{ section.settings.heading != blank }}"
         },
         {
             "type": "richtext",
@@ -286,7 +288,8 @@
             "min": 14,
             "max": 36,
             "step": 1,
-            "unit": "px"
+            "unit": "px",
+            "visible_if": "{{ section.settings.description != blank }}"
         },
         {
             "type": "select",
@@ -306,7 +309,8 @@
                     "value": "500",
                     "label": "500"
                 }
-            ]
+            ],
+            "visible_if": "{{ section.settings.description != blank }}"
         },
         {
             "type": "select",
@@ -326,7 +330,8 @@
                     "value": "right",
                     "label": "Right"
                 }
-            ]
+            ],
+            "visible_if": "{{ section.settings.heading != blank or section.settings.description != blank }}"
         },
         {
             "type": "range",
@@ -336,7 +341,8 @@
             "min": 5,
             "max": 50,
             "step": 1,
-            "unit": "px"
+            "unit": "px",
+            "visible_if": "{{ section.settings.heading != blank or section.settings.description != blank }}"
         },
         {
             "type": "header",
@@ -429,7 +435,8 @@
         {
             "type": "text",
             "id": "ratio_custom",
-            "label": "Custom ratio (Form: Width/Height)"
+            "label": "Custom ratio (Form: Width/Height)",
+            "visible_if": "{{ section.settings.ratio_image == 'custom' }}"
         },
         {
             "type": "header",
