@@ -87,16 +87,10 @@
                     {% assign top_bot = 'top,bot' | split: ',' %}
                     {% assign left_right = 'left,right' | split: ',' %}
                     {% assign bot_right = 'bot,right' | split: ',' %}
-                    <div class="swiper-slide txt-no-select d-flex
-                                {% if framed_slide == true %} bor bor-1 rounded-10 overflow-hidden {% endif %}
-                                {% if top_bot contains img_position %} column {% endif %}"
+                    <div class="swiper-slide txt-no-select d-flex{% if framed_slide == true %} bor bor-1 rounded-10 overflow-hidden{% endif %}{% if top_bot contains img_position %} column{% endif %}"
                         style="border-color: rgb(220, 220, 220);"
                     >
-                        <div class="d-none overflow-hidden
-                                    {% if img_show == true %} d-sm-block {% endif %}
-                                    {% if framed_slide != true %} rounded-10 {% endif %}
-                                    {% if left_right contains img_position %} f-custom {% elsif top_bot contains img_position %} {{ ratio_image }} {% endif %}
-                                    {% if bot_right contains img_position %} order-1 {% endif %}"
+                        <div class="d-none overflow-hidden{% if img_show == true %} d-sm-block{% endif %}{% if framed_slide != true %} rounded-10{% endif %}{% if left_right contains img_position %} f-custom{% elsif top_bot contains img_position %} {{ ratio_image }}{% endif %}{% if bot_right contains img_position %} order-1{% endif %}"
                             style="--f-custom: {{ flex_custom }}; --ratio-custom: {{ ratio_custom }};"
                         >
                             {% if blocks_st.author_image != blank %}
@@ -111,7 +105,7 @@
                                 {% render 'image-clone' %}
                             {% endif %}
                         </div>
-                        <div class="d-flex f-1 column py-20{% if framed_slide == true or left_right contains img_position %} px-30 {% endif %}">
+                        <div class="d-flex f-1 column py-20{% if framed_slide == true or left_right contains img_position %} px-30{% endif %}">
                             {% comment %} Rate {% endcomment %}
                             <div class="relative">
                                 <svg width="78" height="14" viewBox="0 0 78 14">
@@ -169,7 +163,7 @@
             </div>
             
             {% if pagination_type == 'dots' or pagination_type == 'dots_mobile' %}
-                <swiper-pagination class="mt-10 d-flex jc-center{% if pagination_type == 'dots_mobile' %} d-sm-none {% endif %}"></swiper-pagination>
+                <swiper-pagination class="mt-10 d-flex jc-center{% if pagination_type == 'dots_mobile' %} d-sm-none{% endif %}"></swiper-pagination>
             {% elsif pagination_type == 'progress' %}
                 <swiper-pagination class="mt-2"></swiper-pagination>
             {% endif %}
@@ -404,7 +398,8 @@
             "max": 6,
             "step": 1,
             "unit": "s",
-            "default": 3
+            "default": 3,
+            "visible_if": "{{ section.settings.auto_slide == true }}"
         },
         {
             "type": "checkbox",
@@ -503,15 +498,13 @@
             "type": "color",
             "id": "color_rate",
             "label": "Rate color",
-            "default": "#ff9900",
-            "visible_if": "{{ section.settings.img_show == true }}"
+            "default": "#ff9900"
         },
         {
             "type": "checkbox",
             "id": "show_verified",
             "label": "Show verified buyer",
-            "default": true,
-            "visible_if": "{{ section.settings.img_show == true }}"
+            "default": true
         },
         {
             "type": "header",
