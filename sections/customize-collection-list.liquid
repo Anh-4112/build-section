@@ -1,0 +1,43 @@
+{% liquid 
+%}
+
+<section></section>
+
+{% schema %}
+{
+    "name": "Collection List Customize",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "select",
+            "id": "section_width",
+            "label": "Section width",
+            "default": "defaul",
+            "options": [
+                {
+                    "value": "defaul",
+                    "label": "Defaul"
+                },
+                {
+                    "value": "fluid-container",
+                    "label": "Fluid Container"
+                },
+                {
+                    "value": "stretch-width",
+                    "label": "Stretch Width"
+                },
+                {
+                    "value": "full-width",
+                    "label": "Full Width"
+                }
+            ]
+        },
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Section color",
+            "default": "scheme-1"
+        }
+    ]
+}
+{% endschema %}
