@@ -1,0 +1,19 @@
+{% liquid
+    assign section_st = section.settings
+    assign heading = section_st.heading
+    assign subheading = section_st.subheading
+    assign text_align = section_st.txt_align
+    assign header_size = section_st.header_size
+    assign reverse_content = section_st.reverse-content
+%}
+<div class="section__header">
+    <div class="section__header-text text-{{ text_align }} d-flex f-1 gap-10{% if reverse_content == true %} column-reverse{% else %} column{% endif %}">
+        <h2 class="section__header--heading heading-{{ header_size }}">
+            {{ heading }}
+        </h2>
+
+        <h3 class="section__header--subheading subheading-{{ header_size }}">
+            {{ subheading }}
+        </h3>
+    </div>
+</div>

@@ -265,6 +265,37 @@ swiper-prev {
   text-transform: uppercase;
 }
 
+/* === Typography === */
+.heading-small {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.heading-medium {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.heading-large {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.subheading-small {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.subheading-medium {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.subheading-large {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
 /* === Image === */
 .img-cover {
   object-fit: cover;
@@ -371,6 +402,10 @@ swiper-prev {
 
 .column {
   flex-direction: column;
+}
+
+.column-reverse {
+  flex-direction: column-reverse;
 }
 
 /* === Position === */
