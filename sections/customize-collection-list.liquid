@@ -1,18 +1,23 @@
 {% liquid
-    assign theme_st = settings
     assign section_st = section.settings
+    assign color_scheme = section_st.color_scheme
+    assign section_width = section_st.section_width
+    assign section_pt = section_st.section_pt
+    assign section_pb = section_st.section_pb
 
     assign heading =  section_st.heading
     assign description =  section_st.description
 %}
 
-<section>
-    <div>
-        {% if heading != blank or description != blank %}
-            {% render 'block-header',
-               section: section
-            %}
-        {% endif %}
+<section class="section__py color-{{ color_scheme }} gradient"
+         style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
+>
+    <div class="{{ section_width }}">
+        <header>
+            {% if heading != blank or description != blank %}
+                {% render 'block-header', section: section %}
+            {% endif %}
+        </header>
     </div>
 </section>
 
@@ -21,6 +26,36 @@
     "name": "Customize Collection List",
     "tag": "section",
     "settings": [
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Section color",
+            "default": "scheme-1"
+        },
+        {
+            "type": "select",
+            "id": "section_width",
+            "label": "Section width",
+            "default": "defaul",
+            "options": [
+                {
+                    "value": "defaul",
+                    "label": "Defaul"
+                },
+                {
+                    "value": "fluid-container",
+                    "label": "Fluid Container"
+                },
+                {
+                    "value": "stretch-width",
+                    "label": "Stretch Width"
+                },
+                {
+                    "value": "full-width",
+                    "label": "Full Width"
+                }
+            ]
+        },
         {
             "type": "header",
             "content": "Header"
@@ -80,6 +115,30 @@
             "id": "reverse-content",
             "label": "Reverse Content Order",
             "default": false
+        },
+        {
+            "type": "header",
+            "content": "Section Padding"
+        },
+        {
+            "type": "range",
+            "id": "section_pt",
+            "label": "Top",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "section_pb",
+            "label": "Bottom",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px"
         }
     ],
     "presets": [
