@@ -6,13 +6,13 @@
     assign header_size = section_st.header_size
     assign reverse_content = section_st.reverse-content
 %}
-<div class="section__header">
-    <div class="section__header-text text-{{ text_align }} d-flex f-1 gap-10{% if reverse_content == true %} column-reverse{% else %} column{% endif %}">
-        <h2 class="section__header--heading heading-{{ header_size }}">
+<div class="section__header mb-20">
+    <div class="section__header-text d-flex{% if reverse_content == true %} column-reverse{% else %} column{% endif %} text-{{ text_align }}">
+        <h2 class="header__text--heading heading-{{ header_size }}">
             {{ heading }}
         </h2>
 
-        <h3 class="section__header--subheading subheading-{{ header_size }}">
+        <h3 class="header__text--subheading subheading-{{ header_size }}">
             {{ subheading }}
         </h3>
     </div>

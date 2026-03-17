@@ -1,6 +1,6 @@
 /* =============== Reset ================ */
 h1, h2, h3, h4, h5, p, div {
-    line-height: 1;
+    line-height: 1.8;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -549,6 +549,10 @@ swiper-prev {
 
 .top-0 {
   top: 0;
+}
+
+.top-5 {
+  top: 5px;
 }
 
 /* === Left === */
