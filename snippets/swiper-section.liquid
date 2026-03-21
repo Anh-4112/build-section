@@ -1,0 +1,24 @@
+{% liquid 
+    assign section_st = section.settings
+    assign items_per_row_pc = section_st.items_per_row_pc
+    assign items_per_row_mobile = section_st.items_per_row_mobile
+    assign column_gap = section_st.column_gap
+%}
+<swiper-section
+    class="swiper-section swiper relative"
+    data-items-pc="{{ items_per_row_pc }}"
+    data-items-mobile="{{ items_per_row_mobile }}"
+    data-gap="{{ column_gap }}"
+    data-infinite="{{ infinite_slide }}"
+    data-auto="{{ auto_slide }}"
+    data-interval="{{ interval_slide }}"
+>
+    <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+            {% assign collection = block.settings.collection %}
+            <div class="swiper-slide txt-no-select{% if collection.url == blank %} not-allowed{% endif %}">
+                {% render 'collection-item', collection: collection %}
+            </div>
+        {% endfor %}
+    </div>
+</swiper-section>

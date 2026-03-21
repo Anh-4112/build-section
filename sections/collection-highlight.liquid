@@ -1,14 +1,16 @@
 {% liquid
     assign section_st = section.settings
-    assign blocks_st = block.settings
 
     assign color_scheme = section_st.color_scheme
     assign section_width = section_st.section_width
     assign section_pt = section_st.section_pt
     assign section_pb = section_st.section_pb
 
-    assign heading =  section_st.heading
-    assign description =  section_st.description
+    assign heading = section_st.heading
+    assign subheading = section_st.subheading
+
+    assign show_carousel = section_st.show_carousel
+    assign show_list = section_st.show_list
 %}
 {% capture style %}
     --section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};
@@ -16,50 +18,29 @@
 
 <section class="section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
     <div class="{{ section_width }}">
-        {% if heading != blank or description != blank %}
-            {% render 'block-header', section: section %}
-        {% endif %}
-        <div>
-            <swiper-section
-                class="swiper-section swiper relative"
-                data-items-pc="{{ items_per_row_pc }}"
-                data-items-mobile="{{ items_per_row_mobile }}"
-                data-gap="{{ column_gap }}"
-                data-infinite="{{ infinite_slide }}"
-                data-auto="{{ auto_slide }}"
-                data-interval="{{ interval_slide }}"
-            >
-                {% if check_icon %}
-                    {% render 'swiper-icon' %}
-                {% endif %}
-            
-                <div class="swiper-wrapper">
-                    {% for block in section.blocks %}
-                        <div class="swiper-slide txt-no-select">
-                            <div>
-                                {% if blocks_st.author_image != blank %}
-                                    <img 
-                                        class="img-cover"
-                                        src="{{ blocks_st.author_image | image_url }}" 
-                                        alt="Image"
-                                        width="100%" 
-                                        height="100%" 
-                                    >
-                                {% else %}
-                                    {% render 'image-clone' %}
-                                {% endif %}
-                            </div>
-                        </div>
-                    {% endfor %}
+        <div class="section__collection-highlight d-grid gap-10{% if heading != blank or subheading != blank %} grid-1x3{% else %} grid-1x2{% endif %}">
+            {% if heading != blank or subheading != blank %}
+                <div class="collection-highlight--header min-w-0" style="grid-column: 1/2; grid-row: 1/2;">
+                    {% render 'block-header', section: section %}
                 </div>
-            </swiper-section>
+            {% endif %}
+            {% if show_carousel == true %}
+                <div class="collection-highlight--carousel min-w-0" style="grid-column: 1/2; grid-row: 2/3;">
+                    {% render 'swiper-section', section: section %}
+                </div>
+            {% endif %}
+            {% if show_list == true %}
+                <div class="collection-highlight--list min-w-0" style="grid-column: 1/2; grid-row: 3/4;">
+                    {% render 'list-section', section: section %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </section>
 
 {% schema %}
 {
-    "name": "Customize Collection List",
+    "name": "Collection Highlight",
     "tag": "section",
     "settings": [
         {
@@ -156,6 +137,55 @@
             "visible_if": "{{ section.settings.heading != blank and section.settings.subheading != blank }}"
         },
 
+        {
+            "type": "header",
+            "content": "Collection carousel settings"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_carousel",
+            "label": "Show carousel",
+            "default": true
+        },
+        {
+            "type": "range",
+            "id": "items_per_row_pc",
+            "label": "Items per row desktop",
+            "default": 2,
+            "min": 1,
+            "max": 3,
+            "step": 1
+        },
+        {
+            "type": "range",
+            "id": "items_per_row_mobile",
+            "label": "Items per row mobile",
+            "default": 1,
+            "step": 0.5,
+            "min": 1,
+            "max": 2
+        },
+        {
+            "type": "range",
+            "id": "column_gap",
+            "label": "Column gap",
+            "default": 15,
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "unit": "px"
+        },
+
+        {
+            "type": "header",
+            "content": "Collection list settings"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_list",
+            "label": "Show list",
+            "default": true
+        },
 
         {
             "type": "header",
@@ -210,7 +240,7 @@
     ],
     "presets": [
         {
-            "name": "Customize Collection List"
+            "name": "Collection Highlight"
         }
     ]
 }

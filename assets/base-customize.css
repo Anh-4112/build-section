@@ -215,6 +215,14 @@ swiper-prev {
 .pointer {
   cursor: pointer;
 }
+.not-allowed {
+  cursor: not-allowed;
+}
+
+/* === Pointer Events === */
+.pointer-none {
+  pointer-events: none;
+}
 
 /* === Overflow === */
 .overflow-hidden {
@@ -335,6 +343,10 @@ swiper-prev {
   display: inline-flex;
 }
 
+.d-grid {
+  display: grid;
+}
+
 .content-center {
   justify-content: center;
   align-items: center;
@@ -408,6 +420,17 @@ swiper-prev {
   flex-direction: column-reverse;
 }
 
+/* === Grid === */
+.grid-1x2 {
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, auto);
+}
+
+.grid-1x3 {
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(3, auto);
+}
+
 /* === Position === */
 .relative {
   position: relative;
@@ -431,8 +454,16 @@ swiper-prev {
 }
 
 /* === Width === */
+.w-custom {
+  width: var(--w-custom);
+}
+
 .w-25p {
   width: 25%;
+}
+
+.w-50p {
+  width: 50%;
 }
 
 .w-full {
@@ -449,6 +480,10 @@ swiper-prev {
 
 .w-190 {
   width: 19rem;
+}
+
+.min-w-0 {
+  min-width: 0;
 }
 
 /* === Height === */
@@ -561,6 +596,10 @@ swiper-prev {
   transform: translateX(-50%);
 }
 
+.left-7p {
+  left: 7%;
+}
+
 .left-0 {
   left: 0;
 }
@@ -568,4 +607,9 @@ swiper-prev {
 /* === Right === */
 .right-0 {
   right: 0;
+}
+
+/* === Bottom === */
+.bottom-7p {
+  bottom: 7%;
 }
