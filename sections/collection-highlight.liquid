@@ -12,26 +12,36 @@
     assign show_carousel = section_st.show_carousel
     assign show_list = section_st.show_list
 %}
+
 {% capture style %}
     --section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};
 {% endcapture %}
 
 <section class="section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
     <div class="{{ section_width }}">
-        <div class="section__collection-highlight d-grid gap-10{% if heading != blank or subheading != blank %} grid-1x3{% else %} grid-1x2{% endif %}">
-            {% if heading != blank or subheading != blank %}
-                <div class="collection-highlight--header min-w-0" style="grid-column: 1/2; grid-row: 1/2;">
-                    {% render 'block-header', section: section %}
-                </div>
-            {% endif %}
+        {% if heading != blank or subheading != blank %}
+            <div class="section__header d-md-none">
+                {% render 'header', section: section %}
+            </div>
+        {% endif %}
+        <div class="section__collection-highlight d-md-flex gap-10 mt-20 mt-md-0">
             {% if show_carousel == true %}
-                <div class="collection-highlight--carousel min-w-0" style="grid-column: 1/2; grid-row: 2/3;">
+                <div class="collection-highlight--carousel f-1 min-w-0">
                     {% render 'swiper-section', section: section %}
                 </div>
             {% endif %}
-            {% if show_list == true %}
-                <div class="collection-highlight--list min-w-0" style="grid-column: 1/2; grid-row: 3/4;">
-                    {% render 'list-section', section: section %}
+            {% if heading != blank or subheading != blank or show_list == true %}
+                <div class="collection-highlight--list-wrapper f-1 min-w-0 d-flex column">
+                    {% if heading != blank or subheading != blank %}
+                        <div class="section__header d-none d-md-block">
+                            {% render 'header', section: section %}
+                        </div>
+                    {% endif %}
+                    {% if show_list == true %}
+                        <div class="collection-highlight--list f-1">
+                            {% render 'list-section', section: section %}
+                        </div>
+                    {% endif %}
                 </div>
             {% endif %}
         </div>
@@ -148,13 +158,21 @@
             "default": true
         },
         {
+            "type": "checkbox",
+            "id": "check_icon",
+            "label": "Show next/back",
+            "default": true,
+            "visible_if": "{{ section.settings.show_carousel == true }}"
+        },
+        {
             "type": "range",
             "id": "items_per_row_pc",
             "label": "Items per row desktop",
             "default": 2,
             "min": 1,
             "max": 3,
-            "step": 1
+            "step": 1,
+            "visible_if": "{{ section.settings.show_carousel == true }}"
         },
         {
             "type": "range",
@@ -163,7 +181,8 @@
             "default": 1,
             "step": 0.5,
             "min": 1,
-            "max": 2
+            "max": 2,
+            "visible_if": "{{ section.settings.show_carousel == true }}"
         },
         {
             "type": "range",
@@ -171,9 +190,31 @@
             "label": "Column gap",
             "default": 15,
             "min": 0,
-            "max": 50,
+            "max": 30,
             "step": 1,
-            "unit": "px"
+            "unit": "px",
+            "visible_if": "{{ section.settings.show_carousel == true }}"
+        },
+        {
+            "type": "select",
+            "id": "ratio_image",
+            "label": "Ratio",
+            "default" : "adapt",
+            "options": [
+                {
+                    "value": "adapt",
+                    "label": "Adapt to image"   
+                },
+                {
+                    "value": "square",
+                    "label": "Square (1:1)"
+                },
+                {
+                    "value": "portrait",
+                    "label": "Portrait (3:4)"
+                }
+            ],
+            "visible_if": "{{ section.settings.show_carousel == true }}"
         },
 
         {

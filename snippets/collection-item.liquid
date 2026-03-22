@@ -1,6 +1,17 @@
+{% liquid
+    assign section_st = section.settings
+    assign ratio_image = section_st.ratio_image
+        if ratio_image == 'adapt'
+            assign ratio_image = ''
+        elsif ratio_image == 'square'
+            assign ratio_image = 'ratio-square'
+        else ratio_image == 'portrait'
+            assign ratio_image = 'ratio-portrait'
+        endif
+%}
 <div class="collection__item relative{% if collection.url == blank %} pointer-none{% endif %}">
     <div class="collection__item-media">
-        <a class="collection-image" href="{{ collection.url }}">
+        <a class="collection-image d-block {{ ratio_image }}" href="{{ collection.url }}">
             {% if collection.image != blank %}
                 <img 
                     class="img-cover"

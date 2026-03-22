@@ -3,6 +3,7 @@
     assign items_per_row_pc = section_st.items_per_row_pc
     assign items_per_row_mobile = section_st.items_per_row_mobile
     assign column_gap = section_st.column_gap
+    assign check_icon = section_st.check_icon
 %}
 <swiper-section
     class="swiper-section swiper relative"
@@ -13,6 +14,9 @@
     data-auto="{{ auto_slide }}"
     data-interval="{{ interval_slide }}"
 >
+    {% if check_icon %}
+        {% render 'swiper-icon' %}
+    {% endif %}
     <div class="swiper-wrapper">
         {% for block in section.blocks %}
             {% assign collection = block.settings.collection %}
