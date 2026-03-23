@@ -19,10 +19,12 @@
     {% endif %}
     <div class="swiper-wrapper">
         {% for block in section.blocks %}
-            {% assign collection = block.settings.collection %}
-            <div class="swiper-slide txt-no-select{% if collection.url == blank %} not-allowed{% endif %}">
-                {% render 'collection-item', collection: collection %}
-            </div>
+            {% if block.type == 'carousel_collection' %}
+                {% assign collection = block.settings.collection %}
+                <div class="swiper-slide txt-no-select{% if collection.url == blank %} not-allowed{% endif %}">
+                    {% render 'collection-item', collection: collection %}
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 </swiper-section>

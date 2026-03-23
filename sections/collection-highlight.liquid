@@ -24,7 +24,7 @@
                 {% render 'header', section: section %}
             </div>
         {% endif %}
-        <div class="section__collection-highlight d-md-flex gap-10 mt-20 mt-md-0">
+        <div class="section__collection-highlight d-md-flex gap-50 mt-20 mt-md-0">
             {% if show_carousel == true %}
                 <div class="collection-highlight--carousel f-1 min-w-0">
                     {% render 'swiper-section', section: section %}
@@ -33,7 +33,7 @@
             {% if heading != blank or subheading != blank or show_list == true %}
                 <div class="collection-highlight--list-wrapper f-1 min-w-0 d-flex column">
                     {% if heading != blank or subheading != blank %}
-                        <div class="section__header d-none d-md-block">
+                        <div class="section__header d-none d-md-block py-20">
                             {% render 'header', section: section %}
                         </div>
                     {% endif %}

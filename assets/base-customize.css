@@ -369,6 +369,10 @@ swiper-prev {
   gap: 2rem;
 }
 
+.gap-50 {
+  gap: 5rem;
+}
+
 /* === Align Items === */
 .ai-center {
   align-items: center;
@@ -574,6 +578,10 @@ swiper-prev {
 
 .mb-20 {
   margin-bottom: 2rem;
+}
+/* Margin Right */
+.mr-auto {
+  margin-right: auto;
 }
 
 /* === Top === */
