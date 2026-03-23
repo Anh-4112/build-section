@@ -9,6 +9,60 @@
  */
 {
   "sections": {
+    "collection_highlight_XEJKPK": {
+      "type": "collection-highlight",
+      "blocks": {
+        "carousel_collection_GXmYXY": {
+          "type": "carousel_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "carousel_collection_LNgqQB": {
+          "type": "carousel_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "carousel_collection_JWE7W6": {
+          "type": "carousel_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "carousel_collection_gebAyp": {
+          "type": "carousel_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "carousel_collection_GXmYXY",
+        "carousel_collection_LNgqQB",
+        "carousel_collection_JWE7W6",
+        "carousel_collection_gebAyp"
+      ],
+      "name": "Collection Highlight",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "defaul",
+        "heading": "Heading",
+        "subheading": "<p>Subheading</p>",
+        "header_size": "medium",
+        "txt_align": "center",
+        "reverse-content": false,
+        "show_carousel": true,
+        "check_icon": true,
+        "items_per_row_pc": 2,
+        "items_per_row_mobile": 1,
+        "column_gap": 15,
+        "ratio_image": "adapt",
+        "show_list": true,
+        "section_pt": 50,
+        "section_pb": 50
+      }
+    },
     "customize_faq_VXadgK": {
       "type": "customize-FAQ",
       "blocks": {
@@ -51,8 +105,8 @@
         "fw_description": "400",
         "txt_align": "center",
         "spacing_description": 5,
-        "section_pt": 0,
-        "section_pb": 0,
+        "section_pt": 50,
+        "section_pb": 50,
         "reset_spacing": false
       }
     },
@@ -111,8 +165,8 @@
         "ratio_image": "adapt",
         "ratio_custom": "",
         "vertical_align": "start",
-        "section_pt": 0,
-        "section_pb": 0,
+        "section_pt": 50,
+        "section_pb": 50,
         "reset_spacing": false
       }
     },
@@ -181,45 +235,16 @@
         "ratio_custom": "",
         "color_rate": "#ff9900",
         "show_verified": true,
-        "section_pt": 0,
-        "section_pb": 0,
+        "section_pt": 50,
+        "section_pb": 50,
         "reset_spacing": false
-      }
-    },
-    "featured_collection_8Ad8EK": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "",
-        "products_to_show": 4,
-        "title": "Featured collection",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "customize_faq_VXadgK",
-    "customize_image_comparison_slider_YKP8ca",
+    "collection_highlight_XEJKPK",
     "customize_product_testimonials_9MtaiG",
-    "featured_collection_8Ad8EK"
+    "customize_image_comparison_slider_YKP8ca",
+    "customize_faq_VXadgK"
   ]
 }
