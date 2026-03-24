@@ -482,6 +482,10 @@ swiper-prev {
   width: 4.5rem;
 }
 
+.w-50 {
+  width: 5rem;
+}
+
 .w-190 {
   width: 19rem;
 }
@@ -548,6 +552,10 @@ swiper-prev {
 }
 
 /* Padding Y */
+.py-10 {
+  padding-block: 1rem;
+}
+
 .py-20 {
   padding-block: 2rem;
 }
@@ -617,7 +625,56 @@ swiper-prev {
   right: 0;
 }
 
+.right-7p {
+  right: 7%;
+}
+
 /* === Bottom === */
 .bottom-7p {
   bottom: 7%;
+}
+
+/* === === */
+.collection-highlight--list:hover .list-item {
+  color: rgba(128, 128, 128, 0.8);
+  transition: color 0.3s ease-in-out;
+}
+
+.list-item:hover .list-link {
+  color: black;
+  transition: color 0.3s ease-in-out;
+}
+
+.list-item {
+    position: relative;
+}
+
+.list-item::after {
+    content: "";
+    position: fixed;
+    left: calc(var(--cursor-x, -9999px) + 16px);
+    top: calc(var(--cursor-y, -9999px) + 16px);
+    width: clamp(110px, 14vw, 150px);
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    background-image: var(--list-hover-image);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.92);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 30;
+}
+
+.list-item.is-hovering::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media (pointer: coarse) {
+    .list-item::after {
+        display: none;
+    }
 }

@@ -21,7 +21,7 @@
         {% for block in section.blocks %}
             {% if block.type == 'carousel_collection' %}
                 {% assign collection = block.settings.collection %}
-                <div class="swiper-slide txt-no-select{% if collection.url == blank %} not-allowed{% endif %}">
+                <div class="swiper-slide txt-no-select">
                     {% render 'collection-item', collection: collection %}
                 </div>
             {% endif %}

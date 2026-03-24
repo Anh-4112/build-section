@@ -4,7 +4,7 @@
     assign subheading = section_st.subheading
     assign text_align = section_st.txt_align
     assign header_size = section_st.header_size
-    assign reverse_content = section_st.reverse-content
+    assign reverse_content = section_st.reverse_content
 %}
 <div class="block__header">
     <div class="block__header-text d-flex{% if reverse_content == true %} column-reverse{% else %} column{% endif %} text-{{ text_align }}">

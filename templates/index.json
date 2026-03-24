@@ -12,6 +12,30 @@
     "collection_highlight_XEJKPK": {
       "type": "collection-highlight",
       "blocks": {
+        "list_collection_qXy6MU": {
+          "type": "list_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "list_collection_gwGqFA": {
+          "type": "list_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "list_collection_paAGRQ": {
+          "type": "list_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "list_collection_rkYUU3": {
+          "type": "list_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
         "carousel_collection_GXmYXY": {
           "type": "carousel_collection",
           "settings": {
@@ -38,6 +62,10 @@
         }
       },
       "block_order": [
+        "list_collection_qXy6MU",
+        "list_collection_gwGqFA",
+        "list_collection_paAGRQ",
+        "list_collection_rkYUU3",
         "carousel_collection_GXmYXY",
         "carousel_collection_LNgqQB",
         "carousel_collection_JWE7W6",
@@ -61,113 +89,6 @@
         "show_list": true,
         "section_pt": 50,
         "section_pb": 50
-      }
-    },
-    "customize_faq_VXadgK": {
-      "type": "customize-FAQ",
-      "blocks": {
-        "faq_content_9PV7nJ": {
-          "type": "faq-content",
-          "settings": {
-            "faq_question": "Frequently Asked Questions?",
-            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
-          }
-        },
-        "faq_content_a8GaBc": {
-          "type": "faq-content",
-          "settings": {
-            "faq_question": "Frequently Asked Questions?",
-            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
-          }
-        },
-        "faq_content_zz3UhF": {
-          "type": "faq-content",
-          "settings": {
-            "faq_question": "Frequently Asked Questions?",
-            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_content_9PV7nJ",
-        "faq_content_a8GaBc",
-        "faq_content_zz3UhF"
-      ],
-      "name": "FAQ",
-      "settings": {
-        "section_width": "defaul",
-        "color_scheme": "",
-        "heading": "",
-        "fs_heading": 14,
-        "fw_heading": "400",
-        "description": "",
-        "fs_description": 14,
-        "fw_description": "400",
-        "txt_align": "center",
-        "spacing_description": 5,
-        "section_pt": 50,
-        "section_pb": 50,
-        "reset_spacing": false
-      }
-    },
-    "customize_image_comparison_slider_YKP8ca": {
-      "type": "customize-image-comparison-slider",
-      "blocks": {
-        "heading_HAYdQe": {
-          "type": "heading",
-          "settings": {
-            "heading_block": "Talk about your brand",
-            "uppercase": false,
-            "fs_heading_block": 24,
-            "fw_heading_block": "500",
-            "spacing_heading_block": 5
-          }
-        },
-        "description_w6M9VT": {
-          "type": "description",
-          "settings": {
-            "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "fs_description_block": 16,
-            "fw_description_block": "400",
-            "spacing_description_block": 5
-          }
-        },
-        "button_LmVECF": {
-          "type": "button",
-          "settings": {
-            "btn_name_block": "",
-            "btn_type_block": "primary",
-            "btn_collection_block": "",
-            "spacing_btn_block": 5
-          }
-        }
-      },
-      "block_order": [
-        "heading_HAYdQe",
-        "description_w6M9VT",
-        "button_LmVECF"
-      ],
-      "name": "Image comparison slider",
-      "settings": {
-        "section_width": "defaul",
-        "color_scheme": "",
-        "heading": "",
-        "fs_heading": 24,
-        "fw_heading": "400",
-        "description": "",
-        "fs_description": 14,
-        "fw_description": "400",
-        "txt_align": "center",
-        "spacing_description": 5,
-        "width_block": "50",
-        "position_comp": "left",
-        "show_label": true,
-        "ratio_image": "adapt",
-        "ratio_custom": "",
-        "vertical_align": "start",
-        "section_pt": 50,
-        "section_pb": 50,
-        "reset_spacing": false
       }
     },
     "customize_product_testimonials_9MtaiG": {
@@ -235,6 +156,113 @@
         "ratio_custom": "",
         "color_rate": "#ff9900",
         "show_verified": true,
+        "section_pt": 50,
+        "section_pb": 50,
+        "reset_spacing": false
+      }
+    },
+    "customize_image_comparison_slider_YKP8ca": {
+      "type": "customize-image-comparison-slider",
+      "blocks": {
+        "heading_HAYdQe": {
+          "type": "heading",
+          "settings": {
+            "heading_block": "Talk about your brand",
+            "uppercase": false,
+            "fs_heading_block": 24,
+            "fw_heading_block": "500",
+            "spacing_heading_block": 5
+          }
+        },
+        "description_w6M9VT": {
+          "type": "description",
+          "settings": {
+            "description_block": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "fs_description_block": 16,
+            "fw_description_block": "400",
+            "spacing_description_block": 5
+          }
+        },
+        "button_LmVECF": {
+          "type": "button",
+          "settings": {
+            "btn_name_block": "",
+            "btn_type_block": "primary",
+            "btn_collection_block": "",
+            "spacing_btn_block": 5
+          }
+        }
+      },
+      "block_order": [
+        "heading_HAYdQe",
+        "description_w6M9VT",
+        "button_LmVECF"
+      ],
+      "name": "Image comparison slider",
+      "settings": {
+        "section_width": "defaul",
+        "color_scheme": "",
+        "heading": "",
+        "fs_heading": 24,
+        "fw_heading": "400",
+        "description": "",
+        "fs_description": 14,
+        "fw_description": "400",
+        "txt_align": "center",
+        "spacing_description": 5,
+        "width_block": "50",
+        "position_comp": "left",
+        "show_label": true,
+        "ratio_image": "adapt",
+        "ratio_custom": "",
+        "vertical_align": "start",
+        "section_pt": 50,
+        "section_pb": 50,
+        "reset_spacing": false
+      }
+    },
+    "customize_faq_VXadgK": {
+      "type": "customize-FAQ",
+      "blocks": {
+        "faq_content_9PV7nJ": {
+          "type": "faq-content",
+          "settings": {
+            "faq_question": "Frequently Asked Questions?",
+            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+          }
+        },
+        "faq_content_a8GaBc": {
+          "type": "faq-content",
+          "settings": {
+            "faq_question": "Frequently Asked Questions?",
+            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+          }
+        },
+        "faq_content_zz3UhF": {
+          "type": "faq-content",
+          "settings": {
+            "faq_question": "Frequently Asked Questions?",
+            "faq_answer": "<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_content_9PV7nJ",
+        "faq_content_a8GaBc",
+        "faq_content_zz3UhF"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "section_width": "defaul",
+        "color_scheme": "",
+        "heading": "",
+        "fs_heading": 14,
+        "fw_heading": "400",
+        "description": "",
+        "fs_description": 14,
+        "fw_description": "400",
+        "txt_align": "center",
+        "spacing_description": 5,
         "section_pt": 50,
         "section_pb": 50,
         "reset_spacing": false
