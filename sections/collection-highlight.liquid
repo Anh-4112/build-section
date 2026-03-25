@@ -24,14 +24,14 @@
                 {% render 'header', section: section %}
             </div>
         {% endif %}
-        <div class="section__collection-highlight d-md-flex gap-50 mt-20 mt-md-0" style="height: fit-content;">
+        <div class="section__collection-highlight d-md-flex gap-50 h-fit-content mt-20 mt-md-0">
             {% if show_carousel == true %}
-                <div class="collection-highlight--carousel f-1 min-w-0" style="height: fit-content; margin-block: auto;">
+                <div class="collection-highlight--carousel f-1 min-w-0 my-auto h-fit-content">
                     {% render 'swiper-section', section: section %}
                 </div>
             {% endif %}
             {% if heading != blank or subheading != blank or show_list == true %}
-                <div class="collection-highlight--list-wrapper f-1 min-w-0 d-flex column" style="height: fit-content; margin-block: auto;">
+                <div class="collection-highlight--list-wrapper f-1 min-w-0 my-auto h-fit-content d-flex column">
                     {% if heading != blank or subheading != blank %}
                         <div class="section__header d-none d-md-block py-20">
                             {% render 'header', section: section %}
@@ -167,7 +167,7 @@
             "type": "select",
             "id": "txt_align",
             "label": "Text Align",
-            "default": "center",
+            "default": "left",
             "options": [
                 {
                     "value": "left",
@@ -233,7 +233,7 @@
             "id": "column_gap",
             "label": "Column gap",
             "default": 15,
-            "min": 0,
+            "min": 5,
             "max": 30,
             "step": 1,
             "unit": "px",

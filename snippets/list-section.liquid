@@ -3,11 +3,11 @@
         {% assign collection = block.settings.collection %}
         <div
             class="list-item{% if collection.url == blank %} not-allowed{% endif %} py-10 bor-bot bor-1"
-            style="border-color: rgba(128, 128, 128, 0.2);{% if collection.image != blank %} --list-hover-image: url('{{ collection.image | image_url }}');{% endif %}"
+            style="border-color: rgba(128, 128, 128, 0.2);{% if collection.image != blank %} --list-image-hover: url('{{ collection.image | image_url }}');{% endif %}"
         >
             <a class="list-link d-flex jc-between ai-center{% if collection.url == blank %} pointer-none{% endif %}" href="{{ collection.url | default: '#' }}">
                 <span class="list-name">
-                    {% if collection.title %}{{ collection.title }}{% else %}Collection Name{% endif %}
+                    {{ collection.title |  default: 'Collection Name' }}
                 </span>
                 <span class="list-icon d-flex jc-center ai-center w-50 h-50 rounded-50p bor bor-1" style="border-color: rgba(128, 128, 128, 0.2);">
                     <svg width="6" height="10" viewBox="0 0 6 10">

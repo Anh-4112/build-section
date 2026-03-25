@@ -499,6 +499,10 @@ swiper-prev {
   height: 100%;
 }
 
+.h-fit-content {
+  height: fit-content;
+}
+
 .h-45 {
   height: 4.5rem;
 }
@@ -566,6 +570,11 @@ swiper-prev {
 }
 
 /* === Margin === */
+/* Margin Y */
+.my-auto {
+  margin-block: auto;
+}
+
 /* Margin Top */
 .mt-2 {
   margin-top: 0.2rem;
@@ -657,7 +666,7 @@ swiper-prev {
     width: clamp(110px, 14vw, 150px);
     aspect-ratio: 1 / 1;
     border-radius: 20px;
-    background-image: var(--list-hover-image);
+    background-image: var(--list-image-hover);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

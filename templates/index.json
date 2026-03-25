@@ -12,30 +12,6 @@
     "collection_highlight_XEJKPK": {
       "type": "collection-highlight",
       "blocks": {
-        "list_collection_qXy6MU": {
-          "type": "list_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "list_collection_gwGqFA": {
-          "type": "list_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "list_collection_paAGRQ": {
-          "type": "list_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "list_collection_rkYUU3": {
-          "type": "list_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
         "carousel_collection_GXmYXY": {
           "type": "carousel_collection",
           "settings": {
@@ -59,17 +35,34 @@
           "settings": {
             "collection": ""
           }
+        },
+        "list_collection_paAGRQ": {
+          "type": "list_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "list_collection_gwGqFA": {
+          "type": "list_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "list_collection_qXy6MU": {
+          "type": "list_collection",
+          "settings": {
+            "collection": ""
+          }
         }
       },
       "block_order": [
-        "list_collection_qXy6MU",
-        "list_collection_gwGqFA",
-        "list_collection_paAGRQ",
-        "list_collection_rkYUU3",
         "carousel_collection_GXmYXY",
         "carousel_collection_LNgqQB",
         "carousel_collection_JWE7W6",
-        "carousel_collection_gebAyp"
+        "carousel_collection_gebAyp",
+        "list_collection_paAGRQ",
+        "list_collection_gwGqFA",
+        "list_collection_qXy6MU"
       ],
       "name": "Collection Highlight",
       "settings": {
@@ -78,14 +71,16 @@
         "heading": "Heading",
         "subheading": "<p>Subheading</p>",
         "header_size": "medium",
-        "txt_align": "center",
-        "reverse-content": false,
+        "txt_align": "left",
+        "reverse_content": false,
         "show_carousel": true,
         "check_icon": true,
         "items_per_row_pc": 2,
         "items_per_row_mobile": 1,
         "column_gap": 15,
         "ratio_image": "adapt",
+        "position_content": "overlay_image",
+        "content_alignment": "left",
         "show_list": true,
         "section_pt": 50,
         "section_pb": 50
