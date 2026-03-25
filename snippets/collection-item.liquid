@@ -10,6 +10,7 @@
         endif
     assign position_content = section_st.position_content
     assign content_alignment = section_st.content_alignment
+    assign show_product_count = section_st.show_product_count
 %}
 <a class="collection__item d-block{% if position_content == 'overlay_image' %} relative{% endif %}{% if collection.url == blank %} not-allowed{% endif %}" href="{{ collection.url | default: '#' }}">
     <div class="collection__item-media {{ ratio_image }}">
@@ -26,8 +27,14 @@
         {% endif %}
     </div>
     <div class="collection__item-info text-{{ content_alignment }}{% if position_content == 'overlay_image' %} absolute left-7p bottom-7p right-7p{% endif %}{% if position_content == 'below_image' %} mt-20{% endif %}">
-        <span class="collection-name btn-link">
-            {{ collection.title |  default: 'Collection Name' }}
+        <span 
+            class="collection-name-wrapper d-inline-block"
+            product-count="{{ collection.products_count |  default: 0 }}"
+            show-product-count="{{ show_product_count }}"
+        >
+            <span class="collection-name btn-link">
+                {{ collection.title |  default: 'Collection Name' }}
+            </span>
         </span>
     </div>
 </a>

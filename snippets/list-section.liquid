@@ -1,3 +1,8 @@
+{% liquid
+    assign section_st = section.settings
+    assign show_product_count = section_st.show_product_count
+%}
+
 {% for block in section.blocks %}
     {% if block.type == 'list_collection' %}
         {% assign collection = block.settings.collection %}
@@ -6,7 +11,11 @@
             style="border-color: rgba(128, 128, 128, 0.2);{% if collection.image != blank %} --list-image-hover: url('{{ collection.image | image_url }}');{% endif %}"
         >
             <a class="list-link d-flex jc-between ai-center{% if collection.url == blank %} pointer-none{% endif %}" href="{{ collection.url | default: '#' }}">
-                <span class="list-name">
+                <span 
+                    class="list-name"
+                    product-count="{{ collection.products_count |  default: 0 }}"
+                    show-product-count="{{ show_product_count | json }}"
+                >
                     {{ collection.title |  default: 'Collection Name' }}
                 </span>
                 <span class="list-icon d-flex jc-center ai-center w-50 h-50 rounded-50p bor bor-1" style="border-color: rgba(128, 128, 128, 0.2);">
