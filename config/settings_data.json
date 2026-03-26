@@ -16,7 +16,7 @@
     "font_body_google_name": "jost",
     "font_family_google_code": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap\" rel=\"stylesheet\">",
     "page_width": 1410,
-    "fluid_container": 1410,
+    "fluid_container": 1200,
     "px_section": 10,
     "spacing_sections_mobile": 40,
     "spacing_sections_pc": 80,
