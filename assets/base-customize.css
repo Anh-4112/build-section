@@ -1,6 +1,6 @@
 /* =============== Reset ================ */
 h1, h2, h3, h4, h5, p, div {
-    line-height: 1.8;
+    line-height: 1.6;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -186,7 +186,7 @@ swiper-prev {
   width: 100%;
   position: absolute;
   top: 95%;
-  left: 0;
+  left: -100%;
 }
 
 .btn-link:hover::before {
@@ -275,33 +275,38 @@ swiper-prev {
 
 /* === Typography === */
 .heading-small {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: clamp(2.6rem, calc(2.4846rem + 0.2685vw), 3rem);
+  font-weight: 600;
 }
 
 .heading-medium {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: clamp(3rem, calc(2.7114rem + 0.6711vw), 4rem);
+  font-weight: 600;
 }
 
 .heading-large {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: clamp(4rem, calc(3.4228rem + 1.3423vw), 6rem);
+  font-weight: 600;
 }
 
 .subheading-small {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 .subheading-medium {
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .subheading-large {
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+
+.typography-info {
+  font-size: clamp(2.2rem, calc(2.1423rem + 0.1342vw), 2.4rem);
+  font-weight: 500;
 }
 
 /* === Image === */
@@ -373,8 +378,8 @@ swiper-prev {
   gap: 2rem;
 }
 
-.gap-50 {
-  gap: 5rem;
+.gap-30 {
+  gap: 3rem;
 }
 
 /* === Align Items === */
@@ -540,6 +545,10 @@ swiper-prev {
   border-radius: 1rem;
 }
 
+.rounded-20 {
+  border-radius: 2rem;
+}
+
 .rounded-35 {
   border-radius: 3.5rem;
 }
@@ -625,8 +634,8 @@ swiper-prev {
   transform: translateX(-50%);
 }
 
-.left-7p {
-  left: 7%;
+.left-10p {
+  left: 10%;
 }
 
 .left-0 {
@@ -638,13 +647,13 @@ swiper-prev {
   right: 0;
 }
 
-.right-7p {
-  right: 7%;
+.right-10p {
+  right: 10%;
 }
 
 /* === Bottom === */
-.bottom-7p {
-  bottom: 7%;
+.bottom-1p {
+  bottom: 1%;
 }
 
 /* === === */
