@@ -23,6 +23,14 @@
   .mt-md-0 {
     margin-top: 0;
   }
+
+  .pt-md-42 {
+    padding-top: 4.2rem;
+  }
+
+  .pl-md-69 {
+    padding-left: 6.9rem;
+  }
 }
 
 @media (min-width: 992px) {

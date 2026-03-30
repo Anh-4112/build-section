@@ -31,14 +31,14 @@
                 </div>
             {% endif %}
             {% if heading != blank or subheading != blank or show_list == true %}
-                <div class="collection-highlight--list-wrapper f-1 min-w-0 my-auto h-fit-content d-flex column">
+                <div class="collection-highlight--list-wrapper f-1 min-w-0 my-auto h-fit-content d-flex column gap-12">
                     {% if heading != blank or subheading != blank %}
-                        <div class="section__header d-none d-md-block py-20">
+                        <div class="section__header pl-md-69 pt-md-42 d-none d-md-block">
                             {% render 'header', section: section %}
                         </div>
                     {% endif %}
                     {% if show_list == true %}
-                        <div class="collection-highlight--list f-1">
+                        <div class="collection-highlight--list pl-md-69 f-1">
                             {% render 'list-section', section: section %}
                         </div>
                     {% endif %}
