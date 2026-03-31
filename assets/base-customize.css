@@ -499,6 +499,10 @@ swiper-prev {
   width: 5rem;
 }
 
+.w-60 {
+  width: 6rem;
+}
+
 .w-190 {
   width: 19rem;
 }
@@ -522,6 +526,10 @@ swiper-prev {
 
 .h-50 {
   height: 5rem;
+}
+
+.h-60 {
+  height: 6rem;
 }
 
 /* === Border === */
