@@ -7,10 +7,10 @@
     {% if block.type == 'list_collection' %}
         {% assign collection = block.settings.collection %}
         <div
-            class="list-item{% if collection.url == blank %} not-allowed{% endif %} py-20 bor-bot bor-1"
+            class="list-item py-20 bor-bot bor-1"
             style="border-color: rgba(128, 128, 128, 0.2);{% if collection.image != blank %} --list-image-hover: url('{{ collection.image | image_url }}');{% endif %}"
         >
-            <a class="list-link d-flex jc-between ai-center{% if collection.url == blank %} pointer-none{% endif %}" href="{{ collection.url | default: '#' }}">
+            <a class="list-link d-flex jc-between ai-center" href="{{ collection.url | default: '#' }}">
                 <span 
                     class="list-name typography-info"
                     product-count="{{ collection.products_count |  default: 0 }}"

@@ -177,11 +177,12 @@ swiper-prev {
   display: inline-block;
   width: fit-content;
   overflow: hidden;
+  color: rgba(var(--color-link), 1);
 }
 
 .btn-link::before {
   content: "";
-  background-color: rgba(var(--color-foreground), 0.75);
+  background-color: rgba(var(--color-link), 0.5);
   height: 0.1rem;
   width: 100%;
   position: absolute;
@@ -196,6 +197,10 @@ swiper-prev {
 @keyframes btn-link-hover {
   from {left: -100%;}
   to {left: 100%;}
+}
+
+a[href="#"] {
+  cursor: not-allowed;
 }
 
 /* =============== Icon =============== */
