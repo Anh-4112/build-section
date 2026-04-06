@@ -4,6 +4,8 @@
     assign items_per_row_mobile = section_st.items_per_row_mobile
     assign column_gap = section_st.column_gap
     assign check_icon = section_st.check_icon
+    assign item_type = item_type
+    assign blocks_type = blocks_type | default: section.blocks
 %}
 <swiper-section
     class="swiper-section swiper relative"
@@ -18,13 +20,13 @@
         {% render 'swiper-icon' %}
     {% endif %}
     <div class="swiper-wrapper">
-        {% for block in section.blocks %}
-            {% if block.type == 'carousel_collection' %}
+        {% if item_type == 'collection' %}
+            {% for block in blocks_type %}
                 {% assign collection = block.settings.collection %}
                 <div class="swiper-slide txt-no-select">
                     {% render 'collection-item', collection: collection %}
                 </div>
-            {% endif %}
-        {% endfor %}
+            {% endfor %}
+        {% endif %}
     </div>
 </swiper-section>
