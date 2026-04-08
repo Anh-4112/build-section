@@ -20,23 +20,22 @@
     --section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};
 {% endcapture %}
 
-<section class="section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
+<section class="section__collection-highlight section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
     <div class="{{ section_width }}">
         {% if heading != blank or subheading != blank %}
             <div class="section__header d-md-none">
                 {% render 'header', section: section %}
             </div>
         {% endif %}
-        <div class="section__collection-highlight d-md-flex gap-30 h-fit-content mt-20 mt-md-0">
+        <div class="content__collection-highlight d-md-flex gap-30 h-fit-content mt-20 mt-md-0">
             {% if show_carousel == true %}
                 <div class="collection-highlight--carousel f-1 min-w-0 my-auto h-fit-content">
-                    {% assign carousel_collection = section.blocks | where: 'type', 'carousel_collection' %}
                     {%
                         render 'swiper-section',
-                        section: section,
-                        section_type: 'collection-highlight',
+                        section_id: 'collection-highlight',
                         item_type: 'collection',
-                        blocks_type: carousel_collection
+                        section: section,
+                        blocks: section.blocks | where: 'type', 'carousel_collection'
                     %}
                 </div>
             {% endif %}

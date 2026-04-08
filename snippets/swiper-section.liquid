@@ -1,11 +1,11 @@
 {% liquid 
     assign section_st = section.settings
+
     assign items_per_row_pc = section_st.items_per_row_pc
     assign items_per_row_mobile = section_st.items_per_row_mobile
     assign column_gap = section_st.column_gap
     assign check_icon = section_st.check_icon
     assign item_type = item_type
-    assign blocks_type = blocks_type | default: section.blocks
 %}
 <swiper-section
     class="swiper-section swiper relative"
@@ -21,10 +21,18 @@
     {% endif %}
     <div class="swiper-wrapper">
         {% if item_type == 'collection' %}
-            {% for block in blocks_type %}
+            {% for block in section.blocks %}
                 {% assign collection = block.settings.collection %}
                 <div class="swiper-slide txt-no-select">
                     {% render 'collection-item', collection: collection %}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        {% if item_type == 'product' %}
+            {% for product in blocks.products %}
+                <div class="swiper-slide txt-no-select">
+                    {% render 'product-item', product: product %}
                 </div>
             {% endfor %}
         {% endif %}

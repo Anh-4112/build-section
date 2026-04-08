@@ -56,6 +56,14 @@
   top: -5px;
   right: -15px;
   z-index: 2;
+  font-size: clamp(1.8rem, calc(1.7423rem + 0.1342vw), 2rem);
+}
+
+.collection-name-wrapper::after {
+  color: rgba(var(--color-link), 1);
+}
+.list-name::after {
+  color: inherit;
 }
 
 .collection-name-wrapper[show-product-count="false"]::after,
