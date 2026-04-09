@@ -1,6 +1,7 @@
 {% liquid 
     assign section_st = section.settings
 
+    assign items_to_show = section_st.items_to_show
     assign items_per_row_pc = section_st.items_per_row_pc
     assign items_per_row_mobile = section_st.items_per_row_mobile
     assign column_gap = section_st.column_gap
@@ -30,11 +31,19 @@
         {% endif %}
         
         {% if item_type == 'product' %}
-            {% for product in blocks %}
-                <div class="swiper-slide txt-no-select">
-                    {% render 'product-item', product: product %}
-                </div>
-            {% endfor %}
+            {% if blocks.size > 0 %}
+                {% for product in blocks limit: items_to_show %}
+                    <div class="swiper-slide txt-no-select">
+                        {% render 'product-item', product: product %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for i in (1..items_to_show) %}
+                    <div class="swiper-slide txt-no-select">
+                        {% render 'product-item' %}
+                    </div>
+                {% endfor %}
+            {% endif %}
         {% endif %}
     </div>
 </swiper-section>

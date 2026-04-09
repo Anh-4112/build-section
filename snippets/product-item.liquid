@@ -1,9 +1,9 @@
 <a class="product__item d-block h-full" href="{{ product.url | default: '#' }}">
     <div class="product__item-media h-full">
-        {% if product.image != blank %}
+        {% if product.featured_image != blank %}
             <img 
                 class="img-cover d-block"
-                src="{{ product.image | image_url }}" 
+                src="{{ product.featured_image | image_url }}" 
                 alt="{{ product.title }}"
                 width="100%" 
                 height="100%" 
