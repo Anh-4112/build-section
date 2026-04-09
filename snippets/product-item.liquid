@@ -1,3 +1,7 @@
+{{ 'product-item.css' | asset_url | stylesheet_tag }}
+
+{% liquid %}
+
 <a class="product__item d-block h-full" href="{{ product.url | default: '#' }}">
     <div class="product__item-media h-full">
         {% if product.featured_image != blank %}

@@ -1,5 +1,6 @@
 {% liquid
     assign section_st = section.settings
+
     assign ratio_image = section_st.ratio_image
         if ratio_image == 'adapt'
             assign ratio_image = ''
@@ -12,6 +13,7 @@
     assign content_alignment = section_st.content_alignment
     assign show_product_count = section_st.show_product_count
 %}
+
 <a class="collection__item d-block h-full rounded-20 overflow-hidden{% if position_content == 'overlay_image' %} relative{% endif %}" href="{{ collection.url | default: '#' }}">
     <div class="collection__item-media h-full {{ ratio_image }}">
         {% if collection.image != blank %}
