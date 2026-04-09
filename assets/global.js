@@ -1438,8 +1438,8 @@ class SwiperSection extends HTMLElement {
     const swiperPagination = this.querySelector('swiper-pagination');
 
     const itemsMobile = Number(_this.dataset.itemsMobile || 1);
-    const itemsTabletSmall = Number(_this.dataset.itemsTabletSmall);
-    const itemsTablet = Number(_this.dataset.itemsTablet);
+    const itemsTabletSmall = Number(_this.dataset.itemsTabletSmall || 2);
+    const itemsTablet = Number(_this.dataset.itemsTablet || 3);
     const reveal = _this.dataset.reveal === 'true';
     const extraReveal = reveal ? 0.1 : 0;
     const itemsPc = Number(_this.dataset.itemsPc) + extraReveal;

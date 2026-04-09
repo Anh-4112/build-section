@@ -175,6 +175,35 @@
             "max": 2
         },
         {
+            "type": "checkbox",
+            "id": "infinite_slide",
+            "label": "Infinite slider",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "auto_slide",
+            "label": "Auto change slides",
+            "default": false
+        },
+        {
+            "type": "range",
+            "id": "interval_slide",
+            "label": "Change slides every",
+            "min": 2,
+            "max": 6,
+            "step": 1,
+            "unit": "s",
+            "default": 3,
+            "visible_if": "{{ section.settings.auto_slide == true }}"
+        },
+        {
+            "type": "checkbox",
+            "id": "reveal_next_slide",
+            "label": "Reveal next slide",
+            "default": false
+        },
+        {
             "type": "range",
             "id": "column_gap",
             "label": "Column gap",
@@ -183,6 +212,30 @@
             "max": 30,
             "step": 1,
             "unit": "px"
+        },
+        {
+            "type": "select",
+            "id": "pagination_type",
+            "label": "Pagination",
+            "default": "dots",
+            "options": [
+                { 
+                    "value": "none", 
+                    "label": "Disable" 
+                },
+                { 
+                    "value": "dots", 
+                    "label": "Show dots" 
+                },
+                { 
+                    "value": "dots_mobile", 
+                    "label": "Show dots on mobile" 
+                },
+                { 
+                    "value": "progress", 
+                    "label": "Show progress bar" 
+                }
+            ]
         },
 
         {

@@ -615,6 +615,11 @@ a[href="#"] {
   margin-block: auto;
 }
 
+/* Margin X */
+.mx-auto {
+  margin-inline: auto;
+}
+
 /* Margin Top */
 .mt-2 {
   margin-top: 0.2rem;

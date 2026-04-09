@@ -1,25 +1,32 @@
 {% liquid 
     assign section_st = section.settings
 
+    assign check_icon = section_st.check_icon
     assign items_to_show = section_st.items_to_show
     assign items_per_row_pc = section_st.items_per_row_pc
     assign items_per_row_mobile = section_st.items_per_row_mobile
+    assign infinite_slide = section_st.infinite_slide
+    assign auto_slide = section_st.auto_slide
+    assign interval_slide = section_st.interval_slide
+    assign reveal_next_slide = section_st.reveal_next_slide
     assign column_gap = section_st.column_gap
-    assign check_icon = section_st.check_icon
-    assign item_type = item_type
+    assign pagination_type = section_st.pagination_type
 %}
 <swiper-section
-    class="swiper-section swiper relative"
+    class="swiper-section swiper"
     data-items-pc="{{ items_per_row_pc }}"
     data-items-mobile="{{ items_per_row_mobile }}"
     data-gap="{{ column_gap }}"
     data-infinite="{{ infinite_slide }}"
     data-auto="{{ auto_slide }}"
     data-interval="{{ interval_slide }}"
+    data-reveal="{{ reveal_next_slide }}"
+    data-pagination="{{ pagination_type }}"
 >
     {% if check_icon %}
         {% render 'swiper-icon' %}
     {% endif %}
+
     <div class="swiper-wrapper">
         {% if item_type == 'collection' %}
             {% for block in blocks %}
@@ -46,4 +53,8 @@
             {% endif %}
         {% endif %}
     </div>
+
+    {% if pagination_type != 'none' %}
+        {% render 'swiper-pagination' %}
+    {% endif %}
 </swiper-section>

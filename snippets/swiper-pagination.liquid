@@ -1,0 +1,15 @@
+{% liquid 
+    assign section_st = section.settings
+
+    assign pagination_type = section_st.pagination_type
+%}
+
+<div class="swiper-pagination-wrapper d-flex jc-center mt-10">
+    {% if pagination_type == 'dots' or pagination_type == 'dots_mobile' %}
+        <swiper-pagination class="{% if pagination_type == 'dots_mobile' %} d-sm-none{% endif %}"></swiper-pagination>
+    {% endif %}
+    
+    {% if pagination_type == 'progress' %}
+        <swiper-pagination></swiper-pagination>
+    {% endif %}
+</div>
