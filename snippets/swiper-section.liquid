@@ -21,7 +21,7 @@
     {% endif %}
     <div class="swiper-wrapper">
         {% if item_type == 'collection' %}
-            {% for block in section.blocks %}
+            {% for block in blocks %}
                 {% assign collection = block.settings.collection %}
                 <div class="swiper-slide txt-no-select">
                     {% render 'collection-item', collection: collection %}
@@ -30,7 +30,7 @@
         {% endif %}
         
         {% if item_type == 'product' %}
-            {% for product in blocks.products %}
+            {% for product in blocks %}
                 <div class="swiper-slide txt-no-select">
                     {% render 'product-item', product: product %}
                 </div>

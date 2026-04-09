@@ -29,13 +29,14 @@
         {% endif %}
         <div class="content__collection-highlight d-md-flex gap-30 h-fit-content mt-20 mt-md-0">
             {% if show_carousel == true %}
+                {% assign carousel_collection = section.blocks | where: 'type', 'carousel_collection' %}
                 <div class="collection-highlight--carousel f-1 min-w-0 my-auto h-fit-content">
                     {%
                         render 'swiper-section',
                         section_id: 'collection-highlight',
                         item_type: 'collection',
                         section: section,
-                        blocks: section.blocks | where: 'type', 'carousel_collection'
+                        blocks: carousel_collection
                     %}
                 </div>
             {% endif %}
