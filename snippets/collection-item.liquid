@@ -14,11 +14,11 @@
     assign show_product_count = section_st.show_product_count
 %}
 
-<a class="collection__item d-block h-full rounded-20 overflow-hidden{% if position_content == 'overlay_image' %} relative{% endif %}" href="{{ collection.url | default: '#' }}">
-    <div class="collection__item-media h-full {{ ratio_image }}">
+<a class="collection__item wrapper-hover d-block{% if position_content == 'overlay_image' %} relative h-full{% endif %}" href="{{ collection.url | default: '#' }}">
+    <div class="collection__item-media h-full rounded-20 overflow-hidden {{ ratio_image }}">
         {% if collection.image != blank %}
             <img 
-                class="img-cover d-block"
+                class="img-cover hover-zoom-out d-block"
                 src="{{ collection.image | image_url }}" 
                 alt="{{ collection.title }}"
                 width="100%" 

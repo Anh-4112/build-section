@@ -6,6 +6,10 @@
   .d-sm-none {
     display: none;
   }
+
+  .mt-sm-0 {
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 768px) {

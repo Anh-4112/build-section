@@ -175,6 +175,11 @@
             "default": true
         },
         {
+            "type": "paragraph",
+            "content": "=== Carousel Settings ===",
+            "visible_if": "{{ section.settings.show_carousel == true }}"
+        },
+        {
             "type": "checkbox",
             "id": "check_icon",
             "label": "Show next/back",
@@ -214,6 +219,27 @@
         },
         {
             "type": "select",
+            "id": "pagination_type",
+            "label": "Pagination",
+            "default": "dots",
+            "options": [
+                { 
+                    "value": "none", 
+                    "label": "Disable" 
+                },
+                { 
+                    "value": "dots", 
+                    "label": "Show dots" 
+                },
+                { 
+                    "value": "dots_mobile", 
+                    "label": "Show dots on mobile" 
+                }
+            ],
+            "visible_if": "{{ section.settings.show_carousel == true }}"
+        },
+        {
+            "type": "select",
             "id": "ratio_image",
             "label": "Ratio",
             "default" : "adapt",
@@ -231,6 +257,11 @@
                     "label": "Portrait (3:4)"
                 }
             ],
+            "visible_if": "{{ section.settings.show_carousel == true }}"
+        },
+        {
+            "type": "paragraph",
+            "content": "=== Information Settings ===",
             "visible_if": "{{ section.settings.show_carousel == true }}"
         },
         {

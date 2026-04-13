@@ -1,10 +1,10 @@
 .collection-highlight--list:hover .list-item {
-  color: rgba(128, 128, 128, 0.8);
+  color: rgba(var(--color-foreground), 0.5);
   transition: color 0.3s ease-in-out;
 }
 
 .list-item:hover .list-link {
-  color: black;
+  color: rgba(var(--color-foreground), 1);
   transition: color 0.3s ease-in-out;
 }
 

@@ -315,6 +315,31 @@ a[href="#"] {
 }
 
 /* === Image === */
+.hover-zoom-out {
+  transition: transform, 0.6s ease-in-out;
+}
+
+.wrapper-hover:hover .hover-zoom-out {
+  transform: scale(1.1);
+}
+
+.hover-hidden {
+  transition: opacity, 0.6s ease-in-out;
+}
+
+.wrapper-hover:hover .hover-hidden {
+  opacity: 0;
+}
+
+.hover-appear {
+  opacity: 0;
+  transition: opacity, 0.6s ease-in-out;
+}
+
+.wrapper-hover:hover .hover-appear {
+  opacity: 1;
+}
+
 .img-cover {
   object-fit: cover;
 }

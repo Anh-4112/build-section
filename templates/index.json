@@ -9,86 +9,34 @@
  */
 {
   "sections": {
-    "collection_highlight_XEJKPK": {
-      "type": "collection-highlight",
-      "blocks": {
-        "carousel_collection_GXmYXY": {
-          "type": "carousel_collection",
-          "settings": {
-            "collection": "skincare"
-          }
-        },
-        "carousel_collection_LNgqQB": {
-          "type": "carousel_collection",
-          "settings": {
-            "collection": "make-up"
-          }
-        },
-        "carousel_collection_JWE7W6": {
-          "type": "carousel_collection",
-          "settings": {
-            "collection": "skincare"
-          }
-        },
-        "carousel_collection_gebAyp": {
-          "type": "carousel_collection",
-          "settings": {
-            "collection": "make-up"
-          }
-        },
-        "list_collection_paAGRQ": {
-          "type": "list_collection",
-          "settings": {
-            "collection": "collection__1"
-          }
-        },
-        "list_collection_gwGqFA": {
-          "type": "list_collection",
-          "settings": {
-            "collection": "collection__1"
-          }
-        },
-        "list_collection_qXy6MU": {
-          "type": "list_collection",
-          "settings": {
-            "collection": "frontpage"
-          }
-        }
-      },
-      "block_order": [
-        "carousel_collection_GXmYXY",
-        "carousel_collection_LNgqQB",
-        "carousel_collection_JWE7W6",
-        "carousel_collection_gebAyp",
-        "list_collection_paAGRQ",
-        "list_collection_gwGqFA",
-        "list_collection_qXy6MU"
-      ],
-      "name": "Collection Highlight",
+    "product_carousel_YEQJ9H": {
+      "type": "product-carousel",
+      "name": "Product Carousel",
       "settings": {
-        "color_scheme": "scheme-1",
-        "section_width": "full-width",
+        "color_scheme": "",
+        "section_width": "defaul",
         "heading": "Heading",
         "subheading": "<p>Subheading</p>",
-        "header_size": "large",
+        "header_size": "medium",
         "txt_align": "left",
-        "reverse_content": true,
-        "show_product_count": false,
-        "show_carousel": true,
+        "reverse_content": false,
+        "collection": "collection__1",
         "check_icon": true,
-        "items_per_row_pc": 2,
+        "items_to_show": 6,
+        "items_per_row_pc": 4,
         "items_per_row_mobile": 1,
+        "infinite_slide": false,
+        "auto_slide": false,
+        "interval_slide": 3,
+        "reveal_next_slide": false,
         "column_gap": 15,
-        "ratio_image": "adapt",
-        "position_content": "overlay_image",
-        "content_alignment": "left",
-        "show_list": true,
+        "pagination_type": "dots",
         "section_pt": 50,
         "section_pb": 50
       }
     }
   },
   "order": [
-    "collection_highlight_XEJKPK"
+    "product_carousel_YEQJ9H"
   ]
 }
