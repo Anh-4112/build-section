@@ -34,96 +34,9 @@
         "section_pt": 50,
         "section_pb": 50
       }
-    },
-    "collection_highlight_VbbYRn": {
-      "type": "collection-highlight",
-      "blocks": {
-        "carousel_collection_U8XRRE": {
-          "type": "carousel_collection",
-          "settings": {
-            "collection": "skincare"
-          }
-        },
-        "carousel_collection_H8gppr": {
-          "type": "carousel_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "carousel_collection_ePDTp6": {
-          "type": "carousel_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "carousel_collection_tDiddy": {
-          "type": "carousel_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "list_collection_8fMrxg": {
-          "type": "list_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "list_collection_BfnycF": {
-          "type": "list_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "list_collection_ibGekF": {
-          "type": "list_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "list_collection_Ff6MPW": {
-          "type": "list_collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "carousel_collection_U8XRRE",
-        "carousel_collection_H8gppr",
-        "carousel_collection_ePDTp6",
-        "carousel_collection_tDiddy",
-        "list_collection_8fMrxg",
-        "list_collection_BfnycF",
-        "list_collection_ibGekF",
-        "list_collection_Ff6MPW"
-      ],
-      "name": "Collection Highlight",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "defaul",
-        "heading": "Heading",
-        "subheading": "<p>Subheading</p>",
-        "header_size": "medium",
-        "txt_align": "left",
-        "reverse_content": false,
-        "show_product_count": false,
-        "show_carousel": true,
-        "check_icon": true,
-        "items_per_row_pc": 2,
-        "items_per_row_mobile": 1,
-        "column_gap": 15,
-        "pagination_type": "dots",
-        "ratio_image": "adapt",
-        "position_content": "overlay_image",
-        "content_alignment": "left",
-        "show_list": true,
-        "section_pt": 50,
-        "section_pb": 50
-      }
     }
   },
   "order": [
-    "product_carousel_YEQJ9H",
-    "collection_highlight_VbbYRn"
+    "product_carousel_YEQJ9H"
   ]
 }
