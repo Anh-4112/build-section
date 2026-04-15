@@ -1453,6 +1453,7 @@ class SwiperSection extends HTMLElement {
       slidesPerView: itemsMobile,
       spaceBetween: gap,
       loop: loop,
+      roundLengths: true, // Prevent sub-pixel slide widths/translate from causing jitter and 1px overflow on resize
       watchSlidesProgress: true,
       navigation: {
         prevEl: swiperPrev,

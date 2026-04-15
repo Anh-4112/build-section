@@ -1,12 +1,41 @@
 {{ 'product-item.css' | asset_url | stylesheet_tag }}
 
-{% liquid %}
+{% liquid
+    assign theme_st = settings
 
-<div class="product__item h-full">
-    <a class="product-media wrapper-hover d-block h-full overflow-hidden relative" href="{{ product.url | default: '#' }}">
+    assign ratio = theme_st.product_ratio_image
+
+    assign product_padding_block = theme_st.product_padding_block
+    assign product_padding_inline = theme_st.product_padding_inline
+
+    assign alignment_content = theme_st.product_alignment_content
+
+    assign show_vendor = theme_st.product_show_vendor
+    assign position_vendor = theme_st.product_position_vendor
+    assign spacing_vendor = theme_st.product_spacing_vendor
+
+    assign show_name = theme_st.product_show_name
+    assign position_name = theme_st.product_position_name
+    assign spacing_name = theme_st.product_spacing_name
+
+    assign show_price = theme_st.product_show_price
+    assign position_price = theme_st.product_position_price
+    assign spacing_price = theme_st.product_spacing_price
+
+    assign show_rate = theme_st.product_show_rate
+    assign position_rate = theme_st.product_position_rate
+    assign spacing_rate = theme_st.product_spacing_rate
+
+    assign show_variant = theme_st.product_show_variant
+    assign position_variant = theme_st.product_position_variant
+    assign spacing_variant = theme_st.product_spacing_variant
+%}
+
+<div class="product__item">
+    <a class="product-media wrapper-hover d-block overflow-hidden relative ratio-{{ ratio }}" href="{{ product.url | default: '#' }}">
         {% if product.featured_image != blank %}
             <img 
-                class="main-image hover-hidden img-cover d-block"
+                class="image-main hover-hidden img-cover d-block"
                 src="{{ product.featured_image | image_url }}"
                 alt="{{ product.title }}"
                 width="100%" 
@@ -17,7 +46,7 @@
         {% endif %}
         {% if product.featured_image != blank %}
             <img 
-                class="secondary-image hover-appear img-cover d-block absolute top-0 left-0 opacity-0"
+                class="image-secondary hover-appear img-cover d-block absolute top-0 left-0 opacity-0"
                 src="{{ product.media[1] | image_url }}"
                 alt="{{ product.title }}"
                 width="100%"
@@ -25,5 +54,52 @@
             >
         {% endif %}
     </a>
+    <div class="product__info d-flex column py-custom px-custom ai-{{ alignment_content }}"
+         style="--py-custom: {{ product_padding_block }}; --px-custom: {{ product_padding_inline }};"
+    >
+        {% if show_vendor %}
+            <div class="product__info-vendor mb-custom" 
+                 style="order: {{ position_vendor }}; --mb-custom: {{ spacing_vendor }};"
+            >
+                {{ product.vendor | default: 'Vendor Name' }}
+            </div>
+        {% endif %}
 
+        {% if show_name %}
+            <a href="{{ product.url | default: '#' }}" 
+               class="product__info-name mb-custom d-block" 
+               style="order: {{ position_name }}; --mb-custom: {{ spacing_name }};"
+            >
+                {{ product.title | default: 'Product Name' }}
+            </a>
+        {% endif %}
+
+        {% if show_price %}
+            <div class="product__info-price mb-custom"
+                 style="order: {{ position_price }}; --mb-custom: {{ spacing_price }};"
+            >
+                {{ product.price | default: '0' | money }}
+            </div>
+        {% endif %}
+
+        {% if show_rate %}
+            <div class="product__info-rate mb-custom"
+                 style="order: {{ position_rate }}; --mb-custom: {{ spacing_rate }};"
+            >
+                {% for i in (1..5) %}
+                    <span class="icon-star {% if product.rating <= i %}opacity-50{% endif %}"></span>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if show_variant %}
+            <div class="product__info-variant mb-custom"
+                 style="order: {{ position_variant }}; --mb-custom: {{ spacing_variant }};"
+            >
+                {% for variant in product.variants %}
+                    <span class="variant-item d-inline-block" style="background-color: {{ variant.option1 | default: '#000' }};"></span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
 </div>

@@ -667,6 +667,200 @@
     ]
   },
   {
+    "name": "Product cards custom",
+    "settings": [
+      {
+        "type": "select",
+        "id": "product_ratio_image",
+        "label": "Ratio",
+        "default" : "adapt",
+        "options": [
+            {
+                "value": "adapt",
+                "label": "Adapt to image"   
+            },
+            {
+                "value": "square",
+                "label": "Square (1:1)"
+            },
+            {
+                "value": "portrait",
+                "label": "Portrait (3:4)"
+            }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "product_alignment_content",
+        "label": "Alignment content",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "product_padding_block",
+        "label": "Padding block",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 10,
+      },
+      {
+        "type": "range",
+        "id": "product_padding_inline",
+        "label": "Padding inline",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 10,
+      },
+      {
+        "type": "paragraph",
+        "content": "========"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "product_position_vendor",
+        "label": "Position",
+        "default": "1",
+        "visible_if": "{{ settings.product_show_vendor == true }}"
+      },
+      {
+        "type": "range",
+        "id": "product_spacing_vendor",
+        "label": "Spacing bottom",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 10,
+        "visible_if": "{{ settings.product_show_vendor == true }}"
+      },
+      {
+        "type": "paragraph",
+        "content": "========"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_name",
+        "label": "Show name",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_position_name",
+        "label": "Position",
+        "default": "2",
+        "visible_if": "{{ settings.product_show_name == true }}"
+      },
+      {
+        "type": "range",
+        "id": "product_spacing_name",
+        "label": "Spacing bottom",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 10,
+        "visible_if": "{{ settings.product_show_name == true }}"
+      },
+      {
+        "type": "paragraph",
+        "content": "========"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_price",
+        "label": "Show price",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_position_price",
+        "label": "Position",
+        "default": "3",
+        "visible_if": "{{ settings.product_show_price == true }}"
+      },
+      {
+        "type": "range",
+        "id": "product_spacing_price",
+        "label": "Spacing bottom",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 10,
+        "visible_if": "{{ settings.product_show_price == true }}"
+      },
+      {
+        "type": "paragraph",
+        "content": "========"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_rate",
+        "label": "Show rating",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_position_rate",
+        "label": "Position",
+        "default": "4",
+        "visible_if": "{{ settings.product_show_rate == true }}"
+      },
+      {
+        "type": "range",
+        "id": "product_spacing_rate",
+        "label": "Spacing bottom",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 10,
+        "visible_if": "{{ settings.product_show_rate == true }}"
+      },
+      {
+        "type": "paragraph",
+        "content": "========"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_variant",
+        "label": "Show variant",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_position_variant",
+        "label": "Position",
+        "default": "5",
+        "visible_if": "{{ settings.product_show_variant == true }}"
+      },
+      {
+        "type": "range",
+        "id": "product_spacing_variant",
+        "label": "Spacing bottom",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 10,
+        "visible_if": "{{ settings.product_show_variant == true }}"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.collection_cards.name",
     "settings": [
       {

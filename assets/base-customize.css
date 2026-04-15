@@ -5,6 +5,20 @@ h1, h2, h3, h4, h5, p, div {
     margin-bottom: 0;
 }
 
+html {
+  scrollbar-gutter: stable; /* Keep viewport width stable when vertical scrollbar appears/disappears (common resize jitter near breakpoints) */
+}
+
+@supports not (scrollbar-gutter: stable) {
+  html {
+    overflow-y: scroll; /* Fallback: always reserve space for the vertical scrollbar */
+  }
+}
+
+body {
+  overflow-x: hidden; /* Avoid 1–2px horizontal overflow causing layout shifts / unwanted x-scroll */
+}
+
 button {
   background: none;
   border: none;
@@ -515,8 +529,12 @@ a[href="#"] {
   width: var(--w-custom);
 }
 
-.w-fit-content {
+.w-fit {
   width: fit-content;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .w-25p {
@@ -525,10 +543,6 @@ a[href="#"] {
 
 .w-50p {
   width: 50%;
-}
-
-.w-full {
-  width: 100%;
 }
 
 .w-30 {
@@ -556,12 +570,12 @@ a[href="#"] {
 }
 
 /* === Height === */
-.h-full {
-  height: 100%;
+.h-fit {
+  height: fit-content;
 }
 
-.h-fit-content {
-  height: fit-content;
+.h-full {
+  height: 100%;
 }
 
 .h-45 {
@@ -616,6 +630,10 @@ a[href="#"] {
 
 /* === Padding === */
 /* Padding X */
+.px-custom {
+  padding-inline: calc(var(--px-custom) * 0.1rem);
+}
+
 .px-0 {
   padding-inline: 0;
 }
@@ -625,6 +643,10 @@ a[href="#"] {
 }
 
 /* Padding Y */
+.py-custom {
+  padding-block: calc(var(--py-custom) * 0.1rem);
+}
+
 .py-20 {
   padding-block: 2rem;
 }
@@ -659,6 +681,10 @@ a[href="#"] {
 }
 
 /* Margin Bottom */
+.mb-custom {
+  margin-bottom: calc(var(--mb-custom) * 0.1rem);
+}
+
 .mb-0 {
   margin-bottom: 0;
 }
