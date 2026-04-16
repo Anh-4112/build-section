@@ -34,31 +34,37 @@
 %}
 
 <div class="product__item">
-    <a href="{{ product.url | default: '#' }}"
-       class="product-media wrapper-hover d-block overflow-hidden relative ratio-{{ ratio }} rounded-custom"
-       style="--rounded-custom: {{ radius }};"
+    <div class="product-media wrapper-hover overflow-hidden relative ratio-{{ ratio }} rounded-custom"
+         style="--rounded-custom: {{ radius }};"
     >
-        {% if product.featured_image != blank %}
-            <img 
-                class="image-main hover-hidden img-cover d-block"
-                src="{{ product.featured_image | image_url }}"
-                alt="{{ product.title }}"
-                width="100%" 
-                height="100%"
-            >
-        {% else %}
-            {% render 'image-clone' %}  
-        {% endif %}
-        {% if product.featured_image != blank %}
-            <img 
-                class="image-secondary hover-appear img-cover d-block absolute top-0 left-0 opacity-0"
-                src="{{ product.media[1] | image_url }}"
-                alt="{{ product.title }}"
-                width="100%"
-                height="100%"
-            >
-        {% endif %}
-    </a>
+        <a class="product-media--image d-block" href="{{ product.url | default: '#' }}">
+            {% if product.featured_image != blank %}
+                <img 
+                    class="image-main hover-hidden img-cover d-block"
+                    src="{{ product.featured_image | image_url }}"
+                    alt="{{ product.title }}"
+                    width="100%" 
+                    height="100%"
+                >
+            {% else %}
+                {% render 'image-clone' %}  
+            {% endif %}
+            {% if product.featured_image != blank %}
+                <img 
+                    class="image-hover hover-appear img-cover d-block absolute top-0 left-0 opacity-0"
+                    src="{{ product.media[1] | image_url }}"
+                    alt="{{ product.title }}"
+                    width="100%"
+                    height="100%"
+                >
+            {% endif %}
+        </a>
+        <div class="btn-add-cart hover-appear hover-up h-fit absolute bottom-0 right-0 left-0 z-1">
+            <button class="d-block pointer btn-primary overflow-hidden rounded-35 py-20 mx-auto" style="width: 80%;">
+                Add to Cart
+            </button>
+        </div> 
+    </div>
     <div class="product__info d-flex column py-custom px-custom ai-{{ alignment_content }}"
          style="--py-custom: {{ product_padding_block }}; --px-custom: {{ product_padding_inline }};"
     >
