@@ -607,6 +607,10 @@ a[href="#"] {
   border-width: 0.1rem;
 }
 
+.rounded-custom {
+  border-radius: calc(var(--rounded-custom) * 0.1rem);
+}
+
 .rounded-50p {
   border-radius: 50%;
 }

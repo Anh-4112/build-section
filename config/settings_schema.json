@@ -690,6 +690,16 @@
         ]
       },
       {
+        "type": "range",
+        "id": "product_radius_image",
+        "label": "Corner radius",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "default": 0
+      },
+      {
         "type": "select",
         "id": "product_alignment_content",
         "label": "Alignment content",
@@ -712,6 +722,7 @@
         "min": 0,
         "max": 20,
         "step": 1,
+        "unit": "px",
         "default": 10,
       },
       {
@@ -721,6 +732,7 @@
         "min": 0,
         "max": 20,
         "step": 1,
+        "unit": "px",
         "default": 10,
       },
       {
@@ -747,6 +759,7 @@
         "min": 0,
         "max": 20,
         "step": 1,
+        "unit": "px",
         "default": 10,
         "visible_if": "{{ settings.product_show_vendor == true }}"
       },
@@ -774,6 +787,7 @@
         "min": 0,
         "max": 20,
         "step": 1,
+        "unit": "px",
         "default": 10,
         "visible_if": "{{ settings.product_show_name == true }}"
       },
@@ -801,6 +815,7 @@
         "min": 0,
         "max": 20,
         "step": 1,
+        "unit": "px",
         "default": 10,
         "visible_if": "{{ settings.product_show_price == true }}"
       },
@@ -822,12 +837,20 @@
         "visible_if": "{{ settings.product_show_rate == true }}"
       },
       {
+        "type": "color",
+        "id": "product_color_rate",
+        "label": "Rating color",
+        "default": "#1d1d1d",
+        "visible_if": "{{ settings.product_show_rate == true }}"
+      },
+      {
         "type": "range",
         "id": "product_spacing_rate",
         "label": "Spacing bottom",
         "min": 0,
         "max": 20,
         "step": 1,
+        "unit": "px",
         "default": 10,
         "visible_if": "{{ settings.product_show_rate == true }}"
       },
@@ -855,6 +878,7 @@
         "min": 0,
         "max": 20,
         "step": 1,
+        "unit": "px",
         "default": 10,
         "visible_if": "{{ settings.product_show_variant == true }}"
       }

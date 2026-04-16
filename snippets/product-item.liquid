@@ -4,6 +4,7 @@
     assign theme_st = settings
 
     assign ratio = theme_st.product_ratio_image
+    assign radius = theme_st.product_radius_image
 
     assign product_padding_block = theme_st.product_padding_block
     assign product_padding_inline = theme_st.product_padding_inline
@@ -24,6 +25,7 @@
 
     assign show_rate = theme_st.product_show_rate
     assign position_rate = theme_st.product_position_rate
+    assign color_rate = theme_st.product_color_rate
     assign spacing_rate = theme_st.product_spacing_rate
 
     assign show_variant = theme_st.product_show_variant
@@ -32,7 +34,10 @@
 %}
 
 <div class="product__item">
-    <a class="product-media wrapper-hover d-block overflow-hidden relative ratio-{{ ratio }}" href="{{ product.url | default: '#' }}">
+    <a href="{{ product.url | default: '#' }}"
+       class="product-media wrapper-hover d-block overflow-hidden relative ratio-{{ ratio }} rounded-custom"
+       style="--rounded-custom: {{ radius }};"
+    >
         {% if product.featured_image != blank %}
             <img 
                 class="image-main hover-hidden img-cover d-block"
@@ -67,7 +72,7 @@
 
         {% if show_name %}
             <a href="{{ product.url | default: '#' }}" 
-               class="product__info-name mb-custom d-block" 
+               class="product__info-name mb-custom d-block"
                style="order: {{ position_name }}; --mb-custom: {{ spacing_name }};"
             >
                 {{ product.title | default: 'Product Name' }}
@@ -83,12 +88,37 @@
         {% endif %}
 
         {% if show_rate %}
-            <div class="product__info-rate mb-custom"
-                 style="order: {{ position_rate }}; --mb-custom: {{ spacing_rate }};"
+            {%- if product.metafields.reviews.rating.value != blank -%}
+                {% liquid
+                    assign rating_decimal = 0
+                    assign rating_decimal = product.metafields.reviews.rating.value | plus: 1
+                    assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
+                    if decimal >= 0.3 and decimal <= 0.7
+                        assign rating_decimal = 0.5
+                    elsif decimal > 0.7
+                        assign rating_decimal = 1
+                    endif
+                    assign rating_integer = product.metafields.reviews.rating.value.rating | floor
+                %}
+            {%endif %}
+            <div class="product__info-rate mb-custom relative"
+                 style="order: {{ position_rate }}; --mb-custom: {{ spacing_rate }}; line-height: 0;"
             >
-                {% for i in (1..5) %}
-                    <span class="icon-star {% if product.rating <= i %}opacity-50{% endif %}"></span>
-                {% endfor %}
+                <svg width="78" height="14" viewBox="0 0 78 14">
+                    <use href="#icon-rate-grey"></use>
+                </svg>
+                <div class="d-inline-flex absolute gap-2 z-1 color-rate" style="--color-rate: {{ color_rate }}; height: 14px; top: 0; left: 0;">
+                    {% for i in (1..rating_integer) %}
+                        <svg width="14" height="14" viewBox="0 0 14 14">
+                            <use href="#icon-rate"></use>
+                        </svg>                                        
+                    {% endfor %}
+                    {% if rating_decimal == 0.5 %}
+                        <svg width="20" height="20" viewBox="0 0 14 14">
+                            <use href="#icon-rate-half"></use>
+                        </svg>
+                    {% endif %}
+                </div>
             </div>
         {% endif %}
 
