@@ -13,7 +13,7 @@
       "type": "product-carousel",
       "name": "Product Carousel",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "section_width": "defaul",
         "heading": "Heading",
         "subheading": "<p>Subheading</p>",
