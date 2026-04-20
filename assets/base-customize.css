@@ -335,8 +335,8 @@ a[href="#"] {
 }
 
 .typography-info {
-  font-size: clamp(2.2rem, calc(2.1423rem + 0.1342vw), 2.4rem);
-  font-weight: 500;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 /* === Image === */
@@ -565,6 +565,14 @@ a[href="#"] {
   width: 50%;
 }
 
+.w-14 {
+  width: 1.4rem;
+}
+
+.w-19 {
+  width: 1.9rem;
+}
+
 .w-30 {
   width: 3rem;
 }
@@ -598,6 +606,14 @@ a[href="#"] {
   height: 100%;
 }
 
+.h-14 {
+  height: 1.4rem;
+}
+
+.h-19 {
+  height: 1.9rem;
+}
+
 .h-45 {
   height: 4.5rem;
 }
@@ -625,6 +641,10 @@ a[href="#"] {
 
 .bor-1 {
   border-width: 0.1rem;
+}
+
+.bor-colror-custom {
+  border-color: var(--border-color-custom);
 }
 
 .rounded-custom {

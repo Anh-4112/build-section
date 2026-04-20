@@ -78,7 +78,7 @@
 
         {% if show_name %}
             <a href="{{ product.url | default: '#' }}" 
-               class="product__info-name mb-custom d-block"
+               class="product__info-name mb-custom typography-info d-block"
                style="order: {{ position_name }}; --mb-custom: {{ spacing_name }};"
             >
                 {{ product.title | default: 'Product Name' }}
@@ -132,8 +132,14 @@
             <div class="product__info-variant mb-custom"
                  style="order: {{ position_variant }}; --mb-custom: {{ spacing_variant }};"
             >
-                {% for variant in product.variants %}
-                    <span class="variant-item d-inline-block" style="background-color: {{ variant.option1 | default: '#000' }};"></span>
+                {% for product_option in product.options_with_values %}
+                    {% if product_option.name == "Color" %}
+                        {% for value in product_option.values %}
+                            <span class="variant-wrapper d-inline-flex h-19 w-19 content-center bor bor-1 bor-colror-custom rounded-50p" style="--border-color-custom: #a1a1a1;">
+                                <span class="variant-inner d-block h-14 w-14 rounded-50p overflow-hidden " style="background-color: {{ value.swatch.color }};"></span>
+                            </span>
+                        {% endfor %}
+                    {% endif %}
                 {% endfor %}
             </div>
         {% endif %}

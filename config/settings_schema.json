@@ -862,7 +862,7 @@
         "type": "checkbox",
         "id": "product_show_variant",
         "label": "Show variant",
-        "default": false
+        "default": true
       },
       {
         "type": "text",
