@@ -789,3 +789,7 @@ a[href="#"] {
 
 /* === === */
 
+.animation-marquee {
+    animation: ticker var(--speed, 6s) infinite linear;
+    -webkit-animation: ticker var(--speed, 6s) infinite linear;
+}

@@ -1,0 +1,137 @@
+{% liquid
+    assign section_st = section.settings
+
+    assign color_scheme = section_st.color_scheme
+    assign section_width = section_st.section_width
+    assign section_pt = section_st.section_pt
+    assign section_pb = section_st.section_pb
+%}
+
+{% capture style %}
+    --section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};
+{% endcapture %}
+
+<section class="section__scrolling-text section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
+    <div class="{{ section_width }}">
+        <div class="d-flex overflow-hidden">
+            {% for i in (0..5) %}
+                <div class="animation-marquee d-flex">
+                    {% for block in section.blocks %}
+                        <div class="d-flex">
+                            <div>
+                                {% render 'image-clone' %}
+                            </div>
+                            <div>
+                                {{ block.settings.text }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+    "name": "Scrolling Text",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Section color",
+            "default": "scheme-1"
+        },
+        {
+            "type": "select",
+            "id": "section_width",
+            "label": "Section width",
+            "default": "defaul",
+            "options": [
+                {
+                    "value": "defaul",
+                    "label": "Defaul"
+                },
+                {
+                    "value": "fluid-container",
+                    "label": "Fluid Container"
+                },
+                {
+                    "value": "stretch-width",
+                    "label": "Stretch Width"
+                },
+                {
+                    "value": "full-width",
+                    "label": "Full Width"
+                }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "interval_slide",
+            "label": "Change slides every",
+            "min": 2,
+            "max": 6,
+            "step": 1,
+            "unit": "s",
+            "default": 3
+        },
+        {
+            "type": "range",
+            "id": "section_pt",
+            "label": "Top",
+            "default": 50,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "section_pb",
+            "label": "Bottom",
+            "default": 50,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "scrolling_text_item",
+            "name": "Scrolling Text Item",
+            "limit": 5,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Text",
+                    "default": "Scrolling Text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Scrolling Text",
+            "blocks": [
+                {
+                    "type": "scrolling_text_item"
+                },
+                {
+                    "type": "scrolling_text_item"
+                },
+                {
+                    "type": "scrolling_text_item"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
