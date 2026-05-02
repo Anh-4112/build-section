@@ -34,8 +34,9 @@
 %}
 
 <div class="product__item">
-    <div class="product-media wrapper-hover overflow-hidden relative ratio-{{ ratio }} rounded-custom"
-         style="--rounded-custom: {{ radius }};"
+    <div 
+        class="product-media wrapper-hover overflow-hidden relative ratio-{{ ratio }} rounded-custom"
+        style="--rounded-custom: {{ radius }};"
     >
         <a class="product-media--image d-block" href="{{ product.url | default: '#' }}">
             {% if product.featured_image != blank %}
@@ -65,29 +66,33 @@
             </button>
         </div> 
     </div>
-    <div class="product__info d-flex column py-custom px-custom ai-{{ alignment_content }}"
-         style="--py-custom: {{ product_padding_block }}; --px-custom: {{ product_padding_inline }};"
+    <div 
+        class="product__info d-flex column py-custom px-custom ai-{{ alignment_content }}"
+        style="--py-custom: {{ product_padding_block }}; --px-custom: {{ product_padding_inline }};"
     >
         {% if show_vendor %}
-            <div class="product__info-vendor mb-custom" 
-                 style="order: {{ position_vendor }}; --mb-custom: {{ spacing_vendor }};"
+            <div 
+                class="product__info-vendor mb-custom" 
+                style="order: {{ position_vendor }}; --mb-custom: {{ spacing_vendor }};"
             >
                 {{ product.vendor | default: 'Vendor Name' }}
             </div>
         {% endif %}
 
         {% if show_name %}
-            <a href="{{ product.url | default: '#' }}" 
-               class="product__info-name mb-custom typography-info d-block"
-               style="order: {{ position_name }}; --mb-custom: {{ spacing_name }};"
+            <a 
+                href="{{ product.url | default: '#' }}" 
+                class="product__info-name mb-custom typography-info d-block"
+                style="order: {{ position_name }}; --mb-custom: {{ spacing_name }};"
             >
                 {{ product.title | default: 'Product Name' }}
             </a>
         {% endif %}
 
         {% if show_price %}
-            <div class="product__info-price mb-custom"
-                 style="order: {{ position_price }}; --mb-custom: {{ spacing_price }};"
+            <div 
+                class="product__info-price mb-custom"
+                style="order: {{ position_price }}; --mb-custom: {{ spacing_price }};"
             >
                 {{ product.price | default: '0' | money }}
             </div>
@@ -107,8 +112,9 @@
                     assign rating_integer = product.metafields.reviews.rating.value.rating | floor
                 %}
             {%endif %}
-            <div class="product__info-rate mb-custom relative"
-                 style="order: {{ position_rate }}; --mb-custom: {{ spacing_rate }}; line-height: 0;"
+            <div 
+                class="product__info-rate mb-custom relative"
+                style="order: {{ position_rate }}; --mb-custom: {{ spacing_rate }}; line-height: 0;"
             >
                 <svg width="78" height="14" viewBox="0 0 78 14">
                     <use href="#icon-rate-grey"></use>
@@ -129,8 +135,9 @@
         {% endif %}
 
         {% if show_variant %}
-            <div class="product__info-variant mb-custom"
-                 style="order: {{ position_variant }}; --mb-custom: {{ spacing_variant }};"
+            <div 
+                class="product__info-variant mb-custom"
+                style="order: {{ position_variant }}; --mb-custom: {{ spacing_variant }};"
             >
                 {% for product_option in product.options_with_values %}
                     {% if product_option.name == "Color" %}

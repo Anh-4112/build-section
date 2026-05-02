@@ -299,6 +299,10 @@ a[href="#"] {
   user-select: none;
 }
 
+.txt-nowrap {
+  white-space: nowrap;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -436,6 +440,10 @@ a[href="#"] {
 }
 
 /* === Gap === */
+.gap-custom {
+  gap: calc(var(--gap-custom) * 0.1rem);
+}
+
 .gap-2 {
   gap: 0.2rem;
 }
@@ -546,7 +554,7 @@ a[href="#"] {
 
 /* === Width === */
 .w-custom {
-  width: var(--w-custom);
+  width: calc(var(--w-custom) * 0.1rem);
 }
 
 .w-fit {
@@ -736,9 +744,19 @@ a[href="#"] {
 .mb-20 {
   margin-bottom: 2rem;
 }
+
 /* Margin Right */
+.mr-custom {
+  margin-right: calc(var(--mr-custom) * 0.1rem);
+}
+
 .mr-auto {
   margin-right: auto;
+}
+
+/* Margin Left */
+.ml-custom {
+  margin-left: calc(var(--ml-custom) * 0.1rem);
 }
 
 /* === Top === */
@@ -787,9 +805,4 @@ a[href="#"] {
   bottom: 1%;
 }
 
-/* === === */
-
-.animation-marquee {
-    animation: ticker var(--speed, 6s) infinite linear;
-    -webkit-animation: ticker var(--speed, 6s) infinite linear;
-}
+/* ======= */

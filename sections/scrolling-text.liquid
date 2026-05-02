@@ -1,3 +1,5 @@
+{{ 'scrolling-text.css' | asset_url | stylesheet_tag }}
+
 {% liquid
     assign section_st = section.settings
 
@@ -5,25 +7,63 @@
     assign section_width = section_st.section_width
     assign section_pt = section_st.section_pt
     assign section_pb = section_st.section_pb
+
+    assign show_image = section_st.show_image
+    assign direction = section_st.direction
+    assign speed = section_st.speed
+    assign layout_items = section_st.layout_items
+    assign space_between_items = section_st.space_between_items
+    assign space_between_img_and_text = section_st.space_between_img_and_text
+
+    assign image_width = section_st.image_width
+    assign ratio = section_st.image_ratio
+    assign rounded = section_st.image_rounded
+
+    assign txt_size = section_st.txt_size
 %}
 
 {% capture style %}
     --section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};
 {% endcapture %}
 
+{% capture style_marquee %}
+    --speed: {{ speed }}s;{% if direction == 'left_to_right' %} --direction: 100%;{% else %} --direction: -100%;{% endif %}
+{% endcapture %}
+
 <section class="section__scrolling-text section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
     <div class="{{ section_width }}">
-        <div class="d-flex overflow-hidden">
-            {% for i in (0..5) %}
-                <div class="animation-marquee d-flex">
+        <div class="marquee d-flex overflow-hidden {% if direction == 'left_to_right' %} jc-end{% endif %}">
+            {% for i in (0..15) %}
+                <div class="marquee-animation d-flex" style="{{ style_marquee | strip }}">
                     {% for block in section.blocks %}
-                        <div class="d-flex">
-                            <div>
-                                {% render 'image-clone' %}
-                            </div>
-                            <div>
-                                Scrolling Text
-                            </div>
+                        {% assign blocks_st = block.settings %}
+                        <div 
+                            class="marquee-item d-flex ai-center gap-custom{% if layout_items == 'vertical' %} column{% endif %}{% if direction == 'left_to_right' %} ml-custom{% else %} mr-custom{% endif %}" 
+                            style="--gap-custom: {{ space_between_img_and_text }};{% if direction == 'left_to_right' %} --ml-custom: {{ space_between_items }};{% else %} --mr-custom: {{ space_between_items }};{% endif %}"
+                        >
+                            {% if show_image == true %}
+                                <div 
+                                    class="marquee-media w-custom ratio-{{ ratio }} rounded-custom overflow-hidden " 
+                                    style="--w-custom: {{ image_width }}; --rounded-custom: {{ rounded }};"
+                                >
+                                    {% if blocks_st.image != blank %}
+                                        <img 
+                                            class="img-cover"
+                                            src="{{ blocks_st.image | image_url }}" 
+                                            alt="Image"
+                                            width="100%" 
+                                            height="100%" 
+                                        >
+                                    {% else %}
+                                        {% render 'image-clone' %}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            {% if blocks_st.text != blank %}
+                                <div class="marquee-info txt-nowrap subheading-{{ txt_size }}">
+                                    {{ blocks_st.text }}
+                                </div>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>
@@ -66,15 +106,157 @@
                 }
             ]
         },
+
+        {
+            "type": "header",
+            "content": "Scrolling settings"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_image",
+            "label": "Show image",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "direction",
+            "label": "Direction",
+            "default": "right_to_left",
+            "options": [
+                {
+                    "value": "right_to_left",
+                    "label": "Right to Left"
+                },
+                {
+                    "value": "left_to_right",
+                    "label": "Left to Right"
+                }
+            ]
+        },
         {
             "type": "range",
-            "id": "interval_slide",
-            "label": "Change slides every",
-            "min": 2,
-            "max": 6,
+            "id": "speed",
+            "label": "Speed",
+            "min": 3,
+            "max": 20,
             "step": 1,
             "unit": "s",
-            "default": 3
+            "default": 10
+        },
+        {
+            "type": "select",
+            "id": "layout_items",
+            "label": "Layout items",
+            "default": "horizontal",
+            "options": [
+                {
+                    "value": "horizontal",
+                    "label": "Horizontal"
+                },
+                {
+                    "value": "vertical",
+                    "label": "Vertical"
+                }
+            ]
+        },
+        {
+            "type":"range",
+            "id":"space_between_items",
+            "label": "Space between items",
+            "min": 30,
+            "max": 150,
+            "step": 5,
+            "unit": "px",
+            "default": 50
+        },
+        {
+            "type":"range",
+            "id":"space_between_img_and_text",
+            "label": "Space between image and text",
+            "min": 5,
+            "max": 30,
+            "step": 1,
+            "unit": "px",
+            "default": 15
+        },
+
+        {
+            "type": "header",
+            "content": "Image settings"
+        },
+        {
+            "type": "range",
+            "id": "image_width",
+            "label": "Width",
+            "min": 50,
+            "max": 200,
+            "step": 5,
+            "unit": "px",
+            "default": 100
+        },
+        {
+            "type": "select",
+            "id": "image_ratio",
+            "label": "Ratio",
+            "default" : "adapt",
+            "options": [
+                {
+                    "value": "adapt",
+                    "label": "Adapt to image"   
+                },
+                {
+                    "value": "square",
+                    "label": "Square (1:1)"
+                },
+                {
+                    "value": "portrait",
+                    "label": "Portrait (3:4)"
+                },
+                {
+                    "value": "landscape",
+                    "label": "Landscape (4:3)"
+                }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "image_rounded",
+            "label": "Rounded",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "default": 0
+        },
+
+        {
+            "type": "header",
+            "content": "Text settings"
+        },
+        {
+            "type": "select",
+            "id": "txt_size",
+            "label": "Text size",
+            "default": "medium",
+            "options": [
+                {
+                    "value": "small",
+                    "label": "Small"
+                },
+                {
+                    "value": "medium",
+                    "label": "Medium"
+                },
+                {
+                    "value": "large",
+                    "label": "Large"
+                }
+            ]
+        },
+
+        {
+            "type": "header",
+            "content": "Section padding"
         },
         {
             "type": "range",

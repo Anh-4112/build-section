@@ -1,0 +1,25 @@
+.marquee:hover > * {
+  animation-play-state: paused;
+}
+
+.marquee-animation {
+  animation: ticker var(--speed, 9s) infinite linear;
+  -webkit-animation: ticker var(--speed, 9s) infinite linear;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--direction));
+  }
+}
+@-webkit-keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--direction));
+  }
+}
