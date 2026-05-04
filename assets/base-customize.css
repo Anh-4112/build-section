@@ -492,7 +492,7 @@ a[href="#"] {
 
 /* === Flex === */
 .f-custom {
-  flex: 0 0 calc(var(--f-custom) * 1%);
+  flex: 0 0 calc(var(--f-custom) * 1% - var(--gap-custom, 0) * 0.05rem);
 }
 
 .f-25p {
@@ -805,4 +805,7 @@ a[href="#"] {
   bottom: 1%;
 }
 
-/* ======= */
+/* === Critical === */
+.header-spacing {
+  margin-top: calc(1.4228rem + 1.3423vw);
+}
