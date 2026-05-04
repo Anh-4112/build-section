@@ -9,6 +9,64 @@
  */
 {
   "sections": {
+    "multi_content_NaNdjj": {
+      "type": "multi-content",
+      "name": "Multi Content",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "defaul",
+        "heading": "Heading",
+        "subheading": "<p>Subheading</p>",
+        "header_size": "medium",
+        "txt_align": "left",
+        "reverse_content": false
+      }
+    },
+    "scrolling_text_kB7wb3": {
+      "type": "scrolling-text",
+      "blocks": {
+        "scrolling_text_item_tpwJ7j": {
+          "type": "scrolling_text_item",
+          "settings": {
+            "text": "Scrolling Text"
+          }
+        },
+        "scrolling_text_item_U4TcWN": {
+          "type": "scrolling_text_item",
+          "settings": {
+            "text": "Scrolling Text"
+          }
+        },
+        "scrolling_text_item_wc4Lbq": {
+          "type": "scrolling_text_item",
+          "settings": {
+            "text": "Scrolling Text"
+          }
+        }
+      },
+      "block_order": [
+        "scrolling_text_item_tpwJ7j",
+        "scrolling_text_item_U4TcWN",
+        "scrolling_text_item_wc4Lbq"
+      ],
+      "name": "Scrolling Text",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "defaul",
+        "show_image": true,
+        "direction": "right_to_left",
+        "speed": 10,
+        "layout_items": "horizontal",
+        "space_between_items": 50,
+        "space_between_img_and_text": 15,
+        "image_width": 100,
+        "image_ratio": "adapt",
+        "image_rounded": 0,
+        "txt_size": "medium",
+        "section_pt": 50,
+        "section_pb": 50
+      }
+    },
     "product_carousel_YEQJ9H": {
       "type": "product-carousel",
       "name": "Product Carousel",
@@ -20,7 +78,7 @@
         "header_size": "medium",
         "txt_align": "left",
         "reverse_content": false,
-        "collection": "skincare",
+        "collection": "",
         "check_icon": true,
         "items_to_show": 6,
         "items_per_row_pc": 4,
@@ -37,6 +95,8 @@
     }
   },
   "order": [
+    "multi_content_NaNdjj",
+    "scrolling_text_kB7wb3",
     "product_carousel_YEQJ9H"
   ]
 }
