@@ -492,7 +492,11 @@ a[href="#"] {
 
 /* === Flex === */
 .f-custom {
-  flex: 0 0 calc(var(--f-custom) * 1% - var(--gap-custom, 0) * 0.05rem);
+  flex: 0 0
+    calc(
+      var(--f-custom) * 1% 
+      - (100 - var(--f-custom)) * var(--gap-custom, 0) * 0.001rem
+    );
 }
 
 .f-25p {

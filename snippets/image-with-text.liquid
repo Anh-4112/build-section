@@ -10,7 +10,7 @@
 %}
 
 <div 
-    class="block__image-with-text{% if inherit_color_scheme != true %} color-{{ color_scheme }} gradient{% endif %} f-custom"
+    class="block__image-with-text f-custom"
     style="--f-custom: {{ width_block }};"
 >
     <div class="block__image">
@@ -25,7 +25,7 @@
             {% render 'image-clone' %}
         {% endif %}
     </div>
-    <div class="block__text">
-        Text content would go here
+    <div class="block__text{% if inherit_color_scheme != true %} color-{{ color_scheme }} gradient{% endif %}">
+        Text content
     </div>
 </div>
