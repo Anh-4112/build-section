@@ -142,7 +142,7 @@
                 {% for product_option in product.options_with_values %}
                     {% if product_option.name == "Color" %}
                         {% for value in product_option.values %}
-                            <span class="variant-wrapper d-inline-flex h-19 w-19 content-center bor bor-1 bor-colror-custom rounded-50p" style="--border-color-custom: #a1a1a1;">
+                            <span class="variant-wrapper d-inline-flex h-19 w-19 content-center bor bor-1 bor-color-custom rounded-50p" style="--border-color-custom: #a1a1a1;">
                                 <span class="variant-inner d-block h-14 w-14 rounded-50p overflow-hidden " style="background-color: {{ value.swatch.color }};"></span>
                             </span>
                         {% endfor %}

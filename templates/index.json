@@ -1,37 +1,36 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "multi_content_74b7XD": {
       "type": "multi-content",
       "blocks": {
-        "image_with_text_rV9Xnb": {
-          "type": "image_with_text",
+        "group_media_content_rV9Xnb": {
+          "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "width_block": "50"
+            "width_block": "50",
+            "subheading_img_with_txt": "Subheading",
+            "heading_img_with_txt": "Heading",
+            "description_img_with_txt": "<p>Description</p>",
+            "btn_img_with_txt": "Button label"
           }
         },
-        "image_with_text_bhQ6Ew": {
-          "type": "image_with_text",
+        "group_media_content_bhQ6Ew": {
+          "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "width_block": "50"
+            "width_block": "50",
+            "subheading_img_with_txt": "Subheading",
+            "heading_img_with_txt": "Heading",
+            "description_img_with_txt": "<p>Description</p>",
+            "btn_img_with_txt": "Button label"
           }
         }
       },
       "block_order": [
-        "image_with_text_rV9Xnb",
-        "image_with_text_bhQ6Ew"
+        "group_media_content_rV9Xnb",
+        "group_media_content_bhQ6Ew"
       ],
       "name": "Multi Content",
       "settings": {

@@ -34,7 +34,7 @@ a {
 /* =============== HTMLElement Customize ================ */
 collapse-wrapper, collapse-toggle, collapse-content,
 comp-block, comp-before, comp-after,
-swiper-section, swiper-prev, swiper-next {
+swiper-section, swiper-prev, swiper-next, picture, img {
   display: block;
 }
 
@@ -610,6 +610,16 @@ a[href="#"] {
 }
 
 /* === Height === */
+.h-responsive {
+  --view-min: 430px;
+  --view-max: 1920px;
+  height: clamp(
+    calc(var(--h-mobile) * 1px),
+    calc(1px * (var(--h-mobile) + (var(--h-desktop) - var(--h-mobile)) * (100vw - var(--view-min)) / (var(--view-max) - var(--view-min)))),
+    calc(var(--h-desktop) * 1px)
+  );
+}
+
 .h-fit {
   height: fit-content;
 }
@@ -655,7 +665,7 @@ a[href="#"] {
   border-width: 0.1rem;
 }
 
-.bor-colror-custom {
+.bor-color-custom {
   border-color: var(--border-color-custom);
 }
 
