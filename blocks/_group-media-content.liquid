@@ -40,17 +40,19 @@
         {% endif %}
     </div>
     <div class="block__content{% if inherit_color_scheme != true %} color-{{ color_scheme }} gradient{% endif %}">
+        {% content_for 'blocks' %}
+    
         {% if subheading_img_with_txt != blank %}
             <div class="block__subheading">
                 {{ subheading_img_with_txt }}
             </div>
         {% endif %}
 
-        {% if heading_img_with_txt != blank %}
+        {% comment %} {% if heading_img_with_txt != blank %}
             <div class="block__heading">
                 {{ heading_img_with_txt }}
             </div>
-        {% endif %}
+        {% endif %} {% endcomment %}
 
         {% if description_img_with_txt != blank %}
             <div class="block__description">
@@ -112,24 +114,6 @@
         },
         {
             "type": "text",
-            "id": "subheading_img_with_txt",
-            "label": "Subheading",
-            "default": "Subheading"
-        },
-        {
-            "type": "text",
-            "id": "heading_img_with_txt",
-            "label": "Heading",
-            "default": "Heading"
-        },
-        {
-            "type": "richtext",
-            "id": "description_img_with_txt",
-            "label": "Description",
-            "default": "<p>Description</p>"
-        },
-        {
-            "type": "text",
             "id": "btn_img_with_txt",
             "label": "Button label",
             "default": "Button label"
@@ -138,6 +122,14 @@
             "type": "url",
             "id": "link_img_with_txt",
             "label": "Button link"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "heading"
+        },
+        {
+            "type": "text"
         }
     ],
     "presets": [
