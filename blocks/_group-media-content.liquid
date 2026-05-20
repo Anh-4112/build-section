@@ -11,9 +11,6 @@
 
     assign image_desktop = block_st.image_desktop
     assign image_mobile = block_st.image_mobile
-
-    assign btn_img_with_txt = block_st.btn_img_with_txt
-    assign link_img_with_txt = block_st.link_img_with_txt
 %}
 
 <div
@@ -38,12 +35,6 @@
     </div>
     <div class="block__content{% if inherit_color_scheme != true %} color-{{ color_scheme }} gradient{% endif %}">
         {% content_for 'blocks' %}
-
-        {% if btn_img_with_txt != blank %}
-            <a href="{{ link_img_with_txt }}" class="block__button">
-                {{ btn_img_with_txt }}
-            </a>
-        {% endif %}
     </div>
 </div>
 
@@ -90,30 +81,27 @@
         {
             "type": "header",
             "content": "Content settings"
-        },
-        {
-            "type": "text",
-            "id": "btn_img_with_txt",
-            "label": "Button label",
-            "default": "Button label"
-        },
-        {
-            "type": "url",
-            "id": "link_img_with_txt",
-            "label": "Button link"
         }
     ],
     "blocks": [
         {
-            "type": "heading"
+            "type": "text"
         },
         {
-            "type": "text"
+            "type": "button"
         }
     ],
     "presets": [
         {
-            "name": "Media with content"
+            "name": "Media with content",
+            "blocks": [
+                {
+                    "type": "text"
+                },
+                {
+                    "type": "button"
+                }
+            ]
         }
     ]
 }

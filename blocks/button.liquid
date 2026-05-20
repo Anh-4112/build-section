@@ -1,0 +1,36 @@
+{% liquid
+    assign block_st = block.settings
+
+    assign button = block_st.button
+    assign link_button = block_st.link_button
+%}
+
+<div class="block__button" {{ block.shopify_attributes }}>
+    <a href="{{ link_button }}" class="d-block">
+        {{ button }}
+    </a>
+</div>
+
+{%  schema  %}
+{
+    "name": "Button",
+    "settings": [
+        {
+            "type": "text",
+            "id": "button",
+            "label": "Button text",
+            "default": "Button"
+        },
+        {
+            "type": "url",
+            "id": "link_button",
+            "label": "Link Button"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Button"
+        }
+    ]
+}
+{% endschema %}
