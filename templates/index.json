@@ -54,10 +54,10 @@
         "section_pb": 50
       }
     },
-    "multi_content_pYWHRi": {
+    "multi_content_w6YNQE": {
       "type": "multi-content",
       "blocks": {
-        "group_media_content_4Majfn": {
+        "group_media_content_rA3pz8": {
           "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
@@ -66,9 +66,28 @@
             "btn_img_with_txt": "Button label",
             "link_img_with_txt": ""
           },
-          "blocks": {}
+          "blocks": {
+            "heading_nC3RCJ": {
+              "type": "heading",
+              "settings": {
+                "heading": "Heading"
+              },
+              "blocks": {}
+            },
+            "text_PwhhqC": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Text</p>"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_nC3RCJ",
+            "text_PwhhqC"
+          ]
         },
-        "group_media_content_UAjj3q": {
+        "group_media_content_Q7THc7": {
           "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
@@ -77,12 +96,31 @@
             "btn_img_with_txt": "Button label",
             "link_img_with_txt": ""
           },
-          "blocks": {}
+          "blocks": {
+            "heading_dm3NUN": {
+              "type": "heading",
+              "settings": {
+                "heading": "Heading"
+              },
+              "blocks": {}
+            },
+            "text_kbkzKq": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Text</p>"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_dm3NUN",
+            "text_kbkzKq"
+          ]
         }
       },
       "block_order": [
-        "group_media_content_4Majfn",
-        "group_media_content_UAjj3q"
+        "group_media_content_rA3pz8",
+        "group_media_content_Q7THc7"
       ],
       "name": "Multi Content",
       "settings": {
@@ -103,6 +141,6 @@
   },
   "order": [
     "scrolling_text_kB7wb3",
-    "multi_content_pYWHRi"
+    "multi_content_w6YNQE"
   ]
 }
