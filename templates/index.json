@@ -1,51 +1,14 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "multi_content_74b7XD": {
-      "type": "multi-content",
-      "blocks": {
-        "group_media_content_rV9Xnb": {
-          "type": "_group-media-content",
-          "settings": {
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "width_block": "50",
-            "subheading_img_with_txt": "Subheading",
-            "heading_img_with_txt": "Heading",
-            "description_img_with_txt": "<p>Description</p>",
-            "btn_img_with_txt": "Button label"
-          }
-        },
-        "group_media_content_bhQ6Ew": {
-          "type": "_group-media-content",
-          "settings": {
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "width_block": "50",
-            "subheading_img_with_txt": "Subheading",
-            "heading_img_with_txt": "Heading",
-            "description_img_with_txt": "<p>Description</p>",
-            "btn_img_with_txt": "Button label"
-          }
-        }
-      },
-      "block_order": [
-        "group_media_content_rV9Xnb",
-        "group_media_content_bhQ6Ew"
-      ],
-      "name": "Multi Content",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "defaul",
-        "heading": "Heading",
-        "subheading": "<p>Subheading</p>",
-        "header_size": "medium",
-        "txt_align": "left",
-        "reverse_content": false,
-        "space_between": 15,
-        "section_pt": 50,
-        "section_pb": 50
-      }
-    },
     "scrolling_text_kB7wb3": {
       "type": "scrolling-text",
       "blocks": {
@@ -90,37 +53,9 @@
         "section_pt": 50,
         "section_pb": 50
       }
-    },
-    "product_carousel_YEQJ9H": {
-      "type": "product-carousel",
-      "name": "Product Carousel",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "section_width": "defaul",
-        "heading": "Heading",
-        "subheading": "<p>Subheading</p>",
-        "header_size": "medium",
-        "txt_align": "left",
-        "reverse_content": false,
-        "collection": "",
-        "check_icon": true,
-        "items_to_show": 6,
-        "items_per_row_pc": 4,
-        "items_per_row_mobile": 1,
-        "infinite_slide": false,
-        "auto_slide": false,
-        "interval_slide": 3,
-        "reveal_next_slide": false,
-        "column_gap": 15,
-        "pagination_type": "dots",
-        "section_pt": 50,
-        "section_pb": 50
-      }
     }
   },
   "order": [
-    "multi_content_74b7XD",
-    "scrolling_text_kB7wb3",
-    "product_carousel_YEQJ9H"
+    "scrolling_text_kB7wb3"
   ]
 }
