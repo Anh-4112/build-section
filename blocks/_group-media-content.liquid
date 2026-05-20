@@ -12,9 +12,6 @@
     assign image_desktop = block_st.image_desktop
     assign image_mobile = block_st.image_mobile
 
-    assign subheading_img_with_txt = block_st.subheading_img_with_txt
-    assign heading_img_with_txt = block_st.heading_img_with_txt
-    assign description_img_with_txt = block_st.description_img_with_txt
     assign btn_img_with_txt = block_st.btn_img_with_txt
     assign link_img_with_txt = block_st.link_img_with_txt
 %}
@@ -41,24 +38,6 @@
     </div>
     <div class="block__content{% if inherit_color_scheme != true %} color-{{ color_scheme }} gradient{% endif %}">
         {% content_for 'blocks' %}
-    
-        {% if subheading_img_with_txt != blank %}
-            <div class="block__subheading">
-                {{ subheading_img_with_txt }}
-            </div>
-        {% endif %}
-
-        {% comment %} {% if heading_img_with_txt != blank %}
-            <div class="block__heading">
-                {{ heading_img_with_txt }}
-            </div>
-        {% endif %} {% endcomment %}
-
-        {% if description_img_with_txt != blank %}
-            <div class="block__description">
-                {{ description_img_with_txt }}
-            </div>
-        {% endif %}
 
         {% if btn_img_with_txt != blank %}
             <a href="{{ link_img_with_txt }}" class="block__button">
