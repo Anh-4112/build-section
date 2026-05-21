@@ -6,11 +6,16 @@
     assign font_weight = block_st.font_weight
     assign spacing_top = block_st.spacing_top
     assign spacing_bottom = block_st.spacing_bottom
+    assign text_transform = block_st.text_transform
 %}
 
+{% capture style %}
+    --mt-custom: {{ spacing_top }}; --mb-custom: {{ spacing_bottom }};
+{% endcapture %}
+
 <div
-    class="block__text fs-custom fw-custom mt-custom mb-custom"
-    style="--fs-custom: {{ font_size }}; --fw-custom: {{ font_weight }}; --mt-custom: {{ spacing_top }}; --mb-custom: {{ spacing_bottom }};"
+    class="block__text fs-custom fw-custom mt-custom mb-custom {{ text_transform }}"
+    style="{{ style | strip }}; --fs-custom: {{ font_size }}; --fw-custom: {{ font_weight }};"
     {{ block.shopify_attributes }}
 >
     {{ text | default: 'Text description' }}
@@ -25,6 +30,26 @@
             "id": "text",
             "label": "Text",
             "default": "<p>Text</p>"
+        },
+        {
+            "type": "select",
+            "id": "text_transform",
+            "label": "Text transform",
+            "default": "unset",
+            "options": [
+                {
+                    "value": "unset",
+                    "label": "Unset"
+                },
+                {
+                    "value": "uppercase",
+                    "label": "Uppercase"
+                },
+                {
+                    "value": "capitalize",
+                    "label": "Capitalize"
+                }
+            ]
         },
         {
             "type": "range",
@@ -43,6 +68,11 @@
             "min": 100,
             "max": 900,
             "step": 100
+        },
+
+        {
+            "type": "header",
+            "content": "Spacing"
         },
         {
             "type": "range",

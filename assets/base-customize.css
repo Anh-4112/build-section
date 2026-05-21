@@ -303,6 +303,14 @@ a[href="#"] {
   white-space: nowrap;
 }
 
+.unset {
+  text-transform: unset;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
