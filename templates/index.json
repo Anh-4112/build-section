@@ -75,7 +75,7 @@
         "interval_slide": 3,
         "reveal_next_slide": false,
         "column_gap": 15,
-        "pagination_type": "dots",
+        "pagination_type": "none",
         "section_pt": 50,
         "section_pb": 50
       }
