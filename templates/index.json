@@ -79,10 +79,77 @@
         "section_pt": 50,
         "section_pb": 50
       }
+    },
+    "multi_content_HwY9EW": {
+      "type": "multi-content",
+      "blocks": {
+        "group_media_content_JYjmW9": {
+          "type": "_group-media-content",
+          "settings": {
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "width_block": "50"
+          },
+          "blocks": {
+            "button_nWBK7i": {
+              "type": "button",
+              "settings": {
+                "button": "Button",
+                "link_button": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "button_nWBK7i"
+          ]
+        },
+        "group_media_content_kAzWTA": {
+          "type": "_group-media-content",
+          "settings": {
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "width_block": "50"
+          },
+          "blocks": {
+            "button_9GwXFY": {
+              "type": "button",
+              "settings": {
+                "button": "Button",
+                "link_button": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "button_9GwXFY"
+          ]
+        }
+      },
+      "block_order": [
+        "group_media_content_JYjmW9",
+        "group_media_content_kAzWTA"
+      ],
+      "name": "Multi Content",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "defaul",
+        "heading": "Heading",
+        "subheading": "<p>Subheading</p>",
+        "header_size": "medium",
+        "txt_align": "left",
+        "reverse_content": false,
+        "space_between": 15,
+        "height_img_mobile": 300,
+        "height_img_desktop": 500,
+        "section_pt": 50,
+        "section_pb": 50
+      }
     }
   },
   "order": [
     "scrolling_text_kB7wb3",
-    "product_carousel_xWpPJY"
+    "product_carousel_xWpPJY",
+    "multi_content_HwY9EW"
   ]
 }
