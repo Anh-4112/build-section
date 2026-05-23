@@ -18,7 +18,7 @@
     style="{{ style | strip }}; --fs-custom: {{ font_size }}; --fw-custom: {{ font_weight }};"
     {{ block.shopify_attributes }}
 >
-    {{ text | default: 'Text description' }}
+    {{ text }}
 </div>
 
 {%  schema  %}
