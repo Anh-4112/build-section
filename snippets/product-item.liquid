@@ -38,7 +38,7 @@
         class="product-media wrapper-hover overflow-hidden relative ratio-{{ ratio }} rounded-custom"
         style="--rounded-custom: {{ radius }};"
     >
-        <a class="product-media--image d-block" href="{{ product.url | default: '#' }}">
+        <a class="product-media--image d-block h-full" href="{{ product.url | default: '#' }}">
             {% if product.featured_image != blank %}
                 <img 
                     class="image-main hover-hidden img-cover d-block"
