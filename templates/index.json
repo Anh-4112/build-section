@@ -73,7 +73,7 @@
                 "text_transform": "unset",
                 "font_size": 16,
                 "font_weight": 400,
-                "spacing_top": 0,
+                "spacing_top": 50,
                 "spacing_bottom": 0
               },
               "blocks": {}
