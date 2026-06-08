@@ -166,7 +166,7 @@
         "infinite_slide": false,
         "auto_slide": false,
         "interval_slide": 2,
-        "reveal_next_slide": true,
+        "reveal_next_slide": false,
         "column_gap": 30,
         "pagination_type": "dots",
         "section_pt": 50,
