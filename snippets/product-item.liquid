@@ -6,31 +6,10 @@
     assign ratio = theme_st.product_ratio_image
     assign radius = theme_st.product_radius_image
 
-    assign product_padding_block = theme_st.product_padding_block
-    assign product_padding_inline = theme_st.product_padding_inline
-
     assign alignment_content = theme_st.product_alignment_content
 
-    assign show_vendor = theme_st.product_show_vendor
-    assign position_vendor = theme_st.product_position_vendor
-    assign spacing_vendor = theme_st.product_spacing_vendor
-
-    assign show_name = theme_st.product_show_name
-    assign position_name = theme_st.product_position_name
-    assign spacing_name = theme_st.product_spacing_name
-
-    assign show_price = theme_st.product_show_price
-    assign position_price = theme_st.product_position_price
-    assign spacing_price = theme_st.product_spacing_price
-
-    assign show_rate = theme_st.product_show_rate
-    assign position_rate = theme_st.product_position_rate
-    assign color_rate = theme_st.product_color_rate
-    assign spacing_rate = theme_st.product_spacing_rate
-
-    assign show_variant = theme_st.product_show_variant
-    assign position_variant = theme_st.product_position_variant
-    assign spacing_variant = theme_st.product_spacing_variant
+    assign product_padding_block = theme_st.product_padding_block
+    assign product_padding_inline = theme_st.product_padding_inline
 %}
 
 <div class="product__item">
@@ -70,85 +49,80 @@
         class="product__info d-flex column py-custom px-custom ai-{{ alignment_content }}"
         style="--py-custom: {{ product_padding_block }}; --px-custom: {{ product_padding_inline }};"
     >
-        {% if show_vendor %}
-            <div 
-                class="product__info-vendor mb-custom" 
-                style="order: {{ position_vendor }}; --mb-custom: {{ spacing_vendor }};"
-            >
-                {{ product.vendor | default: 'Vendor Name' }}
-            </div>
-        {% endif %}
-
-        {% if show_name %}
-            <a 
-                href="{{ product.url | default: '#' }}" 
-                class="product__info-name mb-custom typography-info d-block"
-                style="order: {{ position_name }}; --mb-custom: {{ spacing_name }};"
-            >
-                {{ product.title | default: 'Product Name' }}
-            </a>
-        {% endif %}
-
-        {% if show_price %}
-            <div 
-                class="product__info-price mb-custom"
-                style="order: {{ position_price }}; --mb-custom: {{ spacing_price }};"
-            >
-                {{ product.price | default: '0' | money }}
-            </div>
-        {% endif %}
-
-        {% if show_rate %}
-            {%- if product.metafields.reviews.rating.value != blank -%}
-                {% liquid
-                    assign rating_decimal = 0
-                    assign rating_decimal = product.metafields.reviews.rating.value | plus: 1
-                    assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
-                    if decimal >= 0.3 and decimal <= 0.7
-                        assign rating_decimal = 0.5
-                    elsif decimal > 0.7
-                        assign rating_decimal = 1
-                    endif
-                    assign rating_integer = product.metafields.reviews.rating.value.rating | floor
-                %}
-            {%endif %}
-            <div 
-                class="product__info-rate mb-custom relative"
-                style="order: {{ position_rate }}; --mb-custom: {{ spacing_rate }}; line-height: 0;"
-            >
-                <svg width="78" height="14" viewBox="0 0 78 14">
-                    <use href="#icon-rate-grey"></use>
-                </svg>
-                <div class="d-inline-flex absolute gap-2 z-1 color-rate" style="--color-rate: {{ color_rate }}; height: 14px; top: 0; left: 0;">
-                    {% for i in (1..rating_integer) %}
-                        <svg width="14" height="14" viewBox="0 0 14 14">
-                            <use href="#icon-rate"></use>
-                        </svg>                                        
-                    {% endfor %}
-                    {% if rating_decimal == 0.5 %}
-                        <svg width="20" height="20" viewBox="0 0 14 14">
-                            <use href="#icon-rate-half"></use>
+        {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'product_vendor' %}
+                    <div 
+                        class="product__info-vendor mb-custom"
+                        style="--mb-custom: {{ block.settings.product_spacing_vendor }};"
+                    >
+                        {{ product.vendor | default: 'Vendor Name' }}
+                    </div>
+                {% when 'product_name' %}        
+                    <a 
+                        href="{{ product.url | default: '#' }}" 
+                        class="product__info-name typography-info d-block mb-custom"
+                        style="--mb-custom: {{ block.settings.product_spacing_name }};"
+                    >
+                        {{ product.title | default: 'Product Name' }}
+                    </a>
+                {% when 'product_price' %}
+                    <div 
+                        class="product__info-price mb-custom"
+                        style="--mb-custom: {{ block.settings.product_spacing_price }};"
+                    >
+                        {{ product.price | default: '0' | money }}
+                    </div>
+                {% when 'product_rate' %}
+                    {%- if product.metafields.reviews.rating.value != blank -%}
+                        {% liquid
+                            assign rating_decimal = 0
+                            assign rating_decimal = product.metafields.reviews.rating.value | plus: 1
+                            assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
+                            if decimal >= 0.3 and decimal <= 0.7
+                                assign rating_decimal = 0.5
+                            elsif decimal > 0.7
+                                assign rating_decimal = 1
+                            endif
+                            assign rating_integer = product.metafields.reviews.rating.value.rating | floor
+                        %}
+                    {%endif %}
+                    <div 
+                        class="product__info-rate relative mb-custom"
+                        style="line-height: 0; --mb-custom: {{ block.settings.product_spacing_rate }};"
+                    >
+                        <svg width="78" height="14" viewBox="0 0 78 14">
+                            <use href="#icon-rate-grey"></use>
                         </svg>
-                    {% endif %}
-                </div>
-            </div>
-        {% endif %}
-
-        {% if show_variant %}
-            <div 
-                class="product__info-variant mb-custom"
-                style="order: {{ position_variant }}; --mb-custom: {{ spacing_variant }};"
-            >
-                {% for product_option in product.options_with_values %}
-                    {% if product_option.name == "Color" %}
-                        {% for value in product_option.values %}
-                            <span class="variant-wrapper d-inline-flex h-19 w-19 content-center bor bor-1 bor-color-custom rounded-50p" style="--border-color-custom: #a1a1a1;">
-                                <span class="variant-inner d-block h-14 w-14 rounded-50p overflow-hidden " style="background-color: {{ value.swatch.color }};"></span>
-                            </span>
+                        <div class="d-inline-flex absolute gap-2 z-1 color-rate" style="--color-rate: {{ color_rate }}; height: 14px; top: 0; left: 0;">
+                            {% for i in (1..rating_integer) %}
+                                <svg width="14" height="14" viewBox="0 0 14 14">
+                                    <use href="#icon-rate"></use>
+                                </svg>                                        
+                            {% endfor %}
+                            {% if rating_decimal == 0.5 %}
+                                <svg width="20" height="20" viewBox="0 0 14 14">
+                                    <use href="#icon-rate-half"></use>
+                                </svg>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% when 'product_variant' %}
+                    <div 
+                        class="product__info-variant mb-custom"
+                        style="--mb-custom: {{ block.settings.product_spacing_variant }};"
+                    >
+                        {% for product_option in product.options_with_values %}
+                            {% if product_option.name == "Color" %}
+                                {% for value in product_option.values %}
+                                    <span class="variant-wrapper d-inline-flex h-19 w-19 content-center bor bor-1 bor-color-custom rounded-50p" style="--border-color-custom: #a1a1a1;">
+                                        <span class="variant-inner d-block h-14 w-14 rounded-50p overflow-hidden " style="background-color: {{ value.swatch.color }};"></span>
+                                    </span>
+                                {% endfor %}
+                            {% endif %}
                         {% endfor %}
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endif %}
+                    </div>
+            {% endcase %}
+        {% endfor %}        
     </div>
 </div>

@@ -263,9 +263,107 @@
             "unit": "px"
         }
     ],
+    "blocks":[
+        {
+            "type": "product_vendor",
+            "name": "Product vendor",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "product_spacing_vendor",
+                    "label": "Spacing bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "unit": "px",
+                    "default": 10
+                }
+            ]
+        },
+        {
+            "type": "product_name",
+            "name": "Product name",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "product_spacing_name",
+                    "label": "Spacing bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "unit": "px",
+                    "default": 10
+                }
+            ]
+        },
+        {
+            "type": "product_price",
+            "name": "Product price",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "product_spacing_price",
+                    "label": "Spacing bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "unit": "px",
+                    "default": 10
+                }
+            ]
+        },
+        {
+            "type": "product_rate",
+            "name": "Product rate",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "product_spacing_rate",
+                    "label": "Spacing bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "unit": "px",
+                    "default": 10
+                }
+            ]
+        },
+        {
+            "type": "product_variant",
+            "name": "Product variant",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "product_spacing_variant",
+                    "label": "Spacing bottom",
+                    "min": 0,
+                    "max": 20,
+                    "step": 1,
+                    "unit": "px",
+                    "default": 10
+                }
+            ]
+        }
+    ],
     "presets": [
         {
-            "name": "Product Carousel"
+            "name": "Product Carousel",
+            "blocks": [
+                {
+                    "type": "product_name"
+                },
+                {
+                    "type": "product_rate"
+                },
+                {
+                    "type": "product_price"
+                }
+            ]
         }
     ]
 }

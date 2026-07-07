@@ -41,13 +41,13 @@
             {% if blocks.size > 0 %}
                 {% for product in blocks limit: items_to_show %}
                     <div class="swiper-slide txt-no-select">
-                        {% render 'product-item', product: product %}
+                        {% render 'product-item', section: section, product: product %}
                     </div>
                 {% endfor %}
             {% else %}
                 {% for i in (1..items_to_show) %}
                     <div class="swiper-slide txt-no-select">
-                        {% render 'product-item' %}
+                        {% render 'product-item', section: section %}
                     </div>
                 {% endfor %}
             {% endif %}
