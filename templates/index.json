@@ -9,22 +9,22 @@
  */
 {
   "sections": {
-    "scrolling_text_mw488h": {
+    "scrolling_text_QUPNbN": {
       "type": "scrolling-text",
       "blocks": {
-        "scrolling_text_item_MKD9GP": {
+        "scrolling_text_item_A4Txiy": {
           "type": "scrolling_text_item",
           "settings": {
             "text": "Scrolling Text"
           }
         },
-        "scrolling_text_item_FVWmz7": {
+        "scrolling_text_item_UDjeD6": {
           "type": "scrolling_text_item",
           "settings": {
             "text": "Scrolling Text"
           }
         },
-        "scrolling_text_item_4HLmCE": {
+        "scrolling_text_item_KgkLV7": {
           "type": "scrolling_text_item",
           "settings": {
             "text": "Scrolling Text"
@@ -32,9 +32,9 @@
         }
       },
       "block_order": [
-        "scrolling_text_item_MKD9GP",
-        "scrolling_text_item_FVWmz7",
-        "scrolling_text_item_4HLmCE"
+        "scrolling_text_item_A4Txiy",
+        "scrolling_text_item_UDjeD6",
+        "scrolling_text_item_KgkLV7"
       ],
       "name": "Scrolling Text",
       "settings": {
@@ -54,10 +54,10 @@
         "section_pb": 50
       }
     },
-    "multi_content_Qm3K78": {
+    "multi_content_C4XTiF": {
       "type": "multi-content",
       "blocks": {
-        "group_media_content_CPANyc": {
+        "group_media_content_idTzfw": {
           "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
@@ -65,7 +65,7 @@
             "width_block": "50"
           },
           "blocks": {
-            "text_description_x36Fkm": {
+            "text_description_HjpDcX": {
               "type": "text-description",
               "settings": {
                 "text": "<p>Text description</p>",
@@ -77,7 +77,7 @@
               },
               "blocks": {}
             },
-            "button_qjAFVr": {
+            "button_JjhW3p": {
               "type": "button",
               "settings": {
                 "button": "Button",
@@ -87,11 +87,11 @@
             }
           },
           "block_order": [
-            "text_description_x36Fkm",
-            "button_qjAFVr"
+            "text_description_HjpDcX",
+            "button_JjhW3p"
           ]
         },
-        "group_media_content_9kFTNk": {
+        "group_media_content_FGKK9k": {
           "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
@@ -99,7 +99,7 @@
             "width_block": "50"
           },
           "blocks": {
-            "text_description_4pq3cf": {
+            "text_description_9xLVqg": {
               "type": "text-description",
               "settings": {
                 "text": "<p>Text description</p>",
@@ -111,7 +111,7 @@
               },
               "blocks": {}
             },
-            "button_D6XbnY": {
+            "button_TBxHjA": {
               "type": "button",
               "settings": {
                 "button": "Button",
@@ -121,14 +121,14 @@
             }
           },
           "block_order": [
-            "text_description_4pq3cf",
-            "button_D6XbnY"
+            "text_description_9xLVqg",
+            "button_TBxHjA"
           ]
         }
       },
       "block_order": [
-        "group_media_content_CPANyc",
-        "group_media_content_9kFTNk"
+        "group_media_content_idTzfw",
+        "group_media_content_FGKK9k"
       ],
       "name": "Multi Content",
       "settings": {
@@ -146,22 +146,22 @@
         "section_pb": 50
       }
     },
-    "product_carousel_8EdmJh": {
+    "product_carousel_rVjBF9": {
       "type": "product-carousel",
       "blocks": {
-        "product_name_bHLxc6": {
+        "product_name_p6gQYV": {
           "type": "product_name",
           "settings": {
             "product_spacing_name": 10
           }
         },
-        "product_rate_WQRk9C": {
+        "product_rate_xMW8yq": {
           "type": "product_rate",
           "settings": {
             "product_spacing_rate": 10
           }
         },
-        "product_price_hpf6NT": {
+        "product_price_8tzUqC": {
           "type": "product_price",
           "settings": {
             "product_spacing_price": 10
@@ -169,20 +169,20 @@
         }
       },
       "block_order": [
-        "product_name_bHLxc6",
-        "product_rate_WQRk9C",
-        "product_price_hpf6NT"
+        "product_name_p6gQYV",
+        "product_rate_xMW8yq",
+        "product_price_8tzUqC"
       ],
       "name": "Product Carousel",
       "settings": {
         "color_scheme": "",
-        "section_width": "fluid-container",
+        "section_width": "defaul",
         "heading": "Heading",
         "subheading": "<p>Subheading</p>",
         "header_size": "medium",
-        "txt_align": "center",
-        "reverse_content": true,
-        "collection": "skincare",
+        "txt_align": "left",
+        "reverse_content": false,
+        "collection": "",
         "check_icon": true,
         "items_to_show": 6,
         "items_per_row_pc": 4,
@@ -199,8 +199,8 @@
     }
   },
   "order": [
-    "scrolling_text_mw488h",
-    "multi_content_Qm3K78",
-    "product_carousel_8EdmJh"
+    "scrolling_text_QUPNbN",
+    "multi_content_C4XTiF",
+    "product_carousel_rVjBF9"
   ]
 }
