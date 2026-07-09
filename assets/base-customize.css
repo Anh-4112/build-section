@@ -485,8 +485,16 @@ a[href="#"] {
 }
 
 /* === Align Items === */
+.ai-start {
+  align-items: start;
+}
+
 .ai-center {
   align-items: center;
+}
+
+.ai-end {
+  align-items: end;
 }
 
 /* === Justify Content === */

@@ -8,9 +8,11 @@
 
     assign height_img_mobile = section_st.height_img_mobile
     assign height_img_desktop = section_st.height_img_desktop
+    assign radius_image = section_st.radius_image
 
     assign image_desktop = block_st.image_desktop
     assign image_mobile = block_st.image_mobile
+    assign alignment_content = block_st.alignment_content
 %}
 
 <div
@@ -19,8 +21,8 @@
     {{ block.shopify_attributes }}
 >
     <div 
-        class="block__image h-responsive" 
-        style="--h-mobile: {{ height_img_mobile }}; --h-desktop: {{ height_img_desktop }};"
+        class="block__image h-responsive rounded-custom overflow-hidden" 
+        style="--h-mobile: {{ height_img_mobile }}; --h-desktop: {{ height_img_desktop }}; --rounded-custom: {{ radius_image }};"
     >
         {% if image_desktop != blank or image_mobile != blank %}
             <picture class="h-full">
@@ -34,7 +36,9 @@
         {% endif %}
     </div>
     <div class="block__content{% if inherit_color_scheme != true %} color-{{ color_scheme }} gradient{% endif %}">
-        {% content_for 'blocks' %}
+        <div class="block__content--inner d-flex column ai-{{ alignment_content }}">
+            {% content_for 'blocks' %}
+        </div>
     </div>
 </div>
 
@@ -81,11 +85,34 @@
         {
             "type": "header",
             "content": "Content settings"
+        },
+        {
+            "type": "select",
+            "id": "alignment_content",
+            "label": "Alignment content",
+            "default": "start",
+            "options": [
+                {
+                    "value": "start",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "end",
+                    "label": "Right"
+                }
+            ]
         }
     ],
     "blocks": [
         {
-            "type": "text-description"
+            "type": "title"
+        },
+        {
+            "type": "description"
         },
         {
             "type": "button"
@@ -96,7 +123,10 @@
             "name": "Media with content",
             "blocks": [
                 {
-                    "type": "text-description"
+                    "type": "title"
+                },
+                {
+                    "type": "description"
                 },
                 {
                     "type": "button"

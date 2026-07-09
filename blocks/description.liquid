@@ -1,7 +1,7 @@
 {% liquid
     assign block_st = block.settings
 
-    assign text = block_st.text
+    assign content = block_st.content
     assign font_size = block_st.font_size
     assign font_weight = block_st.font_weight
     assign spacing_top = block_st.spacing_top
@@ -14,21 +14,21 @@
 {% endcapture %}
 
 <div
-    class="block__text fs-custom fw-custom mt-custom mb-custom {{ text_transform }}"
+    class="block__description fs-custom fw-custom mt-custom mb-custom {{ text_transform }}"
     style="{{ style | strip }}; --fs-custom: {{ font_size }}; --fw-custom: {{ font_weight }};"
     {{ block.shopify_attributes }}
 >
-    {{ text }}
+    {{ content }}
 </div>
 
 {%  schema  %}
 {
-    "name": "Text description",
+    "name": "Description",
     "settings": [
         {
             "type": "richtext",
-            "id": "text",
-            "label": "Text",
+            "id": "content",
+            "label": "Content",
             "default": "<p>Text description</p>"
         },
         {
@@ -95,7 +95,7 @@
     ],
     "presets": [
         {
-            "name": "Text description"
+            "name": "Description"
         }
     ]
 }

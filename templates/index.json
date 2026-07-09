@@ -66,7 +66,7 @@
           },
           "blocks": {
             "text_description_HjpDcX": {
-              "type": "text-description",
+              "type": "description",
               "settings": {
                 "text": "<p>Text description</p>",
                 "text_transform": "unset",
@@ -100,7 +100,7 @@
           },
           "blocks": {
             "text_description_9xLVqg": {
-              "type": "text-description",
+              "type": "description",
               "settings": {
                 "text": "<p>Text description</p>",
                 "text_transform": "unset",

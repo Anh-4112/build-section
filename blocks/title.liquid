@@ -1,0 +1,102 @@
+{% liquid
+    assign block_st = block.settings
+
+    assign content = block_st.content
+    assign font_size = block_st.font_size
+    assign font_weight = block_st.font_weight
+    assign spacing_top = block_st.spacing_top
+    assign spacing_bottom = block_st.spacing_bottom
+    assign text_transform = block_st.text_transform
+%}
+
+{% capture style %}
+    --mt-custom: {{ spacing_top }}; --mb-custom: {{ spacing_bottom }};
+{% endcapture %}
+
+<div
+    class="block__title fs-custom fw-custom mt-custom mb-custom {{ text_transform }}"
+    style="{{ style | strip }}; --fs-custom: {{ font_size }}; --fw-custom: {{ font_weight }};"
+    {{ block.shopify_attributes }}
+>
+    {{ content }}
+</div>
+
+{%  schema  %}
+{
+    "name": "Title",
+    "settings": [
+        {
+            "type": "text",
+            "id": "content",
+            "label": "Content",
+            "default": "<p>Text Title</p>"
+        },
+        {
+            "type": "select",
+            "id": "text_transform",
+            "label": "Text transform",
+            "default": "uppercase",
+            "options": [
+                {
+                    "value": "unset",
+                    "label": "Unset"
+                },
+                {
+                    "value": "uppercase",
+                    "label": "Uppercase"
+                },
+                {
+                    "value": "capitalize",
+                    "label": "Capitalize"
+                }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "font_size",
+            "label": "Font size",
+            "default": 16,
+            "min": 10,
+            "max": 54,
+            "step": 1
+        },
+        {
+            "type": "range",
+            "id": "font_weight",
+            "label": "Font weight",
+            "default": 400,
+            "min": 100,
+            "max": 900,
+            "step": 100
+        },
+
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "spacing_top",
+            "label": "Spacing top",
+            "default": 0,
+            "min": 0,
+            "max": 50,
+            "step": 1
+        },
+        {
+            "type": "range",
+            "id": "spacing_bottom",
+            "label": "Spacing bottom",
+            "default": 0,
+            "min": 0,
+            "max": 50,
+            "step": 1
+        }
+    ],
+    "presets": [
+        {
+            "name": "Title"
+        }
+    ]
+}
+{% endschema %}
