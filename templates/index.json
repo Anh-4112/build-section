@@ -71,8 +71,8 @@
               "settings": {
                 "content": "<p>Text Title</p>",
                 "text_transform": "uppercase",
-                "font_size": 16,
-                "font_weight": 400,
+                "font_size": 36,
+                "font_weight": 500,
                 "spacing_top": 0,
                 "spacing_bottom": 0
               },
@@ -119,8 +119,8 @@
               "settings": {
                 "content": "<p>Text Title</p>",
                 "text_transform": "uppercase",
-                "font_size": 16,
-                "font_weight": 400,
+                "font_size": 36,
+                "font_weight": 500,
                 "spacing_top": 0,
                 "spacing_bottom": 0
               },

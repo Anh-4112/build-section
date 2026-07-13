@@ -40,7 +40,7 @@
             {% endif %}
         </a>
         <div class="btn-add-cart hover-appear hover-up h-fit absolute bottom-0 right-0 left-0 z-1">
-            <button class="d-block pointer btn-primary overflow-hidden rounded-35 py-20 mx-auto" style="width: 80%;">
+            <button class="d-block pointer btn-primary overflow-hidden rounded-35 py-20 mx-auto{% if product.featured_image == blank %} not-allowed{% endif %}" style="width: 80%;">
                 Add to Cart
             </button>
         </div> 
