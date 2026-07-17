@@ -7,6 +7,10 @@
     display: none;
   }
 
+  .f-sm-50p {
+    flex: 0 0 calc(50% - var(--gap-custom, 0) * 0.05rem);
+  }
+
   .mt-sm-0 {
     margin-top: 0;
   }
@@ -24,6 +28,15 @@
   .d-md-none {
     display: none;
   }
+
+  .f-md-custom {
+  flex: 0 0
+    calc(
+      var(--f-custom) * 1% 
+      - (100 - var(--f-custom)) * var(--gap-custom, 0) * 0.001rem
+    );
+  }
+
   .mt-md-0 {
     margin-top: 0;
   }

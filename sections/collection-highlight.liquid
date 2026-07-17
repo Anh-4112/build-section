@@ -23,11 +23,11 @@
 <section class="section__collection-highlight section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
     <div class="{{ section_width }}">
         {% if heading != blank or subheading != blank %}
-            <div class="section__header d-md-none">
+            <div class="section__header d-md-none" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
                 {% render 'header', section: section %}
             </div>
         {% endif %}
-        <div class="content__collection-highlight d-md-flex gap-30 h-fit header-spacing mt-md-0">
+        <div class="content__collection-highlight d-md-flex gap-30 h-fit mt-md-0">
             {% if show_carousel == true %}
                 {% assign carousel_collection = section.blocks | where: 'type', 'carousel_collection' %}
                 <div class="collection-highlight--carousel f-1 min-w-0 my-auto h-fit">

@@ -17,11 +17,11 @@
 <section class="section__product-carousel section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
     <div class="{{ section_width }}">
         {% if heading != blank or subheading != blank %}
-            <div class="section__header">
+            <div class="section__header" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
                 {% render 'header', section: section %}
             </div>
         {% endif %}
-        <div class="content__product-carousel header-spacing">
+        <div class="content__product-carousel">
             {% 
                 render 'swiper-section', 
                 section_id: 'product-carousel',

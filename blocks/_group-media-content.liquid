@@ -12,11 +12,14 @@
 
     assign image_desktop = block_st.image_desktop
     assign image_mobile = block_st.image_mobile
+
+    assign content_position = block_st.content_position
+    assign content_position_overlay = block_st.content_position_overlay
     assign alignment_content = block_st.alignment_content
 %}
 
 <div
-    class="block__image-with-text f-custom"
+    class="block__image-with-text f-full f-sm-50p f-md-custom{% if content_position == 'overlay_image' %} relative h-fit{% endif %}"
     style="--f-custom: {{ width_block }};"
     {{ block.shopify_attributes }}
 >
@@ -35,8 +38,8 @@
             {% render 'image-clone' %}
         {% endif %}
     </div>
-    <div class="block__content{% if inherit_color_scheme != true %} color-{{ color_scheme }} gradient{% endif %}">
-        <div class="block__content--inner d-flex column ai-{{ alignment_content }}">
+    <div class="block__content{% if inherit_color_scheme != true %} color-{{ color_scheme }} gradient{% endif %}{% if content_position == 'overlay_image' %} d-flex absolute inset-0 {{ content_position_overlay }}{% endif %}" style="{% if content_position == 'overlay_image' %}padding: calc(0.4228rem + 1.3423vw);{% endif %}">
+        <div class="block__content--inner d-flex column ai-{{ alignment_content }}{% if content_position == 'overlay_image' %} w-fit{% endif %}">
             {% content_for 'blocks' %}
         </div>
     </div>
@@ -85,6 +88,67 @@
         {
             "type": "header",
             "content": "Content settings"
+        },
+        {
+            "type": "select",
+            "id": "content_position",
+            "label": "Content position",
+            "default": "below_image",
+            "options": [
+                {
+                    "value": "below_image",
+                    "label": "Below image"
+                },
+                {
+                    "value": "overlay_image",
+                    "label": "Overlay image"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "content_position_overlay",
+            "label": "Content position overlay",
+            "default": "bottom-left",
+            "options": [
+                {
+                    "value": "top-left",
+                    "label": "Top left"
+                },
+                {
+                    "value": "top-center",
+                    "label": "Top center"
+                },
+                {
+                    "value": "top-right",
+                    "label": "Top right"
+                },
+                {
+                    "value": "middle-left",
+                    "label": "Middle left"
+                },
+                {
+                    "value": "middle-center",
+                    "label": "Middle center"
+                },
+                {
+                    "value": "middle-right",
+                    "label": "Middle right"
+                },
+                {
+                    "value": "bottom-left",
+                    "label": "Bottom left"
+                },
+                {
+                    "value": "bottom-center",
+                    "label": "Bottom center"
+                },
+                {
+                    "value": "bottom-right",
+                    "label": "Bottom right"
+                }
+            ],
+            "visible_if": "{{ block.settings.content_position == 'overlay_image' }}"
         },
         {
             "type": "select",

@@ -10,20 +10,32 @@
     assign subheading = section_st.subheading
 
     assign space_between = section_st.space_between
+
+    assign block_first_child = section.blocks.size | modulo: 2
 %}
 
 {% capture style %}
     --section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};
 {% endcapture %}
 
+{% if block_first_child == 1 %}
+    <style>
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            #shopify-section-{{ section.id }} .content__multi-content > div:first-of-type {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+{% endif %}
+
 <section class="section__multi-content section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
     <div class="{{ section_width }}">
         {% if heading != blank or subheading != blank %}
-            <div class="section__header">
+            <div class="section__header" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
                 {% render 'header', section: section %}
             </div>
         {% endif %}
-        <div class="content__multi-content header-spacing d-flex f-wrap gap-custom" style="--gap-custom: {{ space_between }};">
+        <div class="content__multi-content d-flex f-wrap gap-custom" style="--gap-custom: {{ space_between }};">
             {% content_for 'blocks' %}
         </div>
     </div>
