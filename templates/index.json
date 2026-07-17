@@ -62,7 +62,7 @@
           "settings": {
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "width_block": "50",
+            "width_block": "25",
             "image_desktop": "shopify://shop_images/banner-2_2.jpg",
             "content_position": "below_image",
             "content_position_overlay": "bottom-left",
@@ -108,12 +108,64 @@
             "button_9788U8"
           ]
         },
+        "group_media_content_VQWkp4": {
+          "type": "_group-media-content",
+          "name": "Media with content",
+          "settings": {
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "width_block": "50",
+            "image_desktop": "shopify://shop_images/banner-1_2.jpg",
+            "content_position": "below_image",
+            "content_position_overlay": "bottom-left",
+            "alignment_content": "start"
+          },
+          "blocks": {
+            "title_9GPdei": {
+              "type": "title",
+              "settings": {
+                "content": "<p>Text Title</p>",
+                "text_transform": "uppercase",
+                "font_size": 36,
+                "font_weight": 500,
+                "spacing_top": 0,
+                "spacing_bottom": 0
+              },
+              "blocks": {}
+            },
+            "description_YEtCeL": {
+              "type": "description",
+              "settings": {
+                "content": "<p>Text description</p>",
+                "text_transform": "unset",
+                "font_size": 16,
+                "font_weight": 400,
+                "spacing_top": 0,
+                "spacing_bottom": 0
+              },
+              "blocks": {}
+            },
+            "button_6WUAQN": {
+              "type": "button",
+              "settings": {
+                "button": "Button",
+                "link_button": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "title_9GPdei",
+            "description_YEtCeL",
+            "button_6WUAQN"
+          ]
+        },
         "group_media_content_RRnfCz": {
           "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "width_block": "50",
+            "width_block": "25",
             "image_desktop": "shopify://shop_images/banner-3_2.jpg",
             "content_position": "below_image",
             "content_position_overlay": "bottom-left",
@@ -162,6 +214,7 @@
       },
       "block_order": [
         "group_media_content_6LY6q3",
+        "group_media_content_VQWkp4",
         "group_media_content_RRnfCz"
       ],
       "name": "Multi Content",
