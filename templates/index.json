@@ -54,74 +54,21 @@
         "section_pb": 50
       }
     },
-    "multi_content_9J7jx7": {
+    "multi_content_LwEgxa": {
       "type": "multi-content",
       "blocks": {
-        "group_media_content_6LY6q3": {
+        "group_media_content_3FnjHT": {
           "type": "_group-media-content",
-          "settings": {
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "width_block": "25",
-            "image_desktop": "shopify://shop_images/banner-2_2.jpg",
-            "content_position": "below_image",
-            "content_position_overlay": "bottom-left",
-            "alignment_content": "start"
-          },
-          "blocks": {
-            "title_8idEqP": {
-              "type": "title",
-              "settings": {
-                "content": "<p>Text Title</p>",
-                "text_transform": "uppercase",
-                "font_size": 36,
-                "font_weight": 500,
-                "spacing_top": 0,
-                "spacing_bottom": 0
-              },
-              "blocks": {}
-            },
-            "description_3ddCAP": {
-              "type": "description",
-              "settings": {
-                "content": "<p>Text description</p>",
-                "text_transform": "unset",
-                "font_size": 16,
-                "font_weight": 400,
-                "spacing_top": 0,
-                "spacing_bottom": 0
-              },
-              "blocks": {}
-            },
-            "button_9788U8": {
-              "type": "button",
-              "settings": {
-                "button": "Button",
-                "link_button": ""
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "title_8idEqP",
-            "description_3ddCAP",
-            "button_9788U8"
-          ]
-        },
-        "group_media_content_VQWkp4": {
-          "type": "_group-media-content",
-          "name": "Media with content",
           "settings": {
             "inherit_color_scheme": true,
             "color_scheme": "",
             "width_block": "50",
-            "image_desktop": "shopify://shop_images/banner-1_2.jpg",
             "content_position": "below_image",
             "content_position_overlay": "bottom-left",
             "alignment_content": "start"
           },
           "blocks": {
-            "title_9GPdei": {
+            "title_pCWAzT": {
               "type": "title",
               "settings": {
                 "content": "<p>Text Title</p>",
@@ -133,7 +80,7 @@
               },
               "blocks": {}
             },
-            "description_YEtCeL": {
+            "description_mFAdBG": {
               "type": "description",
               "settings": {
                 "content": "<p>Text description</p>",
@@ -145,7 +92,7 @@
               },
               "blocks": {}
             },
-            "button_6WUAQN": {
+            "button_egzzkH": {
               "type": "button",
               "settings": {
                 "button": "Button",
@@ -155,24 +102,23 @@
             }
           },
           "block_order": [
-            "title_9GPdei",
-            "description_YEtCeL",
-            "button_6WUAQN"
+            "title_pCWAzT",
+            "description_mFAdBG",
+            "button_egzzkH"
           ]
         },
-        "group_media_content_RRnfCz": {
+        "group_media_content_gyQ4zb": {
           "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "width_block": "25",
-            "image_desktop": "shopify://shop_images/banner-3_2.jpg",
+            "width_block": "50",
             "content_position": "below_image",
             "content_position_overlay": "bottom-left",
             "alignment_content": "start"
           },
           "blocks": {
-            "title_CgXRgQ": {
+            "title_hJzNGc": {
               "type": "title",
               "settings": {
                 "content": "<p>Text Title</p>",
@@ -184,7 +130,7 @@
               },
               "blocks": {}
             },
-            "description_myQETW": {
+            "description_yAYzK3": {
               "type": "description",
               "settings": {
                 "content": "<p>Text description</p>",
@@ -196,7 +142,7 @@
               },
               "blocks": {}
             },
-            "button_ihK3W9": {
+            "button_wCY3Bf": {
               "type": "button",
               "settings": {
                 "button": "Button",
@@ -206,16 +152,15 @@
             }
           },
           "block_order": [
-            "title_CgXRgQ",
-            "description_myQETW",
-            "button_ihK3W9"
+            "title_hJzNGc",
+            "description_yAYzK3",
+            "button_wCY3Bf"
           ]
         }
       },
       "block_order": [
-        "group_media_content_6LY6q3",
-        "group_media_content_VQWkp4",
-        "group_media_content_RRnfCz"
+        "group_media_content_3FnjHT",
+        "group_media_content_gyQ4zb"
       ],
       "name": "Multi Content",
       "settings": {
@@ -229,27 +174,27 @@
         "space_between": 15,
         "height_img_mobile": 300,
         "height_img_desktop": 500,
-        "radius_image": 30,
+        "radius_image": 0,
         "section_pt": 50,
         "section_pb": 50
       }
     },
-    "product_carousel_rVjBF9": {
+    "product_carousel_hqyagY": {
       "type": "product-carousel",
       "blocks": {
-        "product_name_p6gQYV": {
+        "product_name_B6CqcF": {
           "type": "product_name",
           "settings": {
             "product_spacing_name": 10
           }
         },
-        "product_rate_xMW8yq": {
+        "product_rate_hizgEq": {
           "type": "product_rate",
           "settings": {
             "product_spacing_rate": 10
           }
         },
-        "product_price_8tzUqC": {
+        "product_price_EacEp4": {
           "type": "product_price",
           "settings": {
             "product_spacing_price": 10
@@ -257,9 +202,9 @@
         }
       },
       "block_order": [
-        "product_name_p6gQYV",
-        "product_rate_xMW8yq",
-        "product_price_8tzUqC"
+        "product_name_B6CqcF",
+        "product_rate_hizgEq",
+        "product_price_EacEp4"
       ],
       "name": "Product Carousel",
       "settings": {
@@ -270,7 +215,7 @@
         "header_size": "medium",
         "txt_align": "left",
         "reverse_content": false,
-        "collection": "skincare",
+        "collection": "",
         "check_icon": true,
         "items_to_show": 6,
         "items_per_row_pc": 4,
@@ -288,7 +233,7 @@
   },
   "order": [
     "scrolling_text_QUPNbN",
-    "multi_content_9J7jx7",
-    "product_carousel_rVjBF9"
+    "multi_content_LwEgxa",
+    "product_carousel_hqyagY"
   ]
 }
