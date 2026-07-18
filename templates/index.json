@@ -179,8 +179,8 @@
       "settings": {
         "color_scheme": "",
         "section_width": "defaul",
-        "heading": "Heading",
-        "subheading": "<p>Subheading</p>",
+        "heading": "",
+        "subheading": "",
         "header_size": "medium",
         "txt_align": "left",
         "reverse_content": false,
