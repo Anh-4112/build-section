@@ -178,7 +178,7 @@
       "name": "Multi Content",
       "settings": {
         "color_scheme": "",
-        "section_width": "fluid-container",
+        "section_width": "stretch-width",
         "heading": "",
         "subheading": "",
         "header_size": "medium",
