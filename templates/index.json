@@ -57,6 +57,57 @@
     "multi_content_LwEgxa": {
       "type": "multi-content",
       "blocks": {
+        "group_media_content_y8AnNX": {
+          "type": "_group-media-content",
+          "name": "Media with content",
+          "settings": {
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "width_block": "25",
+            "content_position": "below_image",
+            "content_position_overlay": "bottom-left",
+            "alignment_content": "start"
+          },
+          "blocks": {
+            "title_PjwB4m": {
+              "type": "title",
+              "settings": {
+                "content": "<p>Text Title</p>",
+                "text_transform": "uppercase",
+                "font_size": 36,
+                "font_weight": 500,
+                "spacing_top": 0,
+                "spacing_bottom": 0
+              },
+              "blocks": {}
+            },
+            "description_nBgFDh": {
+              "type": "description",
+              "settings": {
+                "content": "<p>Text description</p>",
+                "text_transform": "unset",
+                "font_size": 16,
+                "font_weight": 400,
+                "spacing_top": 0,
+                "spacing_bottom": 0
+              },
+              "blocks": {}
+            },
+            "button_FbR7B8": {
+              "type": "button",
+              "settings": {
+                "button": "Button",
+                "link_button": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "title_PjwB4m",
+            "description_nBgFDh",
+            "button_FbR7B8"
+          ]
+        },
         "group_media_content_3FnjHT": {
           "type": "_group-media-content",
           "settings": {
@@ -112,7 +163,7 @@
           "settings": {
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "width_block": "50",
+            "width_block": "25",
             "content_position": "below_image",
             "content_position_overlay": "bottom-left",
             "alignment_content": "start"
@@ -159,6 +210,7 @@
         }
       },
       "block_order": [
+        "group_media_content_y8AnNX",
         "group_media_content_3FnjHT",
         "group_media_content_gyQ4zb"
       ],
