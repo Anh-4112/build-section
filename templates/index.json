@@ -185,7 +185,7 @@
         "txt_align": "left",
         "reverse_content": false,
         "space_between": 15,
-        "height_img_mobile": 300,
+        "height_img_mobile": 500,
         "height_img_desktop": 500,
         "radius_image": 0,
         "section_pt": 50,
