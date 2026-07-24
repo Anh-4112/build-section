@@ -54,10 +54,10 @@
         "section_pb": 50
       }
     },
-    "multi_content_PEec9t": {
+    "multi_content_XP3G9C": {
       "type": "multi-content",
       "blocks": {
-        "group_media_content_hFKyfx": {
+        "group_media_content_CWrpwJ": {
           "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
@@ -68,7 +68,7 @@
             "alignment_content": "start"
           },
           "blocks": {
-            "title_df76BM": {
+            "title_7eXREf": {
               "type": "title",
               "settings": {
                 "content": "<p>Text Title</p>",
@@ -80,7 +80,7 @@
               },
               "blocks": {}
             },
-            "description_KGnQzh": {
+            "description_ebL7HX": {
               "type": "description",
               "settings": {
                 "content": "<p>Text description</p>",
@@ -92,7 +92,7 @@
               },
               "blocks": {}
             },
-            "button_gDyYyb": {
+            "button_N6D7Er": {
               "type": "button",
               "settings": {
                 "button_name": "Button",
@@ -106,12 +106,12 @@
             }
           },
           "block_order": [
-            "title_df76BM",
-            "description_KGnQzh",
-            "button_gDyYyb"
+            "title_7eXREf",
+            "description_ebL7HX",
+            "button_N6D7Er"
           ]
         },
-        "group_media_content_qNdFCc": {
+        "group_media_content_EFMtxY": {
           "type": "_group-media-content",
           "settings": {
             "inherit_color_scheme": true,
@@ -122,7 +122,7 @@
             "alignment_content": "start"
           },
           "blocks": {
-            "title_4HYL4r": {
+            "title_enKWqB": {
               "type": "title",
               "settings": {
                 "content": "<p>Text Title</p>",
@@ -134,7 +134,7 @@
               },
               "blocks": {}
             },
-            "description_zHkVcA": {
+            "description_WhD8RH": {
               "type": "description",
               "settings": {
                 "content": "<p>Text description</p>",
@@ -146,7 +146,7 @@
               },
               "blocks": {}
             },
-            "button_cYe6kT": {
+            "button_QBVDCU": {
               "type": "button",
               "settings": {
                 "button_name": "Button",
@@ -160,15 +160,15 @@
             }
           },
           "block_order": [
-            "title_4HYL4r",
-            "description_zHkVcA",
-            "button_cYe6kT"
+            "title_enKWqB",
+            "description_WhD8RH",
+            "button_QBVDCU"
           ]
         }
       },
       "block_order": [
-        "group_media_content_hFKyfx",
-        "group_media_content_qNdFCc"
+        "group_media_content_CWrpwJ",
+        "group_media_content_EFMtxY"
       ],
       "name": "Multi Content",
       "settings": {
@@ -241,7 +241,7 @@
   },
   "order": [
     "scrolling_text_4WFNWY",
-    "multi_content_PEec9t",
+    "multi_content_XP3G9C",
     "product_carousel_bknfQa"
   ]
 }
