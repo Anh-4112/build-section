@@ -1,14 +1,46 @@
 {% liquid
     assign block_st = block.settings
 
-    assign button = block_st.button
+    assign button_name = block_st.button_name
     assign link_button = block_st.link_button
+    assign btn_type = block_st.btn_type_block
+    assign open_new_tab = block_st.open_new_tab
+
+    assign spacing_top = block_st.spacing_top
+    assign spacing_bottom = block_st.spacing_bottom
 %}
 
-<div class="block__button w-fit" {{ block.shopify_attributes }}>
-    <a href="{{ link_button }}" class="d-block">
-        {{ button }}
-    </a>
+{% capture style %}
+    --mt-custom: {{ spacing_top }}; --mb-custom: {{ spacing_bottom }};
+{% endcapture %}
+
+<div 
+    class="block__button w-fit mt-custom mb-custom"
+    style="{{ style }}"
+    {{ block.shopify_attributes }}
+>
+    {% if btn_type == 'primary' %}
+        {% 
+            render 'btn-primary',
+            btn_name : button_name,
+            btn_link: link_button,
+            open_new_tab: open_new_tab
+        %}
+    {% elsif btn_type == 'outline' %}
+        {% 
+            render 'btn-outline',
+            btn_name : button_name,
+            btn_link: link_button,
+            open_new_tab: open_new_tab
+        %}
+    {% elsif btn_type == 'link' %}
+        {% 
+            render 'btn-link', 
+            btn_name : button_name,
+            btn_link: link_button,
+            open_new_tab: open_new_tab
+        %}
+    {% endif %}
 </div>
 
 {%  schema  %}
@@ -17,7 +49,7 @@
     "settings": [
         {
             "type": "text",
-            "id": "button",
+            "id": "button_name",
             "label": "Button text",
             "default": "Button"
         },
@@ -25,6 +57,55 @@
             "type": "url",
             "id": "link_button",
             "label": "Link Button"
+        },
+        {
+            "type": "select",
+            "id": "btn_type_block",
+            "label": "Type",
+            "default": "primary",
+            "options": [
+                {
+                    "value": "primary",
+                    "label": "Primary"
+                },
+                {
+                    "value": "outline",
+                    "label": "Outline"
+                },
+                {
+                    "value": "link",
+                    "label": "Link"
+                }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "open_new_tab",
+            "label": "Open in new tab",
+            "default": false
+        },
+
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "spacing_top",
+            "label": "Spacing top",
+            "default": 0,
+            "min": 0,
+            "max": 50,
+            "step": 1
+        },
+        {
+            "type": "range",
+            "id": "spacing_bottom",
+            "label": "Spacing bottom",
+            "default": 0,
+            "min": 0,
+            "max": 50,
+            "step": 1
         }
     ],
     "presets": [

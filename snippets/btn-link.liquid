@@ -1,6 +1,10 @@
 <a
     href="{{ btn_link |  default: '#!' }}"
-    class="btn-link"
+    {% if open_new_tab %}
+        target="_blank"
+        rel="noopener noreferrer"
+    {% endif %}
+    class="btn-link{% if btn_link == blank %} not-allowed{% endif %}"
     style="font-size: 1.6rem; font-weight: 600;"
 >
     {{ btn_name |  default: 'Button Link' }}

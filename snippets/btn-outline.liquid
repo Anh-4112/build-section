@@ -1,6 +1,10 @@
 <a
     href="{{ btn_link |  default: '#!' }}"
-    class="btn-outline w-190 h-50 bor bor-1 rounded-35 d-inline-flex content-center"
+    {% if open_new_tab %}
+        target="_blank"
+        rel="noopener noreferrer"
+    {% endif %}
+    class="btn-outline w-190 h-50 bor bor-1 rounded-35 d-inline-flex content-center{% if btn_link == blank %} not-allowed{% endif %}"
     style="font-size: 1.6rem; font-weight: 600; border-color: black;"
 >
     {{ btn_name |  default: 'Button Outline' }}
