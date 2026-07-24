@@ -53,8 +53,12 @@
             "button_FbR7B8": {
               "type": "button",
               "settings": {
-                "button": "Button",
-                "link_button": ""
+                "button_name": "Button",
+                "link_button": "",
+                "btn_type_block": "outline",
+                "open_new_tab": false,
+                "spacing_top": 0,
+                "spacing_bottom": 0
               },
               "blocks": {}
             }
@@ -105,8 +109,12 @@
             "button_egzzkH": {
               "type": "button",
               "settings": {
-                "button": "Button",
-                "link_button": ""
+                "button_name": "Button",
+                "link_button": "",
+                "btn_type_block": "primary",
+                "open_new_tab": false,
+                "spacing_top": 0,
+                "spacing_bottom": 0
               },
               "blocks": {}
             }
@@ -157,8 +165,12 @@
             "button_wCY3Bf": {
               "type": "button",
               "settings": {
-                "button": "Button",
-                "link_button": ""
+                "button_name": "Button",
+                "link_button": "",
+                "btn_type_block": "primary",
+                "open_new_tab": false,
+                "spacing_top": 0,
+                "spacing_bottom": 0
               },
               "blocks": {}
             }
