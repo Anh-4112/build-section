@@ -150,22 +150,6 @@ comp-btn::before {
   transform: translateX(-50%);
 }
 
-/* =============== Swiper Section =============== */
-swiper-section:hover swiper-prev {
-  opacity: 1;
-  transform: translate(2rem, -50%);
-}
-
-swiper-section:hover swiper-next {
-  opacity: 1;
-  transform: translate(-2rem, -50%);
-}
-
-swiper-next,
-swiper-prev {
-  transition: opacity,transform, 0.2s ease-in-out;
-}
-
 /* =============== Product =============== */
 .product__spacing {
   margin-top: calc(var(--spacing-product) * 0.1rem);
@@ -229,16 +213,7 @@ a[href="#"] {
 }
 
 /* =============== Icon =============== */
-.prev-color,
-.next-color {
-  background-color: rgba(195, 195, 245, 0.4);
-}
 
-.prev-color:hover,
-.next-color:hover {
-  color: white;
-  background-color: black;
-}
 
 /* ============================== */
 /* === Cursor === */
@@ -360,40 +335,6 @@ a[href="#"] {
 }
 
 /* === Image === */
-.hover-zoom-out {
-  transition: transform, 0.6s ease-in-out;
-}
-
-.wrapper-hover:hover .hover-zoom-out {
-  transform: scale(1.1);
-}
-
-.hover-hidden {
-  transition: opacity, 0.6s ease-in-out;
-}
-
-.wrapper-hover:hover .hover-hidden {
-  opacity: 0;
-}
-
-.hover-appear {
-  opacity: 0;
-  transition: opacity, 0.6s ease-in-out;
-}
-
-.wrapper-hover:hover .hover-appear {
-  opacity: 1;
-}
-
-.hover-up {
-  transform: translateY(0);
-  transition: transform, 0.6s ease-in-out;
-}
-
-.wrapper-hover:hover .hover-up {
-  transform: translateY(-2rem);
-}
-
 .img-cover {
   object-fit: cover;
 }
@@ -617,6 +558,10 @@ a[href="#"] {
   width: 3rem;
 }
 
+.w-40 {
+  width: 4rem;
+}
+
 .w-45 {
   width: 4.5rem;
 }
@@ -662,6 +607,10 @@ a[href="#"] {
 
 .h-19 {
   height: 1.9rem;
+}
+
+.h-40 {
+  height: 4rem;
 }
 
 .h-45 {
@@ -811,7 +760,7 @@ a[href="#"] {
 }
 
 /* === Top === */
-.top-center {
+.vertical-center {
   top: 50%;
   transform: translateY(-50%);
 }
@@ -841,6 +790,10 @@ a[href="#"] {
 /* === Right === */
 .right-0 {
   right: 0;
+}
+
+.right-10 {
+  right: 1rem;
 }
 
 .right-10p {
@@ -897,4 +850,26 @@ a[href="#"] {
 .bottom-right {
   align-items: flex-end;
   justify-content: flex-end;
+}
+
+
+/* ================ */
+.tooltip {
+  white-space: nowrap;
+  background-color: rgba(var(--color-foreground), 1);
+  color: rgba(var(--color-button-text), 1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  z-index: 1;
+}
+
+.tooltip::after {
+  content: "";
+  border: solid 0.5rem;
+}
+
+.tooltip-txt-after-left::after {
+  border-color: transparent transparent transparent rgba(var(--color-foreground), 1);
+  position: absolute;
+  left: 100%;
 }

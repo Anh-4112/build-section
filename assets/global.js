@@ -1464,7 +1464,7 @@ class SwiperSection extends HTMLElement {
           slidesPerView: itemsMobile,
           spaceBetween: gap
         },
-        576: {
+        425: {
           slidesPerView: itemsTabletSmall || itemsMobile,
           spaceBetween: gap
         },

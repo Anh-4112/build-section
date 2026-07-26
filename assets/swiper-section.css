@@ -1,0 +1,33 @@
+@media (min-width: 768px) {
+  swiper-section:hover swiper-prev {
+    opacity: 1;
+    transform: translate(2rem, -50%);
+  }
+
+  swiper-section:hover swiper-next {
+    opacity: 1;
+    transform: translate(-2rem, -50%);
+  }
+
+  swiper-next,
+  swiper-prev {
+    transition: opacity,transform, 0.2s ease-in-out;
+  }
+
+  .prev-color,
+  .next-color {
+    background-color: rgba(195, 195, 245, 0.4);
+  }
+}
+
+
+.prev-color,
+.next-color {
+  border: 1px solid rgba(195, 195, 245, 0.4);
+}
+
+.prev-color:hover,
+.next-color:hover {
+  color: white;
+  background-color: black;
+}
