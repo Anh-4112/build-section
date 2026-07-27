@@ -52,8 +52,7 @@
   transform: translate(calc(var(--tooltip-gap) * -1), -50%);
 }
 
-.tooltip--left::after,
-.tooltip-after-left::after {
+.tooltip--left::after{
   left: 100%;
   top: 50%;
   transform: translateY(-50%);
