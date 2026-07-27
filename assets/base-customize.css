@@ -65,20 +65,12 @@ swiper-section, swiper-prev, swiper-next, picture, img {
   font-weight: var(--fw-heading);
 }
 
-.heading__spacing {
-  margin-top: calc(var(--spacing-heading) * 0.1rem);
-}
-
 .subheading__fs {
   font-size: calc(var(--fs-subheading) * 0.1rem);
 }
 
 .subheading__fw {
   font-weight: var(--fw-subheading);
-}
-
-.subheading__spacing {
-  margin-top: calc(var(--spacing-subheading) * 0.1rem);
 }
 
 .description__fs {
@@ -91,10 +83,6 @@ swiper-section, swiper-prev, swiper-next, picture, img {
 
 .description__lh > p {
   line-height: 1.4;
-}
-
-.description__spacing {
-  margin-top: calc(var(--spacing-description) * 0.1rem);
 }
 
 /* =============== Collapse Block =============== */
@@ -150,16 +138,7 @@ comp-btn::before {
   transform: translateX(-50%);
 }
 
-/* =============== Product =============== */
-.product__spacing {
-  margin-top: calc(var(--spacing-product) * 0.1rem);
-}
-
 /* =============== Button =============== */
-.btn__spacing {
-  margin-top: calc(var(--spacing-btn) * 0.1rem);
-}
-
 .btn-primary {
   background-color: rgba(var(--color-button-text), 1);
   color: rgba(var(--color-foreground), 1);
@@ -211,9 +190,6 @@ comp-btn::before {
 a[href="#"] {
   cursor: not-allowed;
 }
-
-/* =============== Icon =============== */
-
 
 /* ============================== */
 /* === Cursor === */
@@ -291,36 +267,6 @@ a[href="#"] {
 }
 
 /* === Typography === */
-.heading-small {
-  font-size: clamp(2.6rem, calc(2.4846rem + 0.2685vw), 3rem);
-  font-weight: 600;
-}
-
-.heading-medium {
-  font-size: clamp(3rem, calc(2.7114rem + 0.6711vw), 4rem);
-  font-weight: 600;
-}
-
-.heading-large {
-  font-size: clamp(4rem, calc(3.4228rem + 1.3423vw), 6rem);
-  font-weight: 600;
-}
-
-.subheading-small {
-  font-size: 1.7rem;
-  font-weight: 500;
-}
-
-.subheading-medium {
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-
-.subheading-large {
-  font-size: 1.9rem;
-  font-weight: 500;
-}
-
 .typography-info {
   font-size: 1.6rem;
   font-weight: 400;

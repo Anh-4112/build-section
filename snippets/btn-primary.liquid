@@ -4,7 +4,7 @@
         target="_blank"
         rel="noopener noreferrer"
     {% endif %}
-    class="w-190 h-50 rounded-35 d-inline-flex content-center bg-black color-white{% if btn_link == blank %} not-allowed{% endif %}"
+    class="btn-primary w-190 h-50 rounded-35 d-inline-flex content-center {% if btn_link == blank %} not-allowed{% endif %}"
     style="font-size: 1.6rem; font-weight: 600;"
 >
     {{ btn_name |  default: 'Button Primary' }}

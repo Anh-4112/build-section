@@ -110,39 +110,39 @@
                     {% case block.type %}
                         {% when 'heading' %}
                             <h2 
-                                class="heading__fs heading__fw heading__spacing {% if block_st.uppercase == true %} uppercase {% endif %}"
+                                class="heading__fs heading__fw mt-custom {% if block_st.uppercase == true %} uppercase {% endif %}"
                                 style="
                                     --fs-heading: {{ block_st.fs_heading_block }};
                                     --fw-heading: {{ block_st.fw_heading_block }};
-                                    --spacing-heading: {{ block_st.spacing_heading_block }};
+                                    --mt-custom: {{ block_st.spacing_heading_block }};
                                 "
                             >
                                 {{ block_st.heading_block }}
                             </h2>
                         {% when 'subheading' %}
                             <h3 
-                                class="subheading__fs subheading__fw subheading__spacing"
+                                class="subheading__fs subheading__fw mt-custom"
                                 style="
                                     --fs-subheading: {{ block_st.fs_subheading_block }};
                                     --fw-subheading: {{ block_st.fw_subheading_block }};
-                                    --spacing-subheading: {{ block_st.spacing_subheading_block }};
+                                    --mt-custom: {{ block_st.spacing_subheading_block }};
                                 "
                             >
                                 {{ block_st.subheading_block }}
                             </h3>
                         {% when 'description' %}
                             <div
-                                class="description__fs description__fw description__lh description__spacing"
+                                class="description__fs description__fw description__lh mt-custom"
                                 style="
                                     --fs-description: {{ block_st.fs_description_block }};
                                     --fw-description: {{ block_st.fw_description_block }};
-                                    --spacing-description: {{ block_st.spacing_description_block }};
+                                    --mt-custom: {{ block_st.spacing_description_block }};
                                 "
                             >
                                 {{ block_st.description_block }}
                             </div>
                         {% when 'button' %}
-                            <div class="btn__spacing" style="--spacing-btn: {{ block_st.spacing_btn_block }};">
+                            <div class="mt-custom" style="--mt-custom: {{ block_st.spacing_btn_block }};">
                                 {% if block_st.btn_type_block == 'primary' %}
                                     {% 
                                         render 'btn-primary',
@@ -165,7 +165,7 @@
                             </div>
                         {% when 'product' %}
                             {% assign product_block = block_st.product_block %}
-                            <div class="d-flex gap-20 product__spacing" style="--spacing-product: {{ block_st.spacing_product_block }};">
+                            <div class="d-flex gap-20 mt-custom" style="--mt-custom: {{ block_st.spacing_product_block }};">
                                 {% if product_block != blank %}
                                     <a class="rounded-10 overflow-hidden" href="{{ product_block.url }}" style="max-width: 20%;">
                                         <img
