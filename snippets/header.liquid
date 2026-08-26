@@ -1,20 +1,19 @@
 {{ 'header.css' | asset_url | stylesheet_tag }}
 {% liquid
-    assign section_st = section.settings
-    assign heading = section_st.heading
-    assign subheading = section_st.subheading
-    assign text_align = section_st.txt_align
-    assign header_size = section_st.header_size
-    assign reverse_content = section_st.reverse_content
+  assign section_st = section.settings
 %}
 <div class="block__header">
-    <div class="block__header-text d-flex{% if reverse_content == true %} column-reverse{% else %} column{% endif %} text-{{ text_align }}">
-        <h2 class="header__text--heading heading-{{ header_size }}">
-            {{ heading }}
-        </h2>
+  <div class="block__header-text d-flex{% if section_st.reverse_content == true %} column-reverse{% else %} column{% endif %} text-{{ section_st.text_align }}">
+    {% if section_st.heading != blank %}
+      <h2 class="header__text--heading heading-{{ section_st.header_size }}">
+        {{ section_st.heading }}
+      </h2>
+    {% endif %}
 
-        <h3 class="header__text--subheading subheading-{{ header_size }}">
-            {{ subheading }}
-        </h3>
-    </div>
+    {% if section_st.subheading != blank %}
+      <h3 class="header__text--subheading subheading-{{ section_st.header_size }}">
+        {{ section_st.subheading }}
+      </h3>
+    {% endif %}
+  </div>
 </div>

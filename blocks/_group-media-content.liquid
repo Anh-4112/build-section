@@ -1,202 +1,196 @@
 {% liquid
-    assign section_st = section.settings
-    assign block_st = block.settings
-
-    assign inherit_color_scheme = block_st.inherit_color_scheme
-    assign color_scheme = block_st.color_scheme
-    assign width_block = block_st.width_block
-
-    assign height_img_mobile = section_st.height_img_mobile
-    assign height_img_desktop = section_st.height_img_desktop
-    assign radius_image = section_st.radius_image
-
-    assign image_desktop = block_st.image_desktop
-    assign image_mobile = block_st.image_mobile
-
-    assign content_position = block_st.content_position
-    assign content_position_overlay = block_st.content_position_overlay
-    assign alignment_content = block_st.alignment_content
+  assign section_st = section.settings
+  assign block_st = block.settings
 %}
 
 <div
-    class="block__image-with-text f-full f-sm-50p f-md-custom{% if content_position == 'overlay_image' %} relative h-fit{% endif %}"
-    style="--f-custom: {{ width_block }};"
-    {{ block.shopify_attributes }}
+  class="block__image-with-text f-full f-sm-50p f-md-custom{% if block_st.content_position == 'overlay_image' %} relative h-fit{% endif %}"
+  style="--f-custom: {{ block_st.width_block }};"
+  {{ block.shopify_attributes }}
 >
-    <div 
-        class="block__image h-responsive rounded-custom overflow-hidden" 
-        style="--h-mobile: {{ height_img_mobile }}; --h-desktop: {{ height_img_desktop }}; --rounded-custom: {{ radius_image }};"
-    >
-        {% if image_desktop != blank or image_mobile != blank %}
-            <picture class="h-full">
-                {% if image_mobile != blank %}
-                    <source media="(max-width: 767.98px)" class="img-cover" srcset="{{ image_mobile | image_url }}">
-                {% endif %}
-                <img class="img-cover" src="{{ image_desktop | default: image_mobile | image_url }}" alt="{{ image_desktop.alt | default: image_mobile.alt | escape }}" width="100%" height="100%">
-            </picture>
-        {% else %}
-            {% render 'image-clone' %}
+  <div
+    class="block__image h-responsive rounded-custom overflow-hidden"
+    style="--h-mobile: {{ section_st.height_img_mobile }}; --h-desktop: {{ section_st.height_img_desktop }}; --rounded-custom: {{ section_st.radius_image }};"
+  >
+    {% if block_st.image_desktop != blank or block_st.image_mobile != blank %}
+      <picture class="h-full">
+        {% if block_st.image_mobile != blank %}
+          <source media="(max-width: 767.98px)" class="img-cover" srcset="{{ block_st.image_mobile | image_url }}">
         {% endif %}
+        <img
+          class="img-cover"
+          src="{{ block_st.image_desktop | default: block_st.image_mobile | image_url }}"
+          alt="{{ block_st.image_desktop.alt | default: block_st.image_mobile.alt | escape }}"
+          width="100%"
+          height="100%"
+        >
+      </picture>
+    {% else %}
+      {% render 'image-clone' %}
+    {% endif %}
+  </div>
+  <div
+    class="block__content{% if block_st.inherit_color_scheme != true %} color-{{ block_st.color_scheme }} gradient{% endif %}{% if block_st.content_position == 'overlay_image' %} d-flex absolute inset-0 {{ block_st.content_position_overlay }}{% endif %}"
+    style="{% if block_st.content_position == 'overlay_image' %}padding: calc(0.4228rem + 1.3423vw);{% endif %}"
+  >
+    <div class="block__content--inner d-flex column ai-{{ block_st.alignment_content }}{% if block_st.content_position == 'overlay_image' %} w-fit{% endif %}">
+      {% content_for 'blocks' %}
     </div>
-    <div class="block__content{% if inherit_color_scheme != true %} color-{{ color_scheme }} gradient{% endif %}{% if content_position == 'overlay_image' %} d-flex absolute inset-0 {{ content_position_overlay }}{% endif %}" style="{% if content_position == 'overlay_image' %}padding: calc(0.4228rem + 1.3423vw);{% endif %}">
-        <div class="block__content--inner d-flex column ai-{{ alignment_content }}{% if content_position == 'overlay_image' %} w-fit{% endif %}">
-            {% content_for 'blocks' %}
-        </div>
-    </div>
+  </div>
 </div>
 
-{%  schema  %}
+{% schema %}
 {
-    "name": "Media with content",
-    "tag": null,
-    "settings": [
-        {
-            "type": "checkbox",
-            "id": "inherit_color_scheme",
-            "label": "Inherit color scheme",
-            "default": true
-        },
-        {
-            "type": "color_scheme",
-            "id": "color_scheme",
-            "label": "Color scheme",
-            "default": "scheme-1",
-            "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
-        },
-        {
-            "type": "text",
-            "id": "width_block",
-            "label": "Width(%)",
-            "default": "50",
-            "info": "Only integer and decimal values are allowed"
-        },
+  "name": "Media with content",
+  "tag": null,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "Inherit color scheme",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1",
+      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+    },
+    {
+      "type": "text",
+      "id": "width_block",
+      "label": "Width(%)",
+      "default": "50",
+      "info": "Only integer and decimal values are allowed"
+    },
 
+    {
+      "type": "header",
+      "content": "Image settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Image desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image mobile"
+    },
+    {
+      "type": "header",
+      "content": "Content settings"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Content position",
+      "default": "below_image",
+      "options": [
         {
-            "type": "header",
-            "content": "Image settings"
+          "value": "below_image",
+          "label": "Below image"
         },
         {
-            "type": "image_picker",
-            "id": "image_desktop",
-            "label": "Image desktop"
-        },
-        {
-            "type": "image_picker",
-            "id": "image_mobile",
-            "label": "Image mobile"
-        },
-        {
-            "type": "header",
-            "content": "Content settings"
-        },
-        {
-            "type": "select",
-            "id": "content_position",
-            "label": "Content position",
-            "default": "below_image",
-            "options": [
-                {
-                    "value": "below_image",
-                    "label": "Below image"
-                },
-                {
-                    "value": "overlay_image",
-                    "label": "Overlay image"
-                }
-            ]
-        },
-        {
-            "type": "select",
-            "id": "content_position_overlay",
-            "label": "Content position overlay",
-            "default": "bottom-left",
-            "options": [
-                {
-                    "value": "top-left",
-                    "label": "Top left"
-                },
-                {
-                    "value": "top-center",
-                    "label": "Top center"
-                },
-                {
-                    "value": "top-right",
-                    "label": "Top right"
-                },
-                {
-                    "value": "middle-left",
-                    "label": "Middle left"
-                },
-                {
-                    "value": "middle-center",
-                    "label": "Middle center"
-                },
-                {
-                    "value": "middle-right",
-                    "label": "Middle right"
-                },
-                {
-                    "value": "bottom-left",
-                    "label": "Bottom left"
-                },
-                {
-                    "value": "bottom-center",
-                    "label": "Bottom center"
-                },
-                {
-                    "value": "bottom-right",
-                    "label": "Bottom right"
-                }
-            ],
-            "visible_if": "{{ block.settings.content_position == 'overlay_image' }}"
-        },
-        {
-            "type": "select",
-            "id": "alignment_content",
-            "label": "Alignment content",
-            "default": "start",
-            "options": [
-                {
-                    "value": "start",
-                    "label": "Left"
-                },
-                {
-                    "value": "center",
-                    "label": "Center"
-                },
-                {
-                    "value": "end",
-                    "label": "Right"
-                }
-            ]
+          "value": "overlay_image",
+          "label": "Overlay image"
         }
-    ],
-    "blocks": [
+      ]
+    },
+    {
+      "type": "select",
+      "id": "content_position_overlay",
+      "label": "Content position overlay",
+      "default": "bottom-left",
+      "options": [
         {
-            "type": "title"
+          "value": "top-left",
+          "label": "Top left"
         },
         {
-            "type": "description"
+          "value": "top-center",
+          "label": "Top center"
         },
         {
-            "type": "button"
-        }
-    ],
-    "presets": [
+          "value": "top-right",
+          "label": "Top right"
+        },
         {
-            "name": "Media with content",
-            "blocks": [
-                {
-                    "type": "title"
-                },
-                {
-                    "type": "description"
-                },
-                {
-                    "type": "button"
-                }
-            ]
+          "value": "middle-left",
+          "label": "Middle left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle center"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom right"
         }
-    ]
+      ],
+      "visible_if": "{{ block.settings.content_position == 'overlay_image' }}"
+    },
+    {
+      "type": "select",
+      "id": "alignment_content",
+      "label": "Alignment content",
+      "default": "start",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title"
+    },
+    {
+      "type": "description"
+    },
+    {
+      "type": "button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media with content",
+      "blocks": [
+        {
+          "type": "title"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

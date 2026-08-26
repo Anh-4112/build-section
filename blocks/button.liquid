@@ -1,17 +1,9 @@
 {% liquid
     assign block_st = block.settings
-
-    assign button_name = block_st.button_name
-    assign link_button = block_st.link_button
-    assign btn_type = block_st.btn_type_block
-    assign open_new_tab = block_st.open_new_tab
-
-    assign spacing_top = block_st.spacing_top
-    assign spacing_bottom = block_st.spacing_bottom
 %}
 
 {% capture style %}
-    --mt-custom: {{ spacing_top }}; --mb-custom: {{ spacing_bottom }};
+    --mt-custom: {{ block_st.spacing_top }}; --mb-custom: {{ block_st.spacing_bottom }};
 {% endcapture %}
 
 <div 
@@ -19,26 +11,26 @@
     style="{{ style }}"
     {{ block.shopify_attributes }}
 >
-    {% if btn_type == 'primary' %}
+    {% if block_st.btn_type_block == 'primary' %}
         {% 
             render 'btn-primary',
-            btn_name : button_name,
-            btn_link: link_button,
-            open_new_tab: open_new_tab
+            btn_name : block_st.button_name,
+            btn_link: block_st.link_button,
+            open_new_tab: block_st.open_new_tab
         %}
-    {% elsif btn_type == 'outline' %}
+    {% elsif block_st.btn_type_block == 'outline' %}
         {% 
             render 'btn-outline',
-            btn_name : button_name,
-            btn_link: link_button,
-            open_new_tab: open_new_tab
+            btn_name : block_st.button_name,
+            btn_link: block_st.link_button,
+            open_new_tab: block_st.open_new_tab
         %}
-    {% elsif btn_type == 'link' %}
+    {% elsif block_st.btn_type_block == 'link' %}
         {% 
             render 'btn-link', 
-            btn_name : button_name,
-            btn_link: link_button,
-            open_new_tab: open_new_tab
+            btn_name : block_st.button_name,
+            btn_link: block_st.link_button,
+            open_new_tab: block_st.open_new_tab
         %}
     {% endif %}
 </div>
