@@ -3,7 +3,7 @@
   assign section_st = section.settings
 %}
 <div class="block__header">
-  <div class="block__header-text d-flex{% if section_st.reverse_content == true %} column-reverse{% else %} column{% endif %} text-{{ section_st.text_align }}">
+  <div class="block__header-text d-flex{% if section_st.reverse_content == true %} column-reverse{% else %} column{% endif %} text-{{ section_st.txt_align }}">
     {% if section_st.heading != blank %}
       <h2 class="header__text--heading heading-{{ section_st.header_size }}">
         {{ section_st.heading }}

@@ -58,6 +58,7 @@ swiper-section, swiper-prev, swiper-next, picture, img {
 
 /* =============== Heading =============== */
 .heading__fs {
+  color: rgba(var(--color-heading), 1);
   font-size: calc(var(--fs-heading) * 0.1rem);
 }
 
@@ -66,6 +67,7 @@ swiper-section, swiper-prev, swiper-next, picture, img {
 }
 
 .subheading__fs {
+  color: rgba(var(--color-subheading), 1);
   font-size: calc(var(--fs-subheading) * 0.1rem);
 }
 
@@ -74,6 +76,7 @@ swiper-section, swiper-prev, swiper-next, picture, img {
 }
 
 .description__fs {
+  color: rgba(var(--color-foreground), 1);
   font-size: calc(var(--fs-description) * 0.1rem);
 }
 
@@ -83,6 +86,14 @@ swiper-section, swiper-prev, swiper-next, picture, img {
 
 .description__lh > p {
   line-height: 1.4;
+}
+
+.block__title {
+  color: rgba(var(--color-heading), 1);
+}
+
+.block__description {
+  color: rgba(var(--color-foreground), 1);
 }
 
 /* =============== Collapse Block =============== */
@@ -140,24 +151,25 @@ comp-btn::before {
 
 /* =============== Button =============== */
 .btn-primary {
-  background-color: rgba(var(--color-button-text), 1);
-  color: rgba(var(--color-foreground), 1);
+  background-color: rgba(var(--color-button), 1);
+  color: rgba(var(--color-button-text), 1);
   transition: background-color, color, 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-  background-color: rgba(var(--color-foreground), 1);
-  color: rgba(var(--color-button-text), 1);
+  background-color: rgba(var(--color-button-text), 1);
+  color: rgba(var(--color-button), 1);
 }
 
 .btn-outline {
   background-color: transparent;
+  color: rgba(var(--color-secondary-button-text), 1);
   transition: background-color, color, 0.3s ease-in-out;
 }
 
 .btn-outline:hover {
-  background-color: black;
-  color: white;
+  background-color: rgba(var(--color-secondary-button-text), 1);
+  color: rgba(var(--color-background), 1);
 }
 
 .btn-link {

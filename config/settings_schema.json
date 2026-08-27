@@ -41,6 +41,10 @@
         "id": "color_schemes",
         "definition": [
           {
+            "type": "header",
+            "content": "Background"
+          },
+          {
             "type": "color",
             "id": "background",
             "label": "t:settings_schema.colors.settings.background.label",
@@ -53,33 +57,53 @@
             "info": "t:settings_schema.colors.settings.background_gradient.info"
           },
           {
+            "type": "header",
+            "content": "Text"
+          },
+          {
+            "type": "color",
+            "id": "subheading",
+            "label": "Subheading",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "heading",
+            "label": "Heading",
+            "default": "#121212"
+          },
+          {
             "type": "color",
             "id": "text",
             "label": "t:settings_schema.colors.settings.text.label",
             "default": "#121212"
           },
           {
-            "type": "color",
-            "id": "button",
-            "label": "t:settings_schema.colors.settings.button_background.label",
-            "default": "#121212"
+            "type": "header",
+            "content": "Button"
           },
           {
             "type": "color",
-            "id": "button_label",
-            "label": "t:settings_schema.colors.settings.button_label.label",
+            "id": "primary_button_text",
+            "label": "Primary Text",
             "default": "#FFFFFF"
           },
           {
             "type": "color",
-            "id": "secondary_button_label",
-            "label": "t:settings_schema.colors.settings.secondary_button_label.label",
+            "id": "primary_button_background",
+            "label": "Primary Background",
             "default": "#121212"
           },
           {
             "type": "color",
-            "id": "shadow",
-            "label": "t:settings_schema.colors.settings.shadow.label",
+            "id": "outline_button_text",
+            "label": "Outline",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "link_text",
+            "label": "Link Text",
             "default": "#121212"
           }
         ],
@@ -89,14 +113,14 @@
             "solid": "background",
             "gradient": "background_gradient"
           },
-          "links": "secondary_button_label",
+          "links": "link_text",
           "icons": "text",
-          "primary_button": "button",
-          "on_primary_button": "button_label",
-          "primary_button_border": "button",
+          "primary_button": "primary_button_background",
+          "on_primary_button": "primary_button_text",
+          "primary_button_border": "primary_button_background",
           "secondary_button": "background",
-          "on_secondary_button": "secondary_button_label",
-          "secondary_button_border": "secondary_button_label"
+          "on_secondary_button": "outline_button_text",
+          "secondary_button_border": "outline_button_text"
         }
       }
     ]
@@ -146,7 +170,7 @@
         "type": "textarea",
         "id": "font_family_google_code",
         "label": "Embed font code"
-      },
+      }
     ]
   },
   {
@@ -160,7 +184,7 @@
         "min": 1100,
         "max": 1800,
         "step": 10,
-        "unit": "px",
+        "unit": "px"
       },
       {
         "type": "range",
@@ -170,7 +194,7 @@
         "min": 1200,
         "max": 1800,
         "step": 10,
-        "unit": "px",
+        "unit": "px"
       },
       {
         "type": "range",
@@ -180,11 +204,11 @@
         "min": 0,
         "max": 20,
         "step": 1,
-        "unit": "px",
+        "unit": "px"
       },
       {
         "type": "paragraph",
-        "content": "Space between sections:",
+        "content": "Space between sections:"
       },
       {
         "type": "range",
@@ -194,7 +218,7 @@
         "min": 0,
         "max": 60,
         "step": 1,
-        "unit": "px",
+        "unit": "px"
       },
       {
         "type": "range",
@@ -204,7 +228,7 @@
         "min": 0,
         "max": 100,
         "step": 1,
-        "unit": "px",
+        "unit": "px"
       },
       {
         "type": "range",
@@ -723,7 +747,7 @@
         "max": 20,
         "step": 1,
         "unit": "px",
-        "default": 10,
+        "default": 10
       },
       {
         "type": "range",
@@ -733,7 +757,7 @@
         "max": 20,
         "step": 1,
         "unit": "px",
-        "default": 10,
+        "default": 10
       }
     ]
   },

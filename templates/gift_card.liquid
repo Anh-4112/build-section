@@ -35,10 +35,15 @@
           --gradient-background: {{ scheme.settings.background }};
         {%- endif %}
         --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
-        --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
-        --color-button-label: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
-        --color-secondary-button-label: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
-        --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
+        --color-heading: {{ scheme.settings.heading.red }},{{ scheme.settings.heading.green }},{{ scheme.settings.heading.blue }};
+        --color-subheading: {{ scheme.settings.subheading.red }},{{ scheme.settings.subheading.green }},{{ scheme.settings.subheading.blue }};
+        --color-button: {{ scheme.settings.primary_button_background.red }},{{ scheme.settings.primary_button_background.green }},{{ scheme.settings.primary_button_background.blue }};
+        --color-button-text: {{ scheme.settings.primary_button_text.red }},{{ scheme.settings.primary_button_text.green }},{{ scheme.settings.primary_button_text.blue }};
+        --color-button-label: var(--color-button-text);
+        --color-secondary-button-text: {{ scheme.settings.outline_button_text.red }},{{ scheme.settings.outline_button_text.green }},{{ scheme.settings.outline_button_text.blue }};
+        --color-secondary-button-label: var(--color-secondary-button-text);
+        --color-link: {{ scheme.settings.link_text.red }},{{ scheme.settings.link_text.green }},{{ scheme.settings.link_text.blue }};
+        --color-shadow: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
 
         {% assign badge_scheme_id = settings.sold_out_badge_color_scheme | append: '' %}
         {% assign badge_scheme = settings.color_schemes[badge_scheme_id] %}
