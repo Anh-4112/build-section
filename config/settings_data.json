@@ -207,11 +207,11 @@
         "settings": {
           "background": "rgba(0,0,0,0)",
           "background_gradient": "",
-          "subheading": "#FFFFFF",
-          "heading": "#FFFFFF",
-          "text": "#FFFFFF",
-          "primary_button_text": "#ffffff",
-          "primary_button_background": "#FFFFFF",
+          "subheading": "#ffffff",
+          "heading": "#ffffff",
+          "text": "#ffffff",
+          "primary_button_text": "#000000",
+          "primary_button_background": "#ffffff",
           "outline_button_text": "#ffffff",
           "link_text": "#ffffff"
         }
