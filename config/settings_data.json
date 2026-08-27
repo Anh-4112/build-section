@@ -171,8 +171,8 @@
           "subheading": "#555555",
           "heading": "#111111",
           "text": "#111111",
-          "primary_button_text": "#ffffff",
-          "primary_button_background": "#111111",
+          "primary_button_text": "#000000",
+          "primary_button_background": "#FFFFFF",
           "outline_button_text": "#ffffff",
           "link_text": "#ffffff"
         }

@@ -218,7 +218,7 @@
         "heading": "New Arrivals",
         "subheading": "<p>Here’s some of our new arrivals products people are in love with.</p>",
         "header_size": "medium",
-        "txt_align": "left",
+        "txt_align": "center",
         "reverse_content": false,
         "collection": "make-up",
         "check_icon": true,
