@@ -2,12 +2,13 @@
   position: relative;
   --tooltip-gap: 1rem;
   --tooltip-arrow-size: 0.5rem;
-  --tooltip-bg: rgba(var(--color-foreground), 1);
-  --tooltip-color: rgba(var(--color-button-text), 1);
+  --tooltip-bg: rgba(var(--color-button-text), 1);
+  --tooltip-color: rgba(var(--color-button), 1);
   --tooltip-transition: 0.3s ease-in-out;
 }
 
 .tooltip {
+  display: none;
   position: absolute;
   z-index: 2;
   white-space: nowrap;
@@ -20,6 +21,12 @@
   visibility: hidden;
   pointer-events: none;
   transition: opacity var(--tooltip-transition), visibility var(--tooltip-transition), transform var(--tooltip-transition);
+}
+
+@media (min-width: 768px) {
+  .tooltip {
+    display: block;
+  }
 }
 
 .wrapper-tooltip:hover .tooltip,
@@ -51,7 +58,7 @@
   transform: translate(calc(var(--tooltip-gap) * -1), -50%);
 }
 
-.tooltip--left::after{
+.tooltip--left::after {
   left: 100%;
   top: 50%;
   transform: translateY(-50%);
