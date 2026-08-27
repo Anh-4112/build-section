@@ -5,11 +5,11 @@
 %}
 
 {% capture style %}
-    --section-pt: {{ section_st.section_pt }}; --section-pb: {{ section_st.section_pb }};
+  --section-pt: {{ section_st.section_pt }}; --section-pb: {{ section_st.section_pb }};
 {% endcapture %}
 
 {% capture style_marquee %}
-    --speed: {{ section_st.speed }}s;{% if section_st.direction == 'left_to_right' %} --direction: 100%;{% else %} --direction: -100%;{% endif %}
+  --speed: {{ section_st.speed }}s;{% if section_st.direction == 'left_to_right' %} --direction: 100%;{% else %} --direction: -100%;{% endif %}
 {% endcapture %}
 
 <section class="section__scrolling-text section__py color-{{ section_st.color_scheme }} gradient" style="{{ style | strip }}">

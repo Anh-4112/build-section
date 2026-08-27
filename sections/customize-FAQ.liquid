@@ -1,5 +1,6 @@
 {% liquid
   assign section_st = section.settings
+  
   assign reset_spacing = section_st.reset_spacing
   if reset_spacing
     assign reset_spacing = 'mb-0'
@@ -8,10 +9,11 @@
   endif
 %}
 
-<section
-  class="section__py color-{{ section_st.color_scheme }} gradient {{ reset_spacing }}"
-  style="--section-pt: {{ section_st.section_pt }}; --section-pb: {{ section_st.section_pb }};"
->
+{% capture style %}
+  --section-pt: {{ section_st.section_pt }}; --section-pb: {{ section_st.section_pb }};
+{% endcapture %}
+
+<section class="section__py color-{{ section_st.color_scheme }} gradient {{ reset_spacing }}" style="{{ style | strip }}">
   <div class="{{ section_st.section_width }}">
     {% if section_st.heading != blank or section_st.subheading != blank %}
       <div class="section__header" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
