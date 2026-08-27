@@ -1,22 +1,31 @@
 /* =============== Reset ================ */
-h1, h2, h3, h4, h5, p, div {
-    line-height: 1.6;
-    margin-top: 0;
-    margin-bottom: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+div {
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 html {
-  scrollbar-gutter: stable; /* Keep viewport width stable when vertical scrollbar appears/disappears (common resize jitter near breakpoints) */
+  scrollbar-gutter: stable;
+  /* Keep viewport width stable when vertical scrollbar appears/disappears (common resize jitter near breakpoints) */
 }
 
 @supports not (scrollbar-gutter: stable) {
   html {
-    overflow-y: scroll; /* Fallback: always reserve space for the vertical scrollbar */
+    overflow-y: scroll;
+    /* Fallback: always reserve space for the vertical scrollbar */
   }
 }
 
 body {
-  overflow-x: hidden; /* Avoid 1–2px horizontal overflow causing layout shifts / unwanted x-scroll */
+  overflow-x: hidden;
+  /* Avoid 1–2px horizontal overflow causing layout shifts / unwanted x-scroll */
 }
 
 button {
@@ -32,9 +41,17 @@ a {
 }
 
 /* =============== HTMLElement Customize ================ */
-collapse-wrapper, collapse-toggle, collapse-content,
-comp-block, comp-before, comp-after,
-swiper-section, swiper-prev, swiper-next, picture, img {
+collapse-wrapper,
+collapse-toggle,
+collapse-content,
+comp-block,
+comp-before,
+comp-after,
+swiper-section,
+swiper-prev,
+swiper-next,
+picture,
+img {
   display: block;
 }
 
@@ -84,7 +101,7 @@ swiper-section, swiper-prev, swiper-next, picture, img {
   font-weight: var(--fw-description);
 }
 
-.description__lh > p {
+.description__lh>p {
   line-height: 1.4;
 }
 
@@ -108,7 +125,7 @@ comp-before::before,
 comp-after::after {
   background: white;
   color: black;
-  box-shadow: 0 0 0.8rem  rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.5);
   height: 3rem;
   width: 8.5rem;
   border-radius: 3rem;
@@ -195,8 +212,13 @@ comp-btn::before {
 }
 
 @keyframes btn-link-hover {
-  from {left: -100%;}
-  to {left: 100%;}
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 100%;
+  }
 }
 
 a[href="#"] {
@@ -208,6 +230,7 @@ a[href="#"] {
 .pointer {
   cursor: pointer;
 }
+
 .not-allowed {
   cursor: not-allowed;
 }
@@ -393,11 +416,7 @@ a[href="#"] {
 
 /* === Flex === */
 .f-custom {
-  flex: 0 0
-    calc(
-      var(--f-custom) * 1% 
-      - (100 - var(--f-custom)) * var(--gap-custom, 0) * 0.001rem
-    );
+  flex: 0 0 calc(var(--f-custom) * 1% - (100 - var(--f-custom)) * var(--gap-custom, 0) * 0.001rem);
 }
 
 .f-25p {
@@ -507,11 +526,9 @@ a[href="#"] {
 .h-responsive {
   --view-min: 430px;
   --view-max: 1920px;
-  height: clamp(
-    calc(var(--h-mobile) * 1px),
-    calc(1px * (var(--h-mobile) + (var(--h-desktop) - var(--h-mobile)) * (100vw - var(--view-min)) / (var(--view-max) - var(--view-min)))),
-    calc(var(--h-desktop) * 1px)
-  );
+  height: clamp(calc(var(--h-mobile) * 1px),
+      calc(1px * (var(--h-mobile) + (var(--h-desktop) - var(--h-mobile)) * (100vw - var(--view-min)) / (var(--view-max) - var(--view-min)))),
+      calc(var(--h-desktop) * 1px));
 }
 
 .h-fit {

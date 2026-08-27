@@ -1,533 +1,543 @@
 {% liquid
-    assign section_st = section.settings
-    assign section_width = section_st.section_width
-    assign color_scheme = section_st.color_scheme
-    assign section_pt = section_st.section_pt
-    assign section_pb = section_st.section_pb
-    assign heading = section_st.heading
-    assign subheading = section_st.subheading
-    assign reset_spacing = section_st.reset_spacing
-        if reset_spacing
-            assign reset_spacing = 'mb-0'
-        else
-            assign reset_spacing = 'section__spacing-sections'
-        endif
-    assign items_per_row_pc = section_st.items_per_row_pc
-    assign column_gap = section_st.column_gap
-    assign check_icon = section_st.check_icon
-    assign infinite_slide = section_st.infinite_slide
-    assign auto_slide = section_st.auto_slide
-    assign interval_slide = section_st.interval_slide
-    assign reveal_next_slide = section_st.reveal_next_slide
-    assign pagination_type = section_st.pagination_type
-    assign items_per_row_mobile = section_st.items_per_row_mobile
-    assign img_show = section_st.img_show
-    assign img_position = section_st.img_position
-    assign flex_custom = section_st.flex_custom
-    assign color_rate = section_st.color_rate
-    assign show_verified = section_st.show_verified
-    assign ratio_image = section_st.ratio_image
-        if ratio_image == 'adapt'
-            assign ratio_image = ''
-        elsif ratio_image == 'square'
-            assign ratio_image = 'ratio-square'
-        elsif ratio_image == 'portrait'
-            assign ratio_image = 'ratio-portrait'
-        elsif ratio_image == 'landscape'
-            assign ratio_image = 'ratio-landscape'
-        elsif ratio_image == 'custom'
-            assign ratio_image = 'ratio-custom'
-        endif
-    assign ratio_custom = section_st.ratio_custom
-    assign framed_slide = section_st.framed_slide
+  assign section_st = section.settings
+  assign section_width = section_st.section_width
+  assign color_scheme = section_st.color_scheme
+  assign section_pt = section_st.section_pt
+  assign section_pb = section_st.section_pb
+  assign heading = section_st.heading
+  assign subheading = section_st.subheading
+  assign reset_spacing = section_st.reset_spacing
+  if reset_spacing
+    assign reset_spacing = 'mb-0'
+  else
+    assign reset_spacing = 'section__spacing-sections'
+  endif
+  assign items_per_row_pc = section_st.items_per_row_pc
+  assign column_gap = section_st.column_gap
+  assign check_icon = section_st.check_icon
+  assign infinite_slide = section_st.infinite_slide
+  assign auto_slide = section_st.auto_slide
+  assign interval_slide = section_st.interval_slide
+  assign reveal_next_slide = section_st.reveal_next_slide
+  assign pagination_type = section_st.pagination_type
+  assign items_per_row_mobile = section_st.items_per_row_mobile
+  assign img_show = section_st.img_show
+  assign img_position = section_st.img_position
+  assign flex_custom = section_st.flex_custom
+  assign color_rate = section_st.color_rate
+  assign show_verified = section_st.show_verified
+  assign ratio_image = section_st.ratio_image
+  if ratio_image == 'adapt'
+    assign ratio_image = ''
+  elsif ratio_image == 'square'
+    assign ratio_image = 'ratio-square'
+  elsif ratio_image == 'portrait'
+    assign ratio_image = 'ratio-portrait'
+  elsif ratio_image == 'landscape'
+    assign ratio_image = 'ratio-landscape'
+  elsif ratio_image == 'custom'
+    assign ratio_image = 'ratio-custom'
+  endif
+  assign ratio_custom = section_st.ratio_custom
+  assign framed_slide = section_st.framed_slide
 %}
 
-<section class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
-         style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
+<section
+  class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
+  style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
 >
-    <div class="{{ section_width }}">
-        {% if heading != blank or subheading != blank %}
-            <div class="section__header" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
-                {% render 'header', section: section %}
+  <div class="{{ section_width }}">
+    {% if heading != blank or subheading != blank %}
+      <div class="section__header" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
+        {% render 'header', section: section %}
+      </div>
+    {% endif %}
+    <swiper-section
+      class="swiper-section swiper"
+      data-items-pc="{{ items_per_row_pc }}"
+      data-items-mobile="{{ items_per_row_mobile }}"
+      data-gap="{{ column_gap }}"
+      data-infinite="{{ infinite_slide }}"
+      data-auto="{{ auto_slide }}"
+      data-interval="{{ interval_slide }}"
+      data-reveal="{{ reveal_next_slide }}"
+      data-pagination="{{ pagination_type }}"
+    >
+      {% if check_icon %}
+        {% render 'swiper-icon' %}
+      {% endif %}
+
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% assign blocks_st = block.settings %}
+          {% assign top_bot = 'top,bot' | split: ',' %}
+          {% assign left_right = 'left,right' | split: ',' %}
+          {% assign bot_right = 'bot,right' | split: ',' %}
+          <div
+            class="swiper-slide txt-no-select d-flex{% if framed_slide == true %} bor bor-1 rounded-10 overflow-hidden{% endif %}{% if top_bot contains img_position %} column{% endif %}"
+            style="border-color: rgb(220, 220, 220);"
+          >
+            <div
+              class="d-none overflow-hidden{% if img_show == true %} d-sm-block{% endif %}{% if framed_slide != true %} rounded-10{% endif %}{% if left_right contains img_position %} f-custom{% elsif top_bot contains img_position %} {{ ratio_image }}{% endif %}{% if bot_right contains img_position %} order-1{% endif %}"
+              style="--f-custom: {{ flex_custom }}; --ratio-custom: {{ ratio_custom }};"
+            >
+              {% if blocks_st.author_image != blank %}
+                <img
+                  class="img-cover"
+                  src="{{ blocks_st.author_image | image_url }}"
+                  alt="Image"
+                  width="100%"
+                  height="100%"
+                >
+              {% else %}
+                {% render 'image-clone' %}
+              {% endif %}
             </div>
-        {% endif %}
-        <swiper-section
-            class="swiper-section swiper"
-            data-items-pc="{{ items_per_row_pc }}"
-            data-items-mobile="{{ items_per_row_mobile }}"
-            data-gap="{{ column_gap }}"
-            data-infinite="{{ infinite_slide }}"
-            data-auto="{{ auto_slide }}"
-            data-interval="{{ interval_slide }}"
-            data-reveal="{{ reveal_next_slide }}"
-            data-pagination="{{ pagination_type }}"
-        >
-            {% if check_icon %}
-                {% render 'swiper-icon' %}
-            {% endif %}
-        
-            <div class="swiper-wrapper">
-                {% for block in section.blocks %}
-                    {% assign blocks_st = block.settings %}
-                    {% assign top_bot = 'top,bot' | split: ',' %}
-                    {% assign left_right = 'left,right' | split: ',' %}
-                    {% assign bot_right = 'bot,right' | split: ',' %}
-                    <div class="swiper-slide txt-no-select d-flex{% if framed_slide == true %} bor bor-1 rounded-10 overflow-hidden{% endif %}{% if top_bot contains img_position %} column{% endif %}"
-                        style="border-color: rgb(220, 220, 220);"
+            <div class="d-flex f-1 column py-20{% if framed_slide == true or left_right contains img_position %} px-30{% endif %}">
+              {% comment %} Rate {% endcomment %}
+              <div class="relative">
+                <svg width="78" height="14" viewBox="0 0 78 14">
+                  <use href="#icon-rate-grey"></use>
+                </svg>
+                <div
+                  class="d-inline-flex gap-2 absolute top-5 left-0 z-1 color-rate"
+                  style="--color-rate: {{ color_rate }};"
+                >
+                  {% for i in (1..blocks_st.author_rate) %}
+                    <svg width="14" height="14" viewBox="0 0 14 14">
+                      <use href="#icon-rate"></use>
+                    </svg>
+                  {% endfor %}
+                </div>
+              </div>
+              {% comment %} Name {% endcomment %}
+              <div class="mt-10 d-flex f-wrap gap-10 ai-center">
+                <span style="font-size: 1.8rem; font-weight: 600;">
+                  {{ blocks_st.author_name }}
+                </span>
+                {% if show_verified == true %}
+                  <span class="d-flex gap-2">
+                    <svg width="10" height="8" viewBox="0 0 10 8">
+                      <use href="#icon-tick"></use>
+                    </svg>
+                    <i style="font-size: 1rem; font-weight: 300;">Verified Buyer</i>
+                  </span>
+                {% endif %}
+              </div>
+              {% comment %} Quote {% endcomment %}
+              <div class="mt-10 f-1">
+                {{ blocks_st.author_quote | replace: '<p>', '<p style="line-height: 1.4;">' }}
+              </div>
+              {% comment %} Product {% endcomment %}
+              <div class="mt-20 pt-10 d-flex bor-top bor-1" style="border-color: rgb(220, 220, 220);">
+                {% assign author_product = blocks_st.author_product %}
+                {% if author_product != blank %}
+                  <a class="d-inline-flex gap-5 ai-center" href="{{ author_product.url }}">
+                    <img
+                      class="w-25p img-cover"
+                      src="{{ author_product.featured_image | image_url }}"
+                      alt="Image"
+                      width="100%"
+                      height="100%"
                     >
-                        <div class="d-none overflow-hidden{% if img_show == true %} d-sm-block{% endif %}{% if framed_slide != true %} rounded-10{% endif %}{% if left_right contains img_position %} f-custom{% elsif top_bot contains img_position %} {{ ratio_image }}{% endif %}{% if bot_right contains img_position %} order-1{% endif %}"
-                            style="--f-custom: {{ flex_custom }}; --ratio-custom: {{ ratio_custom }};"
-                        >
-                            {% if blocks_st.author_image != blank %}
-                                <img 
-                                    class="img-cover"
-                                    src="{{ blocks_st.author_image | image_url }}" 
-                                    alt="Image"
-                                    width="100%" 
-                                    height="100%" 
-                                >
-                            {% else %}
-                                {% render 'image-clone' %}
-                            {% endif %}
-                        </div>
-                        <div class="d-flex f-1 column py-20{% if framed_slide == true or left_right contains img_position %} px-30{% endif %}">
-                            {% comment %} Rate {% endcomment %}
-                            <div class="relative">
-                                <svg width="78" height="14" viewBox="0 0 78 14">
-                                    <use href="#icon-rate-grey"></use>
-                                </svg>
-                                <div class="d-inline-flex gap-2 absolute top-5 left-0 z-1 color-rate" style="--color-rate: {{ color_rate }};">
-                                    {% for i in (1..blocks_st.author_rate) %}
-                                        <svg width="14" height="14" viewBox="0 0 14 14">
-                                            <use href="#icon-rate"></use>
-                                        </svg>                                        
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            {% comment %} Name {% endcomment %}
-                            <div class="mt-10 d-flex f-wrap gap-10 ai-center">
-                                <span style="font-size: 1.8rem; font-weight: 600;">
-                                    {{ blocks_st.author_name }}
-                                </span>
-                                {% if show_verified == true %}
-                                    <span class="d-flex gap-2">
-                                        <svg width="10" height="8" viewBox="0 0 10 8">
-                                            <use href="#icon-tick"></use>
-                                        </svg>
-                                        <i style="font-size: 1rem; font-weight: 300;">Verified Buyer</i>
-                                    </span>                                    
-                                {% endif %}
-                            </div>
-                            {% comment %} Quote {% endcomment %}
-                            <div class="mt-10 f-1">
-                                {{ blocks_st.author_quote | replace: '<p>', '<p style="line-height: 1.4;">' }}
-                            </div>
-                            {% comment %} Product {% endcomment %}
-                            <div class="mt-20 pt-10 d-flex bor-top bor-1" style="border-color: rgb(220, 220, 220);">
-                                {% assign author_product = blocks_st.author_product %}
-                                {% if author_product != blank %}
-                                    <a class="d-inline-flex gap-5 ai-center" href="{{ author_product.url }}">
-                                        <img
-                                            class="w-25p img-cover"
-                                            src="{{ author_product.featured_image | image_url }}" 
-                                            alt="Image"
-                                            width="100%"
-                                            height="100%"
-                                        >
-                                        <span style="font-size: 1.3rem; font-weight: 600; line-height: 1.2;">{{ author_product.title }}</span>
-                                    </a>
-                                {% else %}
-                                    <div class="f-25p rounded-50p overflow-hidden">
-                                        {% render 'image-clone' %}
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+                    <span style="font-size: 1.3rem; font-weight: 600; line-height: 1.2;">
+                      {{- author_product.title -}}
+                    </span>
+                  </a>
+                {% else %}
+                  <div class="f-25p rounded-50p overflow-hidden">
+                    {% render 'image-clone' %}
+                  </div>
+                {% endif %}
+              </div>
             </div>
-            
-            {% if pagination_type == 'dots' or pagination_type == 'dots_mobile' %}
-                <swiper-pagination class="mt-10 d-flex jc-center{% if pagination_type == 'dots_mobile' %} d-sm-none{% endif %}"></swiper-pagination>
-            {% elsif pagination_type == 'progress' %}
-                <swiper-pagination class="mt-2"></swiper-pagination>
-            {% endif %}
-        </swiper-section>
-    </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if pagination_type == 'dots' or pagination_type == 'dots_mobile' %}
+        <swiper-pagination
+          class="mt-10 d-flex jc-center{% if pagination_type == 'dots_mobile' %} d-sm-none{% endif %}"
+        ></swiper-pagination>
+      {% elsif pagination_type == 'progress' %}
+        <swiper-pagination class="mt-2"></swiper-pagination>
+      {% endif %}
+    </swiper-section>
+  </div>
 </section>
 
 {% schema %}
 {
-    "name": "Product testimonials",
-    "tag": "section",
-    "settings": [
+  "name": "Product testimonials",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "default": "defaul",
+      "options": [
         {
-            "type": "select",
-            "id": "section_width",
-            "label": "Section width",
-            "default": "defaul",
-            "options": [
-                {
-                    "value": "defaul",
-                    "label": "Defaul"
-                },
-                {
-                    "value": "fluid-container",
-                    "label": "Fluid Container"
-                },
-                {
-                    "value": "stretch-width",
-                    "label": "Stretch Width"
-                },
-                {
-                    "value": "full-width",
-                    "label": "Full Width"
-                }
-            ]
+          "value": "defaul",
+          "label": "Defaul"
         },
         {
-            "type": "color_scheme",
-            "id": "color_scheme",
-            "label": "Section color",
-            "default": "scheme-1"
+          "value": "fluid-container",
+          "label": "Fluid Container"
         },
         {
-            "type": "header",
-            "content": "Header"
+          "value": "stretch-width",
+          "label": "Stretch Width"
         },
         {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading"
-        },
-        {
-            "type": "richtext",
-            "id": "subheading",
-            "label": "Subheading"
-        },
-        {
-            "type": "select",
-            "id": "header_size",
-            "label": "Header size",
-            "default": "medium",
-            "options": [
-                {
-                    "value": "small",
-                    "label": "Small"
-                },
-                {
-                    "value": "medium",
-                    "label": "Medium"
-                },
-                {
-                    "value": "large",
-                    "label": "Large"
-                }
-            ]
-        },
-        {
-            "type": "select",
-            "id": "txt_align",
-            "label": "Text Align",
-            "default": "center",
-            "options": [
-                {
-                    "value": "left",
-                    "label": "Left"
-                },
-                {
-                    "value": "center",
-                    "label": "Center"
-                },
-                {
-                    "value": "right",
-                    "label": "Right"
-                }
-            ]
-        },
-        {
-            "type": "checkbox",
-            "id": "reverse_content",
-            "label": "Reverse content order",
-            "default": false,
-            "visible_if": "{{ section.settings.heading != blank and section.settings.subheading != blank }}"
-        },
-        {
-            "type": "header",
-            "content": "Carousel settings"
-        },
-        {
-            "type": "range",
-            "id": "items_per_row_pc",
-            "label": "Items per row desktop",
-            "default": 2,
-            "min": 1,
-            "max": 4,
-            "step": 1
-        },
-        {
-            "type": "range",
-            "id": "items_per_row_mobile",
-            "label": "Items per row mobile",
-            "default": 1,
-            "step": 0.5,
-            "min": 1,
-            "max": 2
-        },
-        {
-            "type": "range",
-            "id": "column_gap",
-            "label": "Column gap",
-            "default": 15,
-            "min": 0,
-            "max": 50,
-            "step": 1,
-            "unit": "px"
-        },
-        {
-            "type": "checkbox",
-            "id": "check_icon",
-            "label": "Show next/back",
-            "default": true
-        },
-        {
-            "type": "select",
-            "id": "pagination_type",
-            "label": "Pagination",
-            "default": "dots",
-            "options": [
-                { 
-                    "value": "none", 
-                    "label": "Disable" 
-                },
-                { 
-                    "value": "dots", 
-                    "label": "Show dots" 
-                },
-                { 
-                    "value": "dots_mobile", 
-                    "label": "Show dots on mobile" 
-                },
-                { 
-                    "value": "progress", 
-                    "label": "Show progress bar" 
-                }
-            ]
-        },
-        {
-            "type": "checkbox",
-            "id": "infinite_slide",
-            "label": "Infinite slider",
-            "default": false
-        },
-        {
-            "type": "checkbox",
-            "id": "auto_slide",
-            "label": "Auto change slides",
-            "default": false
-        },
-        {
-            "type": "range",
-            "id": "interval_slide",
-            "label": "Change slides every",
-            "min": 2,
-            "max": 6,
-            "step": 1,
-            "unit": "s",
-            "default": 3,
-            "visible_if": "{{ section.settings.auto_slide == true }}"
-        },
-        {
-            "type": "checkbox",
-            "id": "reveal_next_slide",
-            "label": "Reveal next slide",
-            "default": false
-        },
-        {
-            "type": "checkbox",
-            "id": "framed_slide",
-            "label": "Framed",
-            "default": false
-        },
-        {
-            "type": "header",
-            "content": "Item setting"
-        },
-        {
-            "type": "checkbox",
-            "id": "img_show",
-            "label": "Show image",
-            "default": true
-        },
-        {
-            "type": "select",
-            "id": "img_position",
-            "label": "Image position",
-            "default": "left",
-            "options": [
-                {
-                    "value": "top",
-                    "label": "Top"
-                },
-                {
-                    "value": "left",
-                    "label": "Left"
-                },
-                {
-                    "value": "bot",
-                    "label": "Bottom"
-                },
-                {
-                    "value": "right",
-                    "label": "Right"
-                }
-            ],
-            "visible_if": "{{ section.settings.img_show == true }}"
-        },
-        {
-            "type": "range",
-            "id": "flex_custom",
-            "label": "Width (Apply to image position left/right)",
-            "default": 50,
-            "min": 20,
-            "max": 50,
-            "step": 1,
-            "unit": "%",
-            "visible_if": "{{ section.settings.img_show == true and section.settings.img_position == 'left' or section.settings.img_position == 'right' }}"
-        },
-        {
-            "type": "select",
-            "id": "ratio_image",
-            "label": "Ratio (Apply to image position top/bottom)",
-            "default" : "adapt",
-            "options": [
-                {
-                    "value": "adapt",
-                    "label": "Adapt to image"   
-                },
-                {
-                    "value": "square",
-                    "label": "Square (1:1)"
-                },
-                {
-                    "value": "portrait",
-                    "label": "Portrait (3:4)"
-                },
-                {
-                    "value": "landscape",
-                    "label": "Landscape (4:3)"
-                },
-                {
-                    "value": "custom",
-                    "label": "Custom ratio"
-                }
-            ],
-            "visible_if": "{{ section.settings.img_show == true and section.settings.img_position == 'top' or section.settings.img_position == 'bot' }}"
-        },
-        {
-            "type": "text",
-            "id": "ratio_custom",
-            "label": "Custom ratio (Form: Width/Height)",
-            "visible_if": "{{ section.settings.img_show == true and section.settings.ratio_image == 'custom' }}"
-        },
-        {
-            "type": "color",
-            "id": "color_rate",
-            "label": "Rate color",
-            "default": "#ff9900"
-        },
-        {
-            "type": "checkbox",
-            "id": "show_verified",
-            "label": "Show verified buyer",
-            "default": true
-        },
-        {
-            "type": "header",
-            "content": "Section Padding"
-        },
-        {
-            "type": "range",
-            "id": "section_pt",
-            "label": "Top",
-            "default": 50,
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "unit": "px"
-        },
-        {
-            "type": "range",
-            "id": "section_pb",
-            "label": "Bottom",
-            "default": 50,
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "unit": "px"
-        },
-        {
-            "type": "checkbox",
-            "id": "reset_spacing",
-            "label": "Remove default space between sections",
-            "default": false
+          "value": "full-width",
+          "label": "Full Width"
         }
-    ],
-    "blocks":[
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section color",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "header_size",
+      "label": "Header size",
+      "default": "medium",
+      "options": [
         {
-            "type": "testimonials_items",
-            "name": "Testimonials Items",
-            "limit": 6,
-            "settings": [
-                {
-                    "type": "image_picker",
-                    "id": "author_image",
-                    "label": "Image"
-                },
-                {
-                    "type": "range",
-                    "id": "author_rate",
-                    "label": "Rating star",
-                    "default": 5,
-                    "min": 1,
-                    "max": 5,
-                    "step": 1
-                },
-                {
-                    "type": "text",
-                    "id": "author_name",
-                    "label": "Name",
-                    "default": "Author's name"
-                },
-                {
-                    "type": "richtext",
-                    "id": "author_quote",
-                    "label": "Quote",
-                    "default": "<p>You can add text content from press comments, reviews, or testimonials here.</p>"
-                },
-                {
-                    "type": "product",
-                    "id": "author_product",
-                    "label": "Select product"
-                }
-            ]
-        }
-    ],
-    "presets": [
+          "value": "small",
+          "label": "Small"
+        },
         {
-            "name": "Product testimonials",
-            "blocks": [
-                {
-                    "type": "testimonials_items"
-                },
-                {
-                    "type": "testimonials_items"
-                },
-                {
-                    "type": "testimonials_items"
-                }
-            ]
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
         }
-    ]
+      ]
+    },
+    {
+      "type": "select",
+      "id": "txt_align",
+      "label": "Text Align",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_content",
+      "label": "Reverse content order",
+      "default": false,
+      "visible_if": "{{ section.settings.heading != blank and section.settings.subheading != blank }}"
+    },
+    {
+      "type": "header",
+      "content": "Carousel settings"
+    },
+    {
+      "type": "range",
+      "id": "items_per_row_pc",
+      "label": "Items per row desktop",
+      "default": 2,
+      "min": 1,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "items_per_row_mobile",
+      "label": "Items per row mobile",
+      "default": 1,
+      "step": 0.5,
+      "min": 1,
+      "max": 2
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "check_icon",
+      "label": "Show next/back",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "pagination_type",
+      "label": "Pagination",
+      "default": "dots",
+      "options": [
+        {
+          "value": "none",
+          "label": "Disable"
+        },
+        {
+          "value": "dots",
+          "label": "Show dots"
+        },
+        {
+          "value": "dots_mobile",
+          "label": "Show dots on mobile"
+        },
+        {
+          "value": "progress",
+          "label": "Show progress bar"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "infinite_slide",
+      "label": "Infinite slider",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_slide",
+      "label": "Auto change slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "interval_slide",
+      "label": "Change slides every",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "unit": "s",
+      "default": 3,
+      "visible_if": "{{ section.settings.auto_slide == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal_next_slide",
+      "label": "Reveal next slide",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "framed_slide",
+      "label": "Framed",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Item setting"
+    },
+    {
+      "type": "checkbox",
+      "id": "img_show",
+      "label": "Show image",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "img_position",
+      "label": "Image position",
+      "default": "left",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "bot",
+          "label": "Bottom"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "visible_if": "{{ section.settings.img_show == true }}"
+    },
+    {
+      "type": "range",
+      "id": "flex_custom",
+      "label": "Width (Apply to image position left/right)",
+      "default": 50,
+      "min": 20,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "visible_if": "{{ section.settings.img_show == true and section.settings.img_position == 'left' or section.settings.img_position == 'right' }}"
+    },
+    {
+      "type": "select",
+      "id": "ratio_image",
+      "label": "Ratio (Apply to image position top/bottom)",
+      "default": "adapt",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adapt to image"
+        },
+        {
+          "value": "square",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait (3:4)"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom ratio"
+        }
+      ],
+      "visible_if": "{{ section.settings.img_show == true and section.settings.img_position == 'top' or section.settings.img_position == 'bot' }}"
+    },
+    {
+      "type": "text",
+      "id": "ratio_custom",
+      "label": "Custom ratio (Form: Width/Height)",
+      "visible_if": "{{ section.settings.img_show == true and section.settings.ratio_image == 'custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "color_rate",
+      "label": "Rate color",
+      "default": "#ff9900"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_verified",
+      "label": "Show verified buyer",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_pt",
+      "label": "Top",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_pb",
+      "label": "Bottom",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "reset_spacing",
+      "label": "Remove default space between sections",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonials_items",
+      "name": "Testimonials Items",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "author_rate",
+          "label": "Rating star",
+          "default": 5,
+          "min": 1,
+          "max": 5,
+          "step": 1
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Name",
+          "default": "Author's name"
+        },
+        {
+          "type": "richtext",
+          "id": "author_quote",
+          "label": "Quote",
+          "default": "<p>You can add text content from press comments, reviews, or testimonials here.</p>"
+        },
+        {
+          "type": "product",
+          "id": "author_product",
+          "label": "Select product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product testimonials",
+      "blocks": [
+        {
+          "type": "testimonials_items"
+        },
+        {
+          "type": "testimonials_items"
+        },
+        {
+          "type": "testimonials_items"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

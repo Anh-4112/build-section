@@ -1,685 +1,684 @@
 {% liquid
-    assign section_st = section.settings
-    assign section_width = section_st.section_width
-    assign color_scheme = section_st.color_scheme
-    assign section_pt = section_st.section_pt
-    assign section_pb = section_st.section_pb
-    assign heading = section_st.heading
-    assign subheading = section_st.subheading
-    assign reset_spacing = section_st.reset_spacing
-        if reset_spacing
-            assign reset_spacing = 'mb-0'
-        else
-            assign reset_spacing = 'section__spacing-sections'
-        endif
-    assign before_image = section_st.before_image
-    assign after_image = section_st.after_image
-    assign width_block = section_st.width_block
-    assign position_comp = section_st.position_comp
-    assign show_label = section_st.show_label
-    assign ratio_image = section_st.ratio_image
-        if ratio_image == 'adapt'
-            assign ratio_image = ''
-        elsif ratio_image == 'square'
-            assign ratio_image = 'ratio-square'
-        elsif ratio_image == 'portrait'
-            assign ratio_image = 'ratio-portrait'
-        elsif ratio_image == 'landscape'
-            assign ratio_image = 'ratio-landscape'
-        elsif ratio_image == 'custom'
-            assign ratio_image = 'ratio-custom'
-        endif
-    assign ratio_custom = section_st.ratio_custom
+  assign section_st = section.settings
+  assign section_width = section_st.section_width
+  assign color_scheme = section_st.color_scheme
+  assign section_pt = section_st.section_pt
+  assign section_pb = section_st.section_pb
+  assign heading = section_st.heading
+  assign subheading = section_st.subheading
+  assign reset_spacing = section_st.reset_spacing
+  if reset_spacing
+    assign reset_spacing = 'mb-0'
+  else
+    assign reset_spacing = 'section__spacing-sections'
+  endif
+  assign before_image = section_st.before_image
+  assign after_image = section_st.after_image
+  assign width_block = section_st.width_block
+  assign position_comp = section_st.position_comp
+  assign show_label = section_st.show_label
+  assign ratio_image = section_st.ratio_image
+  if ratio_image == 'adapt'
+    assign ratio_image = ''
+  elsif ratio_image == 'square'
+    assign ratio_image = 'ratio-square'
+  elsif ratio_image == 'portrait'
+    assign ratio_image = 'ratio-portrait'
+  elsif ratio_image == 'landscape'
+    assign ratio_image = 'ratio-landscape'
+  elsif ratio_image == 'custom'
+    assign ratio_image = 'ratio-custom'
+  endif
+  assign ratio_custom = section_st.ratio_custom
 %}
 
-<section 
-    class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
-    style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
+<section
+  class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
+  style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
 >
-    <div class="{{ section_width }}">
-        {% if heading != blank or subheading != blank %}
-            <div class="section__header" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
-                {% render 'header', section: section %}
-            </div>
-        {% endif %}
+  <div class="{{ section_width }}">
+    {% if heading != blank or subheading != blank %}
+      <div class="section__header" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
+        {% render 'header', section: section %}
+      </div>
+    {% endif %}
 
-        <div class="d-flex column row-lg f-wrap gap-20 txt-no-select">
-            <comp-block
-                class="relative overflow-hidden w-full h-full rounded-10 w-lg-block {% if position_comp == 'right' %} order-1 {% endif %} {{ ratio_image }}"
-                style="--width-block: {{ width_block }}; --ratio-custom: {{ ratio_custom }};"
+    <div class="d-flex column row-lg f-wrap gap-20 txt-no-select">
+      <comp-block
+        class="relative overflow-hidden w-full h-full rounded-10 w-lg-block {% if position_comp == 'right' %} order-1 {% endif %} {{ ratio_image }}"
+        style="--width-block: {{ width_block }}; --ratio-custom: {{ ratio_custom }};"
+      >
+        <comp-before
+          class="absolute top-0 left-0 w-full h-full clip-left-50p z-1"
+          data-show-label=""
+          {{ show_label }}
+        >
+          {% if before_image != blank %}
+            <img
+              class="img-cover"
+              src="{{ before_image | image_url }}"
+              alt="Image"
+              width="100%"
+              height="100%"
             >
-                <comp-before 
-                    class="absolute top-0 left-0 w-full h-full clip-left-50p z-1"
-                    data-show-label= "{{ show_label }}"
-                >
-                    {% if before_image != blank %}
-                        <img 
-                            class="img-cover"
-                            src="{{ before_image | image_url }}" 
-                            alt="Image"
-                            width="100%" 
-                            height="100%" 
-                        >
-                    {% else %}
-                        {% render 'image-clone', bg: 'rgb(160, 160, 160)' %}
-                    {% endif %}
-                </comp-before>
+          {% else %}
+            {% render 'image-clone', bg: 'rgb(160, 160, 160)' %}
+          {% endif %}
+        </comp-before>
 
-                <comp-after 
-                    class="w-full h-full"
-                    data-show-label= "{{ show_label }}"    
-                >
-                    {% if after_image != blank %}
-                        <img 
-                            class="img-cover"
-                            src="{{ after_image | image_url }}" 
-                            width="100%" 
-                            height="100%" 
-                            alt="Image"
-                        >
-                    {% else %}
-                        {% render 'image-clone' %}
-                    {% endif %}
-                </comp-after>
+        <comp-after
+          class="w-full h-full"
+          data-show-label=""
+          {{ show_label }}
+        >
+          {% if after_image != blank %}
+            <img
+              class="img-cover"
+              src="{{ after_image | image_url }}"
+              width="100%"
+              height="100%"
+              alt="Image"
+            >
+          {% else %}
+            {% render 'image-clone' %}
+          {% endif %}
+        </comp-after>
 
-                <comp-btn class="d-inline-flex content-center absolute top-0 left-center h-full pointer z-1">
-                    <comp-btn-inline class="relative bg-white d-inline-flex content-center w-30 h-50 rounded-35 z-2">
-                        {% render 'icon-control-bars' %}
-                    </comp-btn-inline>
-                </comp-btn>
-            </comp-block>
+        <comp-btn class="d-inline-flex content-center absolute top-0 left-center h-full pointer z-1">
+          <comp-btn-inline class="relative bg-white d-inline-flex content-center w-30 h-50 rounded-35 z-2">
+            {% render 'icon-control-bars' %}
+          </comp-btn-inline>
+        </comp-btn>
+      </comp-block>
 
-            <div class="f-1 d-flex column jc-{{ section_st.vertical_align }}">
-                {% for block in section.blocks %}
-                    {% assign block_st = block.settings %}
-                    {% case block.type %}
-                        {% when 'heading' %}
-                            <h2 
-                                class="heading__fs heading__fw mt-custom {% if block_st.uppercase == true %} uppercase {% endif %}"
-                                style="
-                                    --fs-heading: {{ block_st.fs_heading_block }};
-                                    --fw-heading: {{ block_st.fw_heading_block }};
-                                    --mt-custom: {{ block_st.spacing_heading_block }};
-                                "
-                            >
-                                {{ block_st.heading_block }}
-                            </h2>
-                        {% when 'subheading' %}
-                            <h3 
-                                class="subheading__fs subheading__fw mt-custom"
-                                style="
-                                    --fs-subheading: {{ block_st.fs_subheading_block }};
-                                    --fw-subheading: {{ block_st.fw_subheading_block }};
-                                    --mt-custom: {{ block_st.spacing_subheading_block }};
-                                "
-                            >
-                                {{ block_st.subheading_block }}
-                            </h3>
-                        {% when 'description' %}
-                            <div
-                                class="description__fs description__fw description__lh mt-custom"
-                                style="
-                                    --fs-description: {{ block_st.fs_description_block }};
-                                    --fw-description: {{ block_st.fw_description_block }};
-                                    --mt-custom: {{ block_st.spacing_description_block }};
-                                "
-                            >
-                                {{ block_st.description_block }}
-                            </div>
-                        {% when 'button' %}
-                            <div class="mt-custom" style="--mt-custom: {{ block_st.spacing_btn_block }};">
-                                {% if block_st.btn_type_block == 'primary' %}
-                                    {% 
-                                        render 'btn-primary',
-                                        btn_name : block_st.btn_name_block,
-                                        btn_link: block_st.btn_collection_block.url
-                                    %}
-                                {% elsif block_st.btn_type_block == 'outline' %}
-                                    {% 
-                                        render 'btn-outline',
-                                        btn_name : block_st.btn_name_block,
-                                        btn_link: block_st.btn_collection_block.url
-                                    %}
-                                {% elsif block_st.btn_type_block == 'link' %}
-                                    {% 
-                                        render 'btn-link', 
-                                        btn_name : block_st.btn_name_block
-                                        btn_link: block_st.btn_collection_block.url
-                                    %}
-                                {% endif %}
-                            </div>
-                        {% when 'product' %}
-                            {% assign product_block = block_st.product_block %}
-                            <div class="d-flex gap-20 mt-custom" style="--mt-custom: {{ block_st.spacing_product_block }};">
-                                {% if product_block != blank %}
-                                    <a class="rounded-10 overflow-hidden" href="{{ product_block.url }}" style="max-width: 20%;">
-                                        <img
-                                            src="{{ product_block.featured_image | image_url }}"
-                                            alt="Image"
-                                            width="100%"
-                                            height="auto"
-                                        >
-                                    </a>
-                                    <div class="d-inline-flex column jc-center gap-10">
-                                        <a 
-                                            style="line-height: 1.2; font-weight: 500;" 
-                                            href="{{ product_block.url }}"
-                                        >
-                                            {{ product_block.title }}
-                                        </a>
-                                        <p style="font-size: 1.4rem; font-weight: 600;">
-                                            {{ product_block.price }}
-                                        </p>
-                                    </div>
-                                {% else %}
-                                    <div class="f-25p rounded-10 overflow-hidden">
-                                        {% render 'image-clone' %}
-                                    </div>
-                                {% endif %}                            
-                            </div>
-                    {% endcase %}
-                {% endfor %}
-            </div>
-        </div>
+      <div class="f-1 d-flex column jc-{{ section_st.vertical_align }}">
+        {% for block in section.blocks %}
+          {% assign block_st = block.settings %}
+          {% case block.type %}
+            {% when 'heading' %}
+              <h2
+                class="heading__fs heading__fw mt-custom {% if block_st.uppercase == true %} uppercase {% endif %}"
+                style="
+                  --fs-heading: {{ block_st.fs_heading_block }};
+                  --fw-heading: {{ block_st.fw_heading_block }};
+                  --mt-custom: {{ block_st.spacing_heading_block }};
+                "
+              >
+                {{ block_st.heading_block }}
+              </h2>
+            {% when 'subheading' %}
+              <h3
+                class="subheading__fs subheading__fw mt-custom"
+                style="
+                  --fs-subheading: {{ block_st.fs_subheading_block }};
+                  --fw-subheading: {{ block_st.fw_subheading_block }};
+                  --mt-custom: {{ block_st.spacing_subheading_block }};
+                "
+              >
+                {{ block_st.subheading_block }}
+              </h3>
+            {% when 'description' %}
+              <div
+                class="description__fs description__fw description__lh mt-custom"
+                style="
+                  --fs-description: {{ block_st.fs_description_block }};
+                  --fw-description: {{ block_st.fw_description_block }};
+                  --mt-custom: {{ block_st.spacing_description_block }};
+                "
+              >
+                {{ block_st.description_block }}
+              </div>
+            {% when 'button' %}
+              <div class="mt-custom" style="--mt-custom: {{ block_st.spacing_btn_block }};">
+                {% if block_st.btn_type_block == 'primary' %}
+                  {% render 'btn-primary',
+                    btn_name: block_st.btn_name_block,
+                    btn_link: block_st.btn_collection_block.url
+                  %}
+                {% elsif block_st.btn_type_block == 'outline' %}
+                  {% render 'btn-outline',
+                    btn_name: block_st.btn_name_block,
+                    btn_link: block_st.btn_collection_block.url
+                  %}
+                {% elsif block_st.btn_type_block == 'link' %}
+                  {% render 'btn-link',
+                    btn_name: block_st.btn_name_block,
+                    btn_link: block_st.btn_collection_block.url
+                  %}
+                {% endif %}
+              </div>
+            {% when 'product' %}
+              {% assign product_block = block_st.product_block %}
+              <div class="d-flex gap-20 mt-custom" style="--mt-custom: {{ block_st.spacing_product_block }};">
+                {% if product_block != blank %}
+                  <a class="rounded-10 overflow-hidden" href="{{ product_block.url }}" style="max-width: 20%;">
+                    <img
+                      src="{{ product_block.featured_image | image_url }}"
+                      alt="Image"
+                      width="100%"
+                      height="auto"
+                    >
+                  </a>
+                  <div class="d-inline-flex column jc-center gap-10">
+                    <a
+                      style="line-height: 1.2; font-weight: 500;"
+                      href="{{ product_block.url }}"
+                    >
+                      {{ product_block.title }}
+                    </a>
+                    <p style="font-size: 1.4rem; font-weight: 600;">
+                      {{ product_block.price }}
+                    </p>
+                  </div>
+                {% else %}
+                  <div class="f-25p rounded-10 overflow-hidden">
+                    {% render 'image-clone' %}
+                  </div>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
     </div>
+  </div>
 </section>
 
 {% schema %}
 {
-    "name": "Image comparison slider",
-    "tag": "section",
-    "settings": [
+  "name": "Image comparison slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "default": "defaul",
+      "options": [
         {
-            "type": "select",
-            "id": "section_width",
-            "label": "Section width",
-            "default": "defaul",
-            "options": [
-                {
-                    "value": "defaul",
-                    "label": "Defaul"
-                },
-                {
-                    "value": "fluid-container",
-                    "label": "Fluid Container"
-                },
-                {
-                    "value": "stretch-width",
-                    "label": "Stretch Width"
-                },
-                {
-                    "value": "full-width",
-                    "label": "Full Width"
-                }
-            ]
+          "value": "defaul",
+          "label": "Defaul"
         },
         {
-            "type": "color_scheme",
-            "id": "color_scheme",
-            "label": "Section color",
-            "default": "scheme-1"
+          "value": "fluid-container",
+          "label": "Fluid Container"
         },
         {
-            "type": "header",
-            "content": "Header"
+          "value": "stretch-width",
+          "label": "Stretch Width"
         },
         {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading"
-        },
-        {
-            "type": "richtext",
-            "id": "subheading",
-            "label": "Subheading"
-        },
-        {
-            "type": "select",
-            "id": "header_size",
-            "label": "Header size",
-            "default": "medium",
-            "options": [
-                {
-                    "value": "small",
-                    "label": "Small"
-                },
-                {
-                    "value": "medium",
-                    "label": "Medium"
-                },
-                {
-                    "value": "large",
-                    "label": "Large"
-                }
-            ]
-        },
-        {
-            "type": "select",
-            "id": "txt_align",
-            "label": "Text Align",
-            "default": "center",
-            "options": [
-                {
-                    "value": "left",
-                    "label": "Left"
-                },
-                {
-                    "value": "center",
-                    "label": "Center"
-                },
-                {
-                    "value": "right",
-                    "label": "Right"
-                }
-            ]
-        },
-        {
-            "type": "checkbox",
-            "id": "reverse_content",
-            "label": "Reverse content order",
-            "default": false,
-            "visible_if": "{{ section.settings.heading != blank and section.settings.subheading != blank }}"
-        },
-        {
-            "type": "header",
-            "content": "Before / After"
-        },
-        {
-            "type": "image_picker",
-            "id": "before_image",
-            "label": "Before image"
-        },
-        {
-            "type": "image_picker",
-            "id": "after_image",
-            "label": "After image"
-        },
-        {
-            "type": "select",
-            "id": "width_block",
-            "label": "Width",
-            "default" : "50",
-            "options": [
-                {
-                    "value": "50",
-                    "label": "50%"   
-                },
-                {
-                    "value": "66.6666",
-                    "label": "66%"
-                },
-                {
-                    "value": "75",
-                    "label": "75%"
-                },
-                {
-                    "value": "100",
-                    "label": "100%"
-                }
-            ]
-        },
-        {
-            "type": "select",
-            "id": "position_comp",
-            "label": "Position",
-            "default" : "left",
-            "options": [
-                {
-                    "value": "left",
-                    "label": "Left"   
-                },
-                {
-                    "value": "right",
-                    "label": "Right"
-                }
-            ]
-        },
-        {
-            "type": "checkbox",
-            "id": "show_label",
-            "label": "Show label",
-            "default": true
-        },
-        {
-            "type": "select",
-            "id": "ratio_image",
-            "label": "Image Ratio",
-            "default" : "adapt",
-            "options": [
-                {
-                    "value": "adapt",
-                    "label": "Adapt to image"   
-                },
-                {
-                    "value": "square",
-                    "label": "Square (1:1)"
-                },
-                {
-                    "value": "portrait",
-                    "label": "Portrait (3:4)"
-                },
-                {
-                    "value": "landscape",
-                    "label": "Landscape (4:3)"
-                },
-                {
-                    "value": "custom",
-                    "label": "Custom ratio"
-                }
-            ]
-        },
-        {
-            "type": "text",
-            "id": "ratio_custom",
-            "label": "Custom ratio (Form: Width/Height)",
-            "visible_if": "{{ section.settings.ratio_image == 'custom' }}"
-        },
-        {
-            "type": "header",
-            "content": "Content settings"
-        },
-        {
-            "type": "select",
-            "id": "vertical_align",
-            "label": "Vertical alignment",
-            "default": "start",
-            "options": [
-                {
-                    "value": "start",
-                    "label": "Top"
-                },
-                {
-                    "value": "center",
-                    "label": "Middle"
-                },
-                {
-                    "value": "end",
-                    "label": "Bottom"
-                }
-            ]
-        },
-        {
-            "type": "header",
-            "content": "Section Padding"
-        },
-        {
-            "type": "range",
-            "id": "section_pt",
-            "label": "Top",
-            "default": 50,
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "unit": "px"
-        },
-        {
-            "type": "range",
-            "id": "section_pb",
-            "label": "Bottom",
-            "default": 50,
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "unit": "px"
-        },
-        {
-            "type": "checkbox",
-            "id": "reset_spacing",
-            "label": "Remove default space between sections",
-            "default": false
+          "value": "full-width",
+          "label": "Full Width"
         }
-    ],
-    "blocks": [
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section color",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "header_size",
+      "label": "Header size",
+      "default": "medium",
+      "options": [
         {
-            "type": "heading",
-            "name": "Heading",
-            "limit": 1,
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "heading_block",
-                    "label": "Content",
-                    "default": "Talk about your brand"
-                },
-                {
-                    "type": "checkbox",
-                    "id": "uppercase",
-                    "label": "Uppercase",
-                    "default": false
-                },
-                {
-                    "type": "range",
-                    "id": "fs_heading_block",
-                    "label": "Font Size",
-                    "default": 24,
-                    "min": 24,
-                    "max": 48,
-                    "step": 1,
-                    "unit": "px"
-                },
-                {
-                    "type": "select",
-                    "id": "fw_heading_block",
-                    "label": "Font Weight",
-                    "default": "500",
-                    "options": [
-                        {
-                            "value": "500",
-                            "label": "500"
-                        },
-                        {
-                            "value": "600",
-                            "label": "600"
-                        },
-                        {
-                            "value": "700",
-                            "label": "700"
-                        }
-                    ]
-                },
-                {
-                    "type": "range",
-                    "id": "spacing_heading_block",
-                    "label": "Spacing",
-                    "default": 5,
-                    "min": 5,
-                    "max": 30,
-                    "step": 1,
-                    "unit": "px"
-                }
-            ]
+          "value": "small",
+          "label": "Small"
         },
         {
-            "type": "subheading",
-            "name": "Subheading",
-            "limit": 1,
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "subheading_block",
-                    "label": "Content",
-                    "default": "Subheading"
-                },
-                {
-                    "type": "range",
-                    "id": "fs_subheading_block",
-                    "label": "Font Size",
-                    "default": 12,
-                    "min": 12,
-                    "max": 24,
-                    "step": 1,
-                    "unit": "px"
-                },
-                {
-                    "type": "select",
-                    "id": "fw_subheading_block",
-                    "label": "Font Weight",
-                    "default": "500",
-                    "options": [
-                        {
-                            "value": "500",
-                            "label": "500"
-                        },
-                        {
-                            "value": "600",
-                            "label": "600"
-                        },
-                        {
-                            "value": "700",
-                            "label": "700"
-                        }
-                    ]
-                },
-                {
-                    "type": "range",
-                    "id": "spacing_subheading_block",
-                    "label": "Spacing",
-                    "default": 5,
-                    "min": 5,
-                    "max": 30,
-                    "step": 1,
-                    "unit": "px"
-                }
-            ]
+          "value": "medium",
+          "label": "Medium"
         },
         {
-            "type": "description",
-            "name": "Description",
-            "limit": 1,
-            "settings": [
-                {
-                "type": "richtext",
-                "id": "description_block",
-                "label": "Content",
-                "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-                },
-                {
-                    "type": "range",
-                    "id": "fs_description_block",
-                    "label": "Font Size",
-                    "default": 16,
-                    "min": 16,
-                    "max": 24,
-                    "step": 1,
-                    "unit": "px"
-                },
-                {
-                    "type": "select",
-                    "id": "fw_description_block",
-                    "label": "Font Weight",
-                    "default": "400",
-                    "options": [
-                        {
-                            "value": "300",
-                            "label": "300"
-                        },
-                        {
-                            "value": "400",
-                            "label": "400"
-                        },
-                        {
-                            "value": "500",
-                            "label": "500"
-                        }
-                    ]
-                },
-                {
-                    "type": "range",
-                    "id": "spacing_description_block",
-                    "label": "Spacing",
-                    "default": 5,
-                    "min": 5,
-                    "max": 30,
-                    "step": 1,
-                    "unit": "px"
-                }
-            ]
-        },
-        {
-            "type": "button",
-            "name": "Button",
-            "limit": 1,
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "btn_name_block",
-                    "label": "Content"
-                },
-                {
-                    "type": "select",
-                    "id": "btn_type_block",
-                    "label": "Type",
-                    "default": "primary",
-                    "options": [
-                        {
-                            "value": "primary",
-                            "label": "Primary"
-                        },
-                        {
-                            "value": "outline",
-                            "label": "Outline"
-                        },
-                        {
-                            "value": "link",
-                            "label": "Link"
-                        }
-                    ]
-                },
-                {
-                    "type": "collection",
-                    "id": "btn_collection_block",
-                    "label": "Collection"
-                },
-                {
-                    "type": "range",
-                    "id": "spacing_btn_block",
-                    "label": "Spacing",
-                    "default": 5,
-                    "min": 5,
-                    "max": 30,
-                    "step": 1,
-                    "unit": "px"
-                }
-            ]
-        },
-        {
-            "type": "product",
-            "name": "Product",
-            "limit": 1,
-            "settings": [
-                {
-                    "type": "product",
-                    "id": "product_block",
-                    "label": "Select Product"
-                },
-                {
-                    "type": "range",
-                    "id": "spacing_product_block",
-                    "label": "Spacing",
-                    "default": 5,
-                    "min": 5,
-                    "max": 30,
-                    "step": 1,
-                    "unit": "px"
-                }
-            ]
+          "value": "large",
+          "label": "Large"
         }
-    ],
-    "presets": [
+      ]
+    },
+    {
+      "type": "select",
+      "id": "txt_align",
+      "label": "Text Align",
+      "default": "center",
+      "options": [
         {
-            "name": "Image comparison slider",
-            "blocks": [
-                {
-                    "type": "heading"
-                },
-                {
-                    "type": "description"
-                },
-                {
-                    "type": "button"
-                }
-            ]
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
         }
-    ]
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_content",
+      "label": "Reverse content order",
+      "default": false,
+      "visible_if": "{{ section.settings.heading != blank and section.settings.subheading != blank }}"
+    },
+    {
+      "type": "header",
+      "content": "Before / After"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "select",
+      "id": "width_block",
+      "label": "Width",
+      "default": "50",
+      "options": [
+        {
+          "value": "50",
+          "label": "50%"
+        },
+        {
+          "value": "66.6666",
+          "label": "66%"
+        },
+        {
+          "value": "75",
+          "label": "75%"
+        },
+        {
+          "value": "100",
+          "label": "100%"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "position_comp",
+      "label": "Position",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_label",
+      "label": "Show label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "ratio_image",
+      "label": "Image Ratio",
+      "default": "adapt",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adapt to image"
+        },
+        {
+          "value": "square",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait (3:4)"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom ratio"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "ratio_custom",
+      "label": "Custom ratio (Form: Width/Height)",
+      "visible_if": "{{ section.settings.ratio_image == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "Content settings"
+    },
+    {
+      "type": "select",
+      "id": "vertical_align",
+      "label": "Vertical alignment",
+      "default": "start",
+      "options": [
+        {
+          "value": "start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Middle"
+        },
+        {
+          "value": "end",
+          "label": "Bottom"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_pt",
+      "label": "Top",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_pb",
+      "label": "Bottom",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "reset_spacing",
+      "label": "Remove default space between sections",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading_block",
+          "label": "Content",
+          "default": "Talk about your brand"
+        },
+        {
+          "type": "checkbox",
+          "id": "uppercase",
+          "label": "Uppercase",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "fs_heading_block",
+          "label": "Font Size",
+          "default": 24,
+          "min": 24,
+          "max": 48,
+          "step": 1,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "fw_heading_block",
+          "label": "Font Weight",
+          "default": "500",
+          "options": [
+            {
+              "value": "500",
+              "label": "500"
+            },
+            {
+              "value": "600",
+              "label": "600"
+            },
+            {
+              "value": "700",
+              "label": "700"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "spacing_heading_block",
+          "label": "Spacing",
+          "default": 5,
+          "min": 5,
+          "max": 30,
+          "step": 1,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "Subheading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "subheading_block",
+          "label": "Content",
+          "default": "Subheading"
+        },
+        {
+          "type": "range",
+          "id": "fs_subheading_block",
+          "label": "Font Size",
+          "default": 12,
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "fw_subheading_block",
+          "label": "Font Weight",
+          "default": "500",
+          "options": [
+            {
+              "value": "500",
+              "label": "500"
+            },
+            {
+              "value": "600",
+              "label": "600"
+            },
+            {
+              "value": "700",
+              "label": "700"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "spacing_subheading_block",
+          "label": "Spacing",
+          "default": 5,
+          "min": 5,
+          "max": 30,
+          "step": 1,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description_block",
+          "label": "Content",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "range",
+          "id": "fs_description_block",
+          "label": "Font Size",
+          "default": 16,
+          "min": 16,
+          "max": 24,
+          "step": 1,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "fw_description_block",
+          "label": "Font Weight",
+          "default": "400",
+          "options": [
+            {
+              "value": "300",
+              "label": "300"
+            },
+            {
+              "value": "400",
+              "label": "400"
+            },
+            {
+              "value": "500",
+              "label": "500"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "spacing_description_block",
+          "label": "Spacing",
+          "default": 5,
+          "min": 5,
+          "max": 30,
+          "step": 1,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "btn_name_block",
+          "label": "Content"
+        },
+        {
+          "type": "select",
+          "id": "btn_type_block",
+          "label": "Type",
+          "default": "primary",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ]
+        },
+        {
+          "type": "collection",
+          "id": "btn_collection_block",
+          "label": "Collection"
+        },
+        {
+          "type": "range",
+          "id": "spacing_btn_block",
+          "label": "Spacing",
+          "default": 5,
+          "min": 5,
+          "max": 30,
+          "step": 1,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product_block",
+          "label": "Select Product"
+        },
+        {
+          "type": "range",
+          "id": "spacing_product_block",
+          "label": "Spacing",
+          "default": 5,
+          "min": 5,
+          "max": 30,
+          "step": 1,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image comparison slider",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
