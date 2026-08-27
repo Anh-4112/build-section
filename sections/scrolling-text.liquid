@@ -2,49 +2,31 @@
 
 {% liquid
   assign section_st = section.settings
-
-  assign color_scheme = section_st.color_scheme
-  assign section_width = section_st.section_width
-  assign section_pt = section_st.section_pt
-  assign section_pb = section_st.section_pb
-
-  assign show_image = section_st.show_image
-  assign direction = section_st.direction
-  assign speed = section_st.speed
-  assign layout_items = section_st.layout_items
-  assign space_between_items = section_st.space_between_items
-  assign space_between_img_and_text = section_st.space_between_img_and_text
-
-  assign image_width = section_st.image_width
-  assign ratio = section_st.image_ratio
-  assign rounded = section_st.image_rounded
-
-  assign txt_size = section_st.txt_size
 %}
 
 {% capture style %}
-    --section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};
+    --section-pt: {{ section_st.section_pt }}; --section-pb: {{ section_st.section_pb }};
 {% endcapture %}
 
 {% capture style_marquee %}
-    --speed: {{ speed }}s;{% if direction == 'left_to_right' %} --direction: 100%;{% else %} --direction: -100%;{% endif %}
+    --speed: {{ section_st.speed }}s;{% if section_st.direction == 'left_to_right' %} --direction: 100%;{% else %} --direction: -100%;{% endif %}
 {% endcapture %}
 
-<section class="section__scrolling-text section__py color-{{ color_scheme }} gradient" style="{{ style | strip }}">
-  <div class="{{ section_width }}">
-    <div class="marquee d-flex overflow-hidden {% if direction == 'left_to_right' %} jc-end{% endif %}">
+<section class="section__scrolling-text section__py color-{{ section_st.color_scheme }} gradient" style="{{ style | strip }}">
+  <div class="{{ section_st.section_width }}">
+    <div class="marquee d-flex overflow-hidden {% if section_st.direction == 'left_to_right' %} jc-end{% endif %}">
       {% for i in (0..15) %}
         <div class="marquee-animation d-flex" style="{{ style_marquee | strip }}">
           {% for block in section.blocks %}
             {% assign blocks_st = block.settings %}
             <div
-              class="marquee-item d-flex ai-center gap-custom{% if layout_items == 'vertical' %} column{% endif %}{% if direction == 'left_to_right' %} ml-custom{% else %} mr-custom{% endif %}"
-              style="--gap-custom: {{ space_between_img_and_text }};{% if direction == 'left_to_right' %} --ml-custom: {{ space_between_items }};{% else %} --mr-custom: {{ space_between_items }};{% endif %}"
+              class="marquee-item d-flex ai-center gap-custom{% if section_st.layout_items == 'vertical' %} column{% endif %}{% if section_st.direction == 'left_to_right' %} ml-custom{% else %} mr-custom{% endif %}"
+              style="--gap-custom: {{ section_st.space_between_img_and_text }};{% if section_st.direction == 'left_to_right' %} --ml-custom: {{ section_st.space_between_items }};{% else %} --mr-custom: {{ section_st.space_between_items }};{% endif %}"
             >
-              {% if show_image == true %}
+              {% if section_st.show_image == true %}
                 <div
-                  class="marquee-media w-custom ratio-{{ ratio }} rounded-custom overflow-hidden "
-                  style="--w-custom: {{ image_width }}; --rounded-custom: {{ rounded }};"
+                  class="marquee-media w-custom ratio-{{ section_st.image_ratio }} rounded-custom overflow-hidden "
+                  style="--w-custom: {{ section_st.image_width }}; --rounded-custom: {{ section_st.image_rounded }};"
                 >
                   {% if blocks_st.image != blank %}
                     <img
@@ -60,7 +42,7 @@
                 </div>
               {% endif %}
               {% if blocks_st.text != blank %}
-                <div class="marquee-info txt-nowrap subheading-{{ txt_size }}">
+                <div class="marquee-info txt-nowrap subheading-{{ section_st.txt_size }}">
                   {{ blocks_st.text }}
                 </div>
               {% endif %}

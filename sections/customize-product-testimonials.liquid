@@ -1,31 +1,11 @@
 {% liquid
   assign section_st = section.settings
-  assign section_width = section_st.section_width
-  assign color_scheme = section_st.color_scheme
-  assign section_pt = section_st.section_pt
-  assign section_pb = section_st.section_pb
-  assign heading = section_st.heading
-  assign subheading = section_st.subheading
   assign reset_spacing = section_st.reset_spacing
   if reset_spacing
     assign reset_spacing = 'mb-0'
   else
     assign reset_spacing = 'section__spacing-sections'
   endif
-  assign items_per_row_pc = section_st.items_per_row_pc
-  assign column_gap = section_st.column_gap
-  assign check_icon = section_st.check_icon
-  assign infinite_slide = section_st.infinite_slide
-  assign auto_slide = section_st.auto_slide
-  assign interval_slide = section_st.interval_slide
-  assign reveal_next_slide = section_st.reveal_next_slide
-  assign pagination_type = section_st.pagination_type
-  assign items_per_row_mobile = section_st.items_per_row_mobile
-  assign img_show = section_st.img_show
-  assign img_position = section_st.img_position
-  assign flex_custom = section_st.flex_custom
-  assign color_rate = section_st.color_rate
-  assign show_verified = section_st.show_verified
   assign ratio_image = section_st.ratio_image
   if ratio_image == 'adapt'
     assign ratio_image = ''
@@ -38,32 +18,30 @@
   elsif ratio_image == 'custom'
     assign ratio_image = 'ratio-custom'
   endif
-  assign ratio_custom = section_st.ratio_custom
-  assign framed_slide = section_st.framed_slide
 %}
 
 <section
-  class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
-  style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
+  class="section__py color-{{ section_st.color_scheme }} gradient {{ reset_spacing }}"
+  style="--section-pt: {{ section_st.section_pt }}; --section-pb: {{ section_st.section_pb }};"
 >
-  <div class="{{ section_width }}">
-    {% if heading != blank or subheading != blank %}
+  <div class="{{ section_st.section_width }}">
+    {% if section_st.heading != blank or section_st.subheading != blank %}
       <div class="section__header" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
         {% render 'header', section: section %}
       </div>
     {% endif %}
     <swiper-section
       class="swiper-section swiper"
-      data-items-pc="{{ items_per_row_pc }}"
-      data-items-mobile="{{ items_per_row_mobile }}"
-      data-gap="{{ column_gap }}"
-      data-infinite="{{ infinite_slide }}"
-      data-auto="{{ auto_slide }}"
-      data-interval="{{ interval_slide }}"
-      data-reveal="{{ reveal_next_slide }}"
-      data-pagination="{{ pagination_type }}"
+      data-items-pc="{{ section_st.items_per_row_pc }}"
+      data-items-mobile="{{ section_st.items_per_row_mobile }}"
+      data-gap="{{ section_st.column_gap }}"
+      data-infinite="{{ section_st.infinite_slide }}"
+      data-auto="{{ section_st.auto_slide }}"
+      data-interval="{{ section_st.interval_slide }}"
+      data-reveal="{{ section_st.reveal_next_slide }}"
+      data-pagination="{{ section_st.pagination_type }}"
     >
-      {% if check_icon %}
+      {% if section_st.check_icon %}
         {% render 'swiper-icon' %}
       {% endif %}
 
@@ -74,12 +52,12 @@
           {% assign left_right = 'left,right' | split: ',' %}
           {% assign bot_right = 'bot,right' | split: ',' %}
           <div
-            class="swiper-slide txt-no-select d-flex{% if framed_slide == true %} bor bor-1 rounded-10 overflow-hidden{% endif %}{% if top_bot contains img_position %} column{% endif %}"
+            class="swiper-slide txt-no-select d-flex{% if section_st.framed_slide == true %} bor bor-1 rounded-10 overflow-hidden{% endif %}{% if top_bot contains section_st.img_position %} column{% endif %}"
             style="border-color: rgb(220, 220, 220);"
           >
             <div
-              class="d-none overflow-hidden{% if img_show == true %} d-sm-block{% endif %}{% if framed_slide != true %} rounded-10{% endif %}{% if left_right contains img_position %} f-custom{% elsif top_bot contains img_position %} {{ ratio_image }}{% endif %}{% if bot_right contains img_position %} order-1{% endif %}"
-              style="--f-custom: {{ flex_custom }}; --ratio-custom: {{ ratio_custom }};"
+              class="d-none overflow-hidden{% if section_st.img_show == true %} d-sm-block{% endif %}{% if section_st.framed_slide != true %} rounded-10{% endif %}{% if left_right contains section_st.img_position %} f-custom{% elsif top_bot contains section_st.img_position %} {{ ratio_image }}{% endif %}{% if bot_right contains section_st.img_position %} order-1{% endif %}"
+              style="--f-custom: {{ section_st.flex_custom }}; --ratio-custom: {{ section_st.ratio_custom }};"
             >
               {% if blocks_st.author_image != blank %}
                 <img
@@ -93,7 +71,7 @@
                 {% render 'image-clone' %}
               {% endif %}
             </div>
-            <div class="d-flex f-1 column py-20{% if framed_slide == true or left_right contains img_position %} px-30{% endif %}">
+            <div class="d-flex f-1 column py-20{% if section_st.framed_slide == true or left_right contains section_st.img_position %} px-30{% endif %}">
               {% comment %} Rate {% endcomment %}
               <div class="relative">
                 <svg width="78" height="14" viewBox="0 0 78 14">
@@ -101,7 +79,7 @@
                 </svg>
                 <div
                   class="d-inline-flex gap-2 absolute top-5 left-0 z-1 color-rate"
-                  style="--color-rate: {{ color_rate }};"
+                  style="--color-rate: {{ section_st.color_rate }};"
                 >
                   {% for i in (1..blocks_st.author_rate) %}
                     <svg width="14" height="14" viewBox="0 0 14 14">
@@ -115,7 +93,7 @@
                 <span style="font-size: 1.8rem; font-weight: 600;">
                   {{ blocks_st.author_name }}
                 </span>
-                {% if show_verified == true %}
+                {% if section_st.show_verified == true %}
                   <span class="d-flex gap-2">
                     <svg width="10" height="8" viewBox="0 0 10 8">
                       <use href="#icon-tick"></use>
@@ -155,11 +133,11 @@
         {% endfor %}
       </div>
 
-      {% if pagination_type == 'dots' or pagination_type == 'dots_mobile' %}
+      {% if section_st.pagination_type == 'dots' or section_st.pagination_type == 'dots_mobile' %}
         <swiper-pagination
-          class="mt-10 d-flex jc-center{% if pagination_type == 'dots_mobile' %} d-sm-none{% endif %}"
+          class="mt-10 d-flex jc-center{% if section_st.pagination_type == 'dots_mobile' %} d-sm-none{% endif %}"
         ></swiper-pagination>
-      {% elsif pagination_type == 'progress' %}
+      {% elsif section_st.pagination_type == 'progress' %}
         <swiper-pagination class="mt-2"></swiper-pagination>
       {% endif %}
     </swiper-section>

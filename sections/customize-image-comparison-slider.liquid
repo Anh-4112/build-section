@@ -1,22 +1,11 @@
 {% liquid
   assign section_st = section.settings
-  assign section_width = section_st.section_width
-  assign color_scheme = section_st.color_scheme
-  assign section_pt = section_st.section_pt
-  assign section_pb = section_st.section_pb
-  assign heading = section_st.heading
-  assign subheading = section_st.subheading
   assign reset_spacing = section_st.reset_spacing
   if reset_spacing
     assign reset_spacing = 'mb-0'
   else
     assign reset_spacing = 'section__spacing-sections'
   endif
-  assign before_image = section_st.before_image
-  assign after_image = section_st.after_image
-  assign width_block = section_st.width_block
-  assign position_comp = section_st.position_comp
-  assign show_label = section_st.show_label
   assign ratio_image = section_st.ratio_image
   if ratio_image == 'adapt'
     assign ratio_image = ''
@@ -29,15 +18,14 @@
   elsif ratio_image == 'custom'
     assign ratio_image = 'ratio-custom'
   endif
-  assign ratio_custom = section_st.ratio_custom
 %}
 
 <section
-  class="section__py color-{{ color_scheme }} gradient {{ reset_spacing }}"
-  style="--section-pt: {{ section_pt }}; --section-pb: {{ section_pb }};"
+  class="section__py color-{{ section_st.color_scheme }} gradient {{ reset_spacing }}"
+  style="--section-pt: {{ section_st.section_pt }}; --section-pb: {{ section_st.section_pb }};"
 >
-  <div class="{{ section_width }}">
-    {% if heading != blank or subheading != blank %}
+  <div class="{{ section_st.section_width }}">
+    {% if section_st.heading != blank or section_st.subheading != blank %}
       <div class="section__header" style="margin-bottom: calc(1.4228rem + 1.3423vw);">
         {% render 'header', section: section %}
       </div>
@@ -45,18 +33,18 @@
 
     <div class="d-flex column row-lg f-wrap gap-20 txt-no-select">
       <comp-block
-        class="relative overflow-hidden w-full h-full rounded-10 w-lg-block {% if position_comp == 'right' %} order-1 {% endif %} {{ ratio_image }}"
-        style="--width-block: {{ width_block }}; --ratio-custom: {{ ratio_custom }};"
+        class="relative overflow-hidden w-full h-full rounded-10 w-lg-block {% if section_st.position_comp == 'right' %} order-1 {% endif %} {{ ratio_image }}"
+        style="--width-block: {{ section_st.width_block }}; --ratio-custom: {{ section_st.ratio_custom }};"
       >
         <comp-before
           class="absolute top-0 left-0 w-full h-full clip-left-50p z-1"
           data-show-label=""
-          {{ show_label }}
+          {{ section_st.show_label }}
         >
-          {% if before_image != blank %}
+          {% if section_st.before_image != blank %}
             <img
               class="img-cover"
-              src="{{ before_image | image_url }}"
+              src="{{ section_st.before_image | image_url }}"
               alt="Image"
               width="100%"
               height="100%"
@@ -69,12 +57,12 @@
         <comp-after
           class="w-full h-full"
           data-show-label=""
-          {{ show_label }}
+          {{ section_st.show_label }}
         >
-          {% if after_image != blank %}
+          {% if section_st.after_image != blank %}
             <img
               class="img-cover"
-              src="{{ after_image | image_url }}"
+              src="{{ section_st.after_image | image_url }}"
               width="100%"
               height="100%"
               alt="Image"
