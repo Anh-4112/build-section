@@ -38,8 +38,7 @@
 }
 
 /* === Tooltip Left === */
-.tooltip--left,
-.tooltip-left {
+.tooltip--left {
   top: 50%;
   right: 100%;
   transform: translate(0, -50%);
