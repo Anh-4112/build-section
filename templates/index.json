@@ -121,11 +121,67 @@
             "title_ndkcyn",
             "button_wqJKDP"
           ]
+        },
+        "group_media_content_YLUaTr": {
+          "type": "_group-media-content",
+          "name": "Media with content",
+          "settings": {
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "width_block": "100",
+            "content_position": "overlay_image",
+            "content_position_overlay": "bottom-left",
+            "alignment_content": "start"
+          },
+          "blocks": {
+            "title_tgd3g8": {
+              "type": "title",
+              "settings": {
+                "content": "<p>Text Title</p>",
+                "text_transform": "uppercase",
+                "font_size": 36,
+                "font_weight": 500,
+                "spacing_top": 0,
+                "spacing_bottom": 16
+              },
+              "blocks": {}
+            },
+            "description_LAQR4J": {
+              "type": "description",
+              "settings": {
+                "content": "<p>Text description</p>",
+                "text_transform": "unset",
+                "font_size": 16,
+                "font_weight": 400,
+                "spacing_top": 0,
+                "spacing_bottom": 16
+              },
+              "blocks": {}
+            },
+            "button_qpTdtj": {
+              "type": "button",
+              "settings": {
+                "button_name": "Button",
+                "link_button": "",
+                "btn_type_block": "primary",
+                "open_new_tab": false,
+                "spacing_top": 0,
+                "spacing_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "title_tgd3g8",
+            "description_LAQR4J",
+            "button_qpTdtj"
+          ]
         }
       },
       "block_order": [
         "group_media_content_ydQ76r",
-        "group_media_content_n4PXyy"
+        "group_media_content_n4PXyy",
+        "group_media_content_YLUaTr"
       ],
       "name": "Multi Content",
       "settings": {
