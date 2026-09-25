@@ -12,7 +12,8 @@
         >
             <a class="list-link d-flex jc-between ai-center" href="{{ collection.url | default: '#' }}">
                 <span 
-                    class="list-name typography-info"
+                    class="list-name fs-custom fw-custom"
+                    style="--fs-custom: 16; --fw-custom: 400;"
                     product-count="{{ collection.products_count |  default: 0 }}"
                     show-product-count="{{ show_product_count | json }}"
                 >

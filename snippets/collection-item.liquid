@@ -30,10 +30,11 @@
   </div>
   <div
     class="
-      collection__item-info typography-info text-{{ section_st.content_alignment }}
+      collection__item-info fs-custom fw-custom text-{{ section_st.content_alignment }}
       {% if section_st.position_content == 'overlay_image' %} absolute left-10p bottom-1p right-10p{% endif %}
       {% if section_st.position_content == 'below_image' %} mt-20{% endif %}
     "
+    style="--fs-custom: 16; --fw-custom: 400;"
   >
     <span
       class="collection-name-wrapper d-inline-block"

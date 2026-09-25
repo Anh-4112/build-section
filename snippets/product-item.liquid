@@ -84,8 +84,8 @@
         {% when 'product_name' %}
           <a
             href="{{ product.url | default: '#' }}"
-            class="product__info-name typography-info d-block mb-custom"
-            style="--mb-custom: {{ block.settings.product_spacing_name }};"
+            class="product__info-name fs-custom fw-custom d-block mb-custom"
+            style="--fs-custom: 16; --fw-custom: 400; --mb-custom: {{ block.settings.product_spacing_name }};"
           >
             {{ product.title | default: 'Product Name' }}
           </a>
